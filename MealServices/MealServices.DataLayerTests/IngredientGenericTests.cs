@@ -3,9 +3,9 @@ using MealServices.DataLayer.Entities;
 using MealServices.DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.MealServices.TransfertObjects;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.MealServices.TransfertObjects;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +34,7 @@ namespace MealServices.DataLayerTests
                     Name = new MultiLanguageString("Ingr1EN", "Ingr1FR", "Ingr1NL")
                 };
 
-                IRepository<IngredientTO, int> ingredientRepository2 = new IngredientRepository2(memoryCtx);
+                IRepositoryDO_NOT_USE<IngredientTO, int> ingredientRepository2 = new IngredientRepository2(memoryCtx);
 
                 //ACT
                 ingredientRepository2.Create(IngredientToUseInTest);

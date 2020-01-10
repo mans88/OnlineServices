@@ -1,13 +1,13 @@
-﻿using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.Extensions;
+﻿using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 
-namespace OnlineServices.Shared.TranslationServices.Extensions
+namespace OnlineServices.Common.TranslationServices.Extensions
 {
     public static class TupleLanguageExtensions
     {

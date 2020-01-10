@@ -1,5 +1,5 @@
 ﻿
-namespace OnlineServices.Shared.CommunicationServices.Interfaces
+namespace OnlineServices.Common.CommunicationServices.Interfaces
 {
 	public interface ISystemRole
 	{

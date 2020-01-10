@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace RegistrationServices.SharedTests
+namespace RegistrationServices.CommonTests
 {
     [TestClass]
     public class UnitTest1

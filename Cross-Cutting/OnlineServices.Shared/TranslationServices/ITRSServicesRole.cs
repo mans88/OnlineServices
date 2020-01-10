@@ -1,9 +1,9 @@
-﻿using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.SecurityServices.TransfertObjects;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.SecurityServices.TransfertObjects;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 
-namespace OnlineServices.Shared.TranslationServices
+namespace OnlineServices.Common.TranslationServices
 {
     public interface ITRSServicesRole
     {

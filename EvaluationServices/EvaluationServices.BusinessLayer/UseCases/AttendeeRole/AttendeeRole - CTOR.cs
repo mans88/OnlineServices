@@ -1,6 +1,6 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.EvaluationServices;
-using OnlineServices.Shared.EvaluationServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.EvaluationServices;
+using OnlineServices.Common.EvaluationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;

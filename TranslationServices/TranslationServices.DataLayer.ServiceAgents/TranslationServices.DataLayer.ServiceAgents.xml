@@ -9,21 +9,21 @@
             The C# classes that represents the JSON returned by the Translator Text API.
             </summary>
         </member>
-        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.ToJsonObject(System.Tuple{OnlineServices.Shared.Enumerations.Language,System.String})">
+        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.ToJsonObject(System.Tuple{OnlineServices.Common.Enumerations.Language,System.String})">
             <summary>
             This method serialize the text to Azure Cognitive service to be used with the HttpClient request.
             </summary>
             <param name="TupleText"></param>
             <returns></returns>
         </member>
-        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.ComposeRoute(System.Tuple{OnlineServices.Shared.Enumerations.Language,System.String})">
+        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.ComposeRoute(System.Tuple{OnlineServices.Common.Enumerations.Language,System.String})">
             <summary>
             This method compose the route element of the Azure Cognitive service to be used as part of the URL the HttpClient request.
             </summary>
             <param name="OriginalText"></param>
             <returns></returns>
         </member>
-        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.IsValidWithThrow(System.Tuple{OnlineServices.Shared.Enumerations.Language,System.String})">
+        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.IsValidWithThrow(System.Tuple{OnlineServices.Common.Enumerations.Language,System.String})">
             <summary>
             The class validades that the fields has all the values as specifyed by the translation service.
             </summary>

@@ -1,8 +1,8 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 using System.Collections.Generic;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
-namespace OnlineServices.Shared.RegistrationServices.Interface 
+namespace OnlineServices.Common.RegistrationServices.Interfaces 
 { 
      public interface IRSUserRepository : IRepository<UserTO, int>
     {

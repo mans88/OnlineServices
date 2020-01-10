@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.Enumerations
+﻿namespace OnlineServices.Common.Enumerations
 {
     public enum OnlineServicesRole
     {

@@ -6,7 +6,7 @@ namespace RegistrationServices.BusinessLayer
 {
     public class Session
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public Course Course { get; set; }
         //public Local Local { get; set; }
         public User Teacher{ get; set; }

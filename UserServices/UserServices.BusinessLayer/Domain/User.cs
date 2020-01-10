@@ -1,5 +1,5 @@
 ﻿using System;
-using OnlineServices.Shared.Extensions;
+using OnlineServices.Common.Extensions;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ namespace RegistrationServices.BusinessLayer
 {
     public class User
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public UserRole Role { get; set; }
         public string Company { get; set; }

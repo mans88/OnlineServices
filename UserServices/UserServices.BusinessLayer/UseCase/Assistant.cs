@@ -1,11 +1,11 @@
-﻿using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.Extensions;
+﻿using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using RegistrationServices.BusinessLayer.Extensions;
-using OnlineServices.Shared.RegistrationServices.Interface;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.Interfaces;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace RegistrationServices.BusinessLayer.UseCase
 {
@@ -35,7 +35,7 @@ namespace RegistrationServices.BusinessLayer.UseCase
             if (userTO is null)
                 throw new LoggedException(new ArgumentNullException(nameof(userTO)));
 
-            if (userTO.ID != 0)
+            if (userTO.Id != 0)
                 throw new Exception("Existing user");
 
             userTO.Name.IsNullOrWhiteSpace("Missing User Name.");
@@ -58,7 +58,7 @@ namespace RegistrationServices.BusinessLayer.UseCase
             if (userTO is null)
                 throw new LoggedException(new AccessViolationException(nameof(userTO)));
 
-            if (userTO.ID == 0)
+            if (userTO.Id == 0)
                 throw new Exception("User does not exist");
 
             userTO.Name.IsNullOrWhiteSpace("Missing User Name");
@@ -79,7 +79,7 @@ namespace RegistrationServices.BusinessLayer.UseCase
             if(userTO is null)
                 throw new LoggedException(new AccessViolationException(nameof(userTO)));
 
-            if (userTO.ID == 0)
+            if (userTO.Id == 0)
                 throw new Exception("User does not exist");
 
             try

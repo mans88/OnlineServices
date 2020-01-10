@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.10.1.1358</AssemblyVersion>
+    <AssemblyVersion>2001.10.2.1527</AssemblyVersion>
 
-    <FileVersion>2001.10.1.1358</FileVersion>
+    <FileVersion>2001.10.2.1527</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MealServices\MealServices.Shared\MealServices.Shared.csproj" />
     <ProjectReference Include="..\..\UserServices\UserServices.DataLayer\UserServices.DataLayer.csproj" />
   </ItemGroup>
 

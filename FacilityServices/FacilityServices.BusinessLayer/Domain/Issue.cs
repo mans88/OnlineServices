@@ -1,4 +1,4 @@
-﻿using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.TranslationServices.TransfertObjects;
 
 namespace FacilityServices.BusinessLayer
 {

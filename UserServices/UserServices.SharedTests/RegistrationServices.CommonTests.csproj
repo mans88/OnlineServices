@@ -5,23 +5,19 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.10.0.1356</AssemblyVersion>
+    <AssemblyVersion>2001.10.0.1527</AssemblyVersion>
 
-    <FileVersion>2001.10.0.1356</FileVersion>
+    <FileVersion>2001.10.0.1527</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
-    <PackageReference Include="coverlet.collector" Version="1.2.0">
+    <PackageReference Include="coverlet.collector" Version="1.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\TrainingServices.Shared\TrainingServices.Shared.csproj" />
   </ItemGroup>
 
 </Project>

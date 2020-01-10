@@ -3,7 +3,7 @@ using Moq;
 using Serilog;
 using System;
 
-namespace OnlineServices.SharedTests
+namespace OnlineServices.CommonTests
 {
     public static class TestHelper
     {

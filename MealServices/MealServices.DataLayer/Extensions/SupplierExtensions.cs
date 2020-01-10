@@ -1,6 +1,6 @@
 ﻿using MealServices.DataLayer.Entities;
 
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System;
 

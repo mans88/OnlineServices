@@ -1,8 +1,8 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 using System;
 using System.Collections.Generic;
 
-namespace OnlineServices.Shared.EvaluationServices.TransfertObjects
+namespace OnlineServices.Common.EvaluationServices.TransfertObjects
 {
     public class FormTO : IEntity<int>
     {

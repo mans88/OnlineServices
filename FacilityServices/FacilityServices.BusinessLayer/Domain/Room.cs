@@ -1,4 +1,4 @@
-﻿using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.10.0.1356</AssemblyVersion>
-    <FileVersion>2001.10.0.1356</FileVersion>
+    <AssemblyVersion>2001.10.7.1639</AssemblyVersion>
+    <FileVersion>2001.10.7.1639</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TrainingServices.DataLayer\TrainingServices.DataLayer.csproj" />
-    <ProjectReference Include="..\TrainingServices.Shared\TrainingServices.Shared.csproj" />
   </ItemGroup>
 
 </Project>

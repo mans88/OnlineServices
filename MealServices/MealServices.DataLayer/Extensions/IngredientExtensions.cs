@@ -1,8 +1,8 @@
 ﻿using MealServices.DataLayer.Entities;
 
-using OnlineServices.Shared.Extensions;
-using OnlineServices.Shared.MealServices.TransfertObjects;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+using OnlineServices.Common.Extensions;
+using OnlineServices.Common.MealServices.TransfertObjects;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 
 using System;
 

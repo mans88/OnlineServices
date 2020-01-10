@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.TranslationServices
+﻿namespace OnlineServices.Common.TranslationServices
 {
     public interface IMultiLanguageNameFields
     {

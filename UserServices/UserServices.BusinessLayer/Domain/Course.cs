@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OnlineServices.Shared.Extensions;
+using OnlineServices.Common.Extensions;
 
 
 namespace RegistrationServices.BusinessLayer
 {
     public class Course
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public bool IsValid()

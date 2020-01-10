@@ -5,9 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace OnlineServices.Shared.DataAccessHelpers
+namespace OnlineServices.Common.DataAccessHelpers
 {
-    public class GenericRepository<TEntity, TIdType> : IRepository<TEntity, TIdType>
+    public class GenericRepository<TEntity, TIdType> : IRepositoryDO_NOT_USE<TEntity, TIdType>
         where TEntity : class, IEntity<TIdType>
     {
         private readonly DbContext dbContext;
@@ -17,12 +17,12 @@ namespace OnlineServices.Shared.DataAccessHelpers
             this.dbContext = dBContext;
         }
 
-        void IRepository<TEntity, TIdType>.Create(TEntity entity)
+        void IRepositoryDO_NOT_USE<TEntity, TIdType>.Create(TEntity entity)
         {
             dbContext.Set<TEntity>().Add(entity);
         }
 
-        void IRepository<TEntity, TIdType>.Delete(TEntity entity)
+        void IRepositoryDO_NOT_USE<TEntity, TIdType>.Delete(TEntity entity)
         {
             dbContext.Set<TEntity>().Remove(entity);
         }
@@ -32,7 +32,7 @@ namespace OnlineServices.Shared.DataAccessHelpers
         //    return EqualityComparer<TIdType>.Default.Equals(a,b);
         //}
 
-        void IRepository<TEntity, TIdType>.Delete(TIdType id)
+        void IRepositoryDO_NOT_USE<TEntity, TIdType>.Delete(TIdType id)
         {
             var entityToDelete = dbContext.Set<TEntity>().FirstOrDefault(e => e.Id.Equals(id));
             if (entityToDelete != null)
@@ -41,28 +41,28 @@ namespace OnlineServices.Shared.DataAccessHelpers
             }
         }
 
-        void IRepository<TEntity, TIdType>.Edit(TEntity entity)
+        void IRepositoryDO_NOT_USE<TEntity, TIdType>.Edit(TEntity entity)
         {
             var editedEntity = dbContext.Set<TEntity>().FirstOrDefault(e => e.Id.Equals(entity.Id));
             editedEntity = entity;
         }
 
-        IEnumerable<TEntity> IRepository<TEntity, TIdType>.GetAll()
+        IEnumerable<TEntity> IRepositoryDO_NOT_USE<TEntity, TIdType>.GetAll()
         {
             return dbContext.Set<TEntity>();
         }
 
-        IEnumerable<TEntity> IRepository<TEntity, TIdType>.Filter(Func<TEntity, bool> predicate)
+        IEnumerable<TEntity> IRepositoryDO_NOT_USE<TEntity, TIdType>.Filter(Func<TEntity, bool> predicate)
         {
             return dbContext.Set<TEntity>().Where(predicate);
         }
 
-        TEntity IRepository<TEntity, TIdType>.GetById(TIdType id)
+        TEntity IRepositoryDO_NOT_USE<TEntity, TIdType>.GetById(TIdType id)
         {
             return dbContext.Set<TEntity>().FirstOrDefault(e => e.Id.Equals(id));
         }
 
-        int IRepository<TEntity, TIdType>.SaveChanges()
+        int IRepositoryDO_NOT_USE<TEntity, TIdType>.SaveChanges()
         {
             return dbContext.SaveChanges();
         }

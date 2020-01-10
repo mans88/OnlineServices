@@ -1,6 +1,6 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 
-namespace OnlineServices.Shared.FacilityServices.TransfertObjects
+namespace OnlineServices.Common.FacilityServices.TransfertObjects
 {
     public class FloorTO : IEntity<int>
     {

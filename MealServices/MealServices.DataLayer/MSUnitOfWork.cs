@@ -1,8 +1,8 @@
 ﻿using MealServices.DataLayer.Entities;
 using MealServices.DataLayer.Repositories;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.MealServices.Interfaces;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.MealServices.Interfaces;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System;
 
@@ -22,13 +22,13 @@ namespace MealServices.DataLayer
             => mealRepository = new MealRepository(mealContext);
         //=> mealRepository ??= new MealRepository(mealContext);
 
-        private IRepository<IngredientTO, int> ingredientRepository2;
-        public IRepository<IngredientTO, int> IngredientRepository2
+        private IRepositoryDO_NOT_USE<IngredientTO, int> ingredientRepository2;
+        public IRepositoryDO_NOT_USE<IngredientTO, int> IngredientRepository2
             => ingredientRepository2 = new IngredientRepository2(mealContext);
         //=> ingredientRepository ??= new IngredientRepository(mealContext);
 
-        private IRepositoryTemp<IngredientTO, int> ingredientRepository;
-        public IRepositoryTemp<IngredientTO, int> IngredientRepository
+        private IRepository<IngredientTO, int> ingredientRepository;
+        public IRepository<IngredientTO, int> IngredientRepository
             => ingredientRepository = new IngredientRepository(mealContext);
             //=> ingredientRepository ??= new IngredientRepository(mealContext);
 

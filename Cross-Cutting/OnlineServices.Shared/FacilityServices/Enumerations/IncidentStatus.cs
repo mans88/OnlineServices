@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.FacilityServices.Enumerations
+﻿namespace OnlineServices.Common.FacilityServices.Enumerations
 {
     public enum IncidentStatus
     {

@@ -1,7 +1,7 @@
-﻿using OnlineServices.Shared.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System.Collections.Generic;
 
-namespace OnlineServices.Shared.FacilityServices.Interfaces
+namespace OnlineServices.Common.FacilityServices.Interfaces
 {
     public interface IFSAttendeeRole
     {

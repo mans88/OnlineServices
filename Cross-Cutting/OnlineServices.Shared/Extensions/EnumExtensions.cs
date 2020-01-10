@@ -1,9 +1,9 @@
-﻿using OnlineServices.Shared.Enumerations;
+﻿using OnlineServices.Common.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OnlineServices.Shared.Extensions
+namespace OnlineServices.Common.Extensions
 {
     public static class EnumExtensions
     {

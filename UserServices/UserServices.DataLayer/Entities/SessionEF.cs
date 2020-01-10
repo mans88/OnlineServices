@@ -1,4 +1,4 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

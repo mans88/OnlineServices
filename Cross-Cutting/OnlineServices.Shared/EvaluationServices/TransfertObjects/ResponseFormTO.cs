@@ -1,7 +1,7 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 using System.Collections.Generic;
 
-namespace OnlineServices.Shared.EvaluationServices
+namespace OnlineServices.Common.EvaluationServices
 {
     public class ResponseFormTO<T> : IEntity<int>
     {

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineServices.Shared.DataAccessHelpers
+namespace OnlineServices.Common.DataAccessHelpers
 {
-    public interface IRepositoryAsync<T,U>
-        where T : class
+    public interface IRepositoryAsync<TType,TTypeId>
+        where TType : class
     {
-        Task<List<T>> FindAll();
-        Task<T> FindById(U id);
-        Task CreateAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);
+        Task<List<TType>> FindAll();
+        Task<TType> FindById(TTypeId id);
+        Task CreateAsync(TType entity);
+        Task UpdateAsync(TType entity);
+        Task DeleteAsync(TType entity);
 
         Task SaveChangesAsync();
     }

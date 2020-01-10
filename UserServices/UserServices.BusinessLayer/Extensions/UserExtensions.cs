@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 
 namespace RegistrationServices.BusinessLayer.Extensions
@@ -16,7 +16,7 @@ namespace RegistrationServices.BusinessLayer.Extensions
                 var session = userTo.Sessions?.Select(x => x.ToDomain()).ToList();
                 var UserDomain = new User
                 {
-                    ID = userTo.ID,
+                    Id = userTo.Id,
                     Name = userTo.Name,
                     Email = userTo.Email,
                     Company = userTo.Company,
@@ -41,7 +41,7 @@ namespace RegistrationServices.BusinessLayer.Extensions
         {
             return new UserTO 
             {
-                ID = user.ID,
+                Id = user.Id,
                 Name = user.Name,
                 Email = user.Email, 
                 Company = user.Company, 

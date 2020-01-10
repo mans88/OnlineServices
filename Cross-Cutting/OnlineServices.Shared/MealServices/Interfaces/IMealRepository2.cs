@@ -1,11 +1,11 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System.Collections.Generic;
 
-namespace OnlineServices.Shared.MealServices.Interfaces
+namespace OnlineServices.Common.MealServices.Interfaces
 {
-    public interface IMealRepository2 : IRepository<MealTO, int>
+    public interface IMealRepository2 : IRepositoryDO_NOT_USE<MealTO, int>
     {
         List<MealTO> GetMealsBySupplier(SupplierTO Supplier);
         List<MealTO> GetMealsByIngredient(List<IngredientTO> Ingredients);

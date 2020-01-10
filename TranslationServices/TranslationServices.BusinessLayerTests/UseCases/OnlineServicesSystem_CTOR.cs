@@ -1,6 +1,6 @@
 ﻿//VERIFIED V3
 using Moq;
-using OnlineServices.Shared.Exceptions;
+using OnlineServices.Common.Exceptions;
 using Serilog;
 using System;
 using TranslationServices.BusinessLayer.UseCases;

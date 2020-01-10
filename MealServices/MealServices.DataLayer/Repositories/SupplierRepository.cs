@@ -1,8 +1,8 @@
 ﻿using MealServices.DataLayer.Extensions;
 
 using Microsoft.EntityFrameworkCore;
-using OnlineServices.Shared.MealServices.Interfaces;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.MealServices.Interfaces;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace MealServices.DataLayer.Repositories
         }
 
         public bool Remove(int Id)
-            => Remove(GetByID(Id));
+            => Remove(GetById(Id));
 
         public IEnumerable<SupplierTO> GetAll()
         {
@@ -47,7 +47,7 @@ namespace MealServices.DataLayer.Repositories
                 .ToList();
         }
 
-        public SupplierTO GetByID(int Id)
+        public SupplierTO GetById(int Id)
         {
             return mealContext.Suppliers
                 .AsNoTracking()
@@ -89,7 +89,7 @@ namespace MealServices.DataLayer.Repositories
             if (Supplier.Id is default(int))
                 throw new Exception("Invalid SupplierID");
 
-            var SupplierToMakeCurrent = GetByID(Supplier.Id);
+            var SupplierToMakeCurrent = GetById(Supplier.Id);
             SupplierToMakeCurrent.IsDefault = true;
 
             mealContext.Suppliers

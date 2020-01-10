@@ -1,5 +1,5 @@
 ﻿using CommunicationServices.BusinessLayer.Domain;
-using OnlineServices.Shared.CommunicationServices;
+using OnlineServices.Common.CommunicationServices;
 using System;
 using System.Collections.Generic;
 using System.Text;

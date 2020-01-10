@@ -1,8 +1,8 @@
 ﻿using MealServices.DataLayer.Extensions;
 
 using Microsoft.EntityFrameworkCore;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace MealServices.DataLayer.Repositories
 {
-    public class IngredientRepository : IRepositoryTemp<IngredientTO, int>
+    public class IngredientRepository : IRepository<IngredientTO, int>
     {
         private readonly MealContext mealContext;
 
@@ -34,7 +34,7 @@ namespace MealServices.DataLayer.Repositories
 
         public bool Remove(int Id)
         {
-            return Remove(GetByID(Id));
+            return Remove(GetById(Id));
         }
 
         public IEnumerable<IngredientTO> GetAll()
@@ -46,7 +46,7 @@ namespace MealServices.DataLayer.Repositories
             .Select(x => x.ToTranfertsObject())
             .ToList();
 
-        public IngredientTO GetByID(int Id)
+        public IngredientTO GetById(int Id)
             => mealContext.Ingredients
             .Include(x => x.MealsWithIngredient)
                 .ThenInclude(MealsWithIngredient => MealsWithIngredient.Meal)

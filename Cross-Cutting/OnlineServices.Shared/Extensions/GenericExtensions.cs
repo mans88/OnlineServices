@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.Extensions
+namespace OnlineServices.Common.Extensions
 {
     public static class GenericExtensions
     {

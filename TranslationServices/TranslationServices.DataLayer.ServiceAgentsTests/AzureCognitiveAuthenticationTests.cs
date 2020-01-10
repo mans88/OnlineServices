@@ -1,7 +1,7 @@
 ﻿//VERIFIED V3
 using Microsoft.Extensions.Logging;
 using Moq;
-using OnlineServices.Shared.Enumerations;
+using OnlineServices.Common.Enumerations;
 using System;
 using System.Net.Http;
 using System.Text;

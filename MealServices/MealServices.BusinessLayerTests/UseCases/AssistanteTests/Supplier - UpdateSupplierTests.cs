@@ -1,6 +1,6 @@
 ﻿using MealServices.BusinessLayer.UseCases;
-using OnlineServices.Shared.MealServices.Interfaces;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.MealServices.Interfaces;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

@@ -1,9 +1,9 @@
-﻿using OnlineServices.Shared.EvaluationServices.TransfertObjects;
+﻿using OnlineServices.Common.EvaluationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.EvaluationServices
+namespace OnlineServices.Common.EvaluationServices
 {
     public interface IESAttendeeRole
     {

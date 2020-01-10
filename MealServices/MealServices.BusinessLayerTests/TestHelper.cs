@@ -1,6 +1,6 @@
-﻿using OnlineServices.Shared.MealServices.Enumerations;
-using OnlineServices.Shared.MealServices.TransfertObjects;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.MealServices.Enumerations;
+using OnlineServices.Common.MealServices.TransfertObjects;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System.Collections.Generic;
 
 namespace MealServices.BusinessLayerTests

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using System.Text;
-using OnlineServices.Shared.Extensions;
+using OnlineServices.Common.Extensions;
 using Serilog;
 
-namespace OnlineServices.Shared.Exceptions
+namespace OnlineServices.Common.Exceptions
 {
     public class LoggedException : Exception
     {

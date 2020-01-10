@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.SecurityServices.TransfertObjects
+namespace OnlineServices.Common.SecurityServices.TransfertObjects
 {
     public class ServiceAuthorization
     {

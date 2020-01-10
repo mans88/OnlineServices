@@ -1,5 +1,5 @@
-﻿using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 
 using System;
 

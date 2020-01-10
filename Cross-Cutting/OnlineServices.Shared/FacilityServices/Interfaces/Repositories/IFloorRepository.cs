@@ -1,12 +1,12 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.FacilityServices.Interfaces.Repositories
+namespace OnlineServices.Common.FacilityServices.Interfaces.Repositories
 {
-    public interface IFloorRepository : IRepositoryTemp<FloorTO, int>
+    public interface IFloorRepository : IRepository<FloorTO, int>
     {
     }
 }

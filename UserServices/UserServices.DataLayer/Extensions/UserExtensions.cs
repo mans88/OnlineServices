@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 using RegistrationServices.DataLayer.Entities;
 
 namespace RegistrationServices.DataLayer.Extensions

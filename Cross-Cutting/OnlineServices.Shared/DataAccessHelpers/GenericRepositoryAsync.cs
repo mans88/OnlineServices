@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineServices.Shared.DataAccessHelpers
+namespace OnlineServices.Common.DataAccessHelpers
 {
     public class GenericRepositoryAsync<T, U> : IRepositoryAsync<T, U>
         where T : class

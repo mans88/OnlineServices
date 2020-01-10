@@ -8,14 +8,14 @@ namespace RegistrationServices.BusinessLayerTests
     [TestClass]
     public class SessionTest
     {
-        Course cou1 = new Course { ID = 1, Name = "Course01" };
-        Course cou2 = new Course { ID = 2, Name = "Course02" };
-        Course cou3 = new Course { ID = 3, Name = "Course03" };
+        Course cou1 = new Course { Id = 1, Name = "Course01" };
+        Course cou2 = new Course { Id = 2, Name = "Course02" };
+        Course cou3 = new Course { Id = 3, Name = "Course03" };
 
-        User teacher = new User { ID = 1, Name = "User_Teacher", IsActivated = true, Company = "Company 01", Role = UserRole.Teacher, Email = "teacher@gmail.com" };
+        User teacher = new User { Id = 1, Name = "User_Teacher", IsActivated = true, Company = "Company 01", Role = UserRole.Teacher, Email = "teacher@gmail.com" };
         
-        User attendee1 = new User { ID = 2, Name = "User_Attendee", IsActivated = false, Company = "Company 02", Role = UserRole.Attendee, Email = "student@gmail.com" };
-        User attendee2 = new User { ID = 3, Name = "User_Attendee3", IsActivated = false, Company = "Company 02", Role = UserRole.Attendee, Email = "student2@gmail.com" };
+        User attendee1 = new User { Id = 2, Name = "User_Attendee", IsActivated = false, Company = "Company 02", Role = UserRole.Attendee, Email = "student@gmail.com" };
+        User attendee2 = new User { Id = 3, Name = "User_Attendee3", IsActivated = false, Company = "Company 02", Role = UserRole.Attendee, Email = "student2@gmail.com" };
 
         List<User> attendees = new List<User>();
 
@@ -32,7 +32,7 @@ namespace RegistrationServices.BusinessLayerTests
             dates.Add(startDate);
             dates.Add(endDate);
 
-            var ses = new Session { ID = 1, Teacher = teacher, Course = cou1, Attendees = attendees, Dates = dates }; //StartDate = startDate, EndDate = endDate };
+            var ses = new Session { Id = 1, Teacher = teacher, Course = cou1, Attendees = attendees, Dates = dates }; //StartDate = startDate, EndDate = endDate };
 
             //Course
             Assert.AreEqual(cou1.Name, ses.Course.Name);
@@ -51,14 +51,14 @@ namespace RegistrationServices.BusinessLayerTests
             dates.Add(startDate);
             dates.Add(endDate);
 
-            var ses = new Session { ID = 1, Teacher = teacher,  Course = cou1,  Attendees = attendees , Dates = dates };
+            var ses = new Session { Id = 1, Teacher = teacher,  Course = cou1,  Attendees = attendees , Dates = dates };
 
             //Course
-            Assert.AreEqual(cou1.ID, ses.Course.ID);
+            Assert.AreEqual(cou1.Id, ses.Course.Id);
             Assert.AreEqual(cou1.Name, ses.Course.Name);
 
             //Teacher
-            Assert.AreEqual(teacher.ID, ses.Teacher.ID);
+            Assert.AreEqual(teacher.Id, ses.Teacher.Id);
             Assert.AreEqual(teacher.Name, ses.Teacher.Name);
             Assert.AreEqual(teacher.IsActivated, ses.Teacher.IsActivated);
             Assert.AreEqual(teacher.Company, ses.Teacher.Company);
@@ -66,7 +66,7 @@ namespace RegistrationServices.BusinessLayerTests
             Assert.AreEqual(teacher.Email, ses.Teacher.Email);
 
             //Attendee
-            Assert.AreEqual(attendee1.ID, ses.Attendees[0].ID);
+            Assert.AreEqual(attendee1.Id, ses.Attendees[0].Id);
             Assert.AreEqual(attendee1.Name, ses.Attendees[0].Name);
             Assert.AreEqual(attendee1.IsActivated, ses.Attendees[0].IsActivated);
             Assert.AreEqual(attendee1.Company, ses.Attendees[0].Company);

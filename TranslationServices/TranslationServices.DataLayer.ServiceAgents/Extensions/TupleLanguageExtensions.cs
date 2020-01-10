@@ -1,7 +1,7 @@
-﻿using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.Extensions;
-using OnlineServices.Shared.TranslationServices.Extensions;
+﻿using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.Extensions;
+using OnlineServices.Common.TranslationServices.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

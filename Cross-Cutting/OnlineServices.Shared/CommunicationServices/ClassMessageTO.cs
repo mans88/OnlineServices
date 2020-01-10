@@ -1,10 +1,10 @@
-﻿using OnlineServices.Shared.CommunicationServices.Enumerations;
-using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.CommunicationServices.Enumerations;
+using OnlineServices.Common.DataAccessHelpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.CommunicationServices
+namespace OnlineServices.Common.CommunicationServices
 {
 	public class ClassMessageTO
 	{

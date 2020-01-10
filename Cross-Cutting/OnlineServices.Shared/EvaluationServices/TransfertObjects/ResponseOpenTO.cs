@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.EvaluationServices
+﻿namespace OnlineServices.Common.EvaluationServices
 {
     public class ResponseOpenTO
     {

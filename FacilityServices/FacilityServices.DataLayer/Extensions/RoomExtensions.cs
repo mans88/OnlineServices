@@ -1,8 +1,8 @@
 ﻿using FacilityServices.BusinessLayer;
 using FacilityServices.DataLayer.Entities;
-using OnlineServices.Shared.Extensions;
-using OnlineServices.Shared.FacilityServices.TransfertObjects;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+using OnlineServices.Common.Extensions;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;

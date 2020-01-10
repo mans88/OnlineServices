@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using RegistrationServices.BusinessLayer.UseCase;
 using Moq;
-using OnlineServices.Shared.Exceptions;
+using OnlineServices.Common.Exceptions;
 using RegistrationServices.BusinessLayer;
-using OnlineServices.Shared.RegistrationServices.Interface;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.Interfaces;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace RegistrationServices.BusinessLayerTests.UseCase
 {
@@ -21,7 +21,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         [TestMethod]
         public void UpdateUser_ReturnsTrue_WhenAValidUserIsProvidedAndUpdatedInDB()
         {
-            var newUser = new UserTO { ID = 1, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
+            var newUser = new UserTO { Id = 1, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
 
             //HACK: UPDATE instead of ADD
             MockUserRepository.Setup(x => x.Update(It.IsAny<UserTO>())).Returns(newUser);

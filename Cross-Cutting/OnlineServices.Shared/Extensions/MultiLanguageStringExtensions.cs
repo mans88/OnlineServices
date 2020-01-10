@@ -1,11 +1,11 @@
-﻿using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.TranslationServices;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.TranslationServices;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 
-namespace OnlineServices.Shared.Extensions
+namespace OnlineServices.Common.Extensions
 {
     public static class MultiLanguageStringExtensions
     {

@@ -1,5 +1,5 @@
 ﻿//VERIFIED V3
-using OnlineServices.Shared.Extensions;
+using OnlineServices.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;

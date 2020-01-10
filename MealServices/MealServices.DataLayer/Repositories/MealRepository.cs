@@ -1,8 +1,8 @@
 ﻿using MealServices.DataLayer.Extensions;
 
 using Microsoft.EntityFrameworkCore;
-using OnlineServices.Shared.MealServices.Interfaces;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.MealServices.Interfaces;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System;
 using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace MealServices.DataLayer.Repositories
                 .Select(x => x.ToTranfertsObject())
                 .ToList();
 
-        public MealTO GetByID(int Id)
+        public MealTO GetById(int Id)
             => mealContext.Meals
             .AsNoTracking()
             .Include(x => x.MealsComposition)

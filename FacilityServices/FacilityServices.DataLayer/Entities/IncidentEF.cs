@@ -1,5 +1,5 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.FacilityServices.Enumerations;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.FacilityServices.Enumerations;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

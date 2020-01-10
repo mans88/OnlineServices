@@ -1,13 +1,13 @@
-using OnlineServices.Shared.Enumerations;
+using OnlineServices.Common.Enumerations;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
-using OnlineServices.SharedTests;
+using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
+using OnlineServices.CommonTests;
 using Moq;
 using System;
 
-namespace OnlineServices.Shared.TranslationServicesTests
+namespace OnlineServices.Common.TranslationServicesTests
 {
     [TestClass]
     public class MultiLanguageStringTests

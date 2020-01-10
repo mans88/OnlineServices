@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.MealServices.Enumerations
+﻿namespace OnlineServices.Common.MealServices.Enumerations
 {
     public enum MealType
     {

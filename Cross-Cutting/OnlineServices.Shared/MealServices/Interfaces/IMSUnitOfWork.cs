@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.MealServices.Interfaces
+﻿namespace OnlineServices.Common.MealServices.Interfaces
 {
     public interface IMSUnitOfWork
     {

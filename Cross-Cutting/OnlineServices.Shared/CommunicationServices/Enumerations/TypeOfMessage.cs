@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.CommunicationServices.Enumerations
+﻿namespace OnlineServices.Common.CommunicationServices.Enumerations
 {
 	public enum TypeOfMessage
 	{

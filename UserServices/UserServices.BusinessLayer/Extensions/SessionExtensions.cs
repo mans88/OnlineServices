@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 using System.Linq;
 
 namespace RegistrationServices.BusinessLayer.Extensions
@@ -12,7 +12,7 @@ namespace RegistrationServices.BusinessLayer.Extensions
         {
             return  new Session
             {
-                ID = sessionTO.ID,
+                Id = sessionTO.Id,
                 Course = sessionTO.Course.ToDomain(),
                 Teacher = sessionTO.TeacherName.ToDomain(),
                 Attendees = sessionTO.Attendees?.Select(x => x.ToDomain()).ToList()
@@ -23,7 +23,7 @@ namespace RegistrationServices.BusinessLayer.Extensions
         {
             return new SessionTO
             {
-                ID = session.ID,
+                Id = session.Id,
                 Course = session.Course.ToTransferObject(),
                 //Local = session.Local
                 TeacherName  = session.Teacher.ToTransferObject(),

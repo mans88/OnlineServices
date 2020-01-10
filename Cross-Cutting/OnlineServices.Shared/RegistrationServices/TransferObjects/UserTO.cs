@@ -1,9 +1,9 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.RegistrationServices.TransferObject { 
+namespace OnlineServices.Common.RegistrationServices.TransferObject { 
     public class UserTO : IEntity<int>
     {
         public int Id { get;  set; }

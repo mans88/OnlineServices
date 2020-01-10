@@ -1,6 +1,6 @@
 ﻿using FacilityServices.DataLayer.Repositories;
-using OnlineServices.Shared.FacilityServices.Interfaces;
-using OnlineServices.Shared.FacilityServices.Interfaces.Repositories;
+using OnlineServices.Common.FacilityServices.Interfaces;
+using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;

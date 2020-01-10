@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
 
-namespace OnlineServices.Shared.DataAccessHelpers
+namespace OnlineServices.Common.DataAccessHelpers
 {
-    public interface IRepository<TTransfertObject, TIdType>
-        where TTransfertObject : class, IEntity<TIdType>
+    public interface IRepository<TType, TIdType>
+        where TType : class
     {
-        void Create(TTransfertObject entity);
-        void Delete(TTransfertObject entity);
-        void Delete(TIdType id);
-        void Edit(TTransfertObject entity);
+        //TODO ADD/MODIFY TEST TO RETURN TYPE BOOL FOR REMOVE
+        bool Remove(TType entity);
+        bool Remove(TIdType Id);
+        //bool Remove(params TIdType[] entities);
+        //bool Remove(IEnumerable<TIdType> entities);
 
-        TTransfertObject GetById(TIdType id);
-        IEnumerable<TTransfertObject> GetAll();
-        IEnumerable<TTransfertObject> Filter(Func<TTransfertObject, bool> predicate);
-
-        int SaveChanges();
+        //CHANGETO IQuerable fait posible de faire un GetAll et l'affiner avec un Where et pas retourner toute la liste.
+        IEnumerable<TType> GetAll();
+        TType GetById(TIdType Id);
+        TType Add(TType Entity);
+        TType Update(TType Entity);
     }
 }

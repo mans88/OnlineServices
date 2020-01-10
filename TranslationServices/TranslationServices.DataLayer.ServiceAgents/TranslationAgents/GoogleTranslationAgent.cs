@@ -1,8 +1,8 @@
 ﻿//using Google.Apis.Auth.OAuth2;
 //using Google.Cloud.Translation.V2;
-using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.Extensions;
-using OnlineServices.Shared.TranslationServices.Extensions;
+using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.Extensions;
+using OnlineServices.Common.TranslationServices.Extensions;
 using Serilog;
 
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using TranslationServices.DataLayer.ServiceAgents.Extensions;
 using TranslationServices.DataLayer.ServiceAgents.Interfaces;
 
-using Language = OnlineServices.Shared.Enumerations.Language;
+using Language = OnlineServices.Common.Enumerations.Language;
 
 namespace TranslationServices.DataLayer.ServiceAgents.TranslationAgents
 {

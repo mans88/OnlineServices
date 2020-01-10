@@ -4,9 +4,9 @@ using MealServices.DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using OnlineServices.Shared.MealServices.Enumerations;
-using OnlineServices.Shared.MealServices.TransfertObjects;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+using OnlineServices.Common.MealServices.Enumerations;
+using OnlineServices.Common.MealServices.TransfertObjects;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 
 using System;
 using System.Collections.Generic;
@@ -50,7 +50,7 @@ namespace MealServices.DataLayerTests
 
                 //ASSERT
                 Assert.AreEqual(1, mealRepository.GetAll().Count());
-                var MealToAssert = mealRepository.GetByID(1);
+                var MealToAssert = mealRepository.GetById(1);
 
                 Assert.AreEqual(1, MealToAssert.Id);
                 Assert.AreEqual(1, MealToAssert.Ingredients.FirstOrDefault().Id);
@@ -87,11 +87,11 @@ namespace MealServices.DataLayerTests
                 //ACT
                 mealRepository.Add(MealToUseInTest);
                 memoryCtx.SaveChanges();
-                var retrivedMeal = mealRepository.GetByID(1);
+                var retrivedMeal = mealRepository.GetById(1);
 
                 //ASSERT
                 Assert.AreEqual(1, retrivedMeal.Id);
-                Assert.AreEqual("Meal1EN", mealRepository.GetByID(1).Name.English);
+                Assert.AreEqual("Meal1EN", mealRepository.GetById(1).Name.English);
             }
         }
 
@@ -400,7 +400,7 @@ namespace MealServices.DataLayerTests
                 mealRepository.Update(MealToUseInTest);
                 memoryCtx.SaveChanges();
 
-                var MealToAssert = mealRepository.GetByID(1);
+                var MealToAssert = mealRepository.GetById(1);
                 //ASSERT
                 Assert.AreEqual(1, mealRepository.GetAll().Count());
                 Assert.AreEqual(1, MealToAssert.Id);

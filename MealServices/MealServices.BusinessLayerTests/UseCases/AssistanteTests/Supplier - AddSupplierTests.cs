@@ -2,9 +2,9 @@
 using Moq;
 using MealServices.BusinessLayer.UseCases;
 using System;
-using OnlineServices.Shared.MealServices.TransfertObjects;
-using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.MealServices.Interfaces;
+using OnlineServices.Common.MealServices.TransfertObjects;
+using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.MealServices.Interfaces;
 
 namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
 {

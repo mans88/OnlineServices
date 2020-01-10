@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OnlineServices.Shared.Exceptions;
+using OnlineServices.Common.Exceptions;
 using RegistrationServices.BusinessLayer;
 
 

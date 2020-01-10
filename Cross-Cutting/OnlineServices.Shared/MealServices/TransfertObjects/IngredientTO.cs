@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 
-namespace OnlineServices.Shared.MealServices.TransfertObjects
+namespace OnlineServices.Common.MealServices.TransfertObjects
 {
     public class IngredientTO : IEntity<int>
     {

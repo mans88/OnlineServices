@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace OnlineServices.Shared.RegistrationServices.Interface
+namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
      public interface IRSAssistant
     {

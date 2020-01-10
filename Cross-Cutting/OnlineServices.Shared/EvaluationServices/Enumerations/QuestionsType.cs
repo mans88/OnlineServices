@@ -1,4 +1,4 @@
-﻿namespace OnlineServices.Shared.EvaluationServices.Enumerations
+﻿namespace OnlineServices.Common.EvaluationServices.Enumerations
 {
     public enum QuestionsType
     {

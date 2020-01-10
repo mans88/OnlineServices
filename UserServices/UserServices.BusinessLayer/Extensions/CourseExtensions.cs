@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace RegistrationServices.BusinessLayer.Extensions
 {
@@ -9,18 +9,23 @@ namespace RegistrationServices.BusinessLayer.Extensions
     {
         public static Course ToDomain(this CourseTO courseTO)
         {
+            if (courseTO is null)
+                throw new ArgumentNullException(nameof(courseTO));
+
             return new Course
             {
-                ID = courseTO.ID,
+                Id = courseTO.Id,
                 Name = courseTO.Name,
             };
         }
 
         public  static CourseTO ToTransferObject(this Course course)
         {
+            if (course is null)
+                throw new ArgumentNullException(nameof(course));
             return new CourseTO
             {
-                ID = course.ID,
+                Id = course.Id,
                 Name = course.Name,
             };
         }

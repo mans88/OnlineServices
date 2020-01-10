@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using OnlineServices.Shared.CommunicationServices.Enumerations;
+using OnlineServices.Common.CommunicationServices.Enumerations;
 
 namespace CommunicationServices.BusinessLayer.Domain
 {

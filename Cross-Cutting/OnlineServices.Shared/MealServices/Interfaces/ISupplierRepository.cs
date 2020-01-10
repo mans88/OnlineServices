@@ -1,9 +1,9 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
-namespace OnlineServices.Shared.MealServices.Interfaces
+namespace OnlineServices.Common.MealServices.Interfaces
 {
-    public interface ISupplierRepository : IRepositoryTemp<SupplierTO, int>
+    public interface ISupplierRepository : IRepository<SupplierTO, int>
     {
         SupplierTO GetDefaultSupplier();
         void SetDefaultSupplier(SupplierTO Supplier);

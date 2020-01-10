@@ -1,9 +1,9 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.EvaluationServices.Enumerations;
-using OnlineServices.Shared.TranslationServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.EvaluationServices.Enumerations;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System.Collections.Generic;
 
-namespace OnlineServices.Shared.EvaluationServices.TransfertObjects
+namespace OnlineServices.Common.EvaluationServices.TransfertObjects
 {
     public class QuestionsTO : IEntity<int>
     {

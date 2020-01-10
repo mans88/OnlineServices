@@ -1,7 +1,7 @@
-﻿using OnlineServices.Shared.Exceptions;
+﻿using OnlineServices.Common.Exceptions;
 using System;
 
-namespace OnlineServices.Shared.Extensions
+namespace OnlineServices.Common.Extensions
 {
     public static class StringExtentions
     {

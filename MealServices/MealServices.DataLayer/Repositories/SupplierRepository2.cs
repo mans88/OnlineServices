@@ -2,9 +2,9 @@
 using MealServices.DataLayer.Extensions;
 
 using Microsoft.EntityFrameworkCore;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.MealServices.Interfaces;
-using OnlineServices.Shared.MealServices.TransfertObjects;
+using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.MealServices.Interfaces;
+using OnlineServices.Common.MealServices.TransfertObjects;
 
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace MealServices.DataLayer.Repositories
     public class SupplierRepository2 : GenericRepositoryTO<SupplierEF, SupplierTO, int>, ISupplierRepository2
     {
         private readonly MealContext mealContext;
-        private IRepository<SupplierTO, int> localRepo;
+        private IRepositoryDO_NOT_USE<SupplierTO, int> localRepo;
 
         public SupplierRepository2(MealContext ContextIoC): base(ContextIoC)
         {

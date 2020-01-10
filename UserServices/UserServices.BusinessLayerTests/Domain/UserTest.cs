@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OnlineServices.Shared.Exceptions;
+using OnlineServices.Common.Exceptions;
 using System.Net.Mail;
 using RegistrationServices.BusinessLayer;
 
@@ -8,9 +8,9 @@ namespace RegistrationServices.BusinessLayerTests
     [TestClass]
     public class UserTest
     {
-        User ass = new User { ID = 1, Name = "Assistant", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "Assistant@gmail.com" };
-        User att = new User { ID = 2, Name = "Attendee", IsActivated = true, Company = "Company 02", Role = UserRole.Attendee, Email = "Attendee@gmail.com" };
-        User tea = new User { ID = 3, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = UserRole.Teacher, Email = "Teacher@gmail.com" };
+        User ass = new User { Id = 1, Name = "Assistant", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "Assistant@gmail.com" };
+        User att = new User { Id = 2, Name = "Attendee", IsActivated = true, Company = "Company 02", Role = UserRole.Attendee, Email = "Attendee@gmail.com" };
+        User tea = new User { Id = 3, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = UserRole.Teacher, Email = "Teacher@gmail.com" };
         
 
         [TestMethod()]
@@ -47,7 +47,7 @@ namespace RegistrationServices.BusinessLayerTests
         [TestMethod]
         public void IsValid_Email()
         {
-            User noValidEmailUser = new User { ID = 0, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = UserRole.Teacher, Email = "Teacher@gmailcom" };
+            User noValidEmailUser = new User { Id = 0, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = UserRole.Teacher, Email = "Teacher@gmailcom" };
 
 
             Assert.IsTrue(ass.ValidateEmail(ass.Email));

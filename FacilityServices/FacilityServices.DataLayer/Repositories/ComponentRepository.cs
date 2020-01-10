@@ -1,6 +1,6 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.FacilityServices.Interfaces.Repositories;
-using OnlineServices.Shared.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System.Collections.Generic;
 
 namespace FacilityServices.DataLayer.Repositories
@@ -24,7 +24,7 @@ namespace FacilityServices.DataLayer.Repositories
             throw new System.NotImplementedException();
         }
 
-        public ComponentTO GetByID(int Id)
+        public ComponentTO GetById(int Id)
         {
             throw new System.NotImplementedException();
         }

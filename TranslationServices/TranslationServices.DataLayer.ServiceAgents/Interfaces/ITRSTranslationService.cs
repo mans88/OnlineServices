@@ -1,5 +1,5 @@
 ﻿//VERIFIED V3
-using OnlineServices.Shared.Enumerations;
+using OnlineServices.Common.Enumerations;
 using System;
 using System.Threading.Tasks;
 using TranslationServices.DataLayer.ServiceAgents.Domain;

@@ -1,5 +1,5 @@
-﻿using OnlineServices.Shared.FacilityServices.Interfaces.Repositories;
-using OnlineServices.Shared.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System.Collections.Generic;
 
 namespace FacilityServices.DataLayer.Repositories
@@ -23,7 +23,7 @@ namespace FacilityServices.DataLayer.Repositories
             throw new System.NotImplementedException();
         }
 
-        public RoomTO GetByID(int Id)
+        public RoomTO GetById(int Id)
         {
             throw new System.NotImplementedException();
         }

@@ -1,10 +1,10 @@
-﻿using OnlineServices.Shared.Exceptions;
-using OnlineServices.Shared.SecurityServices.TransfertObjects;
+﻿using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.SecurityServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.SecurityServices.Extensions
+namespace OnlineServices.Common.SecurityServices.Extensions
 {
     public static class ServiceAuthorizationExtensions
     {

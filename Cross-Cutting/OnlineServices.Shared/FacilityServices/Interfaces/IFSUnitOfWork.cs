@@ -1,7 +1,7 @@
-﻿using OnlineServices.Shared.FacilityServices.Interfaces.Repositories;
+﻿using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using System;
 
-namespace OnlineServices.Shared.FacilityServices.Interfaces
+namespace OnlineServices.Common.FacilityServices.Interfaces
 {
     public interface IFSUnitOfWork : IDisposable
     {

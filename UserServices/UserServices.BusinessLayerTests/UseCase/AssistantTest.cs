@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using RegistrationServices.BusinessLayer.UseCase;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace RegistrationServices.BusinessLayerTests.UseCase
 {
@@ -14,7 +14,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         public void AddUser_ThrowException_WhenUserIDisDiferentOfZero() // Exist
         {
             var assistant = new Assistant();
-            var userToAdd = new UserTO { ID = 1, Name = "User", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com" };
+            var userToAdd = new UserTO { Id = 1, Name = "User", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com" };
 
             Assert.ThrowsException<Exception>(  () => assistant.AddUser(userToAdd)  );
         }

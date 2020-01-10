@@ -1,12 +1,12 @@
-﻿using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.FacilityServices.Interfaces.Repositories
+namespace OnlineServices.Common.FacilityServices.Interfaces.Repositories
 {
-    public interface IRoomRepository : IRepositoryTemp<RoomTO, int>
+    public interface IRoomRepository : IRepository<RoomTO, int>
     {
         List<RoomTO> GetRoomsByFloors(FloorTO Floor);
     }

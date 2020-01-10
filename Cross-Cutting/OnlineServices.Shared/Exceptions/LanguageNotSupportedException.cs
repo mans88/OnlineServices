@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnlineServices.Shared.Exceptions
+namespace OnlineServices.Common.Exceptions
 {
     [Serializable]
     public class LanguageNotSupportedException : LoggedException

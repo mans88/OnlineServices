@@ -1,8 +1,8 @@
 ﻿using EvaluationServices.BusinessLayer.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.EvaluationServices.TransfertObjects;
+using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.EvaluationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 

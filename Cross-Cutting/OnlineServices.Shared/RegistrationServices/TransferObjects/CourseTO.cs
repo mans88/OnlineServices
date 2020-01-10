@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.RegistrationServices.TransferObject
+namespace OnlineServices.Common.RegistrationServices.TransferObject
 {
     public class CourseTO
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

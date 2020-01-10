@@ -1,5 +1,5 @@
-﻿using OnlineServices.Shared.CommunicationServices;
-using OnlineServices.Shared.CommunicationServices.Interfaces;
+﻿using OnlineServices.Common.CommunicationServices;
+using OnlineServices.Common.CommunicationServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;

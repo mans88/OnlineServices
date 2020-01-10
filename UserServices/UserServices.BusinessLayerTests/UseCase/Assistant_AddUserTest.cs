@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using RegistrationServices.BusinessLayer.UseCase;
 using Moq;
-using OnlineServices.Shared.Exceptions;
+using OnlineServices.Common.Exceptions;
 using RegistrationServices.BusinessLayer;
-using OnlineServices.Shared.RegistrationServices.Interface;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.Interfaces;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace RegistrationServices.BusinessLayerTests.UseCase
 {
@@ -22,7 +22,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         public void AddUser_ThrowException_WhenUserIDisDiferentThanZero()
         {
             var assistant = new Assistant( (new Mock<IRSUnitOfWork>()).Object   );
-            var userToAdd = new UserTO { ID = 1, Name = "User", IsActivated = true, Company = "Company1", Role = UserRole.Assistant, Email = "user@gmail.com" };
+            var userToAdd = new UserTO { Id = 1, Name = "User", IsActivated = true, Company = "Company1", Role = UserRole.Assistant, Email = "user@gmail.com" };
 
             //Assert
             Assert.ThrowsException<Exception>(  () => assistant.AddUser(userToAdd)  );
@@ -31,8 +31,8 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         [TestMethod]
         public void AddUser_ThrowIsNullOrWhiteSpaceException_WhenUserNameIsAnEmptyString()
         {
-            var userNameWhiteSpace = new UserTO { ID = 0, Name = "" };
-            var userNameNull = new UserTO { ID = 0, Name = null};
+            var userNameWhiteSpace = new UserTO { Id = 0, Name = "" };
+            var userNameNull = new UserTO { Id = 0, Name = null};
 
             var mockUofW = new Mock<IRSUnitOfWork>();
             var assistant = new Assistant(mockUofW.Object);
@@ -56,7 +56,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         [TestMethod]
         public void AddUser_NewUser_Test()
         {
-            var newUser = new UserTO { ID = 0, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
+            var newUser = new UserTO { Id = 0, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
 
             MockUserRepository.Setup(x => x.Add(It.IsAny<UserTO>())).Returns(newUser);
             var mockUofW = new Mock<IRSUnitOfWork>();
@@ -72,7 +72,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         [TestMethod]
         public void UpdateUser_Test()
         {
-            var newUser = new UserTO { ID = 1, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
+            var newUser = new UserTO { Id = 1, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
 
             //HACK: UPDATE instead of ADD
             MockUserRepository.Setup(x => x.Update(It.IsAny<UserTO>())).Returns(newUser);
@@ -90,7 +90,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
             MockUofW.Setup(x => x.UserRepository).Returns(MockUserRepository.Object);
 
             var assistant = new Assistant(MockUofW.Object);
-            var userToRemove = new UserTO { ID = 1, Name = "Enrique", IsActivated = true };
+            var userToRemove = new UserTO { Id = 1, Name = "Enrique", IsActivated = true };
 
             //Assert
             Assert.IsTrue(assistant.RemoveUser(userToRemove));
@@ -120,7 +120,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
         [TestMethod]
         public void AddUser_NewUser_Test()
         {
-            var newUser = new UserTO { ID = 0, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
+            var newUser = new UserTO { Id = 0, Name = "Enrique", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "user@gmail.com", Sessions = null };
 
             var mockUserRepository = new Mock<IUserRepository>();
             var mockSessionRepository = new Mock<ISessionRepository>();

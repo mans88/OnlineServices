@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Reflection;
 using RegistrationServices.DataLayer;
-using OnlineServices.Shared.RegistrationServices.TransferObject;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace RegistrationServices.DataLayerTests
 {
@@ -22,7 +22,7 @@ namespace RegistrationServices.DataLayerTests
                 //Arrange
                 var userToUse = new UserTO()
                 {
-                    ID = 0,
+                    Id = 0,
                     Name = "Thomas Lion",
                     Role = UserRole.Assistant,
                     Email = "MaxFuel@Power.com",
@@ -31,11 +31,11 @@ namespace RegistrationServices.DataLayerTests
                     Sessions = new List<SessionTO> {
                         new SessionTO
                         {
-                            ID = 1,
+                            Id = 1,
                             TeacherName = null,
                             Local = "TestLocalSession1",
                             Course = new CourseTO{ 
-                                ID = 3,
+                                Id = 3,
                                 Name = "SQL"
                             },
                             Attendees = null

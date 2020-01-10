@@ -1,6 +1,6 @@
 using Moq;
-using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.SecurityServices.TransfertObjects;
+using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.SecurityServices.TransfertObjects;
 using Serilog;
 using System;
 using System.Threading.Tasks;

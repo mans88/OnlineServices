@@ -1,6 +1,6 @@
 ﻿using Moq;
-using OnlineServices.Shared.Enumerations;
-using OnlineServices.Shared.Exceptions;
+using OnlineServices.Common.Enumerations;
+using OnlineServices.Common.Exceptions;
 using System;
 using System.Linq;
 using TranslationServices.BusinessLayer.UseCases;

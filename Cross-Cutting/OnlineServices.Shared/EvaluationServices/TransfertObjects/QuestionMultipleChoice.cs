@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.EvaluationServices.TransfertObjects
+namespace OnlineServices.Common.EvaluationServices.TransfertObjects
 {
     public class QuestionMultipleChoice : QuestionsTO
     {

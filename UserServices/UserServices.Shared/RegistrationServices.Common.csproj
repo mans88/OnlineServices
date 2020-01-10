@@ -1,9 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.10.0.1356</AssemblyVersion>
-    <FileVersion>2001.10.0.1356</FileVersion>
+    <ApplicationIcon />
+    <StartupObject />
+    <AssemblyVersion>2001.10.0.1527</AssemblyVersion>
+    <FileVersion>2001.10.0.1527</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +14,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
   </ItemGroup>
 
 </Project>
