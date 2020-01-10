@@ -103,7 +103,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross-Cutting", "Cross-Cutt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{C55CAEA2-24E1-4B88-926F-99869AD6D1D1}"
 EndProject
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayer", "CommunicationServices.BusinessLayer\CommunicationServices.BusinessLayer.csproj", "{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationServices.BusinessLayerTests", "CommunicationServices.BusinessLayerTests\CommunicationServices.BusinessLayerTests.csproj", "{C191C387-3CFB-431E-A168-FF906127385E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{7E89BA33-7DFF-462F-8A09-A7BFAEA687BC}"
 	ProjectSection(SolutionItems) = preProject
@@ -216,10 +219,12 @@ Global
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Release|Any CPU.Build.0 = Release|Any CPU
+
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Release|Any CPU.Build.0 = Release|Any CPU
+
 		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
