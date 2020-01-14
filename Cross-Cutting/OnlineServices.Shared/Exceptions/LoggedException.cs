@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.Serialization;
-using System.Text;
-using OnlineServices.Common.Extensions;
+﻿using OnlineServices.Common.Extensions;
+
 using Serilog;
+
+using System;
+using System.Runtime.Serialization;
 
 namespace OnlineServices.Common.Exceptions
 {

@@ -103,7 +103,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross-Cutting", "Cross-Cutt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{C55CAEA2-24E1-4B88-926F-99869AD6D1D1}"
 EndProject
-
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayer", "CommunicationServices.BusinessLayer\CommunicationServices.BusinessLayer.csproj", "{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationServices.BusinessLayerTests", "CommunicationServices.BusinessLayerTests\CommunicationServices.BusinessLayerTests.csproj", "{C191C387-3CFB-431E-A168-FF906127385E}"
@@ -124,6 +123,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.BusinessLayer", "UserServices\UserServices.BusinessLayer\RegistrationServices.BusinessLayer.csproj", "{C697680E-3244-448A-B099-1F19B05226AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.BusinessLayerTests", "UserServices\UserServices.BusinessLayerTests\RegistrationServices.BusinessLayerTests.csproj", "{7EEA7D74-D150-40F0-86AE-97D09F2F8A55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AS - AttendanceServices", "AS - AttendanceServices", "{710F6C71-92D3-44F3-B6AF-19A0F8E5395A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.BusinessLayer", "AttendanceServices\AttendanceServices.BusinessLayer\AttendanceServices.BusinessLayer.csproj", "{C16F2E6C-1E89-4015-A85B-08F4829DA506}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.BusinessLayer.Tests", "AttendanceServices\AttendanceServices.BusinessLayer.Tests\AttendanceServices.BusinessLayer.Tests.csproj", "{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.DataLayer", "AttendanceServices\AttendanceServices.DataLayer\AttendanceServices.DataLayer.csproj", "{01989B24-E4DD-4B3F-B357-DCD7790ECE31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.DataLayer.Tests", "AttendanceServices\AttendanceServices.DataLayer.Tests\AttendanceServices.DataLayer.Tests.csproj", "{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -219,12 +228,10 @@ Global
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -249,6 +256,22 @@ Global
 		{7EEA7D74-D150-40F0-86AE-97D09F2F8A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EEA7D74-D150-40F0-86AE-97D09F2F8A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EEA7D74-D150-40F0-86AE-97D09F2F8A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16F2E6C-1E89-4015-A85B-08F4829DA506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16F2E6C-1E89-4015-A85B-08F4829DA506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16F2E6C-1E89-4015-A85B-08F4829DA506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16F2E6C-1E89-4015-A85B-08F4829DA506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01989B24-E4DD-4B3F-B357-DCD7790ECE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01989B24-E4DD-4B3F-B357-DCD7790ECE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01989B24-E4DD-4B3F-B357-DCD7790ECE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01989B24-E4DD-4B3F-B357-DCD7790ECE31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,6 +329,11 @@ Global
 		{B6BC076E-D019-44A4-9B58-6965CA71C257} = {0F156B42-8E76-421F-9149-31BBB87DFF8E}
 		{C697680E-3244-448A-B099-1F19B05226AB} = {8295AE90-2063-4E09-8EDC-0107C2FAC9B3}
 		{7EEA7D74-D150-40F0-86AE-97D09F2F8A55} = {8295AE90-2063-4E09-8EDC-0107C2FAC9B3}
+		{710F6C71-92D3-44F3-B6AF-19A0F8E5395A} = {22EB011A-39E4-41C2-898A-9BF918F8919C}
+		{C16F2E6C-1E89-4015-A85B-08F4829DA506} = {710F6C71-92D3-44F3-B6AF-19A0F8E5395A}
+		{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270} = {710F6C71-92D3-44F3-B6AF-19A0F8E5395A}
+		{01989B24-E4DD-4B3F-B357-DCD7790ECE31} = {710F6C71-92D3-44F3-B6AF-19A0F8E5395A}
+		{F33A0307-68CB-4D3E-8CCB-3AFE0E283215} = {710F6C71-92D3-44F3-B6AF-19A0F8E5395A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C170EEE5-52F4-4C78-ABDF-890E97482E62}

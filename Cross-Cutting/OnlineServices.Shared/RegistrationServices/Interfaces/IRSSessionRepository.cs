@@ -1,8 +1,7 @@
-﻿using System;
+﻿using OnlineServices.Common.RegistrationServices.TransferObject;
+
+using System;
 using System.Collections.Generic;
-using System.Text;
-using OnlineServices.Common.RegistrationServices.TransferObject;
-using OnlineServices.Common.DataAccessHelpers;
 
 namespace OnlineServices.Common.RegistrationServices.Interfaces
 {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
+﻿using System.IO;
 
 namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
-     public interface IRSAssistant
+    public interface IRSAssistant
     {
         bool CreateUser();
 

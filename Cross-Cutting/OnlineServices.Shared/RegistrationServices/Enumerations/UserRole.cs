@@ -1,6 +1,4 @@
-﻿using System;
-
-public enum UserRole
+﻿public enum UserRole
 {
     Attendee, Teacher, Assistant
 }

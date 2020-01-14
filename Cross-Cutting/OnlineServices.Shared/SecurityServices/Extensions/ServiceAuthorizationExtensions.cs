@@ -1,8 +1,5 @@
 ﻿using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.SecurityServices.TransfertObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OnlineServices.Common.SecurityServices.Extensions
 {
@@ -19,7 +16,7 @@ namespace OnlineServices.Common.SecurityServices.Extensions
         public static bool IsWellFormed(this ServiceAuthorization serviceAuthorizationExtended, bool ThrowException = false)
         {
             return !ThrowException ? IsValide(serviceAuthorizationExtended) : serviceAuthorizationExtended.IsWellFormed("IsWellFormed(false) @ ServiceAuthorizationExtensions");
-            
+
         }
         public static bool IsWellFormed(this ServiceAuthorization serviceAuthorizationExtended, string ExceptionMessage)
         {

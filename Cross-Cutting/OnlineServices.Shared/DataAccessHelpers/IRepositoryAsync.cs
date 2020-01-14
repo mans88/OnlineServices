@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OnlineServices.Common.DataAccessHelpers
 {
-    public interface IRepositoryAsync<TType,TTypeId>
+    public interface IRepositoryAsync<TType, TTypeId>
         where TType : class
     {
         Task<List<TType>> FindAll();

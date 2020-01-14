@@ -1,6 +1,7 @@
 ﻿using OnlineServices.Common.Enumerations;
 using OnlineServices.Common.SecurityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
+
 using System;
 
 namespace OnlineServices.Common.TranslationServices

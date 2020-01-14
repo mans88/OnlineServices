@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using OnlineServices.Common.DataAccessHelpers;
+﻿using OnlineServices.Common.DataAccessHelpers;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 
 namespace OnlineServices.Common.MealServices.TransfertObjects

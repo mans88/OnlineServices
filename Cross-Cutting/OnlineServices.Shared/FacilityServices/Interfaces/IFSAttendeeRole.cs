@@ -1,4 +1,5 @@
 ﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
+
 using System.Collections.Generic;
 
 namespace OnlineServices.Common.FacilityServices.Interfaces

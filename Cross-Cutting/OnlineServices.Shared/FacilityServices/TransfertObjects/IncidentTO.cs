@@ -1,5 +1,6 @@
 ﻿using OnlineServices.Common.DataAccessHelpers;
 using OnlineServices.Common.FacilityServices.Enumerations;
+
 using System;
 
 namespace OnlineServices.Common.FacilityServices.TransfertObjects

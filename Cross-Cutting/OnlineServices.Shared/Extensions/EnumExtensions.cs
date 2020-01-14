@@ -1,5 +1,4 @@
-﻿using OnlineServices.Common.Enumerations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,8 +23,8 @@ namespace OnlineServices.Common.Extensions
             var result = new List<TEnum>();
             var values = Enum.GetNames(typeof(TEnum));
 
-            return values.Select(x=> (TEnum)Enum.Parse(typeof(TEnum), x))
-                         .Where(x=> !x.Equals(EnumToExtend))//TODO erase && !x.Equals(Language.Unknown))
+            return values.Select(x => (TEnum)Enum.Parse(typeof(TEnum), x))
+                         .Where(x => !x.Equals(EnumToExtend))//TODO erase && !x.Equals(Language.Unknown))
                          .ToList();
         }
 

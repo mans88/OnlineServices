@@ -1,7 +1,6 @@
 ﻿using OnlineServices.Common.DataAccessHelpers;
-using System;
+
 using System.Collections.Generic;
-using System.Text;
 
 namespace OnlineServices.Common.RegistrationServices.TransferObject
 {
