@@ -10,7 +10,7 @@ namespace MealServices.DataLayer.Extensions
 {
     public static class IngredientExtensions
     {
-        public static IngredientTO ToTranfertsObject(this IngredientEF Ingredient)
+        public static IngredientTO ToTransfertObject(this IngredientEF Ingredient)
         {
             if (Ingredient is null)
                 throw new ArgumentNullException(nameof(Ingredient));

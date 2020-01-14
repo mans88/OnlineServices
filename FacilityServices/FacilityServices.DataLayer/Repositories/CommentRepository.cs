@@ -1,40 +1,34 @@
-﻿using OnlineServices.Common.DataAccessHelpers;
-using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
+﻿using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System.Collections.Generic;
 
 namespace FacilityServices.DataLayer.Repositories
 {
-    internal class ComponentRepository : IComponentRepository
+    public class CommentRepository : ICommentRepository
     {
         private FacilityContext facilityContext;
 
-        public ComponentRepository(FacilityContext facilityContext)
+        public CommentRepository(FacilityContext facilityContext)
         {
             this.facilityContext = facilityContext;
         }
 
-        public ComponentTO Add(ComponentTO Entity)
+        public CommentTO Add(CommentTO Entity)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<ComponentTO> GetAll()
+        public IEnumerable<CommentTO> GetAll()
         {
             throw new System.NotImplementedException();
         }
 
-        public ComponentTO GetById(int Id)
+        public CommentTO GetById(int Id)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<ComponentTO> GetComponentByRoom(RoomTO Room)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Remove(ComponentTO entity)
+        public bool Remove(CommentTO entity)
         {
             throw new System.NotImplementedException();
         }
@@ -44,7 +38,7 @@ namespace FacilityServices.DataLayer.Repositories
             throw new System.NotImplementedException();
         }
 
-        public ComponentTO Update(ComponentTO Entity)
+        public CommentTO Update(CommentTO Entity)
         {
             throw new System.NotImplementedException();
         }

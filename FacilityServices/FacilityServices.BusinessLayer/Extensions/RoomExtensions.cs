@@ -1,7 +1,5 @@
-﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FacilityServices.BusinessLayer.Domain;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 
 namespace FacilityServices.BusinessLayer.Extensions
 {
@@ -11,7 +9,10 @@ namespace FacilityServices.BusinessLayer.Extensions
         {
             return new Room(RoomTO.Name, RoomTO.Floor.ToDomain())
             {
-                Id = RoomTO.Id
+                Id = RoomTO.Id,
+                Archived = RoomTO.Archived,
+                Floor = RoomTO.Floor.ToDomain(),
+                Name = RoomTO.Name,
             };
         }
 
@@ -21,7 +22,8 @@ namespace FacilityServices.BusinessLayer.Extensions
             {
                 Id = Room.Id,
                 Name = Room.Name,
-                Floor = Room.Floor.ToTransfertObject()
+                Floor = Room.Floor.ToTransfertObject(),
+                Archived = Room.Archived,
             };
         }
     }

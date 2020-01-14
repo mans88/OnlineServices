@@ -3,18 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FacilityServices.BusinessLayer
+namespace FacilityServices.BusinessLayer.Domain
 {
     public class Room
     {
         public int Id { get; set; }
         public MultiLanguageString Name { get; set; }
         public Floor Floor { get; set; }
+        public bool Archived { get; set; }
 
-        public Room(MultiLanguageString name)
+        public Room()
         {
-            this.Name = name;
+
         }
+
         public Room(MultiLanguageString name, Floor floorAttached)
         {
             this.Name = name;

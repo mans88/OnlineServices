@@ -43,7 +43,7 @@ namespace MealServices.DataLayer.Repositories
                 .Include(x => x.Meals)
                     .ThenInclude(Meal => Meal.MealsComposition)
                         .ThenInclude(MealsComposition => MealsComposition.Ingredient)
-                .Select(x => x.ToTranfertsObject())
+                .Select(x => x.ToTransfertObject())
                 .ToList();
         }
 
@@ -55,7 +55,7 @@ namespace MealServices.DataLayer.Repositories
                     .ThenInclude(Meal => Meal.MealsComposition)
                         .ThenInclude(MealsComposition => MealsComposition.Ingredient)
                 .FirstOrDefault(x => x.Id == Id)
-                .ToTranfertsObject();
+                .ToTransfertObject();
         }
 
         private bool isDefaultSupplierUniquenessWithThrow(string MethodName)
@@ -73,14 +73,14 @@ namespace MealServices.DataLayer.Repositories
             return mealContext.Suppliers
                 .AsNoTracking()
                 .FirstOrDefault(x => x.IsDefault == true)
-                .ToTranfertsObject();
+                .ToTransfertObject();
         }
 
         public SupplierTO Add(SupplierTO Entity)
             => mealContext
                 .Add(Entity.ToEF())
                 .Entity
-                .ToTranfertsObject();
+                .ToTransfertObject();
 
         public void SetDefaultSupplier(SupplierTO Supplier)
         {
@@ -108,6 +108,6 @@ namespace MealServices.DataLayer.Repositories
             => mealContext.Suppliers
                 .Find(Entity.Id)
                 .UpdateFromDetached(Entity.ToEF())
-                .ToTranfertsObject();
+                .ToTransfertObject();
     }
 }

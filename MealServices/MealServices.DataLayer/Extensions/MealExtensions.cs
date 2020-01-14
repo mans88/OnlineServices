@@ -11,7 +11,7 @@ namespace MealServices.DataLayer.Extensions
 {
     public static class MealExtensions
     {
-        public static MealTO ToTranfertsObject(this MealEF Meal)
+        public static MealTO ToTransfertObject(this MealEF Meal)
         {
             if (Meal is null)
                 throw new ArgumentNullException(nameof(Meal));
@@ -20,8 +20,8 @@ namespace MealServices.DataLayer.Extensions
             {
                 Id = Meal.Id,
                 Name = Meal.ExtractToMultiLanguageString(),
-                Ingredients = Meal.MealsComposition?.Select(x => x.Ingredient.ToTranfertsObject()).ToList(),
-                Supplier = Meal.Supplier.ToTranfertsObject(),
+                Ingredients = Meal.MealsComposition?.Select(x => x.Ingredient.ToTransfertObject()).ToList(),
+                Supplier = Meal.Supplier.ToTransfertObject(),
                 MealType = Meal.MealType,
             };
         }
