@@ -8,7 +8,9 @@ namespace OnlineServices.Common.Extensions
     {
         public static bool IsSameDate(this DateTime Extended, DateTime dateToCompareTo)
         {
-            throw new NotImplementedException("Nathan c'est pour toi... c'est le code que n'as pas été pushed...");
+            return ((Extended.Day == dateToCompareTo.Day) 
+                && (Extended.Month == dateToCompareTo.Month) 
+                && (Extended.Year == dateToCompareTo.Year));
         }
     }
 }
