@@ -19,7 +19,7 @@ namespace RegistrationServices.DataLayer.Entities
         //public Local Local { get; set; }
         public UserEF Teacher { get; set; }
 
-        public ICollection<DateTime> Dates { get; set; }
-        public ICollection<UserSessionEF> UserSessions { get; set; }
+        public List<DateTime> Dates { get; set; }
+        public virtual ICollection<UserSessionEF> UserSessions { get; set; }
     }
 }

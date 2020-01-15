@@ -7,7 +7,7 @@ using System.Text;
 namespace RegistrationServices.DataLayer.Entities
 {
     [Table("UserSession")]
-    public class UserSessionEF : IEquatable<UserSessionEF>
+    public class UserSessionEF
     {
         [ForeignKey("UserId")]
         public int UserId { get; set; }
@@ -18,10 +18,5 @@ namespace RegistrationServices.DataLayer.Entities
         public int SessionId { get; set; }
 
         public SessionEF Session { get; set; }
-
-        public bool Equals([AllowNull] UserSessionEF other)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
