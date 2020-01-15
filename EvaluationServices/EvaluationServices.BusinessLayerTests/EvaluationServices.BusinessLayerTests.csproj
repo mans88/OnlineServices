@@ -1,9 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.15.1.1035</AssemblyVersion>
-    <FileVersion>2001.15.1.1035</FileVersion>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <AssemblyVersion>2001.15.9.1144</AssemblyVersion>
+    <FileVersion>2001.15.9.1144</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
     <ProjectReference Include="..\EvaluationServices.BusinessLayer\EvaluationServices.BusinessLayer.csproj" />
   </ItemGroup>
 
