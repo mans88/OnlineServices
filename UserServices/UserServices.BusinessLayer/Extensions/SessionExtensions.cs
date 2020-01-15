@@ -8,26 +8,26 @@ namespace RegistrationServices.BusinessLayer.Extensions
 {
     public static class SessionExtensions
     {
-        public static Session ToDomain(this SessionTO sessionTO)
+        public static Session ToDomain(this SessionTO session)
         {
             return  new Session
             {
-                Id = sessionTO.Id,
-                Course = sessionTO.Course.ToDomain(),
-                Teacher = sessionTO.TeacherName.ToDomain(),
-                Attendees = sessionTO.Attendees?.Select(x => x.ToDomain()).ToList()
+                Id = session.Id,
+                Course = session.Course.ToDomain(),
+                Teacher = session.Teacher.ToDomain(),
+                Attendees = session.Attendees?.Select(x => x.ToDomain()).ToList()
             };
         }
 
-        public static SessionTO ToTransferObject(this Session session)
+        public static SessionTO ToTransfertObject(this Session session)
         {
             return new SessionTO
             {
                 Id = session.Id,
-                Course = session.Course.ToTransferObject(),
+                Course = session.Course.ToTransfertObject(),
                 //Local = session.Local
-                TeacherName  = session.Teacher.ToTransferObject(),
-                Attendees = session.Attendees?.Select(x=> x.ToTransferObject()).ToList()
+                Teacher  = session.Teacher.ToTransfertObject(),
+                Attendees = session.Attendees?.Select(x=> x.ToTransfertObject()).ToList()
             };
         }
     }

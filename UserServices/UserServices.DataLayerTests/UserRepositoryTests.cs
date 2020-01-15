@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using RegistrationServices.DataLayer;
 using OnlineServices.Common.RegistrationServices.TransferObject;
+using RegistrationServices.DataLayer.Repositories;
+using System.Linq;
 
 namespace RegistrationServices.DataLayerTests
 {
@@ -28,24 +30,15 @@ namespace RegistrationServices.DataLayerTests
                     Email = "MaxFuel@Power.com",
                     Company = "Business Formation",
                     IsActivated = true,
-                    Sessions = new List<SessionTO> {
-                        new SessionTO
-                        {
-                            Id = 1,
-                            TeacherName = null,
-                            Local = "TestLocalSession1",
-                            Course = new CourseTO{ 
-                                Id = 3,
-                                Name = "SQL"
-                            },
-                            Attendees = null
-                        }
-                    }
-
                 };
-                //Act
 
+                var userRepository = new UserRepository(RSCxt);
+                //Act
+                userRepository.Add(userToUse);
+                RSCxt.SaveChanges();
                 //Assert
+                Assert.AreEqual(1, userRepository.GetAll().Count());
+                var userToAssert = userRepository.GetById(1);
             }
         }
     }

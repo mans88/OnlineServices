@@ -19,7 +19,7 @@ namespace RegistrationServices.BusinessLayer.Extensions
             };
         }
 
-        public  static CourseTO ToTransferObject(this Course course)
+        public  static CourseTO ToTransfertObject(this Course course)
         {
             if (course is null)
                 throw new ArgumentNullException(nameof(course));

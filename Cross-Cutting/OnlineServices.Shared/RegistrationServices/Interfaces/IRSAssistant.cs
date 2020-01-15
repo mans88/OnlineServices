@@ -8,6 +8,6 @@ namespace OnlineServices.Common.RegistrationServices.Interfaces
 
         void DeleteUser();
 
-        void CreateFromExcel(FileStream excelFile);
+        //void ReadExcel(Workbook excelFile);
     }
 }
