@@ -1,6 +1,7 @@
-﻿using FacilityServices.BusinessLayer.Domain;
-using OnlineServices.Common.FacilityServices.Exceptions;
-using OnlineServices.Common.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace FacilityServices.BusinessLayer.Extensions
 {
@@ -8,30 +9,17 @@ namespace FacilityServices.BusinessLayer.Extensions
     {
         public static Floor ToDomain(this FloorTO FloorTO)
         {
-            if (FloorTO is null)
+            return new Floor(FloorTO.Name)
             {
-                throw new NullFloorException(nameof(FloorTO));
-            }
-
-            return new Floor()
-            {
-                Id = FloorTO.Id,
-                Number = FloorTO.Number,
-                Archived = FloorTO.Archived,
+                Id = FloorTO.Id
             };
         }
         public static FloorTO ToTransfertObject(this Floor Floor)
         {
-            if (Floor is null)
-            {
-                throw new NullFloorException(nameof(Floor));
-            }
-
             return new FloorTO()
             {
                 Id = Floor.Id,
-                Number = Floor.Number,
-                Archived = Floor.Archived,
+                Name = Floor.Name,
             };
         }
     }

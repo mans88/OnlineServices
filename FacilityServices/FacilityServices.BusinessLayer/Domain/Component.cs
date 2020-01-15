@@ -2,15 +2,16 @@
 
 namespace FacilityServices.BusinessLayer
 {
-    public class Issue
+    public class Component
     {
         public int Id { get; set; }
-        public string Description { get; set; }
+        public Room Room { get; set; }
         public MultiLanguageString Name { get; set; }
-        
-        public Issue(MultiLanguageString name)
+
+        public Component (MultiLanguageString name)
         {
             this.Name = name;
         }
+
     }
 }

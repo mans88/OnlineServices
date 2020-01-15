@@ -43,7 +43,7 @@ namespace MealServices.DataLayer.Repositories
                 .ThenInclude(MealsWithIngredient => MealsWithIngredient.Meal)
                     .ThenInclude(Meal => Meal.MealsComposition)
                         .ThenInclude(MealsComposition => MealsComposition.Ingredient)
-            .Select(x => x.ToTransfertObject())
+            .Select(x => x.ToTranfertsObject())
             .ToList();
 
         public IngredientTO GetById(int Id)
@@ -53,7 +53,7 @@ namespace MealServices.DataLayer.Repositories
                     .ThenInclude(Meal => Meal.MealsComposition)
                         .ThenInclude(MealsComposition => MealsComposition.Ingredient)
             .FirstOrDefault(x => x.Id == Id)
-            .ToTransfertObject();
+            .ToTranfertsObject();
 
         //TODO GetMealsByIngredient
         //public List<IngredientTO> GetMealsByIngredient(List<IngredientTO> Ingredients)
@@ -75,7 +75,7 @@ namespace MealServices.DataLayer.Repositories
             return mealContext.Ingredients
                 .Add(entity.ToEF())
                 .Entity
-                .ToTransfertObject();
+                .ToTranfertsObject();
         }
 
         public IngredientTO Update(IngredientTO Entity)
@@ -86,7 +86,7 @@ namespace MealServices.DataLayer.Repositories
             return mealContext.Ingredients
                 .Find(Entity.Id)
                 .UpdateFromDetached(Entity.ToEF())
-                .ToTransfertObject();
+                .ToTranfertsObject();
         }
     }
 }

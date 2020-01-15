@@ -8,7 +8,5 @@ namespace OnlineServices.Common.FacilityServices.TransfertObjects
         public int Id { get; set; }
         public string Description { get; set; }
         public MultiLanguageString Name { get; set; }
-        public bool Archived { get; set; }
-        public ComponentTypeTO ComponentType { get; set; }
     }
 }

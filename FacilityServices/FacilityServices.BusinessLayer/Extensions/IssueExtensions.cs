@@ -1,5 +1,7 @@
-﻿using FacilityServices.BusinessLayer.Domain;
-using OnlineServices.Common.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace FacilityServices.BusinessLayer.Extensions
 {
@@ -9,11 +11,7 @@ namespace FacilityServices.BusinessLayer.Extensions
         {
             return new Issue(IssueTO.Name)
             {
-                Id = IssueTO.Id,
-                Description = IssueTO.Description,
-                Archived = IssueTO.Archived,
-                ComponentType = IssueTO.ComponentType.ToDomain(),
-                Name = IssueTO.Name,
+                Id = IssueTO.Id
             };
         }
         public static IssueTO ToTransfertObject(this Issue Issue)
@@ -22,9 +20,6 @@ namespace FacilityServices.BusinessLayer.Extensions
             {
                 Id = Issue.Id,
                 Name = Issue.Name,
-                Description = Issue.Description,
-                Archived = Issue.Archived,
-                ComponentType = Issue.ComponentType.ToTransfertObject(),
             };
         }
     }

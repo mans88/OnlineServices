@@ -3,10 +3,10 @@ using OnlineServices.Common.TranslationServices.TransfertObjects;
 
 namespace OnlineServices.Common.FacilityServices.TransfertObjects
 {
-    public class ComponentTypeTO : IEntity<int>
+    public class ComponentTO : IEntity<int>
     {
         public int Id { get; set; }
+        public RoomTO Room { get; set; }
         public MultiLanguageString Name { get; set; }
-        public bool Archived { get; set; }
     }
 }

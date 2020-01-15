@@ -7,10 +7,9 @@ namespace FacilityServices.BusinessLayer.UseCases.Attendee
 {
     public partial class Attendee
     {
-        public bool CreateIncident(IncidentTO incidentTO, int attendeeId) 
+        public List<IncidentTO> GetIncidents()
         {
-            return false; 
+            return new List<IncidentTO>();
         }
-
     }
 }
