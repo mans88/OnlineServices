@@ -313,7 +313,7 @@ namespace MealServices.DataLayerTests
         }
 
         [TestMethod()]
-        public void IRepositoryDeleteByTranfertObject_ShouldThrowException_WhenDeletingANonExistantMeal()
+        public void IRepositoryDeleteByTransfertObject_ShouldThrowException_WhenDeletingANonExistantMeal()
         {
             //ASSERT
             var options = new DbContextOptionsBuilder<MealContext>()

@@ -12,6 +12,5 @@ namespace RegistrationServices.BusinessLayer
         public User Teacher{ get; set; }
         public List<DateTime> Dates { get; set; }
         public List<User> Attendees { get; set; }
-
     }
 }

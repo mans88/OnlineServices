@@ -1,17 +1,17 @@
 ﻿using OnlineServices.Common.FacilityServices.Enumerations;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace FacilityServices.BusinessLayer.UseCases.Attendee
+namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class Attendee
+    public partial class AssistantRole
     {
-        public bool ChangeIncidentStatus(int IncidentId, IncidentStatus status)
+        public IncidentTO ChangeIncidentStatus(IncidentStatus statusToSubmit, int incidentId)
         {
-            return false;
-        }
+            var incident = unitOfWork.IncidentRepository.GetById(incidentId);
+            incident.Status = statusToSubmit;
+            var updatedIncident = unitOfWork.IncidentRepository.Update(incident);
 
+            return updatedIncident;
+        }
     }
 }

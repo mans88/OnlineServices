@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
 
     <AssemblyVersion>2001.15.6.1604</AssemblyVersion>

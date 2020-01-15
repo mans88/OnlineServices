@@ -27,7 +27,7 @@ namespace MealServices.DataLayer.Repositories
 
         public override IngredientTO ToTransfertObject(IngredientEF entity)
         {
-            return entity.ToTranfertsObject();
+            return entity.ToTransfertObject();
         }
 
         public override IngredientEF UpdateFromDetached(IngredientEF AttachedEF, IngredientEF DetachedEF)

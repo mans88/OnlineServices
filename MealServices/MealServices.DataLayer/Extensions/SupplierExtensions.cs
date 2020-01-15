@@ -8,7 +8,7 @@ namespace MealServices.DataLayer.Extensions
 {
     public static class SupplierExtensions
     {
-        public static SupplierTO ToTranfertsObject(this SupplierEF Supplier)
+        public static SupplierTO ToTransfertObject(this SupplierEF Supplier)
             => new SupplierTO
             {
                 Id = Supplier.Id,
