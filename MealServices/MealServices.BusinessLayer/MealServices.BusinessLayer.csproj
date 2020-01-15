@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.15.10.1604</AssemblyVersion>
-    <FileVersion>2001.15.10.1604</FileVersion>
+    <AssemblyVersion>2001.15.11.1732</AssemblyVersion>
+    <FileVersion>2001.15.11.1732</FileVersion>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
