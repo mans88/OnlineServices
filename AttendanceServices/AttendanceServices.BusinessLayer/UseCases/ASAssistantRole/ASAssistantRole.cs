@@ -1,48 +1,58 @@
-﻿using AttendanceService.DataLayer;
+﻿using AttendanceServices.DataLayer;
 using OnlineServices.Common.AttendanceServices;
+using OnlineServices.Common.AttendanceServices.TransfertObjects;
+using OnlineServices.Common.RegistrationServices;
+
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AttendanceServices.BusinessLayer
 {
-    public class ASAssistantRole: IASAssistantRole
+    public class ASAssistantRole : IASAssistantRole
     {
-        private IRSServiceRole registrationService;
+        private readonly AttendanceContext attendanceContextIoC;
+        private IRSServiceRole registrationServiceIoC;
 
-        public AssistantRole(IRSServiceRole registrationService)
+        public ASAssistantRole(AttendanceContext contextIoC, IRSServiceRole registrationServiceIoC)
         {
-            this.registrationService = registrationService ?? throw new ArgumentNullException(nameof(registrationService));
+            this.attendanceContextIoC = contextIoC;
+            this.registrationServiceIoC = registrationServiceIoC ?? throw new ArgumentNullException(nameof(registrationServiceIoC));
         }
 
-        public AttendeePresenceTO GetAttendeePresence(int sessionID, int attendeeID)
+        public AttendeePresenceTO GetAttendeePresence(int sessionID, int attendeeId)
         {
             if (sessionID <= 0)
                 throw new Exception("SessionId must be greater then 0");
-            if (attendeeID <= 0)
+            if (attendeeId <= 0)
                 throw new Exception("AttendeeId must be greater then 0");
 
-            return GetSessionPresence(sessionID).First(x => x.attendeeID == attendeeID);
+            return GetPresencesInSession(sessionID).First(x => x.AttendeeId == attendeeId);
         }
 
-        public List<AttendeePresenceTO> GetSessionPresence(int sessionId)
+        public List<AttendeePresenceTO> GetPresencesInSession(int sessionId)
         {
             if (sessionId <= 0)
                 throw new Exception("SessionId must be greater then 0");
 
-            var listUser = registrationService.GetUserInSession(sessionId);
+            var listUser = registrationServiceIoC.GetSessionAttendes(sessionId);
 
             var listPresence = new List<AttendeePresenceTO>();
 
-            using (var UoW = new ASUnitOfWork())
+            using (var UoW = new ASUnitOfWork(attendanceContextIoC))
             {
-
                 //listPresence = QUERY REPO NATHAN..
             }
 
             return listPresence;
         }
 
-        public bool SetPresence(int formationID, int attendeeID, DateTime MomentPresence)
+        public bool SetPresence(int sessionId, int attendeeId, DateTime presenceTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<AttendeePresenceTO> IASAssistantRole.GetPresenceOfAttendee(int sessionId, int attendeeId)
         {
             throw new NotImplementedException();
         }

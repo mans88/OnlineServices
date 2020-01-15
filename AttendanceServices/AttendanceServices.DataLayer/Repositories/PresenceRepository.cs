@@ -1,12 +1,8 @@
 ﻿using AttendanceServices.BusinessLayer.UseCases;
-using OnlineServices.Common.AttendanceServices.TransfertObjects;
-using OnlineServices.Common.DataAccessHelpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using AttendanceService.DataLayer;
 
-namespace AttendanceService.DataLayer.Repositories
+using OnlineServices.Common.AttendanceServices.TransfertObjects;
+
+namespace AttendanceServices.DataLayer.Repositories
 {
     public class PresenceRepository : IPresenceRepository
     {
@@ -22,7 +18,7 @@ namespace AttendanceService.DataLayer.Repositories
             //var to = 
             attendanceContext.AttendeePresents.Add(null);
             //.Entity.ToTransfertObject();
-            
+
             return null; //to;
         }
         public AttendeePresenceTO SuperAddMethod(AttendeePresenceTO Entity)

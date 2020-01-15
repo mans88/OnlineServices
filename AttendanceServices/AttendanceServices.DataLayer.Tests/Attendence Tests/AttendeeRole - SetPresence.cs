@@ -7,9 +7,6 @@ namespace AttendanceService.DataLayer.Tests
     {
         [TestMethod]
         public void AttendanceContext_CorrectInput()
-        {
-            var test = ;
-            Assert.AreEqual(
-        }
+        { }
     }
 }

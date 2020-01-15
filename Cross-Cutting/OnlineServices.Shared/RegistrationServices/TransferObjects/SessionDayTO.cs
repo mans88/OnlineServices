@@ -8,7 +8,7 @@ namespace OnlineServices.Common.RegistrationServices.TransferObject
     public class SessionDayTO : IEntity<int>
     {
         public int Id { get; set; }
-        DateTime DaySession { get; set}
-        SessionPresenceType PresenceType { get; set; }
+        public DateTime DaySession { get; set; }
+        public SessionPresenceType PresenceType { get; set; }
     }
 }

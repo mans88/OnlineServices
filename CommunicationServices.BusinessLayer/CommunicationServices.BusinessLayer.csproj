@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.10.5.1642</AssemblyVersion>
-    <FileVersion>2001.10.5.1642</FileVersion>
+    <AssemblyVersion>2001.15.1.1035</AssemblyVersion>
+    <FileVersion>2001.15.1.1035</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

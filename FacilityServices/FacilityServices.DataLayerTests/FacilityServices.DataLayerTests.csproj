@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.10.2.1527</AssemblyVersion>
+    <AssemblyVersion>2001.15.1.1035</AssemblyVersion>
 
-    <FileVersion>2001.10.2.1527</FileVersion>
+    <FileVersion>2001.15.1.1035</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,11 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\UserServices\UserServices.DataLayer\UserServices.DataLayer.csproj" />
+    <Folder Include="RepositoriesTests\ComponentRepositoryTest\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="RepositoriesTests\ComponentRepositoryTest\" />
+    <ProjectReference Include="..\FacilityServices.DataLayer\FacilityServices.DataLayer.csproj" />
   </ItemGroup>
 
 </Project>

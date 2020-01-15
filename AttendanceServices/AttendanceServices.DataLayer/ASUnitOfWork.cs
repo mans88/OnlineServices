@@ -1,10 +1,12 @@
-﻿using AttendanceService.DataLayer.Repositories;
+﻿
 using AttendanceServices.BusinessLayer.UseCases;
+using AttendanceServices.DataLayer.Repositories;
+
 using System;
 
-namespace AttendanceService.DataLayer
+namespace AttendanceServices.DataLayer
 {
-    public class ASUnitOfWork: IDisposable
+    public class ASUnitOfWork : IUnitOfWork
     {
         private AttendanceContext attendanceContext;
 
@@ -18,18 +20,17 @@ namespace AttendanceService.DataLayer
 
         public IPresenceRepository PresenceRepository
         {
-            get {
+            get
+            {
                 presenceRepo ??= new PresenceRepository(attendanceContext) ?? throw new Exception(nameof(PresenceRepository));
 
                 return presenceRepo;
             }
-            private set {
+            private set
+            {
                 presenceRepo = value;
             }
         }
-
-        public PresenceRepository Repo1 {get; set; } // = new PresenceRepository(attendanceContext);
-        public PresenceRepository Repo2 { get; set; } //= new PresenceRepository(attendanceContext);
 
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)

@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.14.1.1505</AssemblyVersion>
+    <AssemblyVersion>2001.15.1.1035</AssemblyVersion>
 
-    <FileVersion>2001.14.1.1505</FileVersion>
+    <FileVersion>2001.15.1.1035</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +16,11 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
+    <ProjectReference Include="..\AttendanceServices.BusinessLayer\AttendanceServices.BusinessLayer.csproj" />
   </ItemGroup>
 
 </Project>

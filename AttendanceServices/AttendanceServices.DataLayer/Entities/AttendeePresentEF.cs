@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AttendanceServices.BusinessLayer.UseCases
+namespace AttendanceServices.DataLayer.Entities
 {
     [Table("AttendeePresent")]
     public class AttendeePresentEF : IEntity<int>

@@ -11,6 +11,6 @@ namespace OnlineServices.Common.AttendanceServices.TransfertObjects
         public int AttendeeId { get; set; }
         public int SessionId { get; set; }
         public int LocalId { get; set; } // REVIEW a revoir si necessaire
-        public List<DateTime> PresenceDay { get; private set; } = new List<DateTime>();
+        public List<DateTime> PresenceDay { get; set; } = new List<DateTime>();
     }
 }

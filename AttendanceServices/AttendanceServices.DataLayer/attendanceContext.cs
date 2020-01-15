@@ -1,7 +1,8 @@
 ﻿using AttendanceServices.BusinessLayer.UseCases;
+using AttendanceServices.DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AttendanceService.DataLayer
+namespace AttendanceServices.DataLayer
 {
     public class AttendanceContext : DbContext
     {

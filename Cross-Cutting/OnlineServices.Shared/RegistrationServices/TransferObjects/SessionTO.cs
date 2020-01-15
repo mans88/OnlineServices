@@ -10,7 +10,7 @@ namespace OnlineServices.Common.RegistrationServices.TransferObject
         public string Local { get; set; }
         public UserTO TeacherName { get; set; }
         public CourseTO Course { get; set; }
-        public List<SessionDayTO> SessionDays { get; private set; } = new List<SessionDayTO>();
-        public List<UserTO> Attendees { get; private set; } = new List<UserTO>();
+        public List<SessionDayTO> SessionDays { get; set; } = new List<SessionDayTO>();
+        public List<UserTO> Attendees { get; set; } = new List<UserTO>();
     }
 }
