@@ -1,4 +1,5 @@
 ﻿using OnlineServices.Common.EvaluationServices;
+using OnlineServices.Common.EvaluationServices.Interfaces;
 using OnlineServices.Common.EvaluationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
@@ -7,18 +8,16 @@ using System.Text;
 
 namespace EvaluationServices.BusinessLayer.UseCases
 {
-    public partial class AttendeeRole : IESAttendeeRole
+    public partial class ESAttendeeRole : IESAttendeeRole
     {
-        public FormTO GetForm(int sessionID, int FormModelID)
+        public FormQuestionTO GetFormById(int sessionID, int formID)
         {
             //Etape 1 : Verifier parameter
-            if (!questionRepository.GetAll().Any(x => x.Id == FormModelID))
+            if (!iESUnitOfWork.QuestionRepository.GetAll().Any(x => x.Id == formID))
                 throw new Exception("Formulaire inexistant");
             if (!userService.IsExistentSession(sessionID))
                 throw new Exception("Session inexistant");
-
-            //Return values
-            return questionRepository.GetById(FormModelID);
+            return iESUnitOfWork.QuestionRepository.GetByID(formID);
         }
     }
 }
