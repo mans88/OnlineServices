@@ -1,13 +1,13 @@
 ﻿using OnlineServices.Common.AttendanceServices.TransfertObjects;
-
+using System;
 using System.Collections.Generic;
 
 namespace OnlineServices.Common.AttendanceServices
 {
     public interface IASAssistantRole
     {
-        bool SetPresence(AttendeePresenceTO presenceTO);
-        List<AttendeePresenceTO> GetAttendeePresence(int formationID, int attendeeID);
-        List<AttendeePresenceTO> GetFormationPresence(int formationID);
+        bool SetPresence(int sessionId, int attendeeId, DateTime presenceTime); // REVIEW if necessry to have PresenceArgs or a type presence on others classes aswell
+        List<AttendeePresenceTO> GetAttendeePresence(int sessionId, int attendeeId);
+        List<AttendeePresenceTO> GetFormationPresence(int sessionId);
     }
 }

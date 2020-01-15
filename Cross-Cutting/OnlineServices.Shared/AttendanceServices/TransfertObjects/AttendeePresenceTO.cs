@@ -8,9 +8,9 @@ namespace OnlineServices.Common.AttendanceServices.TransfertObjects
     public class AttendeePresenceTO : IEntity<int>
     {
         public int Id { get; set; }
-        public int AttendeeID { get; set; }
-        public int SessionID { get; set; }
-        public int LocalID { get; set; }
-        public List<DateTime> PresenceDay { get; set; }
+        public int AttendeeId { get; set; }
+        public int SessionId { get; set; }
+        public int LocalId { get; set; } // REVIEW a revoir si necessaire
+        public List<DateTime> PresenceDay { get; private set; } = new List<DateTime>();
     }
 }

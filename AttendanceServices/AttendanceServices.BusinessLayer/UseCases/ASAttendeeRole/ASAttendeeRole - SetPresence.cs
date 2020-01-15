@@ -10,7 +10,7 @@ using System.Text;
 
 namespace AttendanceServices.BusinessLayer.UseCases
 {
-    public partial class AttendeeRole : IASAttendeeRole
+    public partial class ASAttendeeRole : IASAttendeeRole
     {
         public bool SetPresence(int sessionID, int attendeeID)
         {
@@ -24,8 +24,8 @@ namespace AttendanceServices.BusinessLayer.UseCases
 
                 var presence = new AttendeePresenceTO
                 {
-                    SessionID = sessionID,
-                    AttendeeID = attendeeID, 
+                    SessionId = sessionID,
+                    AttendeeId = attendeeID, 
                     PresenceDay = new List<DateTime> { DateTime.Now }
                 };
 
