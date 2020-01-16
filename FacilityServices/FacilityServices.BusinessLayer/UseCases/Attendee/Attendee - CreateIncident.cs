@@ -1,7 +1,6 @@
-﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
+﻿using OnlineServices.Common.Exceptions;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
@@ -20,14 +19,17 @@ namespace FacilityServices.BusinessLayer.UseCases
             try
             {
                 var incident = unitOfWork.IncidentRepository.Add(incidentTO);
-                if (incident.Id != 0)
-                    return true;
+                return incident.Id != 0;
             }
-            catch (Exception ex)
+            catch (LoggedException)
             {
                 // Todo check unique constraints, check if room + componenttype exists, etc.
+                throw;
             }
-            return true;
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

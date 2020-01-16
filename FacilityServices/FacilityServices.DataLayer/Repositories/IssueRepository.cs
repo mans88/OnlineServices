@@ -33,6 +33,7 @@ namespace FacilityServices.DataLayer.Repositories
         {
             return facilityContext.Issues
                 .Include(i => i.ComponentType)
+                .Where(i => i.Archived != true)
                 .Select(x => x.ToTransfertObject())
                 .ToList();
         }
@@ -41,7 +42,7 @@ namespace FacilityServices.DataLayer.Repositories
         {
             return facilityContext.Issues
                 .Include(i => i.ComponentType)
-                .FirstOrDefault(x => x.Id == Id)
+                .FirstOrDefault(x => x.Id == Id && x.Archived != true)
                 .ToTransfertObject();
         }
 
@@ -53,10 +54,9 @@ namespace FacilityServices.DataLayer.Repositories
             }
             return facilityContext.Issues
                            .Include(r => r.ComponentType)
-                           .Where(r => r.ComponentType.Id == ComponentType.Id)
+                           .Where(r => r.ComponentType.Id == ComponentType.Id && r.Archived != true)
                            .Select(r => r.ToTransfertObject())
                            .ToList();
-
         }
 
         public bool Remove(IssueTO entity)
@@ -64,35 +64,34 @@ namespace FacilityServices.DataLayer.Repositories
 
         public bool Remove(int Id)
         {
-            if (!facilityContext.Issues.Any(x => x.Id == Id))
+            if (!facilityContext.Issues.Any(x => x.Id == Id && x.Archived != true))
                 throw new Exception($"IssueRepository. Delete(IssueId = {Id}) no record to delete.");
 
-            var ReturnValue = false;
-
-            var issue = facilityContext.Issues.FirstOrDefault(x => x.Id == Id);
+            var issue = facilityContext.Issues.FirstOrDefault(x => x.Id == Id && x.Archived != true);
+            
             if (issue != default)
             {
                 try
                 {
-                    facilityContext.Issues.Remove(issue);
-                    ReturnValue = true;
+                    issue.Archived = true;
+                    return facilityContext.Issues.Update(issue).Entity.Archived; ;
                 }
                 catch (Exception)
                 {
-                    ReturnValue = false;
+                    return false;
                 }
             }
 
-            return ReturnValue;
+            return false;
         }
 
         public IssueTO Update(IssueTO Entity)
         {
-            if (!facilityContext.Issues.Any(x => x.Id == Entity.Id))
+            if (!facilityContext.Issues.Any(x => x.Id == Entity.Id && x.Archived != true))
                 throw new Exception($"IssueRepository. Update(IssueTransfertObject) no record to update.");
 
             var attachedIssues = facilityContext.Issues
-                .FirstOrDefault(x => x.Id == Entity.Id);
+                .FirstOrDefault(x => x.Id == Entity.Id && x.Archived != true);
 
             if (attachedIssues != default)
             {

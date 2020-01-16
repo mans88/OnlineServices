@@ -1,6 +1,8 @@
-﻿using OnlineServices.Common.FacilityServices.TransfertObjects;
+﻿using FacilityServices.BusinessLayer.Extensions;
+using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
@@ -8,7 +10,10 @@ namespace FacilityServices.BusinessLayer.UseCases
     {
         public List<ComponentTypeTO> GetComponentTypes()
         {
-            throw new NotImplementedException();
+            var componentTypes = unitOfWork.ComponentTypeRepository.GetAll()
+                                                 .Select(f => f.ToDomain().ToTransfertObject());
+
+            return componentTypes.ToList();
         }
     }
 }

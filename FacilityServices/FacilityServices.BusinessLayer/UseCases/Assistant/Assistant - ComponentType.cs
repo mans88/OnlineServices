@@ -44,8 +44,9 @@ namespace FacilityServices.BusinessLayer.UseCases
             {
                 throw new KeyNotFoundException("No ComponentType was found for the given ID!");
             }
+            var componentType = unitOfWork.ComponentTypeRepository.GetById(componentTypeId);
 
-            return unitOfWork.ComponentTypeRepository.Remove(componentTypeId);
+            return unitOfWork.ComponentTypeRepository.Update(componentType) != null;
         }
     }
 }
