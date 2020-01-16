@@ -4,7 +4,6 @@ using OnlineServices.Common.FacilityServices.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
-using System.Linq;
 
 namespace FacilityServices.DataLayer.Extensions
 {

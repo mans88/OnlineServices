@@ -23,7 +23,8 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
                 new ComponentTypeTO{ Id = 1, Archived = false, Name = new MultiLanguageString("Coffee machin", "Machine à café", "en deutch")},
                 new ComponentTypeTO{ Id = 2, Archived = false, Name = new MultiLanguageString("PC", "Ordinanteur", "en deutch")}
             };
-            mockUnitOfWork.Setup(u => u.ComponentTypeRepository.Remove(It.IsAny<int>())).Returns(true);
+            mockUnitOfWork.Setup(u => u.ComponentTypeRepository.Update(It.IsAny<ComponentTypeTO>()))
+                          .Returns(new ComponentTypeTO { Id = 1, Archived = false, Name = new MultiLanguageString("Coffee machin", "Machine à café", "en deutch") });
             mockUnitOfWork.Setup(u => u.ComponentTypeRepository.GetAll()).Returns(componentTypes);
 
             var sut = new AssistantRole(mockUnitOfWork.Object);
@@ -31,7 +32,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             //ACT
             var result = sut.RemoveComponentType(1);
             //ASSERT
-            mockUnitOfWork.Verify(u => u.ComponentTypeRepository.Remove(It.IsAny<int>()), Times.Once);
+            mockUnitOfWork.Verify(u => u.ComponentTypeRepository.Update(It.IsAny<ComponentTypeTO>()), Times.Once);
             Assert.IsTrue(result);
         }
 

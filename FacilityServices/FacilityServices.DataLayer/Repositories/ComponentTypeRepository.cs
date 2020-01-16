@@ -34,6 +34,7 @@ namespace FacilityServices.DataLayer.Repositories
             return facilityContext.ComponentTypes
                 .AsNoTracking()
                 .Include(r => r.RoomComponents)
+                .Where(ct => ct.Archived != true)
                 .Select(x => x.ToTransfertObject())
                 .ToList();
         }
@@ -43,7 +44,7 @@ namespace FacilityServices.DataLayer.Repositories
             return facilityContext.ComponentTypes
             .AsNoTracking()
             .Include(r => r.RoomComponents)
-            .FirstOrDefault(x => x.Id == Id)
+            .FirstOrDefault(x => x.Id == Id && x.Archived != true)
             .ToTransfertObject();
         }
 
@@ -57,35 +58,33 @@ namespace FacilityServices.DataLayer.Repositories
 
         public bool Remove(int Id)
         {
-            if (!facilityContext.ComponentTypes.Any(x => x.Id == Id))
+            if (!facilityContext.ComponentTypes.Any(x => x.Id == Id && x.Archived != true))
                 throw new Exception($"ComponentTypeRepository. Delete(ComponentTypeId = {Id}) no record to delete.");
 
-            var ReturnValue = false;
-
-            var componentType = facilityContext.ComponentTypes.FirstOrDefault(x => x.Id == Id);
+            var componentType = facilityContext.ComponentTypes.FirstOrDefault(x => x.Id == Id && x.Archived != true);
             if (componentType != default)
             {
                 try
                 {
-                    facilityContext.ComponentTypes.Remove(componentType);
-                    ReturnValue = true;
+                    componentType.Archived = true;
+                    return facilityContext.ComponentTypes.Update(componentType).Entity.Archived;
                 }
                 catch (Exception)
                 {
-                    ReturnValue = false;
+                    return false;
                 }
             }
 
-            return ReturnValue;
+            return false;
         }
 
         public ComponentTypeTO Update(ComponentTypeTO Entity)
         {
-            if (!facilityContext.ComponentTypes.Any(x => x.Id == Entity.Id))
+            if (!facilityContext.ComponentTypes.Any(x => x.Id == Entity.Id && x.Archived != true))
                 throw new Exception($"ComponentTypeRepository. Update(ComponentTypeTransfertObject) no record to update.");
 
             var attachedComponentTypes = facilityContext.ComponentTypes
-                .FirstOrDefault(x => x.Id == Entity.Id);
+                .FirstOrDefault(x => x.Id == Entity.Id && x.Archived != true);
 
             if (attachedComponentTypes != default)
             {
