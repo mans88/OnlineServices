@@ -23,14 +23,6 @@
             <param name="OriginalText"></param>
             <returns></returns>
         </member>
-        <member name="M:TranslationServices.DataLayer.ServiceAgents.Extensions.TupleLanguageExtensions.IsValidWithThrow(System.Tuple{OnlineServices.Common.Enumerations.Language,System.String})">
-            <summary>
-            The class validades that the fields has all the values as specifyed by the translation service.
-            </summary>
-            <returns>
-                void. This method throw a exception when LanguageTuple is not valid.
-            </returns>
-        </member>
         <member name="T:TranslationServices.DataLayer.ServiceAgents.TranslationAgents.AzureCognitiveAgent">
             <summary>
             Adapter pattern implementation for the Azure Cognitive Tranlaslation API.
