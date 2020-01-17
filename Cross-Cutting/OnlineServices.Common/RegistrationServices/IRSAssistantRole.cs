@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.RegistrationServices
+namespace OnlineServices.Common.RegistrationServices
 {
     public interface IRSAssistantRoleUser
     {

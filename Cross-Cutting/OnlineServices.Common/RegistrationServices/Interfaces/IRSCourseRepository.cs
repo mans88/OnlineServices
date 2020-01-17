@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OnlineServices.Shared.RegistrationServices.Interface
+namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
     public interface IRSCourseRepository : IRepository<CourseTO, int>
     {

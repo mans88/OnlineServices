@@ -17,7 +17,7 @@ namespace EvaluationServices.BusinessLayer.UseCases
                 throw new Exception("Formulaire inexistant");
             if (!userService.IsExistentSession(sessionID))
                 throw new Exception("Session inexistant");
-            return iESUnitOfWork.QuestionRepository.GetByID(formID);
+            return iESUnitOfWork.QuestionRepository.GetById(formID);
         }
     }
 }

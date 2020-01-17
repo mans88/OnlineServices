@@ -1,16 +1,13 @@
-﻿using System;
+﻿using AttendanceServices.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace OnlineServices.Common.RegistrationServices.Interface
 {
-     public interface IRSUnitOfWork
+    public interface IRSUnitOfWork :IUnitOfWork
     {
-         IRSSessionRepository SessionRepository { get; }
-         IRSUserRepository UserRepository { get; }
-
-        void Dispose();
-
-        void Save();
+        IRSSessionRepository SessionRepository { get; }
+        IRSUserRepository UserRepository { get; }
     }
 }

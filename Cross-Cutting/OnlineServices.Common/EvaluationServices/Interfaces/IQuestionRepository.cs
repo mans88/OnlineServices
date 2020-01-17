@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace OnlineServices.Common.EvaluationServices.Interfaces
 {
-    public interface IQuestionRepository : IRepositoryTemp<FormQuestionTO, int>
+    public interface IQuestionRepository : IRepository<FormQuestionTO, int>
     {
-        FormQuestionTO Add(FormQuestionTO Entity);
-        IEnumerable<FormQuestionTO> GetAll();
-        FormQuestionTO GetByID(int Id);
-        bool Remove(FormQuestionTO entity);
-        bool Remove(int Id);
-        FormQuestionTO Update(FormQuestionTO Entity);
+        //FormQuestionTO Add(FormQuestionTO Entity);
+        //IEnumerable<FormQuestionTO> GetAll();
+        //FormQuestionTO GetByID(int Id);
+        //bool Remove(FormQuestionTO entity);
+        //bool Remove(int Id);
+        //FormQuestionTO Update(FormQuestionTO Entity);
     }
 }

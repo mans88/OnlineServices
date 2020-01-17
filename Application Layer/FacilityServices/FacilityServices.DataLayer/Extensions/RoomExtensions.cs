@@ -1,5 +1,4 @@
-﻿using FacilityServices.BusinessLayer;
-using FacilityServices.DataLayer.Entities;
+﻿using FacilityServices.DataLayer.Entities;
 using OnlineServices.Common.Extensions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;

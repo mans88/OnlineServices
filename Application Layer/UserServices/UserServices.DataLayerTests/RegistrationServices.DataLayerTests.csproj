@@ -4,9 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2020.0117.0100.3</AssemblyVersion>
+    <AssemblyVersion>2020.0117.2106.5</AssemblyVersion>
 
-    <FileVersion>2020.0117.0100.3</FileVersion>
+    <FileVersion>2020.0117.2106.5</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
+    <ProjectReference Include="..\..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
     <ProjectReference Include="..\UserServices.DataLayer\RegistrationServices.DataLayer.csproj" />
   </ItemGroup>
 

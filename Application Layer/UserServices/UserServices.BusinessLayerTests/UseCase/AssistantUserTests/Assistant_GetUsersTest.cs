@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using RegistrationServices.BusinessLayer.UseCase;
 using Moq;
-using OnlineServices.Shared.RegistrationServices.Interface;
 using System.Linq;
 using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;

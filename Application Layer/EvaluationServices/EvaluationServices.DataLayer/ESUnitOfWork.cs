@@ -46,9 +46,9 @@ namespace EvaluationServices.DataLayer
             GC.SuppressFinalize(this);
         }
 
-        public void Save()
+        public int SaveChanges()
         {
-            evaluationContext.SaveChanges();
+            return evaluationContext.SaveChanges();
         }
     }
 }

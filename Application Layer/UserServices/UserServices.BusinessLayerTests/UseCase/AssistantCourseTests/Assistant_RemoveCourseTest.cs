@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using OnlineServices.Common.RegistrationServices.TransferObject;
-using OnlineServices.Shared.RegistrationServices.Interface;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using RegistrationServices.BusinessLayer.UseCase;
 using System;
 using System.Collections.Generic;

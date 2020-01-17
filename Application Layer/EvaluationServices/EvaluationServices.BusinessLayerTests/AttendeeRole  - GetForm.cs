@@ -16,7 +16,7 @@ namespace EvaluationServices.BusinessLayerTests
         {
             //Arrange
             var moqUnitOfWork = new Mock<IESUnitOfWork>();
-            moqUnitOfWork.Setup(x => x.QuestionRepository.GetByID(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
+            moqUnitOfWork.Setup(x => x.QuestionRepository.GetById(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
 
             //var moqRepo = new Mock<IRepositoryTemp<FormQuestionTO, int>>();
             //moqRepo.Setup(x => x.GetByID(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
@@ -36,7 +36,7 @@ namespace EvaluationServices.BusinessLayerTests
         {
             //Arrange
             var moqUnitOfWork = new Mock<IESUnitOfWork>();
-            moqUnitOfWork.Setup(x => x.QuestionRepository.GetByID(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
+            moqUnitOfWork.Setup(x => x.QuestionRepository.GetById(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
             var moqUserService = new Mock<IUserServiceTemp>();
             moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => false);
 
@@ -55,7 +55,7 @@ namespace EvaluationServices.BusinessLayerTests
             var FormID = 1; //Forms inexistant
 
             var moqUnitOfWork = new Mock<IESUnitOfWork>();
-            moqUnitOfWork.Setup(x => x.QuestionRepository.GetByID(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
+            moqUnitOfWork.Setup(x => x.QuestionRepository.GetById(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
             var moqUserService = new Mock<IUserServiceTemp>();
             moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => true);
            

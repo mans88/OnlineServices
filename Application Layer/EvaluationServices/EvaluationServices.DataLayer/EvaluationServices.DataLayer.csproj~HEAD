@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
+    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
   </ItemGroup>
 
 </Project>

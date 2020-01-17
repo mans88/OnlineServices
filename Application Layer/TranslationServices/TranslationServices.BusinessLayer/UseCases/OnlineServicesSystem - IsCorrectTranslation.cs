@@ -8,7 +8,6 @@ using OnlineServices.Common.TranslationServices.Extensions;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 using System.Linq;
-using TranslationServices.DataLayer.ServiceAgents.Extensions;
 
 namespace TranslationServices.BusinessLayer.UseCases
 {

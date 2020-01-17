@@ -1,15 +1,13 @@
-﻿using System;
+﻿using AttendanceServices.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace OnlineServices.Common.EvaluationServices.Interfaces
 {
-    public interface IESUnitOfWork
+    public interface IESUnitOfWork : IUnitOfWork
     {
         IQuestionRepository QuestionRepository { get; }
         IResponseRepository ResponseRepository { get; }
-
-        void Dispose();
-        void Save();
     }
 }

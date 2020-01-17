@@ -29,7 +29,7 @@ namespace EvaluationServices.DataLayer
             return evaluationContext.FormResponse.Select(x => x.ToTransfertObject()).ToList();
         }
 
-        public FormResponseTO GetByID(int Id)
+        public FormResponseTO GetById(int Id)
         {
             return evaluationContext.FormResponse.FirstOrDefault(x => x.Id == Id).ToTransfertObject();
         }
@@ -49,7 +49,7 @@ namespace EvaluationServices.DataLayer
 
         public bool Remove(int Id)
         {
-            return Remove(GetByID(Id));
+            return Remove(GetById(Id));
         }
 
         public FormResponseTO Update(FormResponseTO Entity)

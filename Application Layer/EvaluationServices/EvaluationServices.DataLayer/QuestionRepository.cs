@@ -27,7 +27,7 @@ namespace EvaluationServices.DataLayer
             return evaluationContext.FormQuestion.Select(x => x.ToTransfertObject()).ToList();
         }
 
-        public FormQuestionTO GetByID(int Id) =>evaluationContext.FormQuestion.FirstOrDefault(x => x.Id == Id).ToTransfertObject();
+        public FormQuestionTO GetById(int Id) =>evaluationContext.FormQuestion.FirstOrDefault(x => x.Id == Id).ToTransfertObject();
         
 
         public bool Remove(FormQuestionTO entity)
@@ -45,7 +45,7 @@ namespace EvaluationServices.DataLayer
 
         public bool Remove(int Id)
         {
-            return Remove(GetByID(Id));
+            return Remove(GetById(Id));
         }
 
         public FormQuestionTO Update(FormQuestionTO Entity)

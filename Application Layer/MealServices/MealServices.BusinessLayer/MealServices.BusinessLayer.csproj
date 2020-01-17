@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2020.0117.0651.4</AssemblyVersion>
-    <FileVersion>2020.0117.0651.4</FileVersion>
+    <AssemblyVersion>2020.0117.2057.12</AssemblyVersion>
+    <FileVersion>2020.0117.2057.12</FileVersion>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
+    <ProjectReference Include="..\..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
     <ProjectReference Include="..\MealServices.DataLayer\MealServices.DataLayer.csproj" />
   </ItemGroup>
 

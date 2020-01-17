@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using OnlineServices.Common.Extensions;
 using RegistrationServices.BusinessLayer.Extensions;
-using OnlineServices.Shared.RegistrationServices.Interface;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using System.Linq;
-using OnlineServices.Shared.RegistrationServices;
+using OnlineServices.Common.RegistrationServices;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using OnlineServices.Common.Exceptions;
 

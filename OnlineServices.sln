@@ -18,27 +18,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS - MealServices", "MS - MealServices", "{52DCD7F9-F2C0-45AA-A2BA-870AE47B87A3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.BusinessLayer", "MealServices\MealServices.BusinessLayer\MealServices.BusinessLayer.csproj", "{646F687F-4B2E-43B2-AEA2-E59250724110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.BusinessLayer", "Application Layer\MealServices\MealServices.BusinessLayer\MealServices.BusinessLayer.csproj", "{646F687F-4B2E-43B2-AEA2-E59250724110}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.BusinessLayerTests", "MealServices\MealServices.BusinessLayerTests\MealServices.BusinessLayerTests.csproj", "{899EE2C4-D8F5-4121-9477-FD57F3FC0241}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.BusinessLayerTests", "Application Layer\MealServices\MealServices.BusinessLayerTests\MealServices.BusinessLayerTests.csproj", "{899EE2C4-D8F5-4121-9477-FD57F3FC0241}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.DataLayer", "MealServices\MealServices.DataLayer\MealServices.DataLayer.csproj", "{C123D674-444E-4C48-B45B-2D4B9B261576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.DataLayer", "Application Layer\MealServices\MealServices.DataLayer\MealServices.DataLayer.csproj", "{C123D674-444E-4C48-B45B-2D4B9B261576}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.DataLayerTests", "MealServices\MealServices.DataLayerTests\MealServices.DataLayerTests.csproj", "{89F56160-267F-45FE-AB27-C92D3A868B85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MealServices.DataLayerTests", "Application Layer\MealServices\MealServices.DataLayerTests\MealServices.DataLayerTests.csproj", "{89F56160-267F-45FE-AB27-C92D3A868B85}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FS - FacilityServices", "FS - FacilityServices", "{0DDEE60A-8AE3-4255-9B3F-837F62049D4A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.BusinessLayer", "FacilityServices\FacilityServices.BusinessLayer\FacilityServices.BusinessLayer.csproj", "{9DC18D8C-D979-4680-84FE-D6FB55BC7C63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.BusinessLayer", "Application Layer\FacilityServices\FacilityServices.BusinessLayer\FacilityServices.BusinessLayer.csproj", "{9DC18D8C-D979-4680-84FE-D6FB55BC7C63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Business Logic Layer", "{135D23C0-EC8E-45B5-8E48-D98B14A0F17E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.BusinessLayerTests", "FacilityServices\FacilityServices.BusinessLayerTests\FacilityServices.BusinessLayerTests.csproj", "{D1AD10B5-310D-4877-ACC1-AF636E809D4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.BusinessLayerTests", "Application Layer\FacilityServices\FacilityServices.BusinessLayerTests\FacilityServices.BusinessLayerTests.csproj", "{D1AD10B5-310D-4877-ACC1-AF636E809D4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{AEA097D8-4641-4D2E-919B-17DF2BE64BA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.DataLayer", "FacilityServices\FacilityServices.DataLayer\FacilityServices.DataLayer.csproj", "{3823F515-D90E-4F40-95F3-F62F5F61F225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.DataLayer", "Application Layer\FacilityServices\FacilityServices.DataLayer\FacilityServices.DataLayer.csproj", "{3823F515-D90E-4F40-95F3-F62F5F61F225}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.DataLayerTests", "FacilityServices\FacilityServices.DataLayerTests\FacilityServices.DataLayerTests.csproj", "{6B2475E4-C154-4A6B-A6F6-A1FE588929A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacilityServices.DataLayerTests", "Application Layer\FacilityServices\FacilityServices.DataLayerTests\FacilityServices.DataLayerTests.csproj", "{6B2475E4-C154-4A6B-A6F6-A1FE588929A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RS - RegistrationServices", "RS - RegistrationServices", "{57DF89CB-51CE-4D34-B274-403296A15202}"
 EndProject
@@ -52,17 +52,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Bus
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{5262E2A9-74C4-4C79-AB22-E07EF57E5DA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.DataLayer", "TrainingServices\TrainingServices.DataLayer\TrainingServices.DataLayer.csproj", "{8D9781AB-6F5C-4573-B65B-BC5A146D7C8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.DataLayer", "Application Layer\TrainingServices\TrainingServices.DataLayer\TrainingServices.DataLayer.csproj", "{8D9781AB-6F5C-4573-B65B-BC5A146D7C8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.DataLayerTests", "TrainingServices\TrainingServices.DataLayerTests\TrainingServices.DataLayerTests.csproj", "{0784B380-C2E0-4CE1-B5D1-3C0C225A50ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.DataLayerTests", "Application Layer\TrainingServices\TrainingServices.DataLayerTests\TrainingServices.DataLayerTests.csproj", "{0784B380-C2E0-4CE1-B5D1-3C0C225A50ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.BusinessLayer", "TrainingServices\TrainingServices.BusinessLayer\TrainingServices.BusinessLayer.csproj", "{2D6CE2EA-EEB3-4006-8908-EE6321661BA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.BusinessLayer", "Application Layer\TrainingServices\TrainingServices.BusinessLayer\TrainingServices.BusinessLayer.csproj", "{2D6CE2EA-EEB3-4006-8908-EE6321661BA7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.BusinessLayerTests", "TrainingServices\TrainingServices.BusinessLayerTests\TrainingServices.BusinessLayerTests.csproj", "{0F68457F-F05B-44B5-A8EB-52267169D674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingServices.BusinessLayerTests", "Application Layer\TrainingServices\TrainingServices.BusinessLayerTests\TrainingServices.BusinessLayerTests.csproj", "{0F68457F-F05B-44B5-A8EB-52267169D674}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.Common", "Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj", "{1BB17343-744F-42B0-9992-225D5084CE18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.Common", "Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj", "{1BB17343-744F-42B0-9992-225D5084CE18}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.CommonTests", "Cross-Cutting\OnlineServices.SharedTests\OnlineServices.CommonTests.csproj", "{FC9E9F7E-64D7-4A1E-A972-C5EC3AAED045}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.CommonTests", "Cross-Cutting\OnlineServices.CommonTests\OnlineServices.CommonTests.csproj", "{FC9E9F7E-64D7-4A1E-A972-C5EC3AAED045}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Layer", "Application Layer", "{22EB011A-39E4-41C2-898A-9BF918F8919C}"
 EndProject
@@ -70,15 +70,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross-Cutting", "Cross-Cutt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TRS - TranslationServices", "TRS - TranslationServices", "{EE373944-A59F-4560-B9EE-E790823E1CED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.BusinessLayer", "TranslationServices\TranslationServices.BusinessLayer\TranslationServices.BusinessLayer.csproj", "{919A3A33-86AA-4E75-9DD1-10CBFCF4DAA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.BusinessLayer", "Application Layer\TranslationServices\TranslationServices.BusinessLayer\TranslationServices.BusinessLayer.csproj", "{919A3A33-86AA-4E75-9DD1-10CBFCF4DAA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.BusinessLayerTests", "TranslationServices\TranslationServices.BusinessLayerTests\TranslationServices.BusinessLayerTests.csproj", "{52BB4F02-61BD-4EEB-A371-5A7A56C97FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.BusinessLayerTests", "Application Layer\TranslationServices\TranslationServices.BusinessLayerTests\TranslationServices.BusinessLayerTests.csproj", "{52BB4F02-61BD-4EEB-A371-5A7A56C97FB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Business Logic Layer", "{E26FEFE7-7888-4974-8CB9-243226215EC2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.DataLayer.ServiceAgents", "TranslationServices\TranslationServices.DataLayer.ServiceAgents\TranslationServices.DataLayer.ServiceAgents.csproj", "{272E2FAE-0206-4BC9-8E3F-A4DD6B7811B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.DataLayer.ServiceAgents", "Application Layer\TranslationServices\TranslationServices.DataLayer.ServiceAgents\TranslationServices.DataLayer.ServiceAgents.csproj", "{272E2FAE-0206-4BC9-8E3F-A4DD6B7811B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.DataLayer.ServiceAgentsTests", "TranslationServices\TranslationServices.DataLayer.ServiceAgentsTests\TranslationServices.DataLayer.ServiceAgentsTests.csproj", "{EBC757B1-9F5E-4FCA-99D9-0B9C044B4EAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationServices.DataLayer.ServiceAgentsTests", "Application Layer\TranslationServices\TranslationServices.DataLayer.ServiceAgentsTests\TranslationServices.DataLayer.ServiceAgentsTests.csproj", "{EBC757B1-9F5E-4FCA-99D9-0B9C044B4EAB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{60FC7CBF-B28F-4F29-A9B4-A846A919004E}"
 EndProject
@@ -88,13 +88,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Bus
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{A864CBCF-EB40-4D99-99A6-EE3575C3A6BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.DataLayer", "EvaluationServices\EvaluationServices.DataLayer\EvaluationServices.DataLayer.csproj", "{9417427D-A880-426A-8221-4776DDC33BD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.DataLayer", "Application Layer\EvaluationServices\EvaluationServices.DataLayer\EvaluationServices.DataLayer.csproj", "{9417427D-A880-426A-8221-4776DDC33BD1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.DataLayerTests", "EvaluationServices\EvaluationServices.DataLayerTests\EvaluationServices.DataLayerTests.csproj", "{30DB3E98-7804-4D68-8E91-F8A5BE31E9D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.DataLayerTests", "Application Layer\EvaluationServices\EvaluationServices.DataLayerTests\EvaluationServices.DataLayerTests.csproj", "{30DB3E98-7804-4D68-8E91-F8A5BE31E9D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayer", "EvaluationServices\EvaluationServices.BusinessLayer\EvaluationServices.BusinessLayer.csproj", "{3BDCDED2-18CB-4A3A-B89D-9945E3E55F07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayer", "Application Layer\EvaluationServices\EvaluationServices.BusinessLayer\EvaluationServices.BusinessLayer.csproj", "{3BDCDED2-18CB-4A3A-B89D-9945E3E55F07}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayerTests", "EvaluationServices\EvaluationServices.BusinessLayerTests\EvaluationServices.BusinessLayerTests.csproj", "{2E7C16FB-842F-4313-8E50-519B95991C16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayerTests", "Application Layer\EvaluationServices\EvaluationServices.BusinessLayerTests\EvaluationServices.BusinessLayerTests.csproj", "{2E7C16FB-842F-4313-8E50-519B95991C16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CS - CommunicationServices", "CS - CommunicationServices", "{71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60}"
 EndProject
@@ -104,36 +104,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross-Cutting", "Cross-Cutt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{C55CAEA2-24E1-4B88-926F-99869AD6D1D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayer", "CommunicationServices.BusinessLayer\CommunicationServices.BusinessLayer.csproj", "{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayer", "Application Layer\CommunicationServices\CommunicationServices.BusinessLayer\CommunicationServices.BusinessLayer.csproj", "{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{7E89BA33-7DFF-462F-8A09-A7BFAEA687BC}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\Downloads\CommunicationServices.JPG = ..\..\..\Downloads\CommunicationServices.JPG
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayerTests", "CommunicationServices\CommunicationServices.BusinessLayerTests\CommunicationServices.BusinessLayerTests.csproj", "{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayerTests", "Application Layer\CommunicationServices\CommunicationServices.BusinessLayerTests\CommunicationServices.BusinessLayerTests.csproj", "{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.CrossCutting", "CommunicationServices\CommunicationServices.CrossCutting\CrossCutting\CommunicationServices.CrossCutting.csproj", "{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.CrossCutting", "Application Layer\CommunicationServices\CommunicationServices.CrossCutting\CrossCutting\CommunicationServices.CrossCutting.csproj", "{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.DataLayer", "UserServices\UserServices.DataLayer\RegistrationServices.DataLayer.csproj", "{728B97AD-707F-4B88-9D0E-03A02007D12B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.DataLayer", "Application Layer\UserServices\UserServices.DataLayer\RegistrationServices.DataLayer.csproj", "{728B97AD-707F-4B88-9D0E-03A02007D12B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.DataLayerTests", "UserServices\UserServices.DataLayerTests\RegistrationServices.DataLayerTests.csproj", "{B6BC076E-D019-44A4-9B58-6965CA71C257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.DataLayerTests", "Application Layer\UserServices\UserServices.DataLayerTests\RegistrationServices.DataLayerTests.csproj", "{B6BC076E-D019-44A4-9B58-6965CA71C257}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.BusinessLayer", "UserServices\UserServices.BusinessLayer\RegistrationServices.BusinessLayer.csproj", "{C697680E-3244-448A-B099-1F19B05226AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.BusinessLayer", "Application Layer\UserServices\UserServices.BusinessLayer\RegistrationServices.BusinessLayer.csproj", "{C697680E-3244-448A-B099-1F19B05226AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.BusinessLayerTests", "UserServices\UserServices.BusinessLayerTests\RegistrationServices.BusinessLayerTests.csproj", "{7EEA7D74-D150-40F0-86AE-97D09F2F8A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.BusinessLayerTests", "Application Layer\UserServices\UserServices.BusinessLayerTests\RegistrationServices.BusinessLayerTests.csproj", "{7EEA7D74-D150-40F0-86AE-97D09F2F8A55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AS - AttendanceServices", "AS - AttendanceServices", "{710F6C71-92D3-44F3-B6AF-19A0F8E5395A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.BusinessLayer", "AttendanceServices\AttendanceServices.BusinessLayer\AttendanceServices.BusinessLayer.csproj", "{C16F2E6C-1E89-4015-A85B-08F4829DA506}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.BusinessLayer", "Application Layer\AttendanceServices\AttendanceServices.BusinessLayer\AttendanceServices.BusinessLayer.csproj", "{C16F2E6C-1E89-4015-A85B-08F4829DA506}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.BusinessLayer.Tests", "AttendanceServices\AttendanceServices.BusinessLayer.Tests\AttendanceServices.BusinessLayer.Tests.csproj", "{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.BusinessLayer.Tests", "Application Layer\AttendanceServices\AttendanceServices.BusinessLayer.Tests\AttendanceServices.BusinessLayer.Tests.csproj", "{DC6CD09D-5D90-4D95-B7EF-6BBC7051C270}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.DataLayer", "AttendanceServices\AttendanceServices.DataLayer\AttendanceServices.DataLayer.csproj", "{01989B24-E4DD-4B3F-B357-DCD7790ECE31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.DataLayer", "Application Layer\AttendanceServices\AttendanceServices.DataLayer\AttendanceServices.DataLayer.csproj", "{01989B24-E4DD-4B3F-B357-DCD7790ECE31}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.DataLayer.Tests", "AttendanceServices\AttendanceServices.DataLayer.Tests\AttendanceServices.DataLayer.Tests.csproj", "{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceServices.DataLayer.Tests", "Application Layer\AttendanceServices\AttendanceServices.DataLayer.Tests\AttendanceServices.DataLayer.Tests.csproj", "{F33A0307-68CB-4D3E-8CCB-3AFE0E283215}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayer.Tests1", "EvaluationServices\EvaluationServices.BusinessLayer.Tests1\EvaluationServices.BusinessLayer.Tests1.csproj", "{6A2DD362-BB27-4365-88EC-87A3906DBB18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayer.Tests1", "Application Layer\EvaluationServices\EvaluationServices.BusinessLayer.Tests1\EvaluationServices.BusinessLayer.Tests1.csproj", "{6A2DD362-BB27-4365-88EC-87A3906DBB18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.WebUx.Mvc6", "Presentation Layer\OnlineServices.WebUx.Mvc6\OnlineServices.WebUx.Mvc6.csproj", "{149B413C-6CE4-4BD9-AE25-598F0D115735}"
 EndProject

@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2020.0117.0100.2</AssemblyVersion>
+    <AssemblyVersion>2020.0117.2032.6</AssemblyVersion>
 
-    <FileVersion>2020.0117.0100.2</FileVersion>
+    <FileVersion>2020.0117.2032.6</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +18,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AttendanceServices.DataLayer\AttendanceServices.DataLayer.csproj" />
   </ItemGroup>
 
 </Project>

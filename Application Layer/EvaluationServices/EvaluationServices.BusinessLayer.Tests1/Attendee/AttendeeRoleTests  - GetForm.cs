@@ -17,7 +17,7 @@ namespace EvaluationServices.BusinessLayerTests.Attendee
         {
             //Arrange
             var moqUnitOfWork = new Mock<IESUnitOfWork>();
-            moqUnitOfWork.Setup(x => x.QuestionRepository.GetByID(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
+            moqUnitOfWork.Setup(x => x.QuestionRepository.GetById(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
 
             var moqUserService = new Mock<IUserServiceTemp>();
             moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => true);
@@ -35,7 +35,7 @@ namespace EvaluationServices.BusinessLayerTests.Attendee
         {
             //Arrange
             var moqUnitOfWork = new Mock<IESUnitOfWork>();
-            moqUnitOfWork.Setup(x => x.QuestionRepository.GetByID(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
+            moqUnitOfWork.Setup(x => x.QuestionRepository.GetById(It.IsAny<int>())).Returns(() => default(FormQuestionTO));
             var moqUserService = new Mock<IUserServiceTemp>();
             moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => false);
 
@@ -58,7 +58,7 @@ namespace EvaluationServices.BusinessLayerTests.Attendee
 
             moqUnitOfWork.Setup(x => x.QuestionRepository.GetAll()).Returns(forms);
 
-            moqUnitOfWork.Setup(x => x.QuestionRepository.GetByID(It.IsAny<int>())).Returns(new FormQuestionTO { Id = 1 });
+            moqUnitOfWork.Setup(x => x.QuestionRepository.GetById(It.IsAny<int>())).Returns(new FormQuestionTO { Id = 1 });
 
             var moqUserService = new Mock<IUserServiceTemp>();
             moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(true);
@@ -72,7 +72,7 @@ namespace EvaluationServices.BusinessLayerTests.Attendee
             var FormToAssert = sut.GetFormById(SessionID, FormID);
 
             //ASSERT
-            moqUnitOfWork.Verify(u => u.QuestionRepository.GetByID(It.IsAny<int>()), Times.Once);
+            moqUnitOfWork.Verify(u => u.QuestionRepository.GetById(It.IsAny<int>()), Times.Once);
             Assert.AreEqual(FormID, FormToAssert.Id);
         }
     }

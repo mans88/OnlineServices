@@ -5,7 +5,6 @@ using System.Text;
 using RegistrationServices.BusinessLayer.UseCase;
 using Moq;
 using RegistrationServices.BusinessLayer;
-using OnlineServices.Shared.RegistrationServices.Interface;
 using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 

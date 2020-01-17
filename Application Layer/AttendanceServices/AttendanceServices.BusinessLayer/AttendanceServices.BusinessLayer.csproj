@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2020.0117.0100.3</AssemblyVersion>
-    <FileVersion>2020.0117.0100.3</FileVersion>
+    <AssemblyVersion>2020.0117.2032.7</AssemblyVersion>
+    <FileVersion>2020.0117.2032.7</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Shared\OnlineServices.Common.csproj" />
+    <ProjectReference Include="..\..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
     <ProjectReference Include="..\AttendanceServices.DataLayer\AttendanceServices.DataLayer.csproj" />
   </ItemGroup>
 
