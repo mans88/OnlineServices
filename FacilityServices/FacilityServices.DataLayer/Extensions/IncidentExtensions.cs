@@ -49,7 +49,7 @@ namespace FacilityServices.DataLayer.Extensions
                 throw new ArgumentNullException(nameof(DetachedEF));
 
             if (AttachedEF.Id != DetachedEF.Id)
-                throw new Exception("Cannot update ComponentEF entity as it is not the same.");
+                throw new Exception("Cannot update IncidentF entity as it is not the same.");
 
             if ((AttachedEF != default) && (DetachedEF != default))
             {

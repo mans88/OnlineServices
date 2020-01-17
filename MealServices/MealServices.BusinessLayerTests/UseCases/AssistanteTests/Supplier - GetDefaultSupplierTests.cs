@@ -53,7 +53,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
 
             //ACT
             var DefaultSupplier = Assistante.GetDefaultSupplier();
@@ -74,7 +74,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
 
             //ACT
             var DefaultSupplier = Assistante.GetDefaultSupplier();
@@ -94,7 +94,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
 
             //ACT & ASSERT
             var ExceptionToTest = Assert.ThrowsException<Exception>(() => Assistante.GetDefaultSupplier());
@@ -113,7 +113,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
 
             //ACT & ASSERT
             var ExceptionToTest = Assert.ThrowsException<Exception>(() => Assistante.GetDefaultSupplier());

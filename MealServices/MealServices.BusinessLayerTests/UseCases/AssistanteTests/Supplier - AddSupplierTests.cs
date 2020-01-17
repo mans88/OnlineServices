@@ -15,7 +15,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
         public void AddSupplier_ThrowException_WhenSupplierIDisDiferentOfZero()
         {
             //ARRANGE
-            var Assistante = new AssistantRole((new Mock<IMSUnitOfWork>()).Object);
+            var Assistante = new MSAssistantRole((new Mock<IMSUnitOfWork>()).Object);
             var SupplierToAdd = new SupplierTO { Id = 10, Name = "ExistantSupplier" };
 
             //ACT
@@ -28,7 +28,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
         public void AddSupplier_ThrowIsNullOrWhiteSpaceException_WhenSupplierNameISEmptyString()
         {
             //ARRANGE
-            var Assistante = new AssistantRole((new Mock<IMSUnitOfWork>()).Object);
+            var Assistante = new MSAssistantRole((new Mock<IMSUnitOfWork>()).Object);
             var SupplierToAdd = new SupplierTO { Id = 0, Name = "" };
 
             //ACT
@@ -42,7 +42,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
         public void AddSupplier_ThrowException_WhenSupplierIsNull()
         {
             //ARRANGE
-            var Assistante = new AssistantRole((new Mock<IMSUnitOfWork>()).Object);
+            var Assistante = new MSAssistantRole((new Mock<IMSUnitOfWork>()).Object);
 
             //ACT
             Assert.ThrowsException<ArgumentNullException>(() => Assistante.AddSupplier(null));
@@ -60,7 +60,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
             var SupplierToAdd = new SupplierTO { Id = 0, Name = "InexistantSupplier" };
 
             //ACT
@@ -79,7 +79,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
             var SupplierToAdd = new SupplierTO { Id = 0, Name = "InexistantSupplier" };
 
             //ACT
@@ -99,7 +99,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
             var SupplierToAdd = new SupplierTO { Id = 0, Name = "InexistantSupplier", IsDefault=true };
 
             //ACT

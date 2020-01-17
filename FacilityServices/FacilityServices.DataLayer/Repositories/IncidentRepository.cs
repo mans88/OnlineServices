@@ -23,8 +23,8 @@ namespace FacilityServices.DataLayer.Repositories
                 throw new ArgumentNullException(nameof(Entity));
 
             var incident = Entity.ToEF();
-            incident.Issue = facilityContext.Issues.First(x => x.Id == Entity.Issue.Id);
-            incident.Room = facilityContext.Rooms.First(x => x.Id == Entity.Room.Id);
+            incident.Issue = facilityContext.Issues.First(x => x.Id == Entity.Issue.Id && x.Archived != true);
+            incident.Room = facilityContext.Rooms.First(x => x.Id == Entity.Room.Id && x.Archived != true);
 
             return facilityContext.Incidents.Add(incident).Entity.ToTransfertObject();
         }

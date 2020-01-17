@@ -1,11 +1,10 @@
-﻿namespace OnlineServices.Common.MealServices.Interfaces
+﻿using AttendanceServices.DataLayer;
+
+namespace OnlineServices.Common.MealServices.Interfaces
 {
-    public interface IMSUnitOfWork
+    public interface IMSUnitOfWork : IUnitOfWork
     {
         IMealRepository MealRepository { get; }
         ISupplierRepository SupplierRepository { get; }
-
-        void Dispose();
-        void Save();
     }
 }

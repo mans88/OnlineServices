@@ -8,7 +8,7 @@ using System;
 
 namespace MealServices.DataLayer
 {
-    public class MSUnitOfWork : IDisposable, IMSUnitOfWork
+    public class MSUnitOfWork : IMSUnitOfWork
     {
         private readonly MealContext mealContext;
 
@@ -56,9 +56,9 @@ namespace MealServices.DataLayer
             GC.SuppressFinalize(this);
         }
 
-        public void Save()
+        public int SaveChanges()
         {
-            mealContext.SaveChanges();
+            return mealContext.SaveChanges();
         }
     }
 }

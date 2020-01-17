@@ -5,6 +5,6 @@ namespace AttendanceServices.DataLayer
 {
     public interface IUnitOfWork : IDisposable
     {
-        bool SaveChanges();
+        int SaveChanges();
     }
 }

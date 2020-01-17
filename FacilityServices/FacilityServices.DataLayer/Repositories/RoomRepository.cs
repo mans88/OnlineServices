@@ -1,5 +1,4 @@
-﻿using FacilityServices.DataLayer.Entities;
-using FacilityServices.DataLayer.Extensions;
+﻿using FacilityServices.DataLayer.Extensions;
 using Microsoft.EntityFrameworkCore;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
@@ -24,9 +23,9 @@ namespace FacilityServices.DataLayer.Repositories
                 throw new ArgumentNullException(nameof(Entity));
 
             var roomEf = Entity.ToEF();
-            roomEf.Floor = facilityContext.Floors.First(x => x.Id == Entity.Floor.Id);
+            roomEf.Floor = facilityContext.Floors.First(x => x.Id == Entity.Floor.Id && x.Archived != true);
 
-            return facilityContext.Rooms.Add(roomEf).Entity.ToTransfertObject();        
+            return facilityContext.Rooms.Add(roomEf).Entity.ToTransfertObject();
         }
 
         public IEnumerable<RoomTO> GetAll()
@@ -34,6 +33,7 @@ namespace FacilityServices.DataLayer.Repositories
             return facilityContext.Rooms
                 .Include(r => r.Floor)
                 .Include(r => r.RoomComponents)
+                .Where(r => r.Archived != true)
                 .Select(r => r.ToTransfertObject());
         }
 
@@ -48,7 +48,7 @@ namespace FacilityServices.DataLayer.Repositories
                 .AsNoTracking()
                 .Include(r => r.Floor)
                 .Include(r => r.RoomComponents)
-                .FirstOrDefault(r => r.Id == Id).ToTransfertObject();
+                .FirstOrDefault(r => r.Id == Id && r.Archived != true).ToTransfertObject();
         }
 
         public List<RoomTO> GetRoomsByFloors(FloorTO Floor)
@@ -60,14 +60,14 @@ namespace FacilityServices.DataLayer.Repositories
 
             return facilityContext.Rooms
                                   .Include(r => r.Floor)
-                                  .Where(r => r.Floor.Id == Floor.Id)
+                                  .Where(r => r.Floor.Id == Floor.Id && r.Floor.Archived != true)
                                   .Select(r => r.ToTransfertObject())
                                   .ToList();
         }
 
         public bool Remove(RoomTO entity)
         {
-            if (!facilityContext.Rooms.Any(x => x.Id == entity.Id))
+            if (!facilityContext.Rooms.Any(x => x.Id == entity.Id && x.Archived != true))
             {
                 throw new KeyNotFoundException("No room found !");
             }
@@ -78,8 +78,9 @@ namespace FacilityServices.DataLayer.Repositories
             }
 
             var entityEF = facilityContext.Rooms.Find(entity.Id);
-            var tracking = facilityContext.Rooms.Remove(entityEF);
-            return tracking.State == EntityState.Deleted;
+            entityEF.Archived = true;
+            var tracking = facilityContext.Rooms.Update(entityEF);
+            return tracking.Entity.Archived;
         }
 
         public bool Remove(int Id)
@@ -99,7 +100,7 @@ namespace FacilityServices.DataLayer.Repositories
                 throw new ArgumentNullException(nameof(Entity));
             }
 
-            var attachedRoom = facilityContext.Rooms.FirstOrDefault(x => x.Id == Entity.Id);
+            var attachedRoom = facilityContext.Rooms.FirstOrDefault(x => x.Id == Entity.Id && x.Archived != true);
 
             if (attachedRoom != default)
             {

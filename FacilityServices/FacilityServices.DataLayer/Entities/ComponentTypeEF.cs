@@ -16,6 +16,5 @@ namespace FacilityServices.DataLayer.Entities
         public string NameEnglish { get; set; }
         public string NameDutch { get; set; }
         public IList<RoomComponentEF> RoomComponents { get; set; }
-        // public List<IssueEF> Issues { get; set; }
     }
 }

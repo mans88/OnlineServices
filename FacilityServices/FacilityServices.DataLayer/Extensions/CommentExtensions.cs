@@ -35,5 +35,27 @@ namespace FacilityServices.DataLayer.Extensions
                 UserId = comment.UserId,
             };
         }
+
+        public static CommentEF UpdateFromDetached(this CommentEF attachedEF, CommentEF detachedEF)
+        {
+            if (attachedEF is null)
+                throw new ArgumentNullException(nameof(attachedEF));
+
+            if (detachedEF is null)
+                throw new ArgumentNullException(nameof(detachedEF));
+
+            if (attachedEF.Id != detachedEF.Id)
+                throw new Exception("Cannot update CommentEF entity as it is not the same.");
+
+            if ((attachedEF != default) && (detachedEF != default))
+            {
+                attachedEF.Incident = detachedEF.Incident;
+                attachedEF.Message = detachedEF.Message;
+                attachedEF.SubmitDate = detachedEF.SubmitDate;
+                attachedEF.UserId = detachedEF.UserId;
+            }
+
+            return attachedEF;
+        }
     }
 }

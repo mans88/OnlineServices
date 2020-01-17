@@ -13,7 +13,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
     public class Attendee_GetRoomsTests
     {
         [TestMethod]
-        public void GetRooms_AddThreeRooms_ThenRetrieveThem_ReturnCorrectNumberOfRmoms()
+        public void GetRooms_AddThreeRooms_ThenRetrieveThem_ReturnCorrectNumberOfRooms()
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();

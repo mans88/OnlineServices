@@ -1,5 +1,4 @@
-﻿using FacilityServices.DataLayer.Entities;
-using FacilityServices.DataLayer.Extensions;
+﻿using FacilityServices.DataLayer.Extensions;
 using Microsoft.EntityFrameworkCore;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
@@ -39,6 +38,7 @@ namespace FacilityServices.DataLayer.Repositories
         public IEnumerable<FloorTO> GetAll()
         => facilityContext.Floors
             .AsNoTracking()
+            .Where(f => f.Archived != true)
             .Select(x => x.ToTransfertObject())
             .ToList();
 
@@ -46,7 +46,7 @@ namespace FacilityServices.DataLayer.Repositories
         {
             return facilityContext.Floors
             .AsNoTracking()
-            .FirstOrDefault(x => x.Id == Id)
+            .FirstOrDefault(x => x.Id == Id && x.Archived != true)
             .ToTransfertObject();
         }
 
@@ -56,35 +56,33 @@ namespace FacilityServices.DataLayer.Repositories
 
         public bool Remove(int Id)
         {
-            if (!facilityContext.Floors.Any(x => x.Id == Id))
+            if (!facilityContext.Floors.Any(x => x.Id == Id && x.Archived != true))
                 throw new Exception($"FloorRepository. Delete(FloorId = {Id}) no record to delete.");
 
-            var ReturnValue = false;
-
-            var floor = facilityContext.Floors.FirstOrDefault(x => x.Id == Id);
+            var floor = facilityContext.Floors.FirstOrDefault(x => x.Id == Id && x.Archived != true);
             if (floor != default)
             {
                 try
                 {
-                    facilityContext.Floors.Remove(floor);
-                    ReturnValue = true;
+                    floor.Archived = true;
+                    return facilityContext.Floors.Update(floor).Entity.Archived;
                 }
                 catch (Exception)
                 {
-                    ReturnValue = false;
+                    return false;
                 }
             }
 
-            return ReturnValue;
+            return false;
         }
 
         public FloorTO Update(FloorTO Entity)
         {
-            if (!facilityContext.Floors.Any(x => x.Id == Entity.Id))
+            if (!facilityContext.Floors.Any(x => x.Id == Entity.Id && x.Archived != true))
                 throw new Exception($"FloorRepository. Update(FloorTransfertObject) no record to update.");
 
             var attachedFloors = facilityContext.Floors
-                .FirstOrDefault(x => x.Id == Entity.Id);
+                .FirstOrDefault(x => x.Id == Entity.Id && x.Archived != true);
 
             if (attachedFloors != default)
             {

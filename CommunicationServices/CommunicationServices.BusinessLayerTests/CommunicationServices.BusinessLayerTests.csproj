@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.15.7.1732</AssemblyVersion>
+    <AssemblyVersion>2020.0117.0100.3</AssemblyVersion>
 
-    <FileVersion>2001.15.7.1732</FileVersion>
+    <FileVersion>2020.0117.0100.3</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
