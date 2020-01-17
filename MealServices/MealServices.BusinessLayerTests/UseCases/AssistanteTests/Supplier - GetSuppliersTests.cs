@@ -31,7 +31,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
 
             //ACT
             var suppliers = Assistante.GetSuppliers();
@@ -50,7 +50,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
             var mockUoW = new Mock<IMSUnitOfWork>();
             mockUoW.Setup(x => x.SupplierRepository).Returns(mockSupplierRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new MSAssistantRole(mockUoW.Object);
 
             //ACT
             Assistante.GetSuppliers();

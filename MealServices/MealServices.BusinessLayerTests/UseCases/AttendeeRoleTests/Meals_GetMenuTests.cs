@@ -32,7 +32,7 @@ namespace MealServices.BusinessLayer.UseCases.AttendeeRoleTests
             unitOfWorkMock.Setup(x => x.SupplierRepository).Returns(fakeSupplierRepo.Object);
 
             //ACT
-            var participant = new AttendeeRole(unitOfWorkMock.Object);
+            var participant = new MSAttendeeRole(unitOfWorkMock.Object);
             var listMenu = participant.GetMenu();
 
             //ASSERT
@@ -56,7 +56,7 @@ namespace MealServices.BusinessLayer.UseCases.AttendeeRoleTests
             unitOfWorkMock.Setup(x => x.SupplierRepository).Returns(fakeSupplierRepo.Object);
 
             //ACT
-            var participant = new AttendeeRole(unitOfWorkMock.Object);
+            var participant = new MSAttendeeRole(unitOfWorkMock.Object);
             var listMenu = participant.GetMenu();
 
             //ASSERT
@@ -86,7 +86,7 @@ namespace MealServices.BusinessLayer.UseCases.AttendeeRoleTests
             unitOfWorkMock.Setup(x => x.SupplierRepository).Returns(fakeSupplierRepo.Object);
 
             //ACT
-            var participant = new AttendeeRole(unitOfWorkMock.Object);
+            var participant = new MSAttendeeRole(unitOfWorkMock.Object);
             var listMenu = participant.GetMenu();
 
             //ASSERT
@@ -116,7 +116,7 @@ namespace MealServices.BusinessLayer.UseCases.AttendeeRoleTests
             unitOfWorkMock.Setup(x => x.SupplierRepository).Returns(fakeSupplierRepo.Object);
 
             //ACT
-            var participant = new AttendeeRole(unitOfWorkMock.Object);
+            var participant = new MSAttendeeRole(unitOfWorkMock.Object);
             var listMenu = participant.GetMenu();
 
             //ASSERT

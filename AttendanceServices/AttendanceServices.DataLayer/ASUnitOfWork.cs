@@ -51,10 +51,9 @@ namespace AttendanceServices.DataLayer
             GC.SuppressFinalize(this);
         }
 
-        public bool SaveChanges()
+        public int SaveChanges()
         {
-            attendanceContext.SaveChanges();
-            return true;
+            return attendanceContext.SaveChanges();
         }
     }
 }
