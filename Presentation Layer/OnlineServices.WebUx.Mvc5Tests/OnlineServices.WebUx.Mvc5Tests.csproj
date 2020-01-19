@@ -16,7 +16,7 @@
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <AssemblyVersion>2020.0117.2129.5</AssemblyVersion>
+    <AssemblyVersion>2020.0119.0432.6</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineServices.WebUx.Mvc5\OnlineServices.WebUx.Mvc5.csproj">
-      <Project>{af4a3ba3-a5bd-4276-8a5c-8a334a93c202}</Project>
+      <Project>{2452a61f-68b1-4750-ab52-7f1930d00d69}</Project>
       <Name>OnlineServices.WebUx.Mvc5</Name>
     </ProjectReference>
   </ItemGroup>
