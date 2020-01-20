@@ -1,11 +1,12 @@
 ﻿using OnlineServices.Common.DataAccessHelpers;
 using OnlineServices.Common.RegistrationServices.Enumerations;
-
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace OnlineServices.Common.RegistrationServices.TransferObject
+namespace RegistrationServices.BusinessLayer.Domain
 {
-    public class SessionDayTO : IEntity<int>
+    public class SessionDay : IEntity<int>
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
