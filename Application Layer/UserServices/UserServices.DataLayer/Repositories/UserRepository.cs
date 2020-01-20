@@ -9,11 +9,11 @@ using RegistrationServices.DataLayer.Extensions;
 
 namespace RegistrationServices.DataLayer.Repositories
 {
-    //public class UserRepository : IRepository<UserTO, int>
+
+    //public class UserRepository : IRepository<UserTO, int> 
     public class UserRepository : IRSUserRepository
     {
         private readonly RegistrationServicesContext userContext;
-
         public UserRepository(RegistrationServicesContext Context)
         {
             userContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
@@ -27,14 +27,20 @@ namespace RegistrationServices.DataLayer.Repositories
         public IEnumerable<UserTO> GetAll()
         => userContext.Users
             .AsNoTracking()
-            .Include(x => x.UserSessions)
+            .Include(x => x.Role)
+            .Include(x => x.Name)
+            .Include(x => x.Email)
+            .Include(x => x.Company)
             .Select(x => x.ToTransfertObject())
             .ToList();
 
         public UserTO GetById(int Id)
         => userContext.Users
                 .AsNoTracking()
-                .Include(x => x.UserSessions)
+                .Include(x => x.Role)
+                .Include(x => x.Name)
+                .Include(x => x.Email)
+                .Include(x => x.Company)
                 .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
 
         public IEnumerable<UserTO> GetByRole(UserRole role)
@@ -50,10 +56,7 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public IEnumerable<UserTO> GetBySession(SessionTO session)
         {
-            return userContext.UserSessions
-                .Where(x => x.SessionId == session.Id)
-                .Select(x => x.User.ToTransfertObject())
-                .ToList();
+            throw new NotImplementedException();
         }
 
         public IEnumerable<SessionTO> GetSessions(UserTO user)
@@ -96,7 +99,7 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public UserTO Update(UserTO Entity)
         {
-            if (!userContext.Users.Any(x => x.Id == Entity.Id))
+            if (!userContext.Users.Any(x=>x.Id == Entity.Id))
             {
                 throw new Exception($"Can't find user to update. UserRepository");
             }

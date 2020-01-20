@@ -16,7 +16,7 @@ namespace RegistrationServices.DataLayer.Extensions
                 Id = session.Id,
                 Teacher = session.Teacher?.ToTransfertObject(),
                 Course = session.Course.ToTransfertObject(),
-                Dates = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
+                Dates = session.Dates,
                 //Attendees = session.UserSessions.Select(x => x.User.ToTransfertObject()).ToList()
 
                 Attendees = session.UserSessions
@@ -37,7 +37,7 @@ namespace RegistrationServices.DataLayer.Extensions
                 Id = session.Id,
                 Teacher = session?.Teacher.ToEF(),
                 Course = session.Course.ToEF(),
-                Dates = session.Dates.Select(x => x.ToEF()).ToList()
+                Dates = session.Dates
             };
 
             result.UserSessions = new List<UserSessionEF>();
