@@ -1,4 +1,6 @@
-﻿using OnlineServices.Common.EvaluationServices.Interfaces;
+﻿using EvaluationServices.DataLayer.Repositories;
+using OnlineServices.Common.EvaluationServices.Interfaces;
+using OnlineServices.Common.EvaluationServices.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,18 +11,19 @@ namespace EvaluationServices.DataLayer
     {
         private readonly EvaluationContext evaluationContext;
 
-
-
         public ESUnitOfWork(EvaluationContext evaluationContext)
         {
             this.evaluationContext = evaluationContext ?? throw new ArgumentNullException(nameof(evaluationContext));
         }
 
-
         private bool disposed = false;
 
         private IQuestionRepository questionRepository;
         public IQuestionRepository QuestionRepository => questionRepository = new QuestionRepository(evaluationContext);
+
+        private IQuestionPropositionRepository questionPropositionRepository;
+        public IQuestionPropositionRepository QuestionPropositionRepository
+            => questionPropositionRepository = new QuestionPropositionRepository(evaluationContext);
 
         private IResponseRepository responseRepository;
         public IResponseRepository ResponseRepository => responseRepository = new ResponseRepository(evaluationContext);
@@ -37,8 +40,6 @@ namespace EvaluationServices.DataLayer
             }
             disposed = true;
         }
-
-
 
         public void Dispose()
         {
