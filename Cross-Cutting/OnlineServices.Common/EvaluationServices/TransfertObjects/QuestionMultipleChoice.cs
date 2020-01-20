@@ -2,7 +2,7 @@
 
 namespace OnlineServices.Common.EvaluationServices.TransfertObjects
 {
-    public class QuestionMultipleChoice : QuestionsTO
+    public class QuestionMultipleChoice : QuestionTO
     {
         public bool IsMultipleChoice { get; set; }
         public Dictionary<int, string> Choices { get; set; }
