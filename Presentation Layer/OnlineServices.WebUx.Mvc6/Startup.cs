@@ -2,17 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MealServices.BusinessLayer.UseCases;
-using MealServices.DataLayer;
-using MealServices.DataLayer.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnlineServices.Common.MealServices;
-using OnlineServices.Common.MealServices.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace OnlineServices.WebUx.Mvc6
 {
@@ -29,10 +25,14 @@ namespace OnlineServices.WebUx.Mvc6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // MustKnow Logging Step 1: Log configuration avec SERILOG
+            services.AddLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        // MustKnow Logging Step 2: Add ILoggerFactory à la liste de parametres pour configure SERILOG
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
