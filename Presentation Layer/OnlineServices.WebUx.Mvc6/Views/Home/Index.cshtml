@@ -1,8 +1,67 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Start Now!";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Header -->
+<header class="masthead d-flex">
+    <div class="container text-center my-auto">
+        <h1 class="mb-1 text-primary">[Centre de Formation]</h1>
+        <h3 class="mb-5 text-black-50">
+            <em>Engaging your learning experience!</em>
+        </h3>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Start Now!</a>
+    </div>
+    <div class="overlay"></div>
+</header>
+
+<!-- Services -->
+<section class="content-section bg-primary text-white text-center" id="services">
+    <div class="container">
+        <div class="content-section-heading">
+            <h3 class="text-secondary mb-0">Online Services</h3>
+            <h2 class="mb-5">Our Cloud Presence</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                <a href="/Lunch/index/1A3247D5-06BA-43F9-A380-F7538ED72F15" class="service-icon rounded-circle mx-auto mb-3">
+                    <i class="icon-bag"></i>
+                </a>
+                <h4>
+                    <strong>Lunch</strong>
+                </h4>
+                <p class="text-faded mb-0">Looks great on any table size!</p>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                <a href="/building" class="service-icon rounded-circle mx-auto mb-3">
+                    <i class="icon-pencil"></i>
+                </a>
+                <h4>
+                    <strong>Building</strong>
+                </h4>
+                <p class="text-faded mb-0">Did you noticed a building disruptancy?</p>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+                <a href="/assessment" class="service-icon rounded-circle mx-auto mb-3">
+                    <i class="icon-like"></i>
+                </a>
+                <h4>
+                    <strong>Assessment</strong>
+                </h4>
+                <p class="text-faded mb-0">
+                    Millions of users
+                    <i class="fas fa-heart"></i>
+                    voices!
+                </p>
+            </div>
+            @*<div class="col-lg-3 col-md-6">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="icon-mustache"></i>
+                    </span>
+                    <h4>
+                        <strong>Question</strong>
+                    </h4>
+                    <p class="text-faded mb-0">I mustache you a question...</p>
+                </div>*@
+        </div>
+    </div>
+</section>

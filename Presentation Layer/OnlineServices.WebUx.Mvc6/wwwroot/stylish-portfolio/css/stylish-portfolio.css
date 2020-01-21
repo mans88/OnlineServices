@@ -73,7 +73,7 @@ h6 {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-masthead.jpg");
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("/stylish-portfolio/img/bg-masthead.jpg"); /* url("../img/bg-masthead.jpg");*/
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -178,11 +178,12 @@ h6 {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1); }
 
 .callout {
-  padding: 15rem 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-callout.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover; }
+    padding: 15rem 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("/stylish-portfolio/img/bg-callout.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
   .callout h2 {
     font-size: 3.5rem;
     font-weight: 700;
