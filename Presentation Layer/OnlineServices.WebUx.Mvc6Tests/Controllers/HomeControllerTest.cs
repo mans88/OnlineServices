@@ -27,7 +27,7 @@ namespace OnlineServices.WebUx.Mvc6Tests.Controllers
             HomeController controller = new HomeController(mockILogger.Object);
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            var result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
@@ -41,10 +41,10 @@ namespace OnlineServices.WebUx.Mvc6Tests.Controllers
             HomeController controller = new HomeController(mockILogger.Object);
 
             // Act
-            IActionResult result = controller.Privacy() as ViewResult;
+            var result = controller.Privacy() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Your application description page.", result.ViewData["Message"]);
         }
 
         [TestMethod]
