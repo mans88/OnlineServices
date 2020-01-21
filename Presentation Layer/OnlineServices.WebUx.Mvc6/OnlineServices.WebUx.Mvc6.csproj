@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.21.30.1456</AssemblyVersion>
-    <FileVersion>2001.21.30.1456</FileVersion>
+    <AssemblyVersion>2001.21.39.1638</AssemblyVersion>
+    <FileVersion>2001.21.39.1638</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,11 +27,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
+    <Folder Include="Areas\Assessments\Controllers\" />
+    <Folder Include="Areas\Assessments\Data\" />
+    <Folder Include="Areas\Assessments\Models\" />
+    <Folder Include="Areas\Attendances\Controllers\" />
+    <Folder Include="Areas\Attendances\Data\" />
+    <Folder Include="Areas\Attendances\Models\" />
+    <Folder Include="Areas\Facilities\Controllers\" />
+    <Folder Include="Areas\Facilities\Data\" />
+    <Folder Include="Areas\Facilities\Models\" />
     <Folder Include="Areas\Meals\Controllers\" />
     <Folder Include="Areas\Meals\Data\" />
     <Folder Include="Areas\Meals\Models\" />
-    <Folder Include="Areas\Meals\Views\" />
+    <Folder Include="Areas\Registration\Controllers\" />
+    <Folder Include="Areas\Registration\Data\" />
+    <Folder Include="Areas\Registration\Models\" />
+    <Folder Include="Areas\Registration\Views\" />
   </ItemGroup>
 
 </Project>
