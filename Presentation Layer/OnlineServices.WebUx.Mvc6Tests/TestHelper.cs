@@ -11,8 +11,8 @@ namespace OnlineServices.WebUx.Mvc6Tests
     {
         public static Mock<ILogger<HomeController>> MockILogger()
         {
-            ILogger a;
-            a.
+            // REVIEW ILogger a;
+
             var mockILogger = new Mock<ILogger<HomeController>>();
 
             mockILogger.Setup(x => x.LogError(It.IsAny<string>()));

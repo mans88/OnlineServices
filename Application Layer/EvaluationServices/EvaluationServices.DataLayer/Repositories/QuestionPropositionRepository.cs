@@ -44,7 +44,7 @@ namespace EvaluationServices.DataLayer.Repositories
 		public QuestionPropositionTO Update(QuestionPropositionTO Entity)
 		{
 			var toUpdate = evaluationContext.QuestionProposition.FirstOrDefault(q => q.Id == Entity.Id);
-
+			return null;
 		}
 	}
 }

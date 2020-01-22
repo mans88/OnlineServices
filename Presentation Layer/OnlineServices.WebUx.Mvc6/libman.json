@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "simple-line-icons@2.4.1",
+      "destination": "wwwroot/stylish-portfolio/lib/simple-line-icons/"
+    },
+    {
+      "library": "font-awesome@5.11.2",
+      "destination": "wwwroot/stylish-portfolio/lib/font-awesome/"
+    },
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/stylish-portfolio/lib/jquery/"
+    },
+    {
+      "library": "jquery-easing@1.4.1",
+      "destination": "wwwroot/stylish-portfolio/lib/jquery-easing/"
+    },
+    {
+      "library": "twitter-bootstrap@4.4.1",
+      "destination": "wwwroot/stylish-portfolio/lib/twitter-bootstrap/"
+    }
+  ]
+}

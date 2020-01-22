@@ -143,6 +143,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.WebUx.Mvc5Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.WebUx.Mvc5", "Presentation Layer\OnlineServices.WebUx.Mvc5\OnlineServices.WebUx.Mvc5.csproj", "{2452A61F-68B1-4750-AB52-7F1930D00D69}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "stylish-portfolio-master-template", "Presentation Layer\stylish-portfolio-master-template\", "{B8F51E2D-465F-4423-9A49-D85E8470379D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1329"
+		Debug.AspNetCompiler.PhysicalPath = "Presentation Layer\stylish-portfolio-master-template\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1329\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1329"
+		Release.AspNetCompiler.PhysicalPath = "Presentation Layer\stylish-portfolio-master-template\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1329\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1329"
+		SlnRelativePath = "Presentation Layer\stylish-portfolio-master-template\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -301,6 +322,10 @@ Global
 		{2452A61F-68B1-4750-AB52-7F1930D00D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2452A61F-68B1-4750-AB52-7F1930D00D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2452A61F-68B1-4750-AB52-7F1930D00D69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -368,6 +393,7 @@ Global
 		{4C5808B1-2FC2-4675-B563-10DFFA59D943} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 		{81ACBE36-ABC5-48DB-ADE6-0A853AB7C3D3} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 		{2452A61F-68B1-4750-AB52-7F1930D00D69} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
+		{B8F51E2D-465F-4423-9A49-D85E8470379D} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C170EEE5-52F4-4C78-ABDF-890E97482E62}

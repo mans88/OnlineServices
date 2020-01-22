@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <title>@ViewData["Title"] - Stylish Portfolio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/stylish-portfolio/lib/twitter-bootstrap/css/bootstrap.min.css" />
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="~/stylish-portfolio/lib/font-awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="~/stylish-portfolio/lib/simple-line-icons/css/simple-line-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/stylish-portfolio/css/stylish-portfolio.css">
+
+</head>
+<body id="page-top">
+    <partial name="_NavigationPartial.cshtml" />
+
+    @RenderBody()
+
+    <partial name="_FooterPartial.cshtml" />
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/stylish-portfolio/lib/jquery/jquery.min.js"></script>
+    <script src="~/stylish-portfolio/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/stylish-portfolio/lib/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/stylish-portfolio/js/stylish-portfolio.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
