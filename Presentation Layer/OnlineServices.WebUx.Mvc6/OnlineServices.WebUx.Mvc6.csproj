@@ -44,5 +44,4 @@
     <Folder Include="Areas\Registration\Models\" />
     <Folder Include="Areas\Registration\Views\" />
   </ItemGroup>
-
 </Project>
