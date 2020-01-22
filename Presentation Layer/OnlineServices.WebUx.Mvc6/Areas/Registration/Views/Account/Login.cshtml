@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    ViewData["Subtitle"] = "Login Form";
+}
+
+<link rel="stylesheet" href="~/Registration/css/login.css">
+
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="Validate" method="post" asp-controller="Account">
+                        @*<h3 class="text-center text-info">Login</h3>*@
+                        <div class="form-group">
+                            <label for="username" class="text-info">Username:</label><br>
+                            <input type="text" name="username" id="username" class="form-control" required="required" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="password" name="password" id="password" class="form-control" minlength="8" required="required" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" />
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <a href="#" class="text-info">Register here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}
+
+
+

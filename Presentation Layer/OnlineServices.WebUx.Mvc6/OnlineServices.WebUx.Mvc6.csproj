@@ -38,11 +38,8 @@
     <Folder Include="Areas\Meals\Controllers\" />
     <Folder Include="Areas\Meals\Data\" />
     <Folder Include="Areas\Meals\Models\" />
-    <Folder Include="Areas\Registration\Controllers\" />
     <Folder Include="Areas\Registration\Data\" />
     <Folder Include="Areas\Registration\Models\" />
-    <Folder Include="Areas\Registration\Views\" />
-    <Folder Include="wwwroot\Registration\" />
     <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 

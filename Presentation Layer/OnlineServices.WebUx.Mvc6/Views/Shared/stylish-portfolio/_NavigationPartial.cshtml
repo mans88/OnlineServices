@@ -4,9 +4,16 @@
 </a>
 <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
+
         <li class="sidebar-brand">
             @Html.ActionLink("Online Services", "Index", "Home", new { area = "" }, new { @class = "js-scroll-trigger" })
         </li>
+
+        <li class="sidebar-nav-item">
+            <a class="nav-link" asp-area="Registration" asp-controller="Account" asp-action="Login">LogIn</a>
+            <hr/>
+        </li>
+        
         <li class="sidebar-nav-item">
             <a class="nav-link" asp-area="Facilities" asp-controller="Incident" asp-action="Create">Incident Reporting</a>
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Disclaimer">Disclaimer</a>
@@ -26,6 +33,7 @@
         <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="#contact">Contact</a>
         </li>
+
         <li class="sidebar-nav-item">
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
         </li>
