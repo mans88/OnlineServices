@@ -4,6 +4,7 @@ using OnlineServices.Common.FacilityServices.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
+using System.Linq;
 
 namespace FacilityServices.DataLayer.Extensions
 {
@@ -19,6 +20,7 @@ namespace FacilityServices.DataLayer.Extensions
                 Id = componentType.Id,
                 Name = new MultiLanguageString(componentType.NameEnglish, componentType.NameFrench, componentType.NameDutch),
                 Archived = componentType.Archived,
+                
             };
         }
 
@@ -27,7 +29,7 @@ namespace FacilityServices.DataLayer.Extensions
             if (componentType is null)
                 throw new NullComponentTypeException(nameof(componentType));
 
-            return new ComponentTypeEF
+            var componentTypeEf = new ComponentTypeEF
             {
                 Id = componentType.Id,
                 NameEnglish = componentType.Name.English,
@@ -35,6 +37,9 @@ namespace FacilityServices.DataLayer.Extensions
                 NameDutch = componentType.Name.Dutch,
                 Archived = componentType.Archived,
             };
+
+           return componentTypeEf;
+            
         }
         public static ComponentTypeEF UpdateFromDetached(this ComponentTypeEF AttachedEF, ComponentTypeEF DetachedEF)
         {

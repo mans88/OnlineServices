@@ -10,7 +10,7 @@ using System;
 namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 {
     [TestClass]
-    public class Assistant_UpdateComponentType
+    public class Assistant_UpdateComponentTypeTests
     {
         [TestMethod]
         public void UpdateComponentType_ChangeComponentTypeArchivedProp_ReturnUpdatedComponentType()

@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
+using System;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
@@ -34,6 +35,19 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
 
             Assert.IsNotNull(retrievedRoom);
             Assert.AreEqual(retrievedRoom.ToString(), result.ToString());
+        }
+
+        [TestMethod]
+        public void GetByID_ThrowException_WhenInvalidIdIsSupplied()
+        {
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IRoomRepository repository = new RoomRepository(context);
+
+            Assert.ThrowsException<ArgumentException>(() => repository.GetById(0));
+            Assert.ThrowsException<ArgumentException>(() => repository.GetById(-1));
         }
     }
 }

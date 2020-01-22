@@ -74,5 +74,20 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.CommentRepositoryTes
             Assert.IsNotNull(result);
             Assert.AreNotEqual(0, result.Id);
         }
+
+        [TestMethod]
+        public void AddComment_AddNull_ThrowsException()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            ICommentRepository commentRepository = new CommentRepository(context);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentNullException>(() => commentRepository.Add(null));
+        }
     }
 }

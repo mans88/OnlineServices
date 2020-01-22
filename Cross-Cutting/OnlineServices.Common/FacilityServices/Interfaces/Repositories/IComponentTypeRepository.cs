@@ -6,6 +6,6 @@ namespace OnlineServices.Common.FacilityServices.Interfaces.Repositories
 {
     public interface IComponentTypeRepository : IRepository<ComponentTypeTO, int>
     {
-        List<ComponentTypeTO> GetComponentTypesByRoom(RoomTO Room);
+        List<ComponentTypeTO> GetComponentTypesByRoom(int roomId);
     }
 }

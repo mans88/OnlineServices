@@ -7,6 +7,7 @@ using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.CommentRepositoryTests
@@ -79,6 +80,37 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.CommentRepositoryTes
             Assert.IsNotNull(result);
             Assert.AreEqual("Updated message", result.Message);
             Assert.AreEqual(later, result.SubmitDate);
+        }
+
+        [TestMethod]
+        public void UpdateComment_ThrowException_WhenNullIsSupplied()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            ICommentRepository commentRepository = new CommentRepository(context);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentNullException>(() => commentRepository.Update(null));
+        }
+
+        [TestMethod]
+        public void UpdateComment_ThrowException_WhenUnexistingIdIsSupplied()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            ICommentRepository commentRepository = new CommentRepository(context);
+            var comment = new CommentTO { Id = 999 };
+
+            // Act & Assert
+            Assert.ThrowsException<KeyNotFoundException>(() => commentRepository.Update(comment));
         }
     }
 }

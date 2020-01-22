@@ -2,10 +2,10 @@
 using FacilityServices.DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.IssueRepositoryTests
@@ -14,8 +14,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IssueRepositoryTests
     public class GetIssuesByComponentTypesTests
     {
         [TestMethod]
-        //[Ignore]
-        public void GetIssuesByComponentTypes_ReturnCoorectNumberOfCorrespondingIssues()
+        public void GetIssuesByComponentTypeId_ReturnCorrectNumberOfCorrespondingIssues()
         {
             //ARRANGE
             var options = new DbContextOptionsBuilder<FacilityContext>()
@@ -23,7 +22,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IssueRepositoryTests
                 .Options;
 
             using var context = new FacilityContext(options);
-            
+
             var issueRepository = new IssueRepository(context);
             var componentTypeRepository = new ComponentTypeRepository(context);
 
@@ -41,34 +40,65 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IssueRepositoryTests
             var addedComponentType2 = componentTypeRepository.Add(componentType2);
             context.SaveChanges();
 
-            IssueTO issue1 = new IssueTO 
-            { 
-                Name = new MultiLanguageString("Issue1", "Issue1", "Issue1"), 
-                ComponentType = addedComponentType1, 
-                Description = "prout", 
+            IssueTO issue1 = new IssueTO
+            {
+                Name = new MultiLanguageString("Issue1", "Issue1", "Issue1"),
+                ComponentType = addedComponentType1,
+                Description = "prout",
             };
-            IssueTO issue2 = new IssueTO 
-            { 
-                Name = new MultiLanguageString("Issue2", "Issue2", "Issue2"), 
+            IssueTO issue2 = new IssueTO
+            {
+                Name = new MultiLanguageString("Issue2", "Issue2", "Issue2"),
                 ComponentType = addedComponentType1,
                 Description = "proutprout",
             };
-            IssueTO issue3 = new IssueTO 
-            { 
-                Name = new MultiLanguageString("Issue3", "Issue3", "Issue3"), 
+            IssueTO issue3 = new IssueTO
+            {
+                Name = new MultiLanguageString("Issue3", "Issue3", "Issue3"),
                 ComponentType = addedComponentType2,
                 Description = "proutproutprout",
             };
 
-            var firstIssueAdded = issueRepository.Add(issue1);
-            var secondIssueAdded = issueRepository.Add(issue2);
-            var thirdIssueAdded = issueRepository.Add(issue3);
+            issueRepository.Add(issue1);
+            issueRepository.Add(issue2);
+            issueRepository.Add(issue3);
             context.SaveChanges();
 
-            var retrievedIssues = issueRepository.GetIssuesByComponentType(addedComponentType1);
+            var retrievedIssues = issueRepository.GetIssuesByComponentType(addedComponentType1.Id);
 
             Assert.IsNotNull(retrievedIssues);
-            Assert.AreEqual(2, retrievedIssues.Count());
+            Assert.AreEqual(2, retrievedIssues.Count);
+        }
+
+        [TestMethod]
+        public void GetIssuesByComponentTypeId_ThrowException_WhenInvalidIdIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            var issueRepository = new IssueRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentException>(() => issueRepository.GetIssuesByComponentType(0));
+            Assert.ThrowsException<ArgumentException>(() => issueRepository.GetIssuesByComponentType(-1));
+        }
+
+        [TestMethod]
+        public void GetIssuesByComponentTypeId_ThrowException_WhenUnexistingIdIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            var issueRepository = new IssueRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<KeyNotFoundException>(() => issueRepository.GetIssuesByComponentType(999));
         }
     }
 }

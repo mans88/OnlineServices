@@ -5,6 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
@@ -35,6 +37,35 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
             context.SaveChanges();
             //ASSERT
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void RemoveByEntity_ThrowException_WhenNullIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IRoomRepository repository = new RoomRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentNullException>(() => repository.Remove(null));
+        }
+
+        [TestMethod]
+        public void RemoveByEntity_ThrowException_WhenUnexistingRoomIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IRoomRepository repository = new RoomRepository(context);
+            var room = new RoomTO { Id = 999 };
+
+            //ACT & ASSERT
+            Assert.ThrowsException<KeyNotFoundException>(() => repository.Remove(room));
         }
     }
 }

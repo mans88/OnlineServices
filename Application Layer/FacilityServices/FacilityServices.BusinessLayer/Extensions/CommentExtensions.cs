@@ -1,4 +1,5 @@
 ﻿using FacilityServices.BusinessLayer.Domain;
+using OnlineServices.Common.FacilityServices.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 
 namespace FacilityServices.BusinessLayer.Extensions
@@ -7,6 +8,9 @@ namespace FacilityServices.BusinessLayer.Extensions
     {
         public static Comment ToDomain(this CommentTO CommentTO)
         {
+            if (CommentTO is null)
+                throw new NullCommentException(nameof(CommentTO));
+
             return new Comment()
             {
                 Id = CommentTO.Id,
@@ -19,6 +23,9 @@ namespace FacilityServices.BusinessLayer.Extensions
         }
         public static CommentTO ToTransfertObject(this Comment Comment)
         {
+            if (Comment is null)
+                throw new NullCommentException(nameof(Comment));
+
             return new CommentTO()
             {
                 Id = Comment.Id,
