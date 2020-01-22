@@ -38,7 +38,7 @@ namespace RegistrationServices.DataLayerTests
                 RSCxt.SaveChanges();
                 //Assert
                 Assert.AreEqual(1, userRepository.GetAll().Count());
-                var userToAssert = userRepository.GetById(1);
+                //var userToAssert = userRepository.GetById(1);
             }
         }
 
