@@ -41,5 +41,9 @@ namespace RegistrationServices.DataLayerTests
                 var userToAssert = userRepository.GetById(1);
             }
         }
+
+        public void UserRepositoryDelete_WhenValid()
+        {
+        }
     }
 }
