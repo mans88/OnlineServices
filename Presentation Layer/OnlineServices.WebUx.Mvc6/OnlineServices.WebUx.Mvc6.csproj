@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyVersion>2001.21.39.1638</AssemblyVersion>
+    <FileVersion>2001.21.39.1638</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\stylish-portfolio\css\stylish-portfolio.min.css">
+      <DependentUpon>stylish-portfolio.css</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\stylish-portfolio\js\stylish-portfolio.min.js">
+      <DependentUpon>stylish-portfolio.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Assessments\Controllers\" />
+    <Folder Include="Areas\Assessments\Data\" />
+    <Folder Include="Areas\Assessments\Models\" />
+    <Folder Include="Areas\Attendances\Controllers\" />
+    <Folder Include="Areas\Attendances\Data\" />
+    <Folder Include="Areas\Attendances\Models\" />
+    <Folder Include="Areas\Facilities\Controllers\" />
+    <Folder Include="Areas\Facilities\Data\" />
+    <Folder Include="Areas\Facilities\Models\" />
+    <Folder Include="Areas\Meals\Controllers\" />
+    <Folder Include="Areas\Meals\Data\" />
+    <Folder Include="Areas\Meals\Models\" />
+    <Folder Include="Areas\Registration\Controllers\" />
+    <Folder Include="Areas\Registration\Data\" />
+    <Folder Include="Areas\Registration\Models\" />
+    <Folder Include="Areas\Registration\Views\" />
+  </ItemGroup>
+
+</Project>

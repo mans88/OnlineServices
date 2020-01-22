@@ -1,9 +1,0 @@
-﻿<ProjectConfiguration>
-  <Settings>
-    <IgnoredTests>
-      <NamedTestSelector>
-        <TestName>TranslationServices.DataLayer.ServiceAgentsTests.GoogleTranslatorAuthentificationTests.DemoOfGeneralUseOfGoogleTranslator</TestName>
-      </NamedTestSelector>
-    </IgnoredTests>
-  </Settings>
-</ProjectConfiguration>
