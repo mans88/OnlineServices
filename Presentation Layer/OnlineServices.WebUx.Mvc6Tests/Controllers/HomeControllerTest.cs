@@ -27,7 +27,9 @@ namespace OnlineServices.WebUx.Mvc6Tests.Controllers
             HomeController controller = new HomeController(mockILogger.Object);
 
             // Act
+
             var result = controller.Index() as ViewResult;
+
 
             // Assert
             Assert.IsNotNull(result);
@@ -45,6 +47,7 @@ namespace OnlineServices.WebUx.Mvc6Tests.Controllers
 
             // Assert
             Assert.AreEqual("Your application description page.", result.ViewData["Message"]);
+
         }
 
         [TestMethod]

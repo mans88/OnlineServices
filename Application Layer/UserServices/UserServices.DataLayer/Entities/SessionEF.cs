@@ -19,7 +19,9 @@ namespace RegistrationServices.DataLayer.Entities
         //public Local Local { get; set; }
         public UserEF Teacher { get; set; }
 
-        public List<DateTime> Dates { get; set; }
+        public List<SessionDayEF> Dates { get; set; }
+
+        // REVIEW public List<SessionDayEF> Dates { get; set; }
         public virtual ICollection<UserSessionEF> UserSessions { get; set; }
     }
 }
