@@ -6,6 +6,6 @@ namespace OnlineServices.Common.FacilityServices.Interfaces.Repositories
 {
     public interface ICommentRepository : IRepository<CommentTO, int>
     {
-        List<CommentTO> GetCommentsByIncidentId(int incidentId);
+        List<CommentTO> GetCommentsByIncident(int incidentId);
     }
 }

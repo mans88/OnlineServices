@@ -60,5 +60,20 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTe
             //ASSERT   
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void RemoveById_ThrowException_WhenInvalidIdIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentException>(() => incidentRepository.Remove(0));
+            Assert.ThrowsException<ArgumentException>(() => incidentRepository.Remove(-1));
+        }
     }
 }

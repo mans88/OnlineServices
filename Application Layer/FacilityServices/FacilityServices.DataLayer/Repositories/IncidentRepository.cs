@@ -36,7 +36,8 @@ namespace FacilityServices.DataLayer.Repositories
                 .ThenInclude(i => i.ComponentType)
                 .Include(i => i.Room)
                 .ThenInclude(r => r.Floor)
-                .Select(i => i.ToTransfertObject());
+                .Select(i => i.ToTransfertObject())
+                .ToList();
         }
 
         public IncidentTO GetById(int Id)
@@ -59,14 +60,14 @@ namespace FacilityServices.DataLayer.Repositories
 
         public bool Remove(IncidentTO entity)
         {
-            if (!facilityContext.Incidents.Any(x => x.Id == entity.Id))
-            {
-                throw new KeyNotFoundException("No incident found !");
-            }
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
+            }
 
+            if (!facilityContext.Incidents.Any(x => x.Id == entity.Id))
+            {
+                throw new KeyNotFoundException("No incident found !");
             }
 
             var entityEF = facilityContext.Incidents.Find(entity.Id);

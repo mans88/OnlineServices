@@ -1,22 +1,23 @@
 ﻿using FacilityServices.BusinessLayer.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.FacilityServices.Interfaces;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
 {
     [TestClass]
-    public class Attendee_GetIssuesTests
+    public class Attendee_GetIssuesByComponentTypeTests
     {
         [TestMethod]
-        public void GetIssues_AddThreeIssues_ThenRetrieveThem_ReturnCorrectNumberOfIssues()
+        public void GetIssuesByComponentType_ReturnIssues()
         {
-            var componentType1 = new ComponentTypeTO { Archived = false, Name = new MultiLanguageString("Name1En", "Name1Fr", "Name1Nl") };
-            var componentType2 = new ComponentTypeTO { Archived = false, Name = new MultiLanguageString("Name2En", "Name2Fr", "Name2Nl") };
+            var componentType1 = new ComponentTypeTO { Id = 1, Archived = false, Name = new MultiLanguageString("Name1En", "Name1Fr", "Name1Nl") };
+            var componentType2 = new ComponentTypeTO { Id = 2, Archived = false, Name = new MultiLanguageString("Name2En", "Name2Fr", "Name2Nl") };
+
             //Issue
             var issues = new List<IssueTO>
             {
@@ -24,16 +25,28 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
              new IssueTO {Id = 2, Archived = false, Description = "Fuite d'eau", Name = new MultiLanguageString("Issue2EN", "Issue2FR", "Issue2NL"), ComponentType = componentType2 },
              new IssueTO {Id = 3, Archived = false, Description = "Plus de PQ", Name = new MultiLanguageString("Issue3EN", "Issue3FR", "Issue3NL"), ComponentType = componentType2 },
             };
-            //ARRANGE
+
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
 
-            mockUnitOfWork.Setup(u => u.IssueRepository.GetAll()).Returns(issues);
+            mockUnitOfWork.Setup(u => u.IssueRepository.GetIssuesByComponentType(It.IsAny<int>())).Returns(issues);
             var sut = new AttendeeRole(mockUnitOfWork.Object);
+
             //ACT
-            var listOfIssues = sut.GetIssues();
+            var listOfIssues = sut.GetIssuesByComponentType(1);
+
             //ASSERT
-            mockUnitOfWork.Verify(u => u.IssueRepository.GetAll(), Times.Once);
-            Assert.AreEqual(3, listOfIssues.Count());
+            mockUnitOfWork.Verify(u => u.IssueRepository.GetIssuesByComponentType(It.IsAny<int>()), Times.Once);
+            Assert.AreEqual(3, listOfIssues.Count);
+        }
+
+        [TestMethod]
+        public void GetIssuesByComponentType_IncorrectRoomID_ThrowLoggedException()
+        {
+            //ARRANGE
+            var mockUnitOfWork = new Mock<IFSUnitOfWork>();
+            var sut = new AssistantRole(mockUnitOfWork.Object);
+            Assert.ThrowsException<LoggedException>(() => sut.GetIssuesByComponentType(-1));
+
         }
     }
 }

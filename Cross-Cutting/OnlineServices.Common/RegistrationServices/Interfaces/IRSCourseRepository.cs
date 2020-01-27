@@ -8,7 +8,7 @@ namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
     public interface IRSCourseRepository : IRepository<CourseTO, int>
     {
-        IEnumerable<CourseTO> GetCourses(SessionTO session);
+        //IEnumerable<CourseTO> GetSessions(SessionTO session);
 
     }
 }

@@ -31,15 +31,15 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTe
             var floor = new FloorTO { Number = 2 };
             var addedFloor1 = floorRepository.Add(floor);
             context.SaveChanges();
-            RoomTO room = new RoomTO { Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = addedFloor1 };            
+            RoomTO room = new RoomTO { Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = addedFloor1 };
             var addedRoom = roomRepository.Add(room);
             context.SaveChanges();
             //Component
-            var componentType = new ComponentTypeTO{Archived = false, Name = new MultiLanguageString("Name1En", "Name1Fr", "Name1Nl")};
+            var componentType = new ComponentTypeTO { Archived = false, Name = new MultiLanguageString("Name1En", "Name1Fr", "Name1Nl") };
             var addedComponentType = componentTypeRepository.Add(componentType);
             context.SaveChanges();
             //Issue
-            var issue = new IssueTO{ Description = "prout", Name = new MultiLanguageString("Issue1EN", "Issue1FR", "Issue1NL"), ComponentType = addedComponentType };
+            var issue = new IssueTO { Description = "prout", Name = new MultiLanguageString("Issue1EN", "Issue1FR", "Issue1NL"), ComponentType = addedComponentType };
             var addedIssue = issueRepository.Add(issue);
             context.SaveChanges();
             //Incident
@@ -58,6 +58,20 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTe
             //ASSERT   
             Assert.IsNotNull(result);
             Assert.AreNotEqual(0, result.Id);
+        }
+
+        [TestMethod]
+        public void Add_ThrowException_WhenNullIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentNullException>(() => incidentRepository.Add(null));
         }
     }
 }

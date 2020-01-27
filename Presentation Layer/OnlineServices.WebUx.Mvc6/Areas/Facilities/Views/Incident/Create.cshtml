@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Incident Reporting";
+    ViewData["Subtitle"] = "Signalize technical incidents";
+}
+
+@section Stylesheets  {
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="Incident.css">
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+}
+
+<form>
+
+    <h1 class="MainTitle">Incident Form</h1>
+    <h2 class="Subtitle">Please, fill in the informations. We will be pleased to resolve the incident as soon as possible. </h2>
+
+    <div>
+        Floor
+        <select class="Deroulant" required>
+            <option value="" disabled selected> Select the floor</option>
+            <option value="option">1</option>
+            <option value="option">-1</option>
+            <option value="option">-2</option>
+        </select>
+    </div>
+
+    <div>
+        Room
+        <select class="Deroulant" required>
+            <option value="" disabled selected> Select the room</option>
+            <option value="option">Room1</option>
+            <option value="option">Room2</option>
+            <option value="option">Room3</option>
+        </select>
+    </div>
+
+    <div>
+        Component
+        <select class="Deroulant" required>
+            <option value="" disabled selected> Select the component</option>
+            <option value="option">Component1</option>
+            <option value="option">Component2</option>
+            <option value="option">Component3</option>
+        </select>
+    </div>
+
+    <div>
+        Issue
+        <select class="Deroulant" required>
+            <option value="" disabled selected> Select the issue</option>
+            <option value="option">Issue1</option>
+            <option value="option">Issue2</option>
+            <option value="option">Issue3</option>
+        </select>
+    </div>
+    <div>
+        Description
+        <input placeholder="Please fill in with complementary informations if necessary (exact location, unlisted issue etc.)"
+               maxlength="280" size=80>
+    </div>
+    <button class="waves-effect waves-light btn">Submit</button>
+</form>

@@ -4,7 +4,6 @@ using Moq;
 using OnlineServices.Common.FacilityServices.Interfaces;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
 {
@@ -23,12 +22,12 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
                 new FloorTO{ Id = 3, Archived = false },
             };
             mockUnitOfWork.Setup(u => u.FloorRepository.GetAll()).Returns(floors);
-            var sut = new AttendeeRole(mockUnitOfWork.Object);            
+            var sut = new AttendeeRole(mockUnitOfWork.Object);
             //ACT
             var listOfFloors = sut.GetFloors();
             //ASSERT
             mockUnitOfWork.Verify(u => u.FloorRepository.GetAll(), Times.Once);
-            Assert.AreEqual(3, listOfFloors.Count());
+            Assert.AreEqual(3, listOfFloors.Count);
         }
     }
 }

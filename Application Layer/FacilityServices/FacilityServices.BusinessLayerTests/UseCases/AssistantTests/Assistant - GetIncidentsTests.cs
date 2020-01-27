@@ -1,13 +1,11 @@
 ﻿using FacilityServices.BusinessLayer.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-
 using OnlineServices.Common.FacilityServices.Enumerations;
 using OnlineServices.Common.FacilityServices.Interfaces;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

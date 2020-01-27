@@ -9,9 +9,7 @@ namespace FacilityServices.BusinessLayer.Extensions
         public static Floor ToDomain(this FloorTO FloorTO)
         {
             if (FloorTO is null)
-            {
                 throw new NullFloorException(nameof(FloorTO));
-            }
 
             return new Floor()
             {
@@ -23,9 +21,7 @@ namespace FacilityServices.BusinessLayer.Extensions
         public static FloorTO ToTransfertObject(this Floor Floor)
         {
             if (Floor is null)
-            {
                 throw new NullFloorException(nameof(Floor));
-            }
 
             return new FloorTO()
             {

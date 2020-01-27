@@ -10,8 +10,8 @@ namespace FacilityServices.BusinessLayer.UseCases
         public List<FloorTO> GetFloors()
         {
             var floors = unitOfWork.FloorRepository
-                                   .GetAll()
-                                   .Select(f => f.ToDomain().ToTransfertObject());
+                .GetAll()
+                .Select(f => f.ToDomain().ToTransfertObject());
 
             return floors.ToList();
         }

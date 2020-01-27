@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 {
     [TestClass]
-    public class Assistant_RemoveIssue
+    public class Assistant_RemoveIssueTests
     {
         [TestMethod]
         public void RemoveIssue_ReturnTrue()
@@ -19,11 +19,11 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var componentType1 = new ComponentTypeTO { Archived = false, Name = new MultiLanguageString("Name1En", "Name1Fr", "Name1Nl") };
             var componentType2 = new ComponentTypeTO { Archived = false, Name = new MultiLanguageString("Name2En", "Name2Fr", "Name2Nl") };
             //Issue
-            var issues = new List<IssueTO> 
+            var issues = new List<IssueTO>
             {
              new IssueTO {Id = 1, Archived = false, Description = "Plus de café", Name = new MultiLanguageString("Issue1EN", "Issue1FR", "Issue1NL"), ComponentType = componentType1 },
              new IssueTO {Id = 2, Archived = false, Description = "Fuite d'eau", Name = new MultiLanguageString("Issue2EN", "Issue2FR", "Issue2NL"), ComponentType = componentType2 },
-             new IssueTO {Id = 3, Archived = false, Description = "Plus de PQ", Name = new MultiLanguageString("Issue3EN", "Issue3FR", "Issue3NL"), ComponentType = componentType2 }, 
+             new IssueTO {Id = 3, Archived = false, Description = "Plus de PQ", Name = new MultiLanguageString("Issue3EN", "Issue3FR", "Issue3NL"), ComponentType = componentType2 },
             };
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
@@ -55,7 +55,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.IssueRepository.GetById(It.IsAny<int>())).Returns(() => null);
             var sut = new AssistantRole(mockUnitOfWork.Object);
-            
+
             Assert.ThrowsException<KeyNotFoundException>(() => sut.RemoveIssue(1));
         }
     }

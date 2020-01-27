@@ -2,6 +2,7 @@
 using FacilityServices.DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
@@ -15,7 +16,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IssueRepositoryTests
     [TestClass]
     public class UpdateIssuesTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void UpdateIssueByTransfertObject_Successfull()
         {
             var options = new DbContextOptionsBuilder<FacilityContext>()
@@ -71,6 +72,22 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IssueRepositoryTests
                 Assert.AreEqual(2, issueRepository.GetAll().Count());
                 Assert.AreEqual("PASProut", f2.Description);
             }
+        }
+
+        [TestMethod]
+        public void UpdateIssueByTransfertObject_ThrowException_WhenUnexistingIssueIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                   .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                   .Options;
+
+            using var memoryCtx = new FacilityContext(options);
+            var issueRepository = new IssueRepository(memoryCtx);
+            var issue = new IssueTO { Id = 999 };
+
+            //ACT & ASSERT
+            Assert.ThrowsException<LoggedException>(() => issueRepository.Update(issue));
         }
     }
 }

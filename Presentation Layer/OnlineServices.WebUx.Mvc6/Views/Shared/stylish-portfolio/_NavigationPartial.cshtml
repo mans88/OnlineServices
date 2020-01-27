@@ -8,6 +8,10 @@
             @Html.ActionLink("Online Services", "Index", "Home", new { area = "" }, new { @class = "js-scroll-trigger" })
         </li>
         <li class="sidebar-nav-item">
+            <a class="nav-link" asp-area="Facilities" asp-controller="Incident" asp-action="Create">Incident Reporting</a>
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Disclaimer">Disclaimer</a>
+        </li>
+        <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="#page-top">Home</a>
         </li>
         <li class="sidebar-nav-item">

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 {
     [TestClass]
-    public class Assistant_RemoveFloor
+    public class Assistant_RemoveFloorTests
     {
         [TestMethod]
         public void RemoveFloor_ReturnTrue()

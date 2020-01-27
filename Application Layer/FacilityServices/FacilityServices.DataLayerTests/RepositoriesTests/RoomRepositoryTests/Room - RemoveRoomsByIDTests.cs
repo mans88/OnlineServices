@@ -16,7 +16,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
     public class RemoveRoomsByIDTests
     {
         [TestMethod]
-        public void RemoveTest_AddANewRoomAndRemoveTheAddedRoom_ReturnTrue()
+        public void RemoveById_AddANewRoomAndRemoveTheAddedRoom_ReturnTrue()
         {
             //ARRANGE
             var options = new DbContextOptionsBuilder<FacilityContext>()
@@ -38,6 +38,21 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
             context.SaveChanges();
             //ASSERT
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void RemoveById_ThrowException_WhenInvalidIdIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IRoomRepository repository = new RoomRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentException>(() => repository.Remove(0));
+            Assert.ThrowsException<ArgumentException>(() => repository.Remove(-1));
         }
     }
 }

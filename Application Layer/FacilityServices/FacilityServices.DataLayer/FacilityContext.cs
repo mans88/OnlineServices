@@ -7,12 +7,9 @@ namespace FacilityServices.DataLayer
     public class FacilityContext : DbContext
     {
         public FacilityContext()
-        {
-
-        }
+        { }
         public FacilityContext(DbContextOptions<FacilityContext> options) : base(options)
         { }
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,10 +22,11 @@ namespace FacilityServices.DataLayer
                 optionsBuilder.EnableSensitiveDataLogging();
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             if (modelBuilder is null)
-                throw new System.ArgumentNullException(nameof(modelBuilder));
+                throw new ArgumentNullException(nameof(modelBuilder));
 
             modelBuilder.Entity<RoomComponentEF>().HasKey(si => new { si.RoomId, si.ComponentTypeId });
 

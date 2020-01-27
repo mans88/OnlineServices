@@ -1,5 +1,6 @@
 ﻿using OnlineServices.Common.DataAccessHelpers;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
+using System.Collections.Generic;
 
 namespace OnlineServices.Common.FacilityServices.TransfertObjects
 {

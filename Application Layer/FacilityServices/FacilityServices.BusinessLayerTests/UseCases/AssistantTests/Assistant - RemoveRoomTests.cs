@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 {
     [TestClass]
-    public class Assistant_RemoveRoom
+    public class Assistant_RemoveRoomTests
     {
         [TestMethod]
         public void RemoveRoom_ReturnTrue()
@@ -32,7 +32,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             mockUnitOfWork.Setup(u => u.RoomRepository.GetAll()).Returns(rooms);
 
             var sut = new AssistantRole(mockUnitOfWork.Object);
-            var room = new RoomTO { Id = 1, Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = floor1 }; 
+            var room = new RoomTO { Id = 1, Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = floor1 };
             //ACT
             var result = sut.RemoveRoom(1);
             //ASSERT
@@ -55,7 +55,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.RoomRepository.GetById(It.IsAny<int>())).Returns(() => null);
             var sut = new AssistantRole(mockUnitOfWork.Object);
-            
+
             Assert.ThrowsException<KeyNotFoundException>(() => sut.RemoveRoom(1));
         }
     }

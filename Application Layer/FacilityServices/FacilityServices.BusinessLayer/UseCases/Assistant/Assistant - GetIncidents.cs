@@ -1,8 +1,5 @@
 ﻿using FacilityServices.BusinessLayer.Extensions;
-
 using OnlineServices.Common.FacilityServices.TransfertObjects;
-using System;
-using OnlineServices.Common.FacilityServices.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,6 +12,5 @@ namespace FacilityServices.BusinessLayer.UseCases
                     .GetAll()
                     .Select(x => x.ToDomain().ToTransfertObject())
                     .ToList();
-
     }
 }

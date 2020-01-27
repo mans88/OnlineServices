@@ -48,36 +48,40 @@ namespace FacilityServices.DataLayer.Repositories
                 .AsNoTracking()
                 .Include(r => r.Floor)
                 .Include(r => r.RoomComponents)
-                .FirstOrDefault(r => r.Id == Id && r.Archived != true).ToTransfertObject();
+                .FirstOrDefault(r => r.Id == Id && r.Archived != true)
+                .ToTransfertObject();
         }
 
-        public List<RoomTO> GetRoomsByFloors(FloorTO Floor)
+        public List<RoomTO> GetRoomsByFloor(int floorId)
         {
-            if (Floor is null)
+            var floorEF = facilityContext.Floors.FirstOrDefault(x => x.Id == floorId && !x.Archived);
+
+            if (floorEF is null)
             {
-                throw new ArgumentNullException(nameof(Floor));
+                throw new KeyNotFoundException($"GetRoomsByFloor: no floor found with ID={floorId}");
             }
 
             return facilityContext.Rooms
-                                  .Include(r => r.Floor)
-                                  .Where(r => r.Floor.Id == Floor.Id && r.Floor.Archived != true)
-                                  .Select(r => r.ToTransfertObject())
-                                  .ToList();
+                .Include(r => r.Floor)
+                .Where(r => r.Floor.Id == floorId && !r.Archived)
+                .Select(r => r.ToTransfertObject())
+                .ToList();
         }
 
         public bool Remove(RoomTO entity)
         {
-            if (!facilityContext.Rooms.Any(x => x.Id == entity.Id && x.Archived != true))
-            {
-                throw new KeyNotFoundException("No room found !");
-            }
-
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var entityEF = facilityContext.Rooms.Find(entity.Id);
+            var entityEF = facilityContext.Rooms.FirstOrDefault(x => x.Id == entity.Id && !x.Archived);
+
+            if (entityEF is null)
+            {
+                throw new KeyNotFoundException($"No room found with ID={entity.Id}");
+            }
+
             entityEF.Archived = true;
             var tracking = facilityContext.Rooms.Update(entityEF);
             return tracking.Entity.Archived;

@@ -64,21 +64,21 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.CommentRepositoryTes
                 Incident = addedIncident,
                 Message = "I got in touch with the right people, it'll get fixed soon!",
                 SubmitDate = DateTime.Now,
-                UserId = 1
+                UserId = 2
             };
             var comment2 = new CommentTO
             {
                 Incident = addedIncident,
                 Message = "New ETA is Monday morning.",
                 SubmitDate = DateTime.Now.AddDays(1),
-                UserId = 1
+                UserId = 2
             };
             var comment3 = new CommentTO
             {
                 Incident = addedIncident,
                 Message = "Postponed to Tuesday morning.",
                 SubmitDate = DateTime.Now.AddDays(2),
-                UserId = 1
+                UserId = 2
             };
             commentRepository.Add(comment1);
             commentRepository.Add(comment2);
