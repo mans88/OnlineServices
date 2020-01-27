@@ -4,11 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OnlineServices.Common.FacilityServices.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.FloorRepositoryTests
 {
@@ -21,77 +18,73 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.FloorRepositoryTests
             var options = new DbContextOptionsBuilder<FacilityContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
                 .Options;
-            using (var memoryCtx = new FacilityContext(options))
-            {
-                var floorRepository = new FloorRepository(memoryCtx);
+            using var memoryCtx = new FacilityContext(options);
+            var floorRepository = new FloorRepository(memoryCtx);
 
-                Assert.ThrowsException<NullFloorException>(() => floorRepository.GetById(100));
-            }
+            Assert.ThrowsException<NullFloorException>(() => floorRepository.GetById(100));
         }
         [TestMethod]
         public void GetFloorById_Successfull()
         {
+            //ARRANGE
             var options = new DbContextOptionsBuilder<FacilityContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
                 .Options;
-            using (var memoryCtx = new FacilityContext(options))
+            using var memoryCtx = new FacilityContext(options);
+
+            var FloorToUseInTest = new FloorTO
             {
-                //ARRANGE
-                var FloorToUseInTest = new FloorTO
-                {
-                    Id = 2,
-                    Number = 0
-                };
+                Id = 2,
+                Number = 0
+            };
 
-                var floorRepository = new FloorRepository(memoryCtx);
+            var floorRepository = new FloorRepository(memoryCtx);
 
-                //ACT
-                floorRepository.Add(FloorToUseInTest);
-                memoryCtx.SaveChanges();
+            //ACT
+            floorRepository.Add(FloorToUseInTest);
+            memoryCtx.SaveChanges();
 
-                //ASSERT
-                var FloorToAssert = floorRepository.GetById(2);
-                Assert.AreEqual(2, FloorToAssert.Id);
-                Assert.AreEqual(0, FloorToAssert.Number);
-            }
+            //ASSERT
+            var FloorToAssert = floorRepository.GetById(2);
+            Assert.AreEqual(2, FloorToAssert.Id);
+            Assert.AreEqual(0, FloorToAssert.Number);
         }
 
         [TestMethod]
         public void GetAllFloors_Successfull()
         {
+            //ARRANGE
             var options = new DbContextOptionsBuilder<FacilityContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
                 .Options;
-            using (var memoryCtx = new FacilityContext(options))
+            using var memoryCtx = new FacilityContext(options);
+
+            var FloorToUseInTest = new FloorTO
             {
-                //ARRANGE
-                var FloorToUseInTest = new FloorTO
-                {
-                    Id = 1,
-                    Number = 0
-                };
+                Id = 1,
+                Number = 0
+            };
 
-                var FloorToUseInTest1 = new FloorTO
-                {
-                    Id = 2,
-                    Number = -1
-                };
-                var FloorToUseInTest2 = new FloorTO
-                {
-                    Id = 3,
-                    Number = -2
-                };
-                var floorRepository = new FloorRepository(memoryCtx);
+            var FloorToUseInTest1 = new FloorTO
+            {
+                Id = 2,
+                Number = -1
+            };
+            var FloorToUseInTest2 = new FloorTO
+            {
+                Id = 3,
+                Number = -2
+            };
+            var floorRepository = new FloorRepository(memoryCtx);
 
-                //ACT
-                floorRepository.Add(FloorToUseInTest);
-                floorRepository.Add(FloorToUseInTest1);
-                floorRepository.Add(FloorToUseInTest2);
-                memoryCtx.SaveChanges();
+            //ACT
+            floorRepository.Add(FloorToUseInTest);
+            floorRepository.Add(FloorToUseInTest1);
+            floorRepository.Add(FloorToUseInTest2);
+            memoryCtx.SaveChanges();
 
-                //ASSERT
-                Assert.AreEqual(3, floorRepository.GetAll().Count());
-            }
+            //ASSERT
+            Assert.AreEqual(3, floorRepository.GetAll().Count());
         }
     }
 }

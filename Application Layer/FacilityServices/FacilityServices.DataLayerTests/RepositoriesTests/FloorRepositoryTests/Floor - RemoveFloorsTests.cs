@@ -37,7 +37,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.FloorRepositoryTests
                 floorRepository.Add(FloorToUseInTest2);
                 memoryCtx.SaveChanges();
 
-                Assert.ThrowsException<Exception>(() => floorRepository.Remove(FloorToUseInTest3));
+                Assert.ThrowsException<KeyNotFoundException>(() => floorRepository.Remove(FloorToUseInTest3));
             }
         }
         [TestMethod()]
@@ -92,7 +92,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.FloorRepositoryTests
                 floorRepository.Add(FloorToUseInTest2);
                 memoryCtx.SaveChanges();
 
-                Assert.ThrowsException<Exception>(() => floorRepository.Remove(3));
+                Assert.ThrowsException<KeyNotFoundException>(() => floorRepository.Remove(3));
             }
         }
         [TestMethod()]

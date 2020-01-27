@@ -77,5 +77,20 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.CommentRepositoryTes
             Assert.IsTrue(result);
             Assert.ThrowsException<KeyNotFoundException>(() => commentRepository.GetById(addedComment.Id));
         }
+
+        [TestMethod]
+        public void RemoveCommentById_ThrowException_WhenUnexistingIdIsSupplied()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            ICommentRepository commentRepository = new CommentRepository(context);
+
+            // Act & Assert
+            Assert.ThrowsException<KeyNotFoundException>(() => commentRepository.Remove(999));
+        }
     }
 }

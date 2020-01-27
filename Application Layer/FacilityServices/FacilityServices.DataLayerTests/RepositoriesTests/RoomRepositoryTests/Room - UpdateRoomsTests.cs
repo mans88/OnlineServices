@@ -5,6 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
@@ -13,7 +15,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
     public class UpdateRoomsTests
     {
         [TestMethod]
-        public void UpdateTest_AddARoopmAndChangeItsName_ReturnUpdatedRoom()
+        public void Update_AddARoopmAndChangeItsName_ReturnUpdatedRoom()
         {
             var options = new DbContextOptionsBuilder<FacilityContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
@@ -32,6 +34,31 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
             added.Name = new MultiLanguageString("New Room1", "New Room1", "New Room1");
             var updated = repository.Update(added);
             Assert.AreEqual("New Room1", updated.Name.English);
+        }
+
+        [TestMethod]
+        public void Update_ThrowException_WhenNullIsSupplied()
+        {
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IRoomRepository repository = new RoomRepository(context);
+
+            Assert.ThrowsException<ArgumentNullException>(() => repository.Update(null));
+        }
+
+        [TestMethod]
+        public void Update_ThrowException_WhenUnexistingRoomIsSupplied()
+        {
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IRoomRepository repository = new RoomRepository(context);
+            var room = new RoomTO { Id = 999 };
+
+            Assert.ThrowsException<KeyNotFoundException>(() => repository.Update(room));
         }
     }
 }

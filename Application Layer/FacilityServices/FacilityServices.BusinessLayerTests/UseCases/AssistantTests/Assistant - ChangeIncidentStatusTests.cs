@@ -8,7 +8,7 @@ using OnlineServices.Common.FacilityServices.TransfertObjects;
 namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 {
     [TestClass]
-    public class Assistant_ChangeIncidentStatus
+    public class Assistant_ChangeIncidentStatusTests
     {
         [TestMethod]
         public void ChangeIncidentStatus_AddANewIncidentThenChangeTheStatus_ReturnUpdatedIncident()

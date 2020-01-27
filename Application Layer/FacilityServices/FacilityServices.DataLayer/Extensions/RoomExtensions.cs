@@ -44,7 +44,7 @@ namespace FacilityServices.DataLayer.Extensions
             // Association des Id de Room et ComponentTypes via RoomComponent (table de relation)
             roomEF.RoomComponents = Room.ComponentTypes?.Select(x => new RoomComponentEF
             {
-                Room = Room.ToEF(),
+                Room = roomEF,
                 RoomId = Room.Id,
                 ComponentType = x.ToEF(),
                 ComponentTypeId = x.Id

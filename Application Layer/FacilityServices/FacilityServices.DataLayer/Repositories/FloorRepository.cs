@@ -56,43 +56,32 @@ namespace FacilityServices.DataLayer.Repositories
 
         public bool Remove(int Id)
         {
-            if (!facilityContext.Floors.Any(x => x.Id == Id && x.Archived != true))
-                throw new Exception($"FloorRepository. Delete(FloorId = {Id}) no record to delete.");
+            var floor = facilityContext.Floors.FirstOrDefault(x => x.Id == Id && !x.Archived);
 
-            var floor = facilityContext.Floors.FirstOrDefault(x => x.Id == Id && x.Archived != true);
-            if (floor != default)
+            if (floor is null)
             {
-                try
-                {
-                    floor.Archived = true;
-                    return facilityContext.Floors.Update(floor).Entity.Archived;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                throw new KeyNotFoundException($"FloorRepository. Remove(FloorId = {Id}) no record to delete.");
             }
 
-            return false;
+            floor.Archived = true;
+            return facilityContext.Floors.Update(floor).Entity.Archived;
         }
 
         public FloorTO Update(FloorTO Entity)
         {
-            if (!facilityContext.Floors.Any(x => x.Id == Entity.Id && x.Archived != true))
-                throw new Exception($"FloorRepository. Update(FloorTransfertObject) no record to update.");
+            var attachedFloor = facilityContext.Floors.FirstOrDefault(x => x.Id == Entity.Id && !x.Archived);
 
-            var attachedFloors = facilityContext.Floors
-                .FirstOrDefault(x => x.Id == Entity.Id && x.Archived != true);
-
-            if (attachedFloors != default)
+            if (attachedFloor is null)
             {
-                attachedFloors.UpdateFromDetached(Entity.ToEF());
-                //attachedFloors.FloorsComposition = attachedFloors.FloorsComposition
-                //    .ToList()
-                //    .UpdateListFromDetached(Entity.ToEF().FloorsComposition.ToList());
+                throw new KeyNotFoundException($"FloorRepository. Update(FloorTransfertObject) no record to update.");
             }
 
-            return facilityContext.Floors.Update(attachedFloors).Entity.ToTransfertObject();
+            attachedFloor.UpdateFromDetached(Entity.ToEF());
+            //attachedFloors.FloorsComposition = attachedFloors.FloorsComposition
+            //    .ToList()
+            //    .UpdateListFromDetached(Entity.ToEF().FloorsComposition.ToList());
+
+            return facilityContext.Floors.Update(attachedFloor).Entity.ToTransfertObject();
         }
     }
 }

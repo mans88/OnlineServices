@@ -2,12 +2,10 @@
 using FacilityServices.DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using OnlineServices.Common.FacilityServices.Interfaces;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
-using System.Linq;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
@@ -16,8 +14,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
     public class GetRoomsByFloorsTests
     {
         [TestMethod]
-        //[Ignore]
-        public void GetRoomsByFloors_ReturnCoorectNumberOfCorrespondingRooms()
+        public void GetRoomsByFloors_ReturnCorrectNumberOfCorrespondingRooms()
         {
             //ARRANGE
             var options = new DbContextOptionsBuilder<FacilityContext>()
@@ -38,15 +35,33 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.RoomRepositoryTest
             RoomTO room2 = new RoomTO { Name = new MultiLanguageString("Room2", "Room2", "Room2"), Floor = addedFloor1 };
             RoomTO room3 = new RoomTO { Name = new MultiLanguageString("Room3", "Room3", "Room3"), Floor = addedFloor2 };
 
-            var firstRoomAdded = roomRepository.Add(room1);
-            var secondRoomAdded = roomRepository.Add(room2);
-            var thirdRoomAdded = roomRepository.Add(room3);
+            roomRepository.Add(room1);
+            roomRepository.Add(room2);
+            roomRepository.Add(room3);
             context.SaveChanges();
 
-            var retrievedRooms = roomRepository.GetRoomsByFloors(addedFloor1);
+            var result1 = roomRepository.GetRoomsByFloor(addedFloor1.Id);
+            var result2 = roomRepository.GetRoomsByFloor(addedFloor2.Id);
 
-            Assert.IsNotNull(retrievedRooms);
-            Assert.AreEqual(2, retrievedRooms.Count());
+            Assert.IsNotNull(result1);
+            Assert.IsNotNull(result2);
+            Assert.AreEqual(2, result1.Count);
+            Assert.AreEqual(1, result2.Count);
+        }
+
+        [TestMethod]
+        public void GetRoomsByFloor_ThrowException_WhenUnexistingFloorIdIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+
+            using var context = new FacilityContext(options);
+            IRoomRepository roomRepository = new RoomRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<KeyNotFoundException>(() => roomRepository.GetRoomsByFloor(999));
         }
     }
 }

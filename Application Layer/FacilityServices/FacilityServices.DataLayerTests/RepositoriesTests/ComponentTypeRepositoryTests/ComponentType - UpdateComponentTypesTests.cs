@@ -2,8 +2,10 @@
 using FacilityServices.DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
+using System;
 using System.Linq;
 using System.Reflection;
 
@@ -31,7 +33,7 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.ComponentTypeReposit
                     Archived = false,
                     Name = new MultiLanguageString("Name2En", "Name2Fr", "Name2Nl"),
                 };
-              
+
                 var componentTypeRepository = new ComponentTypeRepository(memoryCtx);
 
                 var f1 = componentTypeRepository.Add(ComponentTypeToUseInTest);
@@ -44,6 +46,35 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.ComponentTypeReposit
                 Assert.AreEqual(2, componentTypeRepository.GetAll().Count());
                 Assert.AreEqual("UpdatedFrenchName", f2.Name.French);
                 Assert.AreEqual(true, f2.Archived);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateComponentTypeByTransfertObject_ThrowException_WhenNullIsSupplied()
+        {
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                   .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                   .Options;
+
+            using (var memoryCtx = new FacilityContext(options))
+            {
+                var componentTypeRepository = new ComponentTypeRepository(memoryCtx);
+                Assert.ThrowsException<ArgumentNullException>(() => componentTypeRepository.Update(null));
+            }
+        }
+
+        [TestMethod]
+        public void UpdateComponentTypeByTransfertObject_ThrowException_WhenUnexistingComponentTypeIsSupplied()
+        {
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                   .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                   .Options;
+
+            using (var memoryCtx = new FacilityContext(options))
+            {
+                var componentTypeRepository = new ComponentTypeRepository(memoryCtx);
+                var componentTypeTO = new ComponentTypeTO { Id = 999 };
+                Assert.ThrowsException<LoggedException>(() => componentTypeRepository.Update(componentTypeTO));
             }
         }
     }

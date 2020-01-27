@@ -96,25 +96,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.Business
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationServices.BusinessLayerTests", "Application Layer\EvaluationServices\EvaluationServices.BusinessLayerTests\EvaluationServices.BusinessLayerTests.csproj", "{2E7C16FB-842F-4313-8E50-519B95991C16}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CS - CommunicationServices", "CS - CommunicationServices", "{71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic Layer", "Business Logic Layer", "{749AE4D3-04A7-480D-ADDC-55F48CC78126}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross-Cutting", "Cross-Cutting", "{17592EE3-1199-4C4D-BA3D-A49B633A064A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{C55CAEA2-24E1-4B88-926F-99869AD6D1D1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayer", "Application Layer\CommunicationServices\CommunicationServices.BusinessLayer\CommunicationServices.BusinessLayer.csproj", "{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{7E89BA33-7DFF-462F-8A09-A7BFAEA687BC}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Downloads\CommunicationServices.JPG = ..\..\..\Downloads\CommunicationServices.JPG
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.BusinessLayerTests", "Application Layer\CommunicationServices\CommunicationServices.BusinessLayerTests\CommunicationServices.BusinessLayerTests.csproj", "{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationServices.CrossCutting", "Application Layer\CommunicationServices\CommunicationServices.CrossCutting\CrossCutting\CommunicationServices.CrossCutting.csproj", "{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.DataLayer", "Application Layer\UserServices\UserServices.DataLayer\RegistrationServices.DataLayer.csproj", "{728B97AD-707F-4B88-9D0E-03A02007D12B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationServices.DataLayerTests", "Application Layer\UserServices\UserServices.DataLayerTests\RegistrationServices.DataLayerTests.csproj", "{B6BC076E-D019-44A4-9B58-6965CA71C257}"
@@ -143,6 +124,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.WebUx.Mvc5Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.WebUx.Mvc5", "Presentation Layer\OnlineServices.WebUx.Mvc5\OnlineServices.WebUx.Mvc5.csproj", "{2452A61F-68B1-4750-AB52-7F1930D00D69}"
 EndProject
+
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "stylish-portfolio-master-template", "Presentation Layer\stylish-portfolio-master-template\", "{B8F51E2D-465F-4423-9A49-D85E8470379D}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
@@ -164,6 +146,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "stylish-portfolio-master-te
 		SlnRelativePath = "Presentation Layer\stylish-portfolio-master-template\"
 	EndProjectSection
 EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -258,18 +241,6 @@ Global
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7C16FB-842F-4313-8E50-519B95991C16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{728B97AD-707F-4B88-9D0E-03A02007D12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{728B97AD-707F-4B88-9D0E-03A02007D12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{728B97AD-707F-4B88-9D0E-03A02007D12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -322,10 +293,12 @@ Global
 		{2452A61F-68B1-4750-AB52-7F1930D00D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2452A61F-68B1-4750-AB52-7F1930D00D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2452A61F-68B1-4750-AB52-7F1930D00D69}.Release|Any CPU.Build.0 = Release|Any CPU
+
 		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8F51E2D-465F-4423-9A49-D85E8470379D}.Release|Any CPU.Build.0 = Debug|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -371,14 +344,6 @@ Global
 		{30DB3E98-7804-4D68-8E91-F8A5BE31E9D5} = {A864CBCF-EB40-4D99-99A6-EE3575C3A6BC}
 		{3BDCDED2-18CB-4A3A-B89D-9945E3E55F07} = {2CA1D71D-6C2F-4316-B217-AE53FBB1A513}
 		{2E7C16FB-842F-4313-8E50-519B95991C16} = {2CA1D71D-6C2F-4316-B217-AE53FBB1A513}
-		{71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60} = {22EB011A-39E4-41C2-898A-9BF918F8919C}
-		{749AE4D3-04A7-480D-ADDC-55F48CC78126} = {71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60}
-		{17592EE3-1199-4C4D-BA3D-A49B633A064A} = {71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60}
-		{C55CAEA2-24E1-4B88-926F-99869AD6D1D1} = {71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60}
-		{8931DD76-17F3-4C1F-AC93-6C3B4CFA03DE} = {749AE4D3-04A7-480D-ADDC-55F48CC78126}
-		{7E89BA33-7DFF-462F-8A09-A7BFAEA687BC} = {71FE01E1-7C8C-4EAB-ABBC-A897A33A4E60}
-		{465235BF-09B7-45EF-ABC9-8C6FFC15BFCD} = {749AE4D3-04A7-480D-ADDC-55F48CC78126}
-		{E7656005-A403-4FB8-B0F7-1B60F3A8D1C2} = {17592EE3-1199-4C4D-BA3D-A49B633A064A}
 		{728B97AD-707F-4B88-9D0E-03A02007D12B} = {0F156B42-8E76-421F-9149-31BBB87DFF8E}
 		{B6BC076E-D019-44A4-9B58-6965CA71C257} = {0F156B42-8E76-421F-9149-31BBB87DFF8E}
 		{C697680E-3244-448A-B099-1F19B05226AB} = {8295AE90-2063-4E09-8EDC-0107C2FAC9B3}
@@ -394,6 +359,7 @@ Global
 		{81ACBE36-ABC5-48DB-ADE6-0A853AB7C3D3} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 		{2452A61F-68B1-4750-AB52-7F1930D00D69} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 		{B8F51E2D-465F-4423-9A49-D85E8470379D} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
+
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C170EEE5-52F4-4C78-ABDF-890E97482E62}

@@ -1,7 +1,5 @@
 ﻿using OnlineServices.Common.TranslationServices.TransfertObjects;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FacilityServices.BusinessLayer.Domain
 {
@@ -11,16 +9,6 @@ namespace FacilityServices.BusinessLayer.Domain
         public MultiLanguageString Name { get; set; }
         public Floor Floor { get; set; }
         public bool Archived { get; set; }
-
-        public Room()
-        {
-
-        }
-
-        public Room(MultiLanguageString name, Floor floorAttached)
-        {
-            this.Name = name;
-            this.Floor = floorAttached;
-        }
+        public IList<ComponentType> ComponentTypes { get; set; }
     }
 }

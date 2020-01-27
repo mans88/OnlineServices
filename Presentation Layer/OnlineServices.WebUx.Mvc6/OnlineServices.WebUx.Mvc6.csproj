@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.21.39.1638</AssemblyVersion>
-    <FileVersion>2001.21.39.1638</FileVersion>
+    <AssemblyVersion>2001.22.18.1030</AssemblyVersion>
+    <FileVersion>2001.22.18.1030</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,7 +33,6 @@
     <Folder Include="Areas\Attendances\Controllers\" />
     <Folder Include="Areas\Attendances\Data\" />
     <Folder Include="Areas\Attendances\Models\" />
-    <Folder Include="Areas\Facilities\Controllers\" />
     <Folder Include="Areas\Facilities\Data\" />
     <Folder Include="Areas\Facilities\Models\" />
     <Folder Include="Areas\Meals\Controllers\" />
@@ -43,6 +42,12 @@
     <Folder Include="Areas\Registration\Data\" />
     <Folder Include="Areas\Registration\Models\" />
     <Folder Include="Areas\Registration\Views\" />
+    <Folder Include="wwwroot\Registration\" />
+    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application Layer\FacilityServices\FacilityServices.BusinessLayer\FacilityServices.BusinessLayer.csproj" />
+    <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
+  </ItemGroup>
 </Project>
