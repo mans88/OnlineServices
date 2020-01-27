@@ -19,11 +19,11 @@ namespace RegistrationServices.DataLayerTests
         [TestMethod]
         public void Should_Insert_Session_when_valid()
         {
-            var options = new DbContextOptionsBuilder<RegistrationServicesContext>()
+            var options = new DbContextOptionsBuilder<RegistrationContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
                 .Options;
 
-            using var context = new RegistrationServicesContext(options);
+            using var context = new RegistrationContext(options);
             IRSUserRepository userRepository = new UserRepository(context);
             //IRSSessionRepository sessionRepository = new SessionRepository(context);
 

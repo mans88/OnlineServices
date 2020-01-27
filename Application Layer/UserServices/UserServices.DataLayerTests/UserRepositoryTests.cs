@@ -15,11 +15,11 @@ namespace RegistrationServices.DataLayerTests
         [TestMethod()]
         public void UserRepositoryInsertInDB_WhenValid()
         {
-            var options = new DbContextOptionsBuilder<RegistrationServicesContext>()
+            var options = new DbContextOptionsBuilder<RegistrationContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
                 .Options;
 
-            using (var RSCxt = new RegistrationServicesContext(options))
+            using (var RSCxt = new RegistrationContext(options))
             {
                 //Arrange
                 var userToUse = new UserTO()
@@ -44,11 +44,11 @@ namespace RegistrationServices.DataLayerTests
         [TestMethod()]
         public void UserRepositoryNotInsertInDB_WhenInvalid()
         {
-            var options = new DbContextOptionsBuilder<RegistrationServicesContext>()
+            var options = new DbContextOptionsBuilder<RegistrationContext>()
                 .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
                 .Options;
 
-            using (var RSCxt = new RegistrationServicesContext(options))
+            using (var RSCxt = new RegistrationContext(options))
             {
                 //Arrange
                 var userToUseValid1 = new UserTO()

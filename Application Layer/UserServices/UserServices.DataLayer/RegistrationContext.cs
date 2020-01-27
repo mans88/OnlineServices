@@ -3,13 +3,13 @@ using RegistrationServices.DataLayer.Entities;
 
 namespace RegistrationServices.DataLayer
 {
-    public class RegistrationServicesContext : DbContext
+    public class RegistrationContext : DbContext
     {
-        public RegistrationServicesContext()
+        public RegistrationContext()
         {
         }
 
-        public RegistrationServicesContext(DbContextOptions<RegistrationServicesContext> options) : base(options)
+        public RegistrationContext(DbContextOptions<RegistrationContext> options) : base(options)
         {
         }
 

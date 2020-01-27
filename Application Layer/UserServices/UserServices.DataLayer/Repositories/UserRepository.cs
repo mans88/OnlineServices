@@ -12,34 +12,33 @@ namespace RegistrationServices.DataLayer.Repositories
     //public class UserRepository : IRepository<UserTO, int>
     public class UserRepository : IRSUserRepository
     {
-        private readonly RegistrationServicesContext userContext;
+        private RegistrationContext registrationContext;
 
-        public UserRepository(RegistrationServicesContext userContext)
+        public UserRepository(RegistrationContext registrationContext)
         {
-            this.userContext = userContext;
-            //userContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
+            this.registrationContext = registrationContext;
         }
 
         public UserTO Add(UserTO Entity)
         {
-            return userContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+            return registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 
         public IEnumerable<UserTO> GetAll()
-        => userContext.Users
+        => registrationContext.Users
             .AsNoTracking()
             .Include(x => x.UserSessions)
             .Select(x => x.ToTransfertObject())
             .ToList();
 
         public UserTO GetById(int Id)
-        => userContext.Users
+        => registrationContext.Users
                 .AsNoTracking()
                 .Include(x => x.UserSessions)
                 .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
 
         public IEnumerable<UserTO> GetByRole(UserRole role)
-        => userContext.Users
+        => registrationContext.Users
                 .AsNoTracking()
                 .Include(x => x.Role)
                 .Include(x => x.Name)
@@ -51,7 +50,7 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public IEnumerable<UserTO> GetBySession(SessionTO session)
         {
-            return userContext.UserSessions
+            return registrationContext.UserSessions
                 .Where(x => x.SessionId == session.Id)
                 .Select(x => x.User.ToTransfertObject())
                 .ToList();
@@ -79,12 +78,12 @@ namespace RegistrationServices.DataLayer.Repositories
         public bool Remove(int Id)
         {
             var returnValue = false;
-            var user = userContext.Users.FirstOrDefault(x => x.Id == Id);
+            var user = registrationContext.Users.FirstOrDefault(x => x.Id == Id);
             if (user != default)
             {
                 try
                 {
-                    userContext.Users.Remove(user);
+                    registrationContext.Users.Remove(user);
                     returnValue = true;
                 }
                 catch (Exception)
@@ -97,11 +96,11 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public UserTO Update(UserTO Entity)
         {
-            if (!userContext.Users.Any(x => x.Id == Entity.Id))
+            if (!registrationContext.Users.Any(x => x.Id == Entity.Id))
             {
                 throw new Exception($"Can't find user to update. UserRepository");
             }
-            var attachedUser = userContext.Users
+            var attachedUser = registrationContext.Users
                 .Include(x => x.Role)
                 .Include(x => x.Name)
                 .Include(x => x.Email)
@@ -113,7 +112,7 @@ namespace RegistrationServices.DataLayer.Repositories
                 attachedUser.UpdateFromDetached(Entity.ToEF());
             }
 
-            return userContext.Users.Update(attachedUser).Entity.ToTransfertObject();
+            return registrationContext.Users.Update(attachedUser).Entity.ToTransfertObject();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineServices.Common.RegistrationServices.Interface;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using RegistrationServices.DataLayer.Extensions;
 using System;
@@ -11,18 +11,18 @@ namespace RegistrationServices.DataLayer.Repositories
 {
     public class SessionRepository : IRSSessionRepository
     {
-        private RegistrationServicesContext sessionContext;
+        private RegistrationContext registrationContext;
 
-        public SessionRepository(RegistrationServicesContext RSContext)
+        public SessionRepository(RegistrationContext registrationContext)
         {
-            this.sessionContext = RSContext;
+            this.registrationContext = registrationContext;
         }
 
         public SessionTO Add(SessionTO Entity)
-            => sessionContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+            => registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
 
         public IEnumerable<SessionTO> GetAll()
-            => sessionContext.Sessions
+            => registrationContext.Sessions
                 .AsNoTracking()
                 .Include(x => x.UserSessions)
                 .Include(x => x.Dates)
@@ -31,7 +31,7 @@ namespace RegistrationServices.DataLayer.Repositories
                 .ToList();
 
         public SessionTO GetById(int Id)
-            => sessionContext.Sessions
+            => registrationContext.Sessions
                 .AsNoTracking()
                 .Include(x => x.UserSessions)
                 .Include(x => x.Dates)
