@@ -5,16 +5,15 @@ using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.FacilityServices.Interfaces;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
-using System;
 using System.Collections.Generic;
 
 namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 {
     [TestClass]
-    public class Assistant_RemoveComponentType
+    public class Assistant_RemoveComponentTypeTests
     {
         [TestMethod]
-        public void RemoveComponentTypeById__ReturnTrue()
+        public void RemoveComponentTypeById_ReturnTrue()
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
@@ -37,7 +36,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         }
 
         [TestMethod]
-        public void RemoveComponentType_IncorrectComponentTypeID_ThrowLoggedException()
+        public void RemoveComponentType_IncorrectComponentTypeId_ThrowLoggedException()
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();

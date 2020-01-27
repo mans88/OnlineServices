@@ -9,9 +9,7 @@ namespace FacilityServices.BusinessLayer.Extensions
         public static Incident ToDomain(this IncidentTO IncidentTO)
         {
             if (IncidentTO is null)
-            {
                 throw new NullIncidentException(nameof(IncidentTO));
-            }
 
             return new Incident
             {
@@ -28,9 +26,7 @@ namespace FacilityServices.BusinessLayer.Extensions
         public static IncidentTO ToTransfertObject(this Incident Incident)
         {
             if (Incident is null)
-            {
                 throw new NullIncidentException(nameof(Incident));
-            }
 
             return new IncidentTO
             {

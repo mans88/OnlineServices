@@ -64,8 +64,15 @@ namespace FacilityServices.DataLayer.Repositories
             return comment.ToTransfertObject();
         }
 
-        public List<CommentTO> GetCommentsByIncidentId(int incidentId)
+        public List<CommentTO> GetCommentsByIncident(int incidentId)
         {
+            var incidentEF = facilityContext.Incidents.FirstOrDefault(x => x.Id == incidentId);
+
+            if (incidentEF is null)
+            {
+                throw new KeyNotFoundException($"GetCommentsByIncident: no incident found with ID={incidentId}");
+            }
+
             return facilityContext.Comments
                 .Where(c => c.Incident.Id == incidentId)
                 .Select(c => c.ToTransfertObject())
@@ -88,8 +95,9 @@ namespace FacilityServices.DataLayer.Repositories
 
             if (comment == null)
             {
-                throw new ArgumentException($"CommentRepository. Delete(commentId = {Id}) no record to delete.");
+                throw new KeyNotFoundException($"CommentRepository. Delete(commentId = {Id}) no record to delete.");
             }
+
             var removedComment = facilityContext.Comments.Remove(comment);
             return removedComment.State == EntityState.Deleted;
         }
@@ -112,7 +120,7 @@ namespace FacilityServices.DataLayer.Repositories
 
             if (comment == null)
             {
-                throw new ArgumentException($"CommentRepository. Update(commentTO) wrong ID (ID <= 0).");
+                throw new KeyNotFoundException($"CommentRepository. Update(commentTO) wrong ID (ID <= 0).");
             }
 
             comment.UpdateFromDetached(Entity.ToEF());

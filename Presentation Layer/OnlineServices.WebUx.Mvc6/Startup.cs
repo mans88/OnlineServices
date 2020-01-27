@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FacilityServices.BusinessLayer.UseCases;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using OnlineServices.Common.FacilityServices.Interfaces;
 
 namespace OnlineServices.WebUx.Mvc6
 {
@@ -28,6 +30,9 @@ namespace OnlineServices.WebUx.Mvc6
 
             // MustKnow Logging Step 1: Log configuration avec SERILOG
             services.AddLogging();
+
+            // Facility
+            //services.AddTransient<IFSAttendeeRole, FacilityServices.BusinessLayer.UseCases.AttendeeRole>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

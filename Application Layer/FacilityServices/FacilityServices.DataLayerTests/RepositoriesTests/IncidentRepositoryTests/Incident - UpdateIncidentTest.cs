@@ -7,6 +7,7 @@ using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTests
@@ -63,6 +64,52 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTe
             Assert.IsNotNull(updatedIncident);
             Assert.AreEqual("No coffee, nor water !", updatedIncident.Description);
             Assert.AreEqual(IncidentStatus.Resolved, updatedIncident.Status);
+        }
+
+        [TestMethod]
+        public void Update_ThrowException_WhenNullIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentNullException>(() => incidentRepository.Update(null));
+        }
+
+        [TestMethod]
+        public void Update_ThrowException_WhenInvalidIdIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+            var incident1 = new IncidentTO { Id = 0 };
+            var incident2 = new IncidentTO { Id = -1 };
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentException>(() => incidentRepository.Update(incident1));
+            Assert.ThrowsException<ArgumentException>(() => incidentRepository.Update(incident2));
+        }
+
+        [TestMethod]
+        public void Update_ThrowException_WhenUnexistingIncidentIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+            var incident = new IncidentTO { Id = 999 };
+
+            //ACT & ASSERT
+            Assert.ThrowsException<KeyNotFoundException>(() => incidentRepository.Update(incident));
         }
     }
 }

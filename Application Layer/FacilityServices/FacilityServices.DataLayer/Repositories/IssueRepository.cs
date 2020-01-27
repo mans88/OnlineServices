@@ -1,5 +1,6 @@
 ﻿using FacilityServices.DataLayer.Extensions;
 using Microsoft.EntityFrameworkCore;
+using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using System;
@@ -46,49 +47,54 @@ namespace FacilityServices.DataLayer.Repositories
                 .ToTransfertObject();
         }
 
-        public List<IssueTO> GetIssuesByComponentType(ComponentTypeTO ComponentType)
+        public List<IssueTO> GetIssuesByComponentType(int componentTypeId)
         {
-            if (ComponentType is null)
+            if (componentTypeId <= 0)
             {
-                throw new ArgumentNullException(nameof(ComponentType));
+                throw new ArgumentException($"GetIssuesByComponentType: invalid componentType ID (ID={componentTypeId})");
             }
+
+            var componentTypeEF = facilityContext.ComponentTypes.FirstOrDefault(x => x.Id == componentTypeId && !x.Archived);
+
+            if (componentTypeEF is null)
+            {
+                throw new KeyNotFoundException($"GetIssuesByComponentType: no componentType found with ID={componentTypeId}");
+            }
+
             return facilityContext.Issues
-                           .Include(r => r.ComponentType)
-                           .Where(r => r.ComponentType.Id == ComponentType.Id && r.Archived != true)
-                           .Select(r => r.ToTransfertObject())
-                           .ToList();
+                .Include(i => i.ComponentType)
+                .Where(i => i.ComponentType.Id == componentTypeId && i.Archived != true)
+                .Select(i => i.ToTransfertObject())
+                .ToList();
         }
 
         public bool Remove(IssueTO entity)
-        => Remove(entity.Id);
+        {
+            if (entity is null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            return Remove(entity.Id);
+        }
 
         public bool Remove(int Id)
         {
-            if (!facilityContext.Issues.Any(x => x.Id == Id && x.Archived != true))
-                throw new Exception($"IssueRepository. Delete(IssueId = {Id}) no record to delete.");
+            var issue = facilityContext.Issues.FirstOrDefault(x => x.Id == Id && !x.Archived);
 
-            var issue = facilityContext.Issues.FirstOrDefault(x => x.Id == Id && x.Archived != true);
-            
-            if (issue != default)
+            if (issue is null)
             {
-                try
-                {
-                    issue.Archived = true;
-                    return facilityContext.Issues.Update(issue).Entity.Archived; ;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                throw new KeyNotFoundException($"IssueRepository. Remove(Id = {Id}) no record to delete.");
             }
 
-            return false;
+            issue.Archived = true;
+            return facilityContext.Issues.Update(issue).Entity.Archived; ;
         }
 
         public IssueTO Update(IssueTO Entity)
         {
             if (!facilityContext.Issues.Any(x => x.Id == Entity.Id && x.Archived != true))
-                throw new Exception($"IssueRepository. Update(IssueTransfertObject) no record to update.");
+                throw new LoggedException($"IssueRepository. Update(IssueTransfertObject) no record to update.");
 
             var attachedIssues = facilityContext.Issues
                 .FirstOrDefault(x => x.Id == Entity.Id && x.Archived != true);

@@ -2,8 +2,6 @@
 using OnlineServices.Common.FacilityServices.Interfaces;
 using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FacilityServices.DataLayer
 {
@@ -12,9 +10,9 @@ namespace FacilityServices.DataLayer
     {
         private readonly FacilityContext facilityContext;
 
-        public FSUnitOfWork(FacilityContext ContextIoC)
+        public FSUnitOfWork(FacilityContext context)
         {
-            this.facilityContext = ContextIoC ?? throw new ArgumentNullException(nameof(ContextIoC));
+            this.facilityContext = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         private IComponentTypeRepository componentTypeRepository;
@@ -31,7 +29,7 @@ namespace FacilityServices.DataLayer
 
         private IIssueRepository issueRepository;
         public IIssueRepository IssueRepository
-             =>issueRepository ??= new IssueRepository(facilityContext);
+             => issueRepository ??= new IssueRepository(facilityContext);
 
         private IRoomRepository roomRepository;
         public IRoomRepository RoomRepository
@@ -40,30 +38,29 @@ namespace FacilityServices.DataLayer
         private IIncidentRepository incidentRepository;
         public IIncidentRepository IncidentRepository
             => incidentRepository ??= new IncidentRepository(facilityContext);
-        
-        
+
+        public void Save()
+        {
+            facilityContext.SaveChanges();
+        }
+
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!this.disposed)
             {
                 if (disposing)
                 {
-                   facilityContext.Dispose();
+                    facilityContext.Dispose();
                 }
             }
-            disposed = true;
+            this.disposed = true;
         }
 
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        public void Save()
-        {
-            facilityContext.SaveChanges();
         }
     }
 }

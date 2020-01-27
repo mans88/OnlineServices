@@ -7,6 +7,7 @@ using OnlineServices.Common.FacilityServices.Interfaces.Repositories;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTests
@@ -59,6 +60,35 @@ namespace FacilityServices.DataLayerTests.RepositoriesTests.IncidentRepositoryTe
             context.SaveChanges();
             //ASSERT   
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void RemoveByIncident_ThrowException_WhenNullIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+
+            //ACT & ASSERT
+            Assert.ThrowsException<ArgumentNullException>(() => incidentRepository.Remove(null));
+        }
+
+        [TestMethod]
+        public void RemoveByIncident_ThrowException_WhenUnexistingIncidentIsSupplied()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<FacilityContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new FacilityContext(options);
+            IIncidentRepository incidentRepository = new IncidentRepository(context);
+            var incident = new IncidentTO { Id = 999 };
+
+            //ACT & ASSERT
+            Assert.ThrowsException<KeyNotFoundException>(() => incidentRepository.Remove(incident));
         }
     }
 }

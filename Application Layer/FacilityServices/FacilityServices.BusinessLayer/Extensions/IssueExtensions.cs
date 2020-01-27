@@ -1,4 +1,5 @@
 ﻿using FacilityServices.BusinessLayer.Domain;
+using OnlineServices.Common.FacilityServices.Exceptions;
 using OnlineServices.Common.FacilityServices.TransfertObjects;
 
 namespace FacilityServices.BusinessLayer.Extensions
@@ -7,6 +8,9 @@ namespace FacilityServices.BusinessLayer.Extensions
     {
         public static Issue ToDomain(this IssueTO IssueTO)
         {
+            if (IssueTO is null)
+                throw new NullIssueException(nameof(IssueTO));
+
             return new Issue(IssueTO.Name)
             {
                 Id = IssueTO.Id,
@@ -18,6 +22,9 @@ namespace FacilityServices.BusinessLayer.Extensions
         }
         public static IssueTO ToTransfertObject(this Issue Issue)
         {
+            if (Issue is null)
+                throw new NullIssueException(nameof(Issue));
+
             return new IssueTO()
             {
                 Id = Issue.Id,
