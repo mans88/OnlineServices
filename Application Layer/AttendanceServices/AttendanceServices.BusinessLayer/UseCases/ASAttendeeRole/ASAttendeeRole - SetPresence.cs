@@ -16,7 +16,7 @@ namespace AttendanceServices.BusinessLayer.UseCases
         {
             if(!userServices.GetSessionAttendes(sessionID).Any(x=> x.Id == attendeeId))
                 throw new Exception("Attendee do not exist in formation");
-            if (!userServices.GetSession(sessionID).SessionDays.Any(x => x.DaySession.IsSameDate(DateTime.Now)))
+            if (!userServices.GetSession(sessionID).SessionDays.Any(x => x.Date.IsSameDate(DateTime.Now)))
                 throw new Exception("Not a formation day");
             try
             {

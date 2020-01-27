@@ -56,7 +56,7 @@ namespace AttendanceServices.BusinessLayer.Tests
                 {
                     Id = 12,
                     SessionDays = new List<SessionDayTO> {
-                        new SessionDayTO { Id = 1, DaySession = DateTime.Now.AddDays(2), PresenceType = SessionPresenceType.MorningAfternoon }
+                        new SessionDayTO { Id = 1, Date = DateTime.Now.AddDays(2), PresenceType = SessionPresenceType.MorningAfternoon }
                     }
                 });
 
@@ -89,7 +89,7 @@ namespace AttendanceServices.BusinessLayer.Tests
                     {
                         new SessionDayTO
                         {
-                             Id = 1, DaySession = DateTime.Now, PresenceType = SessionPresenceType.OnceADay
+                             Id = 1, Date = DateTime.Now, PresenceType = SessionPresenceType.OnceADay
                         }
                     }
                 });

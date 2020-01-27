@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2020.0117.2032.7</AssemblyVersion>
-    <FileVersion>2020.0117.2032.7</FileVersion>
+    <AssemblyVersion>2001.24.0.1513</AssemblyVersion>
+    <FileVersion>2001.24.0.1513</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
