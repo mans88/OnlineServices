@@ -96,12 +96,7 @@ namespace RegistrationServices.DataLayer.Repositories
             {
                 throw new Exception($"Can't find user to update. UserRepository");
             }
-            var attachedUser = rsContext.Users
-                .Include(x => x.Role)
-                .Include(x => x.Name)
-                .Include(x => x.Email)
-                .Include(x => x.Company)
-                .FirstOrDefault(x => x.Id == Entity.Id);
+            var attachedUser = rsContext.Users.FirstOrDefault(x => x.Id == Entity.Id);
 
             if (attachedUser != default)
             {

@@ -25,5 +25,25 @@ namespace RegistrationServices.DataLayer.Extensions
                 Name = course.Name
             };
         }
+
+        public static CourseEF UpdateFromDetached(this CourseEF AttachedEF, CourseEF DetachedEF)
+        {
+            if (AttachedEF is null)
+                throw new ArgumentNullException();
+
+            if (DetachedEF is null)
+                throw new NullReferenceException();
+
+            if (AttachedEF.Id != DetachedEF.Id)
+                throw new Exception("Cannot update courseEF entity because it is not the same.");
+
+            if ((AttachedEF != default) && (DetachedEF != default))
+            {
+                AttachedEF.Id = DetachedEF.Id;
+                AttachedEF.Name = DetachedEF.Name;
+            }
+
+            return AttachedEF;
+        }
     }
 }

@@ -51,7 +51,18 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public CourseTO Update(CourseTO Entity)
         {
-            throw new NotImplementedException();
+            if (!rsContext.Courses.Any(x => x.Id == Entity.Id))
+            {
+                throw new Exception($"Can't find user to update. UserRepository");
+            }
+            var attachedUser = rsContext.Courses.FirstOrDefault(x => x.Id == Entity.Id);
+
+            if (attachedUser != default)
+            {
+                attachedUser.UpdateFromDetached(Entity.ToEF());
+            }
+
+            return rsContext.Courses.Update(attachedUser).Entity.ToTransfertObject();
         }
     }
 }
