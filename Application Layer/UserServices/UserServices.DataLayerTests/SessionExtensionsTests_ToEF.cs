@@ -45,7 +45,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -157,7 +157,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -270,7 +270,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -382,7 +382,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},

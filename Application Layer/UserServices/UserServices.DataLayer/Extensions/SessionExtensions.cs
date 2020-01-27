@@ -15,13 +15,13 @@ namespace RegistrationServices.DataLayer.Extensions
             {
                 Id = session.Id,
                 Teacher = session.Teacher?.ToTransfertObject(),
-                Course = session.Course.ToTransfertObject(),
-                Dates = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
-                //Attendees = session.UserSessions.Select(x => x.User.ToTransfertObject()).ToList()
+                Course = session.Course?.ToTransfertObject(),
+                SessionDays = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
+                Attendees = session.UserSessions?.Select(x => x.User.ToTransfertObject()).ToList()
 
-                Attendees = session.UserSessions
-                .Where(x => x.User.Role == UserRole.Attendee)
-                .Select(x => x.User.ToTransfertObject()).ToList()
+                //Attendees = session.UserSessions
+                //.Where(x => x.User.ToTransfertObject().Role == UserRole.Attendee)
+                //.Select(x => x.User.ToTransfertObject()).ToList()
             };
         }
 
@@ -37,8 +37,13 @@ namespace RegistrationServices.DataLayer.Extensions
                 Id = session.Id,
                 Teacher = session?.Teacher.ToEF(),
                 Course = session.Course.ToEF(),
-                Dates = session.Dates.Select(x => x.ToEF()).ToList()
+                Dates = session.SessionDays?.Select(x => x.ToEF()).ToList()
             };
+
+            if (session.Attendees == null)
+            {
+                return result;
+            }
 
             result.UserSessions = new List<UserSessionEF>();
 
@@ -52,19 +57,6 @@ namespace RegistrationServices.DataLayer.Extensions
                     User = user.ToEF()
                 };
                 result.UserSessions.Add(userSession);
-            }
-
-            if (session.Teacher != null)
-            {
-                var teacherEF = new UserSessionEF()
-                {
-                    SessionId = session.Id,
-                    Session = result,
-                    UserId = session.Teacher.Id,
-                    User = session.Teacher.ToEF()
-                };
-
-                result.UserSessions.Add(teacherEF);
             }
 
             return result;

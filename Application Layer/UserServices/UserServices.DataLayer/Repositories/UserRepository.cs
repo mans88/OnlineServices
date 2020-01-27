@@ -14,9 +14,10 @@ namespace RegistrationServices.DataLayer.Repositories
     {
         private readonly RegistrationServicesContext userContext;
 
-        public UserRepository(RegistrationServicesContext Context)
+        public UserRepository(RegistrationServicesContext userContext)
         {
-            userContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
+            this.userContext = userContext;
+            //userContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
         }
 
         public UserTO Add(UserTO Entity)

@@ -1,34 +1,42 @@
-﻿using OnlineServices.Common.RegistrationServices.Interface;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineServices.Common.RegistrationServices.Interface;
 using OnlineServices.Common.RegistrationServices.TransferObject;
+using RegistrationServices.DataLayer.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RegistrationServices.DataLayer.Repositories
 {
-    class SessionRepository : IRSSessionRepository
+    public class SessionRepository : IRSSessionRepository
     {
-        private readonly RegistrationServicesContext sessionContext;
+        private RegistrationServicesContext sessionContext;
 
-        public SessionRepository(RegistrationServicesContext Context)
+        public SessionRepository(RegistrationServicesContext RSContext)
         {
-            sessionContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
+            this.sessionContext = RSContext;
         }
 
         public SessionTO Add(SessionTO Entity)
-        {
-            throw new NotImplementedException();
-        }
+            => sessionContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
 
         public IEnumerable<SessionTO> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+            => sessionContext.Sessions
+                .AsNoTracking()
+                .Include(x => x.UserSessions)
+                .Include(x => x.Dates)
+                .Include(x => x.Teacher)
+                .Select(x => x.ToTransfertObject())
+                .ToList();
 
         public SessionTO GetById(int Id)
-        {
-            throw new NotImplementedException();
-        }
+            => sessionContext.Sessions
+                .AsNoTracking()
+                .Include(x => x.UserSessions)
+                .Include(x => x.Dates)
+                .Include(x => x.Teacher)
+                .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
 
         public IEnumerable<DateTime> GetDates(SessionTO session)
         {
