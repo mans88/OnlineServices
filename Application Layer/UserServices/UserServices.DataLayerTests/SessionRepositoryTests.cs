@@ -25,51 +25,54 @@ namespace RegistrationServices.DataLayerTests
 
             using var context = new RegistrationContext(options);
             IRSUserRepository userRepository = new UserRepository(context);
-            //IRSSessionRepository sessionRepository = new SessionRepository(context);
+            IRSSessionRepository sessionRepository = new SessionRepository(context);
+            IRSCourseRepository courseRepository = new CourseRepository(context);
 
-            //using (var ctx = new RegistrationServicesContext(options))
-            //{
-            //    var session = new SessionTO()
-            //    {
-            //        Id = 32,
-            //        Teacher = new UserTO()
-            //        {
-            //            Id = 6541,
-            //            Name = "Christian",
-            //            Email = "gyssels@fartmail.com",
-            //            Role = UserRole.Teacher
-            //        },
-            //        Course = new CourseTO() { Id = 4, Name = "MVC" },
+            var Teacher = new UserTO()
+            {
+                Id = 420,
+                Name = "Christian",
+                Email = "gyssels@fartmail.com",
+                Role = UserRole.Teacher
+            };
 
-            //        SessionDays = new List<SessionDayTO>()
-            //        {
-            //            new SessionDayTO()
-            //            {
-            //                Id = 6, Date = new DateTime(2020,01,22),
-            //                PresenceType = SessionPresenceType.MorningAfternoon,
-            //            }
-            //        },
+            var Michou = new UserTO()
+            {
+                Id = 45,
+                Name = "Michou Miraisin",
+                Email = "michou@superbg.caca",
+                Role = UserRole.Attendee
+            };
 
-            //        Attendees = new List<UserTO>()
-            //        {
-            //            new UserTO()
-            //            {
-            //                Id = 8986,
-            //                Name = "Thierry Margoulin",
-            //                Email = "bgdu79@yolo.com",
-            //                Role = UserRole.Attendee
-            //            }
-            //        },
-            //    };
+            var AddedTeacher = userRepository.Add(Teacher);
+            var AddedAttendee = userRepository.Add(Michou);
+            context.SaveChanges();
 
-            //    var sessionRepo = new SessionRepository(ctx);
+            var SQLCourse = new CourseTO()
+            {
+                Id = 28,
+                Name = "SQL"
+            };
 
-            //    //Assert.AreEqual(0, sessionRepo.GetAll().Count());
+            var AddedCourse = courseRepository.Add(SQLCourse);
+            context.SaveChanges();
 
-            //    sessionRepo.Add(session);
-            //    ctx.SaveChanges();
+            var SQLSession = new SessionTO()
+            {
+                Id = 12,
+                Attendees = new List<UserTO>()
+                {
+                    AddedAttendee
+                },
 
-            //    Assert.AreEqual(1, sessionRepo.GetAll().Count());
+                Course = AddedCourse,
+                Teacher = AddedTeacher,
+            };
+
+            var AddedSession = sessionRepository.Add(SQLSession);
+            context.SaveChanges();
+
+            Assert.AreEqual(1, sessionRepository.GetAll().Count());
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace RegistrationServices.DataLayer.Repositories
 {
-    class CourseRepository : IRSCourseRepository
+    public class CourseRepository : IRSCourseRepository
     {
         private readonly RegistrationContext registrationContext;
 
@@ -20,7 +20,7 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public CourseTO Add(CourseTO Entity)
         {
-            return registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+            return registrationContext.Courses.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 
         public IEnumerable<CourseTO> GetAll()

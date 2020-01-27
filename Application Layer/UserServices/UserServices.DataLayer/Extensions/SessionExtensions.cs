@@ -16,7 +16,7 @@ namespace RegistrationServices.DataLayer.Extensions
                 Id = session.Id,
                 Teacher = session.Teacher?.ToTransfertObject(),
                 Course = session.Course?.ToTransfertObject(),
-                SessionDays = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
+                //SessionDays = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
                 Attendees = session.UserSessions?.Select(x => x.User.ToTransfertObject()).ToList()
 
                 //Attendees = session.UserSessions

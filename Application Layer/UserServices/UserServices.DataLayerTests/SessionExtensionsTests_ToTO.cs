@@ -359,7 +359,7 @@ namespace RegistrationServices.DataLayerTests
         }
 
         [TestMethod]
-        public void Should_Contain_Two_Users()
+        public void Should_Contain_One_Attendee()
         {
             #region TOInitialization
 
@@ -455,14 +455,6 @@ namespace RegistrationServices.DataLayerTests
                     UserId = studentEF.Id,
                     User = studentEF
                 },
-
-                new UserSessionEF
-                {
-                    SessionId = sessionEF.Id,
-                    Session = sessionEF,
-                    UserId = teacherEF.Id,
-                    User = teacherEF
-                }
             };
 
             sessionEF.UserSessions = userSessions;

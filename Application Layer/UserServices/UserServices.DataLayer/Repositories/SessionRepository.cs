@@ -19,7 +19,17 @@ namespace RegistrationServices.DataLayer.Repositories
         }
 
         public SessionTO Add(SessionTO Entity)
-            => registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+        {
+            if (Entity is null)
+                throw new ArgumentNullException(nameof(Entity));
+
+            var sessionEF = Entity.ToEF();
+            sessionEF.Course = registrationContext.Courses.First(x => x.Id == Entity.Course.Id);
+            sessionEF.UserSessions = registrationContext.UserSessions.Where(x => x.SessionId == Entity.Id).ToList();
+
+            return registrationContext.Sessions.Add(sessionEF).Entity.ToTransfertObject();
+            // => registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+        }
 
         public IEnumerable<SessionTO> GetAll()
             => registrationContext.Sessions
