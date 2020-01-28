@@ -20,6 +20,7 @@ namespace RegistrationServices.DataLayer
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RegistrationServicesDB;Trusted_Connection=True;");
+                optionsBuilder.EnableSensitiveDataLogging(true);
             }
         }
 

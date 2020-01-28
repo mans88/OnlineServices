@@ -53,22 +53,22 @@ namespace RegistrationServices.DataLayer.Extensions
                     User = user.ToEF()
                 };
                 result.UserSessions.Add(userSession);
-
-                var teacherEF = new UserSessionEF()
-                {
-                    SessionId = session.Id,
-                    Session = result,
-                    UserId = session.Teacher.Id,
-                    User = session.Teacher.ToEF()
-                };
-
-                result.UserSessions.Add(teacherEF);
-
-                foreach (UserSessionEF item in result.UserSessions)
-                {
-                    item.User.UserSessions.Add(item);
-                }
             }
+
+            var teacherEF = new UserSessionEF()
+            {
+                SessionId = session.Id,
+                Session = result,
+                UserId = session.Teacher.Id,
+                User = session.Teacher.ToEF()
+            };
+
+            result.UserSessions.Add(teacherEF);
+
+            //foreach (UserSessionEF item in result.UserSessions)
+            //{
+            //    item.User.UserSessions.Add(item);
+            //}
 
             return result;
         }

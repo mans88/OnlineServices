@@ -20,6 +20,11 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public CourseTO Add(CourseTO Entity)
         {
+            if (Entity.Id != 0)
+            {
+                return Entity;
+            }
+
             return registrationContext.Courses.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 

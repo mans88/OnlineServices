@@ -23,8 +23,17 @@ namespace RegistrationServices.DataLayer.Repositories
             if (Entity is null)
                 throw new ArgumentNullException(nameof(Entity));
 
+            if (Entity.Id != 0)
+            {
+                return Entity;
+            }
+
             var sessionEF = Entity.ToEF();
             sessionEF.Course = registrationContext.Courses.First(x => x.Id == Entity.Course.Id);
+
+            //By Amb
+            //sessionEF.
+            //By Amb
 
             registrationContext.Sessions.Add(sessionEF);
             return sessionEF.ToTransfertObject();
@@ -34,7 +43,7 @@ namespace RegistrationServices.DataLayer.Repositories
         public IEnumerable<SessionTO> GetAll()
             => registrationContext.Sessions
                 .AsNoTracking()
-                .Include(x => x.UserSessions)
+                .Include(x => x.UserSessions).ThenInclude(x => x.User)
                 .Include(x => x.Dates)
                 .Select(x => x.ToTransfertObject())
                 .ToList();

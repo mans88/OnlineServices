@@ -33,7 +33,7 @@ namespace RegistrationServices.DataLayer.Extensions
                 Email = user.Email,
                 Role = user.Role,
                 IsActivated = user.IsActivated,
-                UserSessions = new List<UserSessionEF>()
+                //UserSessions = new List<UserSessionEF>()
             };
         }
 

@@ -23,8 +23,11 @@ namespace RegistrationServices.DataLayer.Repositories
         {
             if (Entity is null)
                 throw new ArgumentNullException(nameof(Entity));
-
-            return userContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+            if (Entity.Id != 0)
+            {
+                return Entity;
+            }
+            return userContext.Users.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 
         public IEnumerable<UserTO> GetAll()
