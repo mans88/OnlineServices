@@ -439,6 +439,11 @@ namespace RegistrationServices.DataLayerTests
                     SessionId = sessionEF.Id,
                     UserId = studentEF.Id
                 },
+                new UserSessionEF
+                {
+                    SessionId = sessionEF.Id,
+                    UserId = studentEF.Id
+                },
             };
 
             sessionEF.UserSessions = userSessions;

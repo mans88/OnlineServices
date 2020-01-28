@@ -434,12 +434,6 @@ namespace RegistrationServices.DataLayerTests
             {
                 Id = 1,
                 Course = sqlEF,
-                Dates = new List<SessionDayEF>()
-                {
-                    new SessionDayEF { Id=1, Date=new DateTime(2020, 01, 20), PresenceType = SessionPresenceType.MorningOnly},
-                    new SessionDayEF { Id=2, Date=new DateTime(2020, 01, 21), PresenceType = SessionPresenceType.MorningOnly},
-                    new SessionDayEF { Id=3, Date=new DateTime(2020, 01, 22), PresenceType = SessionPresenceType.MorningOnly},
-                },
             };
 
             List<UserSessionEF> userSessions = new List<UserSessionEF>()
@@ -451,6 +445,13 @@ namespace RegistrationServices.DataLayerTests
                     UserId = studentEF.Id,
                     User = studentEF
                 },
+                new UserSessionEF
+                {
+                    SessionId = sessionEF.Id,
+                    Session = sessionEF,
+                    UserId = teacherEF.Id,
+                    User = teacherEF
+                },
             };
 
             sessionEF.UserSessions = userSessions;
@@ -459,7 +460,7 @@ namespace RegistrationServices.DataLayerTests
 
             SessionTO sessionConverted = sessionEF.ToTransfertObject();
 
-            Assert.AreEqual(sessionTO.Attendees.Count, sessionConverted.Attendees.Count);
+            Assert.AreEqual(1, sessionConverted.Attendees.Count);
         }
     }
 }

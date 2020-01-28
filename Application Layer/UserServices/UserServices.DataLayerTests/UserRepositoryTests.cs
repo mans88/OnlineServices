@@ -41,6 +41,8 @@ namespace RegistrationServices.DataLayerTests
                 //var userToAssert = userRepository.GetById(1);
             }
         }
+
+        [Ignore]
         [TestMethod()]
         public void UserRepositoryNotInsertInDB_WhenInvalid()
         {
@@ -91,10 +93,12 @@ namespace RegistrationServices.DataLayerTests
             }
         }
 
+        [Ignore]
+        [TestMethod]
         public void UserRepositoryDelete_WhenValid()
         {
         }
 
-//        public void UserRepository
+        //        public void UserRepository
     }
 }
