@@ -1,12 +1,7 @@
 ﻿using EvaluationServices.DataLayer.Entities;
 using OnlineServices.Common.EvaluationServices.TransfertObjects;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using OnlineServices.Common.TranslationServices.TransfertObjects;
-using OnlineServices.Common.EvaluationServices.Enumerations;
 using System.Linq;
-using OnlineServices.Common.EvaluationServices;
 
 namespace EvaluationServices.DataLayer.Extensions
 {
@@ -20,10 +15,13 @@ namespace EvaluationServices.DataLayer.Extensions
             return new ResponseTO
             {
                 Id = response.Id,
-                Form = response.Form.ToTransfertObject(),
+                Grade = response.Grade,
+                MultiChoices = response.MultiChoices,
                 Question = response.Question.ToTransfertObject(),
-                ResponseOpened = response.ResponseOpened,
-                Choices = response.Choices?.Select(x => x.ToTransfertObject()).ToList(),
+                Text = response.Text,
+                QuestionProposition = response.QuestionProposition?.ToTransfertObject(),
+                Comment = response.Comment?.ToTransfertObject(),
+                Submission = response.Submission.ToTransfertObject(),
             };
         }
 
@@ -32,16 +30,22 @@ namespace EvaluationServices.DataLayer.Extensions
             if (response is null)
                 throw new ArgumentNullException(nameof(response));
 
-            return new ResponseEF
+            var answer = new ResponseEF
             {
                 Id = response.Id,
-                Form = response.Form.ToEF(),
+                Grade = response.Grade,
+                MultiChoices = response.MultiChoices,
                 Question = response.Question.ToEF(),
-                QuestionId = response.Question.Id,
-                ResponseFormId = response.Form.Id,
-                ResponseOpened = response.ResponseOpened,
-                Choices = response.Choices?.Select(c => c.ToEF()).ToList()
+                Text = response.Text,
+                QuestionProposition = response.QuestionProposition?.ToEF(),
+                Comment = response.Comment?.ToEF(),
+                Submission = response.Submission.ToEF()
             };
+
+            if(answer.Comment != default(CommentEF))
+                answer.Comment.Response = answer;
+
+            return answer;
         }
     }
 }

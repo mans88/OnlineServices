@@ -2,54 +2,59 @@
 using OnlineServices.Common.EvaluationServices.Interfaces;
 using OnlineServices.Common.EvaluationServices.Interfaces.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EvaluationServices.DataLayer
 {
-    public class ESUnitOfWork : IESUnitOfWork, IDisposable
-    {
-        private readonly EvaluationContext evaluationContext;
+	public class ESUnitOfWork : IESUnitOfWork, IDisposable
+	{
+		private readonly EvaluationContext evaluationContext;
 
-        public ESUnitOfWork(EvaluationContext evaluationContext)
-        {
-            this.evaluationContext = evaluationContext ?? throw new ArgumentNullException(nameof(evaluationContext));
-        }
+		private IFormRepository formRepository;
+		private IQuestionRepository questionRepository;
+		private IQuestionPropositionRepository questionPropositionRepository;
 
-        private bool disposed = false;
+		private IResponseRepository responseRepository;
+		private ISubmissionRepository submissionRepository;
+		private ICommentRepository commentRepository;
 
-        private IQuestionRepository questionRepository;
-        public IQuestionRepository QuestionRepository => questionRepository = new QuestionRepository(evaluationContext);
+		private bool disposed = false;
 
-        private IQuestionPropositionRepository questionPropositionRepository;
-        public IQuestionPropositionRepository QuestionPropositionRepository
-            => questionPropositionRepository = new QuestionPropositionRepository(evaluationContext);
+		public ESUnitOfWork(EvaluationContext evaluationContext)
+		{
+			this.evaluationContext = evaluationContext ?? throw new ArgumentNullException(nameof(evaluationContext));
+		}
 
-        private IResponseRepository responseRepository;
-        public IResponseRepository ResponseRepository => responseRepository = new ResponseRepository(evaluationContext);
+		public IFormRepository FormRepository => formRepository = new FormRepository(evaluationContext);
+		public IQuestionRepository QuestionRepository => questionRepository = new QuestionRepository(evaluationContext);
+		public IQuestionPropositionRepository QuestionPropositionRepository
+			=> questionPropositionRepository = new QuestionPropositionRepository(evaluationContext);
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
+		public IResponseRepository ResponseRepository => responseRepository = new ResponseRepository(evaluationContext);
+		public ISubmissionRepository SubmissionRepository => submissionRepository = new SubmissionRepository(evaluationContext);
+		public ICommentRepository CommentRepository => commentRepository = new CommentRepository(evaluationContext);
 
-                {
-                    evaluationContext.Dispose();
-                }
-            }
-            disposed = true;
-        }
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposed)
+			{
+				if (disposing)
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+				{
+					evaluationContext.Dispose();
+				}
+			}
+			disposed = true;
+		}
 
-        public int SaveChanges()
-        {
-            return evaluationContext.SaveChanges();
-        }
-    }
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		public int SaveChanges()
+		{
+			return evaluationContext.SaveChanges();
+		}
+	}
 }

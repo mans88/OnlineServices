@@ -27,14 +27,11 @@ namespace EvaluationServices.DataLayer
             }
         }
         
-        public DbSet<FormQuestionEF> FormQuestion { get; set; }
+        public DbSet<FormEF> Forms { get; set; }
         public DbSet<QuestionEF> Questions { get; set; }
-        public DbSet<QuestionPropositionEF> QuestionProposition { get; set; }
-
-        public DbSet<FormResponseEF> FormResponse { get; set; }
+        public DbSet<QuestionPropositionEF> QuestionPropositions { get; set; }
+        public DbSet<SubmissionEF> Submissions { get; set; }
         public DbSet<ResponseEF> Responses { get; set; }
-        public DbSet<ResponsePropositionEF> ResponseProposition { get; set; }
-
-
+        public DbSet<CommentEF> Comments { get; set; }
     }
 }

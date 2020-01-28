@@ -5,7 +5,7 @@ using System.Text;
 namespace TranslationServices.DataLayer.ServiceAgents.Domain.AzureCognitive
 {
     /// <summary>
-    /// The C# classes that represents the JSON returned by the Translator Text API.
+    /// The C# classes that represents the JSON returned by the Translator Content API.
     /// </summary>
     public class TranslationResult
     {

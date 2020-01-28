@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
+    <ProjectReference Include="..\EvaluationServices.DataLayer\EvaluationServices.DataLayer.csproj" />
   </ItemGroup>
 
 </Project>
