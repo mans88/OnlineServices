@@ -88,7 +88,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -204,7 +203,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -320,7 +318,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -436,7 +433,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {

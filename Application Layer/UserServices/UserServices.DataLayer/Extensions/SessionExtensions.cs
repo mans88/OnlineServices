@@ -14,14 +14,12 @@ namespace RegistrationServices.DataLayer.Extensions
             return new SessionTO()
             {
                 Id = session.Id,
-                Teacher = session.Teacher?.ToTransfertObject(),
+                Teacher = session.UserSessions.FirstOrDefault(x => x.User.Role == UserRole.Teacher).User.ToTransfertObject(),
                 Course = session.Course?.ToTransfertObject(),
                 //SessionDays = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
-                Attendees = session.UserSessions?.Select(x => x.User.ToTransfertObject()).ToList()
+                //Attendees = session.UserSessions?.Select(x => x.User.ToTransfertObject()).ToList()
 
-                //Attendees = session.UserSessions
-                //.Where(x => x.User.ToTransfertObject().Role == UserRole.Attendee)
-                //.Select(x => x.User.ToTransfertObject()).ToList()
+                Attendees = session.UserSessions.Where(x => x.User.Role == UserRole.Attendee).Select(x => x.User.ToTransfertObject()).ToList()
             };
         }
 
@@ -35,7 +33,6 @@ namespace RegistrationServices.DataLayer.Extensions
             var result = new SessionEF()
             {
                 Id = session.Id,
-                Teacher = session?.Teacher.ToEF(),
                 Course = session.Course.ToEF(),
                 Dates = session.SessionDays?.Select(x => x.ToEF()).ToList()
             };
@@ -57,6 +54,16 @@ namespace RegistrationServices.DataLayer.Extensions
                     User = user.ToEF()
                 };
                 result.UserSessions.Add(userSession);
+
+                var teacherEF = new UserSessionEF()
+                {
+                    SessionId = session.Id,
+                    Session = result,
+                    UserId = session.Teacher.Id,
+                    User = session.Teacher.ToEF()
+                };
+
+                result.UserSessions.Add(teacherEF);
             }
 
             return result;

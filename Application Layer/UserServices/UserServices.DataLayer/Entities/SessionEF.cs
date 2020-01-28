@@ -15,7 +15,6 @@ namespace RegistrationServices.DataLayer.Entities
         public int Id { get; set; }
 
         public CourseEF Course { get; set; }
-        public UserEF Teacher { get; set; }
 
         public List<SessionDayEF> Dates { get; set; }
 

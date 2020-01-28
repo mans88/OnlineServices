@@ -36,7 +36,6 @@ namespace RegistrationServices.DataLayer.Repositories
                 .AsNoTracking()
                 .Include(x => x.UserSessions)
                 .Include(x => x.Dates)
-                .Include(x => x.Teacher)
                 .Select(x => x.ToTransfertObject())
                 .ToList();
 
@@ -45,7 +44,6 @@ namespace RegistrationServices.DataLayer.Repositories
                 .AsNoTracking()
                 .Include(x => x.UserSessions)
                 .Include(x => x.Dates)
-                .Include(x => x.Teacher)
                 .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
 
         public IEnumerable<DateTime> GetDates(SessionTO session)
