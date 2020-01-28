@@ -47,4 +47,10 @@
     <ProjectReference Include="..\..\Application Layer\FacilityServices\FacilityServices.BusinessLayer\FacilityServices.BusinessLayer.csproj" />
     <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Web.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

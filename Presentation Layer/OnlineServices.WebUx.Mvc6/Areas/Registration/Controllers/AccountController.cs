@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace OnlineServices.WebUx.Mvc6.Areas.Registration.Controllers
 {
     [Area("Registration")]
     public class AccountController : Controller
     {
+        
+
         public IActionResult Login()
         {
+            TempData["data"] = "0";
             return View();
         }
 
         public IActionResult Validate(string username, string password)
         {
-            //url to text: MVC6 https://localhost:44332/Account/Validate?username=User01&password=12345678
+
+            
+            //url to text: MVC6 https://localhost:44332/Registration/Account/Validate?username=User01&password=12345678
 
             string user = "User01";
             string pass = "12345678";
@@ -28,6 +35,7 @@ namespace OnlineServices.WebUx.Mvc6.Areas.Registration.Controllers
                 {
                     string messageJSON = $"Login Successfull! user: {username}  - pass: {password} ";
                     ViewData["User"] = username;
+                    
                     return View();
                 }
                 else
