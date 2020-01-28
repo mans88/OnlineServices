@@ -17,7 +17,6 @@ namespace RegistrationServices.DataLayer.Extensions
                 Teacher = session.UserSessions.FirstOrDefault(x => x.User.Role == UserRole.Teacher).User.ToTransfertObject(),
                 Course = session.Course?.ToTransfertObject(),
                 //SessionDays = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
-                //Attendees = session.UserSessions?.Select(x => x.User.ToTransfertObject()).ToList()
 
                 Attendees = session.UserSessions.Where(x => x.User.Role == UserRole.Attendee).Select(x => x.User.ToTransfertObject()).ToList()
             };
@@ -64,6 +63,11 @@ namespace RegistrationServices.DataLayer.Extensions
                 };
 
                 result.UserSessions.Add(teacherEF);
+
+                foreach (UserSessionEF item in result.UserSessions)
+                {
+                    item.User.UserSessions.Add(item);
+                }
             }
 
             return result;

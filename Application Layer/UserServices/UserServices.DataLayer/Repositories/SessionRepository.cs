@@ -25,9 +25,9 @@ namespace RegistrationServices.DataLayer.Repositories
 
             var sessionEF = Entity.ToEF();
             sessionEF.Course = registrationContext.Courses.First(x => x.Id == Entity.Course.Id);
-            sessionEF.UserSessions = registrationContext.UserSessions.Where(x => x.SessionId == Entity.Id).ToList();
 
-            return registrationContext.Sessions.Add(sessionEF).Entity.ToTransfertObject();
+            registrationContext.Sessions.Add(sessionEF);
+            return sessionEF.ToTransfertObject();
             // => registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 

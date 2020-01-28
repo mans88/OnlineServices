@@ -30,7 +30,7 @@ namespace RegistrationServices.DataLayerTests
 
             var Teacher = new UserTO()
             {
-                //Id = 420,
+                Id = 420,
                 Name = "Christian",
                 Email = "gyssels@fartmail.com",
                 Role = UserRole.Teacher
@@ -38,7 +38,7 @@ namespace RegistrationServices.DataLayerTests
 
             var Michou = new UserTO()
             {
-                //Id = 45,
+                Id = 45,
                 Name = "Michou Miraisin",
                 Email = "michou@superbg.caca",
                 Role = UserRole.Attendee
@@ -50,7 +50,7 @@ namespace RegistrationServices.DataLayerTests
 
             var SQLCourse = new CourseTO()
             {
-                //Id = 28,
+                Id = 28,
                 Name = "SQL"
             };
 
@@ -59,7 +59,7 @@ namespace RegistrationServices.DataLayerTests
 
             var SQLSession = new SessionTO()
             {
-                //Id = 12,
+                Id = 1,
                 Attendees = new List<UserTO>()
                 {
                     AddedAttendee

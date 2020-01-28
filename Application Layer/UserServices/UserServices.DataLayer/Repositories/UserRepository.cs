@@ -24,17 +24,7 @@ namespace RegistrationServices.DataLayer.Repositories
             if (Entity is null)
                 throw new ArgumentNullException(nameof(Entity));
 
-            try
-            {
-                GetById(Entity.Id);
-                return null;
-            }
-            catch (Exception)
-            {
-                var userEF = Entity.ToEF();
-                userContext.Add(userEF);
-                return null;
-            }
+            return userContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 
         public IEnumerable<UserTO> GetAll()
