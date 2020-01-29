@@ -1,20 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using RegistrationServices.DataLayer;
+using RegistrationServices.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
-using RegistrationServices.DataLayer.Repositories;
-using OnlineServices.Common.RegistrationServices.Enumerations;
-using System.Linq;
-using OnlineServices.Common.RegistrationServices.Interfaces;
 
-namespace RegistrationServices.DataLayerTests
+namespace RegistrationServices.DataLayerTests.RepositoriesTests.SessionRepositoryTests
 {
     [TestClass]
-    public class SessionRepositoryTests
+    class Session_AddSessionTests
     {
         [TestMethod]
         public void Should_Insert_Session_when_valid()
@@ -83,5 +82,4 @@ namespace RegistrationServices.DataLayerTests
                 Assert.AreEqual(1, sessionRepository.GetAll().Count());
             }
         }
-    }
 }

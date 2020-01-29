@@ -32,4 +32,8 @@
     <ProjectReference Include="..\UserServices.DataLayer\RegistrationServices.DataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RepositoriesTests\CourseRepositoryTests\" />
+  </ItemGroup>
+
 </Project>
