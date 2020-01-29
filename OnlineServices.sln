@@ -151,9 +151,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLine", "CommandLine"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.Pwsh5.Cmdlets", "Presentation Layer\CommandLine\OnlineServices.Pwsh5.Cmdlets\OnlineServices.Pwsh5.Cmdlets.csproj", "{9DB3B846-3278-4C09-B6A6-476CA5C87DE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.Pwsh6.Cmdlets", "Presentation Layer\CommandLine\OnlineServices.Pwsh6.Cmdlets\OnlineServices.Pwsh6.Cmdlets.csproj", "{75738E37-9164-4A43-A4AA-808D3BDE9EAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.Pwsh6.Cmdlets", "Presentation Layer\CommandLine\OnlineServices.Pwsh6.Cmdlets\OnlineServices.Pwsh6.Cmdlets.csproj", "{75738E37-9164-4A43-A4AA-808D3BDE9EAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineServices.Pwsh5.CmdletsTests", "Presentation Layer\CommandLine\OnlineServices.Pwsh5.CmdletsTests\OnlineServices.Pwsh5.CmdletsTests.csproj", "{451A7A26-429D-453D-9014-586CF8307CA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesktopUx", "DesktopUx", "{B0CFEE12-E5C8-4B54-8A84-AD87BEC1410E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -382,6 +384,7 @@ Global
 		{9DB3B846-3278-4C09-B6A6-476CA5C87DE8} = {B3D4CCE2-DFF0-48E9-AFB5-025D88D60652}
 		{75738E37-9164-4A43-A4AA-808D3BDE9EAE} = {B3D4CCE2-DFF0-48E9-AFB5-025D88D60652}
 		{451A7A26-429D-453D-9014-586CF8307CA9} = {B3D4CCE2-DFF0-48E9-AFB5-025D88D60652}
+		{B0CFEE12-E5C8-4B54-8A84-AD87BEC1410E} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C170EEE5-52F4-4C78-ABDF-890E97482E62}

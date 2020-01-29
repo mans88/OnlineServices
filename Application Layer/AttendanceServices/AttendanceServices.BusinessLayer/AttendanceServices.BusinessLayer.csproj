@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.29.7.1623</AssemblyVersion>
-    <FileVersion>2001.29.7.1623</FileVersion>
+    <AssemblyVersion>2001.29.8.1659</AssemblyVersion>
+    <FileVersion>2001.29.8.1659</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <AssemblyVersion>2001.29.2.1045</AssemblyVersion>
+    <AssemblyVersion>2001.29.4.1659</AssemblyVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="GetHello.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TRS - TranslationServices\GetOSTranslation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -68,6 +69,20 @@
     <Analyzer Include="..\..\..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\..\..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\..\..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application Layer\TranslationServices\TranslationServices.BusinessLayer\TranslationServices.BusinessLayer.csproj">
+      <Project>{919A3A33-86AA-4E75-9DD1-10CBFCF4DAA0}</Project>
+      <Name>TranslationServices.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Application Layer\TranslationServices\TranslationServices.DataLayer.ServiceAgents\TranslationServices.DataLayer.ServiceAgents.csproj">
+      <Project>{272e2fae-0206-4bc9-8e3f-a4dd6b7811b2}</Project>
+      <Name>TranslationServices.DataLayer.ServiceAgents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj">
+      <Project>{1BB17343-744F-42B0-9992-225D5084CE18}</Project>
+      <Name>OnlineServices.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
