@@ -6,20 +6,20 @@ namespace OnlineServices.Common.FacilityServices.Interfaces
 {
     public interface IFSAssistantRole : IFSAttendeeRole
     {
-        public List<IncidentTO> GetIncidents();
-        public CommentTO AddComment(CommentTO comment);
-        public ComponentTypeTO AddComponentType(ComponentTypeTO componentTypeToAdd);
-        public ComponentTypeTO UpdateComponentType(ComponentTypeTO componentTypeToUpdate);
-        public bool RemoveComponentType(int componentTypeId);
-        public FloorTO AddFloor(FloorTO floorToAdd);
-        public FloorTO UpdateFloor(FloorTO floorToUpdate);
-        public bool RemoveFloor(int floorId);
-        public RoomTO AddRoom(RoomTO roomToAdd);
-        public RoomTO UpdateRoom(RoomTO roomToUpdate);
-        public bool RemoveRoom(int roomId);
-        public IssueTO AddIssue(IssueTO issueToAdd);
-        public IssueTO UpdateIssue(IssueTO issueToUpdate);
-        public bool RemoveIssue(int issueId);
-        public IncidentTO ChangeIncidentStatus(IncidentStatus statusToSubmit, int incidentId);
+        List<IncidentTO> GetIncidents();
+        CommentTO AddComment(CommentTO comment);
+        ComponentTypeTO AddComponentType(ComponentTypeTO componentTypeToAdd);
+        ComponentTypeTO UpdateComponentType(ComponentTypeTO componentTypeToUpdate);
+        bool RemoveComponentType(int componentTypeId);
+        FloorTO AddFloor(FloorTO floorToAdd);
+        FloorTO UpdateFloor(FloorTO floorToUpdate);
+        bool RemoveFloor(int floorId);
+        RoomTO AddRoom(RoomTO roomToAdd);
+        RoomTO UpdateRoom(RoomTO roomToUpdate);
+        bool RemoveRoom(int roomId);
+        IssueTO AddIssue(IssueTO issueToAdd);
+        IssueTO UpdateIssue(IssueTO issueToUpdate);
+        bool RemoveIssue(int issueId);
+        IncidentTO ChangeIncidentStatus(IncidentStatus statusToSubmit, int incidentId);
     }
 }

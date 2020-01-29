@@ -1,5 +1,5 @@
 ﻿//VERIFIED V3
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
 using Moq;
 using OnlineServices.Common.Enumerations;
 using System;
@@ -40,7 +40,10 @@ namespace TranslationServices.DataLayer.ServiceAgentsTests
                 // Send the request and get response.
                 HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
                 // Read response as a string.
-                string result = await response.Content.ReadAsStringAsync();
+                string result = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(true);
+
                 // Deserialize the response using the classes created earlier.
                 Console.WriteLine(result);
                 Assert.Equal("[{\"translations\":[{\"text\":\"Hello world!\",\"to\":\"en\"},{\"text\":\"Hallo mensen!\",\"to\":\"nl\"}]}]", result);

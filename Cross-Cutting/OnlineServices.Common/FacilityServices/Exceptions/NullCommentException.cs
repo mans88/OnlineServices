@@ -3,7 +3,9 @@ using System;
 
 namespace OnlineServices.Common.FacilityServices.Exceptions
 {
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class NullCommentException : LoggedException
     {
         private const string ExceptionMessage = "Not existing Comment.";
