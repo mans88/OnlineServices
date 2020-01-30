@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2020.0117.2032.7</AssemblyVersion>
-    <FileVersion>2020.0117.2032.7</FileVersion>
+    <AssemblyVersion>2001.29.8.1623</AssemblyVersion>
+    <FileVersion>2001.29.8.1623</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +11,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>

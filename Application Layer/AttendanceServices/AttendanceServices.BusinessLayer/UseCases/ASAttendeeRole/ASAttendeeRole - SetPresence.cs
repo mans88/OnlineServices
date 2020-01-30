@@ -20,8 +20,6 @@
 //                throw new Exception("Not a formation day");
 //            try
 //            {
-
-
 //                var presence = new AttendeePresenceTO
 //                {
 //                    SessionId = sessionID,

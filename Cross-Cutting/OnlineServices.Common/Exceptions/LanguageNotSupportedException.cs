@@ -2,7 +2,9 @@
 
 namespace OnlineServices.Common.Exceptions
 {
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class LanguageNotSupportedException : LoggedException
     {
         private const string ExceptionMessage = "Language Unknown or not properly configured";
