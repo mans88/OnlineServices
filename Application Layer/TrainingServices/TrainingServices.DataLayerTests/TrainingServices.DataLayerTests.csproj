@@ -4,9 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.30.2.1457</AssemblyVersion>
+    <AssemblyVersion>2001.30.4.1509</AssemblyVersion>
 
-    <FileVersion>2001.30.2.1457</FileVersion>
+    <FileVersion>2001.30.4.1509</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
