@@ -6,10 +6,10 @@ using System.Text;
 
 namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
-    public interface IRSUnitOfWork : IUnitOfWork
+    public interface IRSUnitOfWork : IDisposable
     {
-         IRSSessionRepository SessionRepository { get; }
-         IRSUserRepository UserRepository { get; }
-         IRSCourseRepository CourseRepository { get; }
+        IRSSessionRepository SessionRepository { get; }
+        IRSUserRepository UserRepository { get; }
+        IRSCourseRepository CourseRepository { get; }
     }
 }

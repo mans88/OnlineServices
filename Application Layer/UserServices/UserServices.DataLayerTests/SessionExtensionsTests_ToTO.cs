@@ -44,7 +44,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -88,7 +88,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -160,7 +159,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -204,7 +203,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -276,7 +274,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -320,7 +318,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -359,7 +356,7 @@ namespace RegistrationServices.DataLayerTests
         }
 
         [TestMethod]
-        public void Should_Contain_Two_Users()
+        public void Should_Contain_One_Attendee()
         {
             #region TOInitialization
 
@@ -392,7 +389,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -436,14 +433,7 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
-                Dates = new List<SessionDayEF>()
-                {
-                    new SessionDayEF { Id=1, Date=new DateTime(2020, 01, 20), PresenceType = SessionPresenceType.MorningOnly},
-                    new SessionDayEF { Id=2, Date=new DateTime(2020, 01, 21), PresenceType = SessionPresenceType.MorningOnly},
-                    new SessionDayEF { Id=3, Date=new DateTime(2020, 01, 22), PresenceType = SessionPresenceType.MorningOnly},
-                },
             };
 
             List<UserSessionEF> userSessions = new List<UserSessionEF>()
@@ -455,14 +445,13 @@ namespace RegistrationServices.DataLayerTests
                     UserId = studentEF.Id,
                     User = studentEF
                 },
-
                 new UserSessionEF
                 {
                     SessionId = sessionEF.Id,
                     Session = sessionEF,
                     UserId = teacherEF.Id,
                     User = teacherEF
-                }
+                },
             };
 
             sessionEF.UserSessions = userSessions;
@@ -471,7 +460,7 @@ namespace RegistrationServices.DataLayerTests
 
             SessionTO sessionConverted = sessionEF.ToTransfertObject();
 
-            Assert.AreEqual(sessionTO.Attendees.Count, sessionConverted.Attendees.Count);
+            Assert.AreEqual(1, sessionConverted.Attendees.Count);
         }
     }
 }

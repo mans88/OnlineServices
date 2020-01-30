@@ -1,64 +1,88 @@
-﻿using OnlineServices.Common.RegistrationServices.Interface;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
+using RegistrationServices.DataLayer.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RegistrationServices.DataLayer.Repositories
 {
-    //class SessionRepository : IRSSessionRepository
-    //{
-    //    private readonly RegistrationServicesContext sessionContext;
+    public class SessionRepository : IRSSessionRepository
+    {
+        private RegistrationContext registrationContext;
 
-    //    public SessionRepository(RegistrationServicesContext Context)
-    //    {
-    //        sessionContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
-    //    }
+        public SessionRepository(RegistrationContext registrationContext)
+        {
+            this.registrationContext = registrationContext;
+        }
 
-    //    public SessionTO Add(SessionTO Entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public SessionTO Add(SessionTO Entity)
+        {
+            if (Entity is null)
+                throw new ArgumentNullException(nameof(Entity));
 
-    //    public IEnumerable<SessionTO> GetAll()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+            if (Entity.Id != 0)
+            {
+                return Entity;
+            }
 
-    //    public SessionTO GetById(int Id)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+            var sessionEF = Entity.ToEF();
+            sessionEF.Course = registrationContext.Courses.First(x => x.Id == Entity.Course.Id);
 
-    //    public IEnumerable<DateTime> GetDates(SessionTO session)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+            //By Amb
+            //sessionEF.
+            //By Amb
 
-    //    public IEnumerable<UserTO> GetStudents(SessionTO session)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+            registrationContext.Sessions.Add(sessionEF);
+            return sessionEF.ToTransfertObject();
+            // => registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+        }
 
-    //    public bool Remove(SessionTO entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public IEnumerable<SessionTO> GetAll()
+            => registrationContext.Sessions
+                .AsNoTracking()
+                .Include(x => x.UserSessions).ThenInclude(x => x.User)
+                .Include(x => x.Dates)
+                .Select(x => x.ToTransfertObject())
+                .ToList();
 
-    //    public bool Remove(int Id)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public SessionTO GetById(int Id)
+            => registrationContext.Sessions
+                .AsNoTracking()
+                .Include(x => x.UserSessions)
+                .Include(x => x.Dates)
+                .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
 
-    //    public SessionTO Update(SessionTO Entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public IEnumerable<DateTime> GetDates(SessionTO session)
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public IEnumerable<SessionTO> GetByStudent(UserTO student)
-    //    {
-    //        => sessionContext.UserSessions
-    //            .
-    //    }
-    //}
+        public IEnumerable<UserTO> GetStudents(SessionTO session)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(SessionTO entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SessionTO Update(SessionTO Entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<SessionTO> GetByStudent(UserTO student)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

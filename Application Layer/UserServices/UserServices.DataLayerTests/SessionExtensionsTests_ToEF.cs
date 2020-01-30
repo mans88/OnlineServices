@@ -45,7 +45,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -89,7 +89,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -157,7 +156,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -201,7 +200,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -270,7 +268,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -314,7 +312,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -345,11 +342,11 @@ namespace RegistrationServices.DataLayerTests
 
             SessionEF sessionConverted = sessionTO.ToEF();
 
-            Assert.AreEqual(sessionEF.Teacher.Id, sessionConverted.Teacher.Id);
+            //Assert.AreEqual(sessionEF.Teacher.Id, sessionConverted.Teacher.Id);
         }
 
         [TestMethod()]
-        public void Should_Have_Two_UserSessions()
+        public void Should_Have_One_UserSessions()
         {
             #region TOInitialization
 
@@ -382,7 +379,7 @@ namespace RegistrationServices.DataLayerTests
                 Id = 1,
                 Teacher = teacher,
                 Course = sql,
-                Dates = new List<SessionDayTO>()
+                SessionDays = new List<SessionDayTO>()
                 {
                    new SessionDayTO(){Id = 1, Date = new DateTime(2020, 2, 3), PresenceType = SessionPresenceType.MorningAfternoon},
                    new SessionDayTO(){Id = 2, Date = new DateTime(2020, 2, 4), PresenceType = SessionPresenceType.MorningAfternoon},
@@ -426,7 +423,6 @@ namespace RegistrationServices.DataLayerTests
             SessionEF sessionEF = new SessionEF()
             {
                 Id = 1,
-                Teacher = teacherEF,
                 Course = sqlEF,
                 Dates = new List<SessionDayEF>()
                 {
@@ -443,12 +439,11 @@ namespace RegistrationServices.DataLayerTests
                     SessionId = sessionEF.Id,
                     UserId = studentEF.Id
                 },
-
                 new UserSessionEF
                 {
                     SessionId = sessionEF.Id,
-                    UserId = teacherEF.Id
-                }
+                    UserId = studentEF.Id
+                },
             };
 
             sessionEF.UserSessions = userSessions;

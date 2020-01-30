@@ -3,13 +3,13 @@ using RegistrationServices.DataLayer.Entities;
 
 namespace RegistrationServices.DataLayer
 {
-    public class RegistrationServicesContext : DbContext
+    public class RegistrationContext : DbContext
     {
-        public RegistrationServicesContext()
+        public RegistrationContext()
         {
         }
 
-        public RegistrationServicesContext(DbContextOptions<RegistrationServicesContext> options) : base(options)
+        public RegistrationContext(DbContextOptions<RegistrationContext> options) : base(options)
         {
         }
 
@@ -20,6 +20,7 @@ namespace RegistrationServices.DataLayer
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RegistrationServicesDB;Trusted_Connection=True;");
+                optionsBuilder.EnableSensitiveDataLogging(true);
             }
         }
 

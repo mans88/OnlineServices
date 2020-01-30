@@ -14,102 +14,106 @@ namespace RegistrationServices.BusinessLayerTests.UseCase
     public class Assistant_GetSessionsTest
     {
         Mock<IRSUnitOfWork> MockUofW = new Mock<IRSUnitOfWork>();
-        Mock<IRSUserRepository> MockUserRepository = new Mock<IRSUserRepository>();
+        Mock<IRSSessionRepository> MockSessionRepository = new Mock<IRSSessionRepository>();
 
-        public static List<UserTO> UserList()
+        CourseTO course = new CourseTO { Id = 1, Name = "Course" };
+        UserTO teacher = new UserTO { Id = 1, Name = "teacher" };
+
+        public List<SessionTO> SessionList()
         {
-            return new List<UserTO>
+            return new List<SessionTO>
             {
-                new UserTO { Id=1, Name="Suplier1"},
-                new UserTO { Id=2, Name="Suplier3"},
-                new UserTO { Id=3, Name="Suplier3"}
+                new SessionTO { Id=1,  Course = course,  Teacher = teacher },
+                new SessionTO { Id=2, Course  = course,  Teacher = teacher},
+                new SessionTO { Id=3, Course = course,  Teacher = teacher}
             };
         }
 
         [TestMethod]
-        public void GetUsers_ReturnsAllUsersFromDB()
+        public void GetSessions_ReturnsAllSessionsFromDB()
         {
             //ARRANGE
-            MockUserRepository.Setup( x=>x.GetAll()).Returns(UserList);
-            MockUofW.Setup(x => x.UserRepository).Returns(MockUserRepository.Object);
+            MockSessionRepository.Setup(x => x.GetAll()).Returns(SessionList);
+            MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
             var ass = new AssistantRole(MockUofW.Object);
 
             //ACT
-            var users = ass.GetUsers();
-            
+            var sessions = ass.GetSessions();
+
             //ASSERT
-            Assert.AreEqual(UserList().Count, users.Count );
-            Assert.AreEqual(3, users.Count );
+            Assert.AreEqual(SessionList().Count, sessions.Count);
+            Assert.AreEqual(3, sessions.Count);
         }
 
         [TestMethod]
-        public void GetUsers_UserRepositoryIsCalledOnce()
+        public void GetSessions_SessionRepositoryIsCalledOnce()
         {
             //ARRANGE
-            MockUserRepository.Setup( x => x.GetAll()).Returns(UserList);
-            MockUofW.Setup( x => x.UserRepository ).Returns(MockUserRepository.Object);
+            MockSessionRepository.Setup(x => x.GetAll()).Returns(SessionList);
+            MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
             var ass = new AssistantRole(MockUofW.Object);
 
             //ACT
-            var usersAll = ass.GetUsers();
+            var SessionsAll = ass.GetSessions();
 
             //ASSERT
-            MockUserRepository.Verify(x=>x.GetAll(), Times.Once);
+            MockSessionRepository.Verify(x => x.GetAll(), Times.Once);
 
         }
         //===============================================================================================================
         /// <summary>
-        /// Get UserById Tests
+        /// Get SessionById Tests
         /// </summary>
 
         [TestMethod]
-        public void GetUser_NullReferenceException_WhenUserIDisZero()
+        public void GetSession_NullReferenceException_WhenSessionIdIsZero()
         {
             //ARRANGE
-            int userId = 0;
+            int SessionId = 0;
             var Assistante = new AssistantRole((new Mock<IRSUnitOfWork>()).Object);
 
             //ASSERT
-            Assert.ThrowsException<NullReferenceException>(() => Assistante.GetUserById(userId));
+            Assert.ThrowsException<NullReferenceException>(() => Assistante.GetSessionById(SessionId));
         }
 
         [TestMethod]
-        public void GetUser_ReturnsUserByIDFromDB()
+        public void GetSession_ReturnsSessionByIDFromDB()
         {
             //ARRANGE
-            int userId = 1;
-            MockUserRepository.Setup(x => x.GetById(userId)).Returns(UserList().FirstOrDefault(x=>x.Id == userId));
-            MockUofW.Setup(x => x.UserRepository).Returns(MockUserRepository.Object);
+            int sessionId = 1;
+            MockSessionRepository.Setup(x => x.GetById(sessionId)).Returns(SessionList().FirstOrDefault(x => x.Id == sessionId));
+            MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
             var ass = new AssistantRole(MockUofW.Object);
 
             //ACT
-            var userById = ass.GetUserById(userId);
+            var SessionById = ass.GetSessionById(sessionId);
 
             //ASSERT
-            Assert.AreEqual(userId ,userById.Id);
+            Assert.AreEqual(sessionId, SessionById.Id);
+
         }
 
         [TestMethod]
-        public void GetUser_ReturnsNull_WhenUserDoesNotExist()
+        public void GetSession_ReturnsNull_WhenSessionDoesNotExist()
         {
             //ARRANGE
-            int userId = 10000;
-            MockUserRepository.Setup(x => x.GetById(userId)).Returns(UserList().FirstOrDefault(x => x.Id == userId));
-            MockUofW.Setup(x => x.UserRepository).Returns(MockUserRepository.Object);
+            int SessionId = 10000;
+            MockSessionRepository.Setup(x => x.GetById(SessionId)).Returns(SessionList().FirstOrDefault(x => x.Id == SessionId));
+            MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
             var ass = new AssistantRole(MockUofW.Object);
 
             //ACT
-            var userById = ass.GetUserById(userId);
+            var SessionById = ass.GetSessionById(SessionId);
 
             //ASSERT
-            Assert.IsNull(userById);
+            Assert.IsNull(SessionById);
         }
 
 
-        
+
     }
 }

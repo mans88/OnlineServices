@@ -25,21 +25,21 @@ namespace RegistrationServices.BusinessLayerTests
         [TestMethod()]
         public void IsValid_ThrowsIsNullOrWhiteSpaceException_WhenNullNameIsProvided()
         {
-            var us = new Course { Name = null };
+            var us = new User { Name = null };
             Assert.ThrowsException<IsNullOrWhiteSpaceException>(() => us.IsValid());
         }
 
         [TestMethod]
         public void IsValid_ThrowsIsNullOrWhiteSpaceException_WhenWhiteSpaceNameIsProvided()
         {
-            var us = new Course { Name = " " };
+            var us = new User { Name = " " };
             Assert.ThrowsException<IsNullOrWhiteSpaceException>(() => us.IsValid());
         }
 
         [TestMethod]
-        public void IsValid_ThrowsIsNullOrWhiteSpqceException_WhenEmptyNameIsProvided()
+        public void IsValid_ThrowsIsNullOrWhiteSpaceException_WhenEmptyNameIsProvided()
         {
-            var us = new Course { Name = "" };
+            var us = new User { Name = "" };
             Assert.ThrowsException<IsNullOrWhiteSpaceException>(() => us.IsValid());
         }
 
