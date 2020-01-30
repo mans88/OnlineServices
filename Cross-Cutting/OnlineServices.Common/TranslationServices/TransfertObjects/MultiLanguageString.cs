@@ -2,6 +2,7 @@
 using OnlineServices.Common.Exceptions;
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace OnlineServices.Common.TranslationServices.TransfertObjects
@@ -57,6 +58,16 @@ namespace OnlineServices.Common.TranslationServices.TransfertObjects
                 default:
                     throw new LanguageNotSupportedException($"{typeof(MultiLanguageString)}. Value={(int)Langue}");
             }
+        }
+
+        public List<Tuple<Language, string>> ToTuplesLanguage()
+        {
+            return new List<Tuple<Language, string>>
+            {
+                new Tuple<Language, string>(Language.English, English),
+                new Tuple<Language, string>(Language.French, French),
+                new Tuple<Language, string>(Language.Dutch, Dutch)
+            };
         }
     }
 }

@@ -73,8 +73,8 @@ namespace TranslationServices.DataLayer.ServiceAgents.TranslationAgents
                 request.Headers.Add("Ocp-Apim-Subscription-Key", cognitiveServiceConfig.SubscriptionKey);
 
                 // Send the request and get response.
-                HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-                string resultJSON = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(true);
+                string resultJSON = await response.Content.ReadAsStringAsync().ConfigureAwait(true);
                 
                 TranslationResult[] deserializedOutput = JsonConvert.DeserializeObject<TranslationResult[]>(resultJSON);
 

@@ -5,8 +5,8 @@
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
-    <AssemblyVersion>2001.29.6.1659</AssemblyVersion>
-    <FileVersion>2001.29.6.1659</FileVersion>
+    <AssemblyVersion>2001.30.2.1457</AssemblyVersion>
+    <FileVersion>2001.30.2.1457</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

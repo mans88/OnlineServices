@@ -1,4 +1,5 @@
-﻿using OnlineServices.Common.Enumerations;
+﻿using Moq;
+using OnlineServices.Common.Enumerations;
 using OnlineServices.Common.TranslationServices;
 using System;
 using System.Collections.Generic;
@@ -8,32 +9,52 @@ using System.Text;
 using System.Threading.Tasks;
 using TranslationServices.BusinessLayer.UseCases;
 using TranslationServices.DataLayer.ServiceAgents.TranslationAgents;
+using Serilog;
+using TranslationServices.DataLayer.ServiceAgents.Domain;
+using OnlineServices.Common.SecurityServices.TransfertObjects;
+using OnlineServices.Common.Logging;
 
 namespace OnlineServices.Pwsh5.Cmdlets.TRS
 {
     [Cmdlet(VerbsCommon.Get, "OSTranslation")]
     public class GetOSTranslation : Cmdlet
     {
+        private OnlineServicesRole OSService;
+
         [Parameter(Position = 1, Mandatory = true, ValueFromPipeline = true)]
         public string Source { get; set; }
 
-        [Parameter(Position = 1, Mandatory = true, ValueFromPipeline = false)]
-        public Language Name { get; set; } = Language.English;
+        [Parameter(Position = 2, ValueFromPipeline = false)]
+        private Language LanguageName { get; set; } = Language.English;
 
-        //public Language Language { get; set; }
+        protected override void BeginProcessing()
+        {
+
+            OSService = new OnlineServicesRole(OnlineServicesLogger.LoggerConfigurator(), new AzureCognitiveAgent(OnlineServicesLogger.LoggerConfigurator(), AzCognitiveArgs));
+
+            base.BeginProcessing();
+        }
+
         protected override void ProcessRecord()
         {
             if (string.IsNullOrWhiteSpace(Source))
                 WriteObject("");
 
-            ITRSServicesRole service = new OnlineServicesSystem(null, new AzureCognitiveAgent());
+            var translations =
+                OSService.GetTranslations(new ServiceAuthorization(), new Tuple<Language, string>(LanguageName, Source));
 
-            service.Translate
-            var hi = $"Hello, {Name}!";
-            WriteObject(hi);
-            
+            foreach (var t in translations.ToTuplesLanguage())
+            {
+                WriteObject($"{Enum.GetName(typeof(Language), t.Item1)} - {t.Item2}");
+            }
+
             base.ProcessRecord();
         }
+
+        #region Refactor it!
+        public static AzureCognitiveArgs AzCognitiveArgs
+            => new AzureCognitiveArgs(SubscriptionKey: "66b23505dc864928a25661c03ba0c7b0", Endpoint: @"https://api.cognitive.microsofttranslator.com/translate?api-version=3.0");
+        #endregion
 
     }
 }
