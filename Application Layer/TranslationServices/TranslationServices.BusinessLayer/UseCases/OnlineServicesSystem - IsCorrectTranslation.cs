@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace TranslationServices.BusinessLayer.UseCases
 {
-    public partial class OnlineServicesSystem
+    public partial class OnlineServicesRole
     {
         public bool IsCorrectTranslation(ServiceAuthorization APIKey, MultiLanguageString MLSToCheck, Language SourceLanguage)
         {

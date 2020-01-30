@@ -9,6 +9,7 @@ namespace OnlineServices.Common.EvaluationServices.TransfertObjects
     public class FormTO : IEntity<int>
     {
         public int Id { get; set; }
+
         [Required]
         public MultiLanguageString Name { get; set; }
     }

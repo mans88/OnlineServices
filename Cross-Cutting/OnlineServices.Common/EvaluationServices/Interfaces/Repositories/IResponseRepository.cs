@@ -10,6 +10,6 @@ namespace OnlineServices.Common.EvaluationServices.Interfaces
         bool Remove(ResponseTO entity);
         bool Remove(int Id);
         ResponseTO Update(ResponseTO Entity);
-        public IEnumerable<ResponseTO> GetAllOfForm(int FormId);
+        IEnumerable<ResponseTO> GetAllOfForm(int FormId);
     }
 }

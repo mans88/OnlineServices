@@ -4,9 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2001.29.6.1623</AssemblyVersion>
+    <AssemblyVersion>2001.30.3.1457</AssemblyVersion>
 
-    <FileVersion>2001.29.6.1623</FileVersion>
+    <FileVersion>2001.30.3.1457</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
     <ProjectReference Include="..\FacilityServices.BusinessLayer\FacilityServices.BusinessLayer.csproj" />
   </ItemGroup>
 

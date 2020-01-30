@@ -9,6 +9,6 @@ namespace OnlineServices.Common.EvaluationServices.Interfaces.Repositories
 	public interface IQuestionRepository : IRepository<QuestionTO, int>
 	{
 		// méthodes spécifiques au FormQuestionRepository à rajouter ??
-		public IEnumerable<QuestionTO> GetAllOfForm(int FormId);
+		IEnumerable<QuestionTO> GetAllOfForm(int FormId);
 	}
 }

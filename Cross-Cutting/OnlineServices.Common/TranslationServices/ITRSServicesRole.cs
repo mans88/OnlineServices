@@ -6,7 +6,7 @@ using System;
 
 namespace OnlineServices.Common.TranslationServices
 {
-    public interface ITRSServicesRole
+    public interface ITRSOnlineServicesRole
     {
         //TODO Refactorer à Argument Pattern pour reduire redondance dans les checkes d'arguments.
         MultiLanguageString GetTranslations(ServiceAuthorization APIKey, Tuple<Language, string> TupleToTranslate);
