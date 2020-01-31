@@ -2,9 +2,7 @@
 
 namespace OnlineServices.Common.Exceptions
 {
-#if NETSTANDARD2_0
     [Serializable]
-#endif
     public class IsNullOrWhiteSpaceException : LoggedException
     {
         private const string ExceptionMessage = "String should not be Null, Empty or Whitespace";
