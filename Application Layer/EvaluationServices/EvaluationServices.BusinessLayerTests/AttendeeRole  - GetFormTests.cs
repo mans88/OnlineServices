@@ -2,11 +2,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.EvaluationServices.Enumerations;
 using OnlineServices.Common.EvaluationServices.Interfaces;
 using OnlineServices.Common.EvaluationServices.TransfertObjects;
 using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.RegistrationServices;
 using OnlineServices.Common.RegistrationServices.TransferObject;
+using OnlineServices.Common.TranslationServices.TransfertObjects;
 using System;
 using System.Collections.Generic;
 
@@ -182,11 +184,32 @@ namespace EvaluationServices.BusinessLayerTests
             Assert.ThrowsException<LoggedException>(() => attendee.GetActiveForm(1, 1));
         }
 
-        [TestMethod]
-        public void GetForm_ReturnsFormTO_WhenAllValuesProvidedAreValid_Day1()
+        [DataTestMethod]
+        [DataRow(0,1,2,1)]
+        [DataRow(0,147,258,1)]
+        [DataRow(2,1,0,1)]
+        [DataRow(-2,-1,0,2)]
+        [DataRow(0,-1,-2,2)]
+        [DataRow(0,-145,-278,2)]
+        public void GetForm_ReturnsRequestedFormTO_WhenAllValuesProvidedAreValid_FinalForm(int deltaDay1, int deltaDay2, int deltaDay3, int expectedFormId)
         {
-            //ESAttendeeRole(IESUnitOfWork iESUnitOfWork, IRSServiceRole iRSServiceRole)
+            //ARRANGE - DATA INPUTS
+            var TrainingDay1 = DateTime.Now.AddDays(deltaDay1);
+            var TrainingDay2 = DateTime.Now.AddDays(deltaDay2);
+            var TrainingDay3 = DateTime.Now.AddDays(deltaDay3);
+
+            //ARRANGE - MOCKS IESUnitOfWork
             var mockUnitOfWork = new Mock<IESUnitOfWork>();
+            mockUnitOfWork.Setup(x => x.SubmissionRepository.IsAlreadySubmitted(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(false);
+            mockUnitOfWork.Setup(x => x.FormRepository.GetById(It.IsAny<int>()))
+                .Returns((int id) => new FormTO() { Id = id, Name = new MultiLanguageString("Form1", "Form1", "Form1") });
+            mockUnitOfWork.Setup(x => x.QuestionRepository.GetAllOfForm(It.IsAny<int>()))
+                .Returns(new List<QuestionTO> {
+                    new QuestionTO() { Id=1, Libelle = new MultiLanguageString("Q1", "Q1", "Q1"), Position=1, Type = QuestionType.Open }
+                });
+
+            //ARRANGE - MOCKS IRSServiceRole
             var mockRSServiceRole = new Mock<IRSServiceRole>();
             var SessionToForRSService = new SessionTO
             {
@@ -194,19 +217,20 @@ namespace EvaluationServices.BusinessLayerTests
                 Attendees = new List<UserTO>() { new UserTO { Id = 1 } },
                 SessionDays = new List<SessionDayTO>()
                 {
-                    new SessionDayTO { Id=1, Date = DateTime.Now},
-                    new SessionDayTO { Id=1, Date = DateTime.Now.AddDays(+2)},
-                    new SessionDayTO { Id=1, Date = DateTime.Now.AddDays(+1)}
+                    new SessionDayTO { Id=1, Date = TrainingDay1},
+                    new SessionDayTO { Id=2, Date = TrainingDay2},
+                    new SessionDayTO { Id=3, Date = TrainingDay3}
                 }
             };
-
             mockRSServiceRole.Setup(x => x.GetSession(It.IsAny<int>())).Returns(SessionToForRSService);
 
+            //ACT
             var attendee = new ESAttendeeRole(mockUnitOfWork.Object, mockRSServiceRole.Object);
-
             var returnedValue = attendee.GetActiveForm(1, 1);
 
+            //ASSERT
             Assert.IsNotNull(returnedValue);
+            Assert.AreEqual(expectedFormId, returnedValue.Id);
         }
     }
 }
