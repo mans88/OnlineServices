@@ -3,9 +3,7 @@ using System;
 
 namespace OnlineServices.Common.FacilityServices.Exceptions
 {
-#if NETSTANDARD2_0
     [Serializable]
-#endif
     public class NullFloorException : LoggedException
     {
         private const string ExceptionMessage = "Not existing Floor.";

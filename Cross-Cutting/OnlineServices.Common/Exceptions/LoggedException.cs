@@ -2,15 +2,11 @@
 using OnlineServices.Common.Logging;
 using Serilog;
 using System;
-#if NETSTANDARD2_0
 using System.Runtime.Serialization;
-#endif
 
 namespace OnlineServices.Common.Exceptions
 {
-#if NETSTANDARD2_0
     [Serializable]
-#endif
     public class LoggedException : Exception
     {
         public static ILogger Logger { get; set; } = OnlineServicesLogger.LoggerConfigurator();
@@ -60,8 +56,6 @@ namespace OnlineServices.Common.Exceptions
                 Logger = OnlineServicesLogger.LoggerConfigurator();
             Logger.Error(innerException, message);
         }
-
-#if NETSTANDARD2_0
         protected LoggedException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
             if (Logger == null)
@@ -74,7 +68,5 @@ namespace OnlineServices.Common.Exceptions
 
             Logger.Error("LoggedException(SerializationInfo, ***StreamingContext***)", context);
         }
-#endif
-
     }
 }
