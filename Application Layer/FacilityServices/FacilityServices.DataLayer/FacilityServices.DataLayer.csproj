@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.31.0.1030</AssemblyVersion>
-    <FileVersion>2001.31.0.1030</FileVersion>
+    <AssemblyVersion>2001.31.2.1321</AssemblyVersion>
+    <FileVersion>2001.31.2.1321</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,9 +13,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
