@@ -1,19 +1,20 @@
 ﻿using OnlineServices.Common.Extensions;
-
+using OnlineServices.Common.Logging;
 using Serilog;
-
 using System;
 using System.Runtime.Serialization;
 
 namespace OnlineServices.Common.Exceptions
 {
+    [Serializable]
     public class LoggedException : Exception
     {
-        public static ILogger Logger { get; set; } = LoggerConfigurator();
+        public static ILogger Logger { get; set; } = OnlineServicesLogger.LoggerConfigurator();
 
         public LoggedException() : base()
         {
-            Logger ??= LoggerConfigurator();
+            if (Logger == null)
+                Logger = OnlineServicesLogger.LoggerConfigurator();
             Logger.Error(this, "Default Call to CTOR @ LoggedException()");
         }
 
@@ -21,7 +22,8 @@ namespace OnlineServices.Common.Exceptions
         {
             //message.IsNullOrWhiteSpace(true);
 
-            Logger ??= LoggerConfigurator();
+            if (Logger == null)
+                Logger = OnlineServicesLogger.LoggerConfigurator();
             Logger.Error(message);
         }
 
@@ -36,7 +38,9 @@ namespace OnlineServices.Common.Exceptions
             else
                 message = innerException.Message;
 
-            Logger ??= LoggerConfigurator();
+            if (Logger == null)
+                Logger = OnlineServicesLogger.LoggerConfigurator();
+
             Logger.Error(innerException, message);
         }
 
@@ -48,13 +52,14 @@ namespace OnlineServices.Common.Exceptions
             if (message.IsNullOrWhiteSpace())
                 message = $"{nameof(message)} is null @ LoggedException(***string***, Exception)";
 
-            Logger ??= LoggerConfigurator();
+            if (Logger == null)
+                Logger = OnlineServicesLogger.LoggerConfigurator();
             Logger.Error(innerException, message);
         }
-
         protected LoggedException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-            Logger ??= LoggerConfigurator();
+            if (Logger == null)
+                Logger = OnlineServicesLogger.LoggerConfigurator();
 
             if (info is null)
                 Logger.Error($"{nameof(info)} is null @ LoggedException(***SerializationInfo***, StreamingContext)");
@@ -63,11 +68,5 @@ namespace OnlineServices.Common.Exceptions
 
             Logger.Error("LoggedException(SerializationInfo, ***StreamingContext***)", context);
         }
-
-        private static ILogger LoggerConfigurator()
-            => new LoggerConfiguration()
-                .WriteTo.Debug()
-                .WriteTo.ColoredConsole()
-                .CreateLogger();
     }
 }

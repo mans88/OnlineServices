@@ -19,7 +19,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var EnglishSource = "English Source String";
             var MLSToCheck = new MultiLanguageString(EnglishSource, TestHelper.FrenchTranslated, TestHelper.DutchTranslated);
 
@@ -40,7 +40,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var FrenchSource = "French Source String";
             var MLSToCheck = new MultiLanguageString(TestHelper.EnglishTranslated, FrenchSource, TestHelper.DutchTranslated);
 
@@ -61,7 +61,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var DutchSource = "Dutch Source String";
             var MLSToCheck = new MultiLanguageString(TestHelper.EnglishTranslated, TestHelper.FrenchTranslated, DutchSource);
 
@@ -82,7 +82,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var EnglishSource = "English Source String";
             var MLSToCheck = new MultiLanguageString(EnglishSource, "Not a good translation", "Some wrong DutchString");
 
@@ -103,7 +103,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var FrenchSource = "French Source String";
             var MLSToCheck = new MultiLanguageString(TestHelper.EnglishTranslated, FrenchSource, "Some wrong DutchString");
 
@@ -124,7 +124,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var DutchSource = "Dutch Source String";
             var MLSToCheck = new MultiLanguageString(TestHelper.EnglishTranslated, "Some wrong DutchString", DutchSource);
 
@@ -146,7 +146,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
             LoggedException.Logger = mockILogger.Object;
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var DutchSource = "Dutch Source String";
             var MLSToCheck = new MultiLanguageString("Not a good translation", "Some wrong DutchString", DutchSource);
 
@@ -164,7 +164,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
             LoggedException.Logger = mockILogger.Object;
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             MultiLanguageString MLSToCheck = null;
 
             //ACT & ASSERT
@@ -181,7 +181,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
             LoggedException.Logger = mockILogger.Object;
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var MLSToCheck = new MultiLanguageString("Not a good translation", "Some wrong DutchString", "  ");
 
             //ACT & ASSERT
@@ -198,7 +198,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
             LoggedException.Logger = mockILogger.Object;
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var DutchSource = "Dutch Source String";
             var MLSToCheck = new MultiLanguageString("Not a good translation", "Some wrong DutchString", DutchSource);
 
@@ -215,7 +215,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var FrenchSource = "French Source String";
             var MLSToCheck = new MultiLanguageString("What's up bro?", FrenchSource, TestHelper.DutchTranslated);
 
@@ -235,7 +235,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var FrenchSource = "French Source String";
             var MLSToCheck = new MultiLanguageString(TestHelper.EnglishTranslated, FrenchSource, "blah blah blah...");
 
@@ -254,7 +254,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             var mockITRSTranslationService = TestHelper.MakeITRSTranslationService();
 
-            var translationUC = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var translationUC = new BusinessLayer.UseCases.OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             var FrenchSource = "French Source String";
             var MLSToCheck = new MultiLanguageString("blah blah blah...", FrenchSource, "blah blah blah...");
 

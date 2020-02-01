@@ -10,11 +10,7 @@ namespace EvaluationServices.DataLayer.Entities
     {
         [Key]
         public int Id { get; set; }
-
-        [ForeignKey("Questions")]
-        public int QuestionId { get; set; }
         public QuestionEF Question { get;  set; }
-
         public int Position { get; set; }
         public string NameEnglish { get; set;}
         public string NameFrench { get; set;}

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "All Forms";
+}
+
+@model IEnumerable<OnlineServices.Common.EvaluationServices.TransfertObjects.FormTO>
+
+    <table class="table table-bordered">
+        <caption>
+            <h5>Forms</h5>
+        </caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Nom</th>
+                <th>Naam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var form in Model)
+        {
+            <tr>
+                <td>@form.Id</td>
+                <td>@form.Name.English</td>
+                <td>@form.Name.French</td>
+                <td>@form.Name.Dutch</td>
+                <td>@Html.ActionLink("Get", "GetById", new { id = form.Id })</td>
+                <td>@Html.ActionLink("Edit", "Edit", new {id = form.Id})</td>
+                <td>@Html.ActionLink("Show Questions", "GetByFormId", "Question", new { id = form.Id})</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+

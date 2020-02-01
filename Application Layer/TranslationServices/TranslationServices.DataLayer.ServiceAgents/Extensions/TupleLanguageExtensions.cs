@@ -1,4 +1,5 @@
-﻿using OnlineServices.Common.Enumerations;
+﻿using Newtonsoft.Json;
+using OnlineServices.Common.Enumerations;
 using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.Extensions;
 using OnlineServices.Common.TranslationServices.Extensions;
@@ -6,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 
 namespace TranslationServices.DataLayer.ServiceAgents.Extensions
 {
@@ -20,7 +20,7 @@ namespace TranslationServices.DataLayer.ServiceAgents.Extensions
         public static string ToJsonObject(this Tuple<Language, string> TupleText)
         {
             object[] body = new object[] { new { Text = TupleText.Item2 } };
-            return JsonSerializer.Serialize(body);
+            return JsonConvert.SerializeObject(body);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace TranslationServices.DataLayer.ServiceAgents.Extensions
 
             var other = OriginalText.Item1.GetOthersValues();
             var ReturnValue = $"&from={OriginalText.Item1.ToAzureLanguage()}&"
-                + String.Join('&', OriginalText.Item1.GetOthersValues()
+                + String.Join("&", OriginalText.Item1.GetOthersValues()
                                     .Distinct()
                                     .Select(x => $"to={x.ToAzureLanguage()}")
                                     );

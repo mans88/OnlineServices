@@ -6,27 +6,30 @@ using System.Text;
 using OnlineServices.Common.TranslationServices.TransfertObjects;
 using OnlineServices.Common.EvaluationServices.Enumerations;
 using System.Linq;
+using OnlineServices.Common.Extensions;
+
+using EvaluationServices.DataLayer.Extensions;
 
 namespace EvaluationServices.DataLayer.Extensions
 {
     public static class QuestionExtensions
     {
-
         public static QuestionTO ToTransfertObject(this QuestionEF question)
         {
             if (question is null)
                 throw new ArgumentNullException(nameof(question));
 
-            return new QuestionTO
+            var questionTO = new QuestionTO
             {
                 Id = question.Id,
                 Libelle = new MultiLanguageString(question.NameEnglish, question.NameFrench, question.NameDutch),
                 Form = question.Form.ToTransfertObject(),
                 Position = question.Position,
                 Type = question.Type,
-                Choices = question.Choices?.Select(x => x.ToTransfertObject()).ToList(),
-              
+                Propositions = question.Propositions?.Select(x => x.ToTransfertObject()).ToList()
             };
+
+            return questionTO;
         }
 
         public static QuestionEF ToEF(this QuestionTO question)
@@ -34,17 +37,22 @@ namespace EvaluationServices.DataLayer.Extensions
             if (question is null)
                 throw new ArgumentNullException(nameof(question));
 
-            return new QuestionEF
+            var q = new QuestionEF();
+            q.Id = question.Id;
+            q.NameEnglish = question.Libelle.English;
+            q.NameFrench = question.Libelle.French;
+            q.NameDutch = question.Libelle.Dutch;
+            q.Position = question.Position;
+            q.Type = question.Type;
+            q.Form = question.Form.ToEF();
+
+            if (question.Propositions != null)
             {
-                Id = question.Id,
-                NameEnglish = question.Libelle.English,
-                NameFrench = question.Libelle.French,
-                NameDutch = question.Libelle.Dutch,
-                Position = question.Position,
-                Type = question.Type,
-                Choices = question.Choices?.Select(c => c.ToEF()).ToList(),
-                FormQuestionId=question.Form.Id
-            };
+                q.Propositions = question.Propositions.Select(x => x.ToEF()).ToList();
+                q.Propositions.Select(x => x.Question = q);
+            }
+
+            return q;
         }
     }
 }

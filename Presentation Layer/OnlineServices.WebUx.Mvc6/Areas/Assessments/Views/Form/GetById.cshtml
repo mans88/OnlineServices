@@ -1,0 +1,49 @@
+﻿
+@model OnlineServices.Common.EvaluationServices.TransfertObjects.FormTO
+@{
+    ViewData ["Title"] = "@Model.Name.French";
+}
+@using OnlineServices.WebUx.Mvc6.Areas.Assessments.Controllers
+@using OnlineServices.Common.EvaluationServices.Enumerations
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Form", method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal" }))
+{
+    @foreach (var question in QuestionController.questions.Where(q => q.Form.Id == Model.Id).OrderBy(q => q.Position))
+    {
+        <div class="form-group">
+            <div class="col-md-10">
+                <label class="control-label">@question.Position. @question.Libelle.French</label>
+            </div>
+
+        @if (question.Type == QuestionType.Open)
+        {
+            <div class="col-md-10">
+                <textarea type="textarea" class="form-control"></textarea>
+                @*@Html.TextBoxFor(Model => Model.Name.English, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name.English, "", new { @class = "text-danger" })*@
+            </div>
+        }
+        
+        else if (question.Type == QuestionType.SingleChoice)
+        {
+            foreach (var proposition in QuestionPropositionController.questionPropositions.Where(qp=>qp.Question.Id == question.Id))
+            {
+                <div class="offset-md-2 col-md-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name=@proposition.Question.Position />@proposition.Libelle.French
+                        </label>
+                    </div>
+                </div>
+            }
+        }
+        </div>
+    }
+
+
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary col-md-2" />
+    </div>
+}
+
