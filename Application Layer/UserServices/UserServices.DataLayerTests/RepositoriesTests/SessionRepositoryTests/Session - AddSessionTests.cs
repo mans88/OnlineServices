@@ -82,4 +82,5 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.SessionRepositor
                 Assert.AreEqual(1, sessionRepository.GetAll().Count());
             }
         }
+    }
 }
