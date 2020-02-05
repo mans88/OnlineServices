@@ -29,7 +29,10 @@ namespace RegistrationServices.DataLayer.Repositories
         }
 
         public IEnumerable<CourseTO> GetAll()
-        => registrationContext.Courses.AsNoTracking().Include(x => x.Id).Select(x => x.ToTransfertObject()).ToList();
+         => registrationContext.Courses
+            .AsNoTracking()
+            .Select(x => x.ToTransfertObject())
+            .ToList();
 
         public CourseTO GetById(int Id)
            => registrationContext.Courses.AsNoTracking()

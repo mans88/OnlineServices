@@ -12,7 +12,7 @@ using System.Text;
 namespace RegistrationServices.DataLayerTests.RepositoriesTests.UserRepositoryTests
 {
     [TestClass]
-    class User_AddUserTests
+    public class User_AddUserTests
     {
         [TestMethod]
         public void UserRepositoryInsertInDB_WhenValid()

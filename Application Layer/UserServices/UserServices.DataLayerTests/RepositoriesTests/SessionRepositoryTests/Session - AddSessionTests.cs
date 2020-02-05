@@ -13,7 +13,7 @@ using System.Text;
 namespace RegistrationServices.DataLayerTests.RepositoriesTests.SessionRepositoryTests
 {
     [TestClass]
-    class Session_AddSessionTests
+    public class Session_AddSessionTests
     {
         [TestMethod]
         public void Should_Insert_Session_when_valid()
