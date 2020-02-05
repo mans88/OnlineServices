@@ -40,6 +40,27 @@ namespace RegistrationServices.DataLayer.Repositories
                                    .FirstOrDefault(x => x.Id == Id)
                                    .ToTransfertObject();
 
+        public IEnumerable<CourseTO> GetCoursesBySession(int sessionId)
+        {
+            if (sessionId <= 0)
+            {
+                throw new ArgumentException($"GetCoursesBySession: invalid session ID (ID={sessionId})");
+            }
+
+            var componentTypeEF = registrationContext.Sessions.FirstOrDefault(x => x.Id == sessionId);
+
+            if (componentTypeEF is null)
+            {
+                throw new KeyNotFoundException($"GetCoursesBySession: no session found with ID={sessionId}");
+            }
+
+            return registrationContext.Courses
+                //.Include(i => i.session)
+                //.Where(i => i.session.Id == sessionId)
+                .Select(i => i.ToTransfertObject())
+                .ToList();
+        }
+
         public bool Remove(CourseTO entity)
         {
             try
