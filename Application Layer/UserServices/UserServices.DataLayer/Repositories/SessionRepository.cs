@@ -110,5 +110,15 @@ namespace RegistrationServices.DataLayer.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<SessionTO> GetByUser(UserTO user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<SessionTO> GetSessionsByDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
