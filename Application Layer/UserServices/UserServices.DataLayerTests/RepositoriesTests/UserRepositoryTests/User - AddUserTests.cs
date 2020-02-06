@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using RegistrationServices.DataLayer;
 using RegistrationServices.DataLayer.Repositories;
@@ -26,7 +27,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.UserRepositoryTe
                 //Arrange
                 var userToUse = new UserTO()
                 {
-                    Id = 0,
+                    //Id = 0,
                     Name = "Thomas Lion",
                     Role = UserRole.Assistant,
                     Email = "MaxFuel@Power.com",
@@ -43,7 +44,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.UserRepositoryTe
                 //var userToAssert = userRepository.GetById(1);
             }
         }
-        [Ignore]
+        
         [TestMethod()]
         public void UserRepositoryNotInsertInDB_WhenInvalid()
         {
@@ -54,43 +55,29 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.UserRepositoryTe
             using (var RSCxt = new RegistrationContext(options))
             {
                 //Arrange
-                var userToUseValid1 = new UserTO()
+                IRSUserRepository userRepository = new UserRepository(RSCxt);
+
+                var Teacher = new UserTO()
                 {
-                    Id = 5,
-                    Name = "Thomas Lion",
-                    Role = UserRole.Assistant,
-                    Email = "MaxFuel@Power.com",
-                    Company = "Business Formation",
-                    IsActivated = true,
-                };
-                var userToUseValid2 = new UserTO()
-                {
-                    Id = 6,
-                    Name = "Sylvain LELELEDEPE",
-                    Role = UserRole.Teacher,
-                    Email = "LELELE@Power.com",
-                    Company = "Brussels Training",
-                    IsActivated = true,
-                };
-                var userToUseInvalid = new UserTO()
-                {
-                    Id = 7,
-                    Name = null,
-                    Role = UserRole.Attendee,
-                    Email = "",
-                    Company = null,
-                    IsActivated = false,
+                    Name = "Max",
+                    Email = "Padawan@HighGround.OW",
+                    Role = UserRole.Teacher
                 };
 
-                var userRepository = new UserRepository(RSCxt);
-                //Act
-                userRepository.Add(userToUseValid1);
-                userRepository.Add(userToUseValid2);
-                userRepository.Add(userToUseInvalid);
+                var Michou = new UserTO()
+                {
+                    Id = -420,
+                    Name = "Michou Miraisin",
+                    Email = "michou@superbg.nada",
+                    Role = UserRole.Attendee
+                };
+
+                var AddedTeacher = userRepository.Add(Teacher);
+                var AddedAttendee = userRepository.Add(Michou);
                 RSCxt.SaveChanges();
                 //Assert
 
-                Assert.AreEqual(3, userRepository.GetAll().Count());
+                Assert.AreEqual(1, userRepository.GetAll().Count());
             }
         }
     }
