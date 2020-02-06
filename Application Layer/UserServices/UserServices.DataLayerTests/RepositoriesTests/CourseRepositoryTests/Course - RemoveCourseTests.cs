@@ -50,5 +50,18 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             // ACT & ASSERT
             Assert.ThrowsException<ArgumentNullException>(() => courseRepository.Remove(course1));
         }
+        [TestMethod]
+        public void RemoveCourse_ThrowException_WhenNullCourseIsProvided()
+        {
+            var option = new DbContextOptionsBuilder<RegistrationContext>()
+                    .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                    .Options;
+            using var memoryCtx = new RegistrationContext(option);
+            var courseRepository = new CourseRepository(memoryCtx);
+            var course1 = new CourseTO() { Name = "course1" };
+
+            // ACT & ASSERT
+            Assert.ThrowsException<ArgumentNullException>(() => courseRepository.Remove(1));
+        }
     }
 }

@@ -63,21 +63,25 @@ namespace RegistrationServices.DataLayer.Repositories
 
         public bool Remove(CourseTO entity)
         {
+
+            var entityToDelete = registrationContext.Courses.FirstOrDefault(x => x.Id == entity.Id);
+            registrationContext.Courses
+            .Remove(entityToDelete);
+            return true;
+        }
+
+        public bool Remove(int Id)
+        {
             try
-            { var prout = registrationContext.Courses.FirstOrDefault(x => x.Id == entity.Id);
-                    registrationContext.Courses
-                    .Remove(prout);
+            {
+                var entityToDelete = registrationContext.Courses.FirstOrDefault(x => x.Id == Id);
+                registrationContext.Courses.Remove(entityToDelete);
                 return true;
             }
             catch (Exception Ex)
             {
                 throw;
             }
-        }
-
-        public bool Remove(int Id)
-        {
-            return Remove(GetById(Id));
         }
 
         public CourseTO Update(CourseTO Entity)
