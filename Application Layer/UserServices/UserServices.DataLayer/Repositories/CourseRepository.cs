@@ -64,8 +64,9 @@ namespace RegistrationServices.DataLayer.Repositories
         public bool Remove(CourseTO entity)
         {
             try
-            {
-                registrationContext.Courses.Remove(entity.ToEF());
+            { var prout = registrationContext.Courses.FirstOrDefault(x => x.Id == entity.Id);
+                    registrationContext.Courses
+                    .Remove(prout);
                 return true;
             }
             catch (Exception Ex)

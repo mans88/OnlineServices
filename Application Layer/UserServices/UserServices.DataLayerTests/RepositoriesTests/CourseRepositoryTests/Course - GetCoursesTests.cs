@@ -36,8 +36,8 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
 
             var course1 = new CourseTO() {Name = "course1" };
             var course2 = new CourseTO() { Name = "course2" };
-            var addedCourse1 = courseRepository.Add(course1);
-            var addedCourse2 = courseRepository.Add(course2);
+            courseRepository.Add(course1);
+            courseRepository.Add(course2);
             memoryCtx.SaveChanges();
             // ACT 
             courseRepository.GetById(1);
