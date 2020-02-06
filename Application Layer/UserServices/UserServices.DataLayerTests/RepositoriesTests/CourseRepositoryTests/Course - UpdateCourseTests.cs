@@ -15,7 +15,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
     public class Course_UpdateCourseTests
     {
         [TestMethod]
-        public void UpdateCourseByTO_Successfull()
+        public void UpdateCourseByTO_Successful()
         {
             // ARRANGE
             var options = new DbContextOptionsBuilder<RegistrationContext>()

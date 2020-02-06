@@ -15,7 +15,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
     public class Course_RemoveCourseTests
     {
         [TestMethod]
-        public void RemoveCourse_Successfull()
+        public void RemoveCourse_Successful()
         {
                 // ARRANGE
                 var option = new DbContextOptionsBuilder<RegistrationContext>()
