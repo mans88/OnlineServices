@@ -88,7 +88,7 @@ namespace RegistrationServices.DataLayer.Repositories
         {
             if (!registrationContext.Courses.Any(x => x.Id == Entity.Id))
             {
-                throw new Exception($"Can't find course to update. CourseRepository");
+                throw new KeyNotFoundException($"Can't find course to update. CourseRepository");
             }
             var attachedUser = registrationContext.Courses.FirstOrDefault(x => x.Id == Entity.Id);
 

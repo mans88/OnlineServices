@@ -39,5 +39,29 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.AreEqual(2, courseRepository.GetAll().Count());
             Assert.AreEqual("En fait je me suis trompée", addedCourse1.Name);
         }
+        [TestMethod]
+        public void UpdateCourseByTO_ThrowException_WhenInvalidCourseProvided()
+        {
+            // ARRANGE
+            var options = new DbContextOptionsBuilder<RegistrationContext>()
+                   .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                   .Options;
+
+            using var context = new RegistrationContext(options);
+            var courseRepository = new CourseRepository(context);
+
+            var course1 = new CourseTO() { Name = "SQL Server" };
+            var course2 = new CourseTO() { Name = "Azure IoT" };
+            var course3 = new CourseTO() { Id = 3, Name = "Azure AI" };
+
+            // ACT
+            var addedCourse1 = courseRepository.Add(course1);
+            var addedCourse2 = courseRepository.Add(course2);
+            context.SaveChanges();
+            addedCourse1.Name = "En fait je me suis trompée";
+
+            // ASSERT
+            Assert.ThrowsException<KeyNotFoundException>(() => courseRepository.Update(course3));
+        }
     }
 }
