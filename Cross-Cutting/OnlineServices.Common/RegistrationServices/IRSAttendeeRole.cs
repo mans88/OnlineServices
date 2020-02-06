@@ -1,0 +1,14 @@
+﻿using OnlineServices.Common.RegistrationServices.TransferObject;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace OnlineServices.Common.RegistrationServices
+{
+    interface IRSAttendeeRole
+    {
+        public SessionTO GetTodaySession(int userId);
+
+        public int GetIdByMail(string mail);
+    }
+}
