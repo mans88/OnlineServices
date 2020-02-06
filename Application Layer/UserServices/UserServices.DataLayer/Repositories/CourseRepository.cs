@@ -35,10 +35,10 @@ namespace RegistrationServices.DataLayer.Repositories
             .ToList();
 
         public CourseTO GetById(int Id)
-           => registrationContext.Courses.AsNoTracking()
-                                   .Include(x => x.Name)
-                                   .FirstOrDefault(x => x.Id == Id)
-                                   .ToTransfertObject();
+           => registrationContext.Courses
+            .AsNoTracking()
+            .FirstOrDefault(x => x.Id == Id)
+            .ToTransfertObject();
 
         public IEnumerable<CourseTO> GetCoursesBySession(int sessionId)
         {
