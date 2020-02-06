@@ -10,6 +10,8 @@ namespace RegistrationServices.DataLayer.Extensions
     {
         public static CourseTO ToTransfertObject(this CourseEF course)
         {
+            if (course is null)
+                throw new NullReferenceException(nameof(course));
             return new CourseTO()
             {
                 Id = course.Id,
