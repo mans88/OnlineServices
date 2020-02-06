@@ -1,18 +1,20 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Reflection;
-using RegistrationServices.DataLayer;
 using OnlineServices.Common.RegistrationServices.TransferObject;
+using RegistrationServices.DataLayer;
 using RegistrationServices.DataLayer.Repositories;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 
-namespace RegistrationServices.DataLayerTests
+namespace RegistrationServices.DataLayerTests.RepositoriesTests.UserRepositoryTests
 {
     [TestClass]
-    public class UserRepositoryTest
+    public class User_AddUserTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void UserRepositoryInsertInDB_WhenValid()
         {
             var options = new DbContextOptionsBuilder<RegistrationContext>()
@@ -41,7 +43,6 @@ namespace RegistrationServices.DataLayerTests
                 //var userToAssert = userRepository.GetById(1);
             }
         }
-
         [Ignore]
         [TestMethod()]
         public void UserRepositoryNotInsertInDB_WhenInvalid()
@@ -92,13 +93,6 @@ namespace RegistrationServices.DataLayerTests
                 Assert.AreEqual(3, userRepository.GetAll().Count());
             }
         }
-
-        [Ignore]
-        [TestMethod]
-        public void UserRepositoryDelete_WhenValid()
-        {
-        }
-
-        //        public void UserRepository
     }
 }
+
