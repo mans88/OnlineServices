@@ -1,6 +1,6 @@
 ﻿namespace OnlineServices.Common.Enumerations
 {
-    public enum OnlineServicesRole
+    public enum Roles
     {
         Attendee,   //MealServices, UserServices, FacilityServices
         Assitant,   //MealServices

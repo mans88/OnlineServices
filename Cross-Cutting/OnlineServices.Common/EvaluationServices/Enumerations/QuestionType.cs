@@ -3,6 +3,7 @@
     public enum QuestionType
     {
         Open,
+        SingleChoice,
         MultipleChoice,
         Graded
     }

@@ -1,4 +1,5 @@
-﻿using OnlineServices.Common.Exceptions;
+﻿using Newtonsoft.Json;
+using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.Extensions;
 using OnlineServices.Common.TranslationServices.Extensions;
 using Serilog;
@@ -7,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 using TranslationServices.DataLayer.ServiceAgents.Domain;
@@ -73,10 +73,10 @@ namespace TranslationServices.DataLayer.ServiceAgents.TranslationAgents
                 request.Headers.Add("Ocp-Apim-Subscription-Key", cognitiveServiceConfig.SubscriptionKey);
 
                 // Send the request and get response.
-                HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-                string resultJSON = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(true);
+                string resultJSON = await response.Content.ReadAsStringAsync().ConfigureAwait(true);
                 
-                TranslationResult[] deserializedOutput = JsonSerializer.Deserialize<TranslationResult[]>(resultJSON);
+                TranslationResult[] deserializedOutput = JsonConvert.DeserializeObject<TranslationResult[]>(resultJSON);
 
                 // Iterate over the deserialized results.
                 foreach (var o in deserializedOutput)

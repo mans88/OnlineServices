@@ -9,19 +9,25 @@ using RegistrationServices.DataLayer.Extensions;
 
 namespace RegistrationServices.DataLayer.Repositories
 {
-    //public class UserRepository : IRepository<UserTO, int>
     public class UserRepository : IRSUserRepository
     {
-        private readonly RegistrationServicesContext userContext;
+        private readonly RegistrationContext userContext;
 
-        public UserRepository(RegistrationServicesContext Context)
+        public UserRepository(RegistrationContext userContext)
         {
-            userContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
+            this.userContext = userContext;
+            //userContext = Context ?? throw new ArgumentNullException($"{nameof(Context)} in UserRepository");
         }
 
         public UserTO Add(UserTO Entity)
         {
-            return userContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
+            if (Entity is null)
+                throw new ArgumentNullException(nameof(Entity));
+            if (Entity.Id != 0)
+            {
+                return Entity;
+            }
+            return userContext.Users.Add(Entity.ToEF()).Entity.ToTransfertObject();
         }
 
         public IEnumerable<UserTO> GetAll()

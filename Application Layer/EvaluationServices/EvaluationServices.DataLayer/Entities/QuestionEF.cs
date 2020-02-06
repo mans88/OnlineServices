@@ -12,18 +12,12 @@ namespace EvaluationServices.DataLayer.Entities
     {
         [Key]
         public int Id { get; set; }
-
-        [ForeignKey("FormQuestion")]
-        public int FormQuestionId { get; set; }
-        public FormQuestionEF Form { get; set; }
-
+        public FormEF Form { get; set; }
         public QuestionType Type { get; set; }
-
         public int Position { get; set; }
         public string NameEnglish { get; set;}
         public string NameFrench { get; set;}
         public string NameDutch { get; set; }
-
-        public virtual ICollection<QuestionPropositionEF> Choices { get; set; }
+        public virtual ICollection<QuestionPropositionEF> Propositions { get; set; }
     }
 }

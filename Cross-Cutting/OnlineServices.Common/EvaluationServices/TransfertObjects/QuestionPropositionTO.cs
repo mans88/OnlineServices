@@ -8,8 +8,8 @@ namespace OnlineServices.Common.EvaluationServices.TransfertObjects
 {
     public class QuestionPropositionTO : IEntity<int>
     {
-        public int Id { get; set;}
-        public int QuestionId { get; set; }
+        public int Id { get; set; }
+        public QuestionTO Question { get; set; }
         public int Position { get; set; }
         public MultiLanguageString Libelle { get; set; }
     }

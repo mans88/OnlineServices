@@ -12,10 +12,7 @@ namespace RegistrationServices.BusinessLayer
         public UserRole Role { get; set; }
         public string Company { get; set; }
         public string Email { get; set; }
-        public List<Session> Sessions { get; set; } = new List<Session>();
-        //public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
         public bool IsActivated { get; set; }
-
 
         public bool IsValid()
         {
@@ -31,6 +28,4 @@ namespace RegistrationServices.BusinessLayer
             return isValid;
         }
     }
-
-
 }

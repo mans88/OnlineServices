@@ -2,6 +2,7 @@
 using OnlineServices.Common.RegistrationServices.Enumerations;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -9,6 +10,7 @@ namespace RegistrationServices.DataLayer.Entities
 {
     public class SessionDayEF : IEntity<int>
     {
+        [Key]
         public int Id { get; set; }
 
         [Column(TypeName = "datetime")]

@@ -15,44 +15,49 @@ namespace EvaluationServices.DataLayer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
+                .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.FormQuestionEF", b =>
+            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.CommentEF", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ResponseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResponseId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.FormEF", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NameDutch")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEnglish")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameFrench")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FormQuestion");
-                });
-
-            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.FormResponseEF", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AttendeeID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SessionID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FormResponse");
+                    b.ToTable("Forms");
                 });
 
             modelBuilder.Entity("EvaluationServices.DataLayer.Entities.QuestionEF", b =>
@@ -63,9 +68,6 @@ namespace EvaluationServices.DataLayer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("FormId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FormQuestionId")
                         .HasColumnType("int");
 
                     b.Property<string>("NameDutch")
@@ -109,7 +111,7 @@ namespace EvaluationServices.DataLayer.Migrations
                     b.Property<int>("Position")
                         .HasColumnType("int");
 
-                    b.Property<int>("QuestionId")
+                    b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -126,92 +128,90 @@ namespace EvaluationServices.DataLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("FormId")
+                    b.Property<int>("Grade")
                         .HasColumnType("int");
 
-                    b.Property<int>("QuestionId")
+                    b.Property<string>("MultiChoices")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ResponseFormId")
+                    b.Property<int?>("QuestionPropositionId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ResponseOpened")
+                    b.Property<int?>("SubmissionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FormId");
-
                     b.HasIndex("QuestionId");
+
+                    b.HasIndex("QuestionPropositionId");
+
+                    b.HasIndex("SubmissionId");
 
                     b.ToTable("Responses");
                 });
 
-            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.ResponsePropositionEF", b =>
+            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.SubmissionEF", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("QuestionPropositionId")
+                    b.Property<int>("AttendeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ResponseId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int?>("ResponsesId")
+                    b.Property<int>("SessionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuestionPropositionId");
+                    b.ToTable("Submissions");
+                });
 
-                    b.HasIndex("ResponsesId");
-
-                    b.ToTable("Response");
+            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.CommentEF", b =>
+                {
+                    b.HasOne("EvaluationServices.DataLayer.Entities.ResponseEF", "Response")
+                        .WithMany()
+                        .HasForeignKey("ResponseId");
                 });
 
             modelBuilder.Entity("EvaluationServices.DataLayer.Entities.QuestionEF", b =>
                 {
-                    b.HasOne("EvaluationServices.DataLayer.Entities.FormQuestionEF", "Form")
-                        .WithMany("Questions")
+                    b.HasOne("EvaluationServices.DataLayer.Entities.FormEF", "Form")
+                        .WithMany()
                         .HasForeignKey("FormId");
                 });
 
             modelBuilder.Entity("EvaluationServices.DataLayer.Entities.QuestionPropositionEF", b =>
                 {
-                    b.HasOne("EvaluationServices.DataLayer.Entities.QuestionEF", "QuestionProposition")
-                        .WithMany("Choices")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("EvaluationServices.DataLayer.Entities.QuestionEF", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId");
                 });
 
             modelBuilder.Entity("EvaluationServices.DataLayer.Entities.ResponseEF", b =>
                 {
-                    b.HasOne("EvaluationServices.DataLayer.Entities.FormResponseEF", "Form")
-                        .WithMany("Responses")
-                        .HasForeignKey("FormId");
-
-                    b.HasOne("EvaluationServices.DataLayer.Entities.QuestionEF", "QuestionProposition")
+                    b.HasOne("EvaluationServices.DataLayer.Entities.QuestionEF", "Question")
                         .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                        .HasForeignKey("QuestionId");
 
-            modelBuilder.Entity("EvaluationServices.DataLayer.Entities.ResponsePropositionEF", b =>
-                {
                     b.HasOne("EvaluationServices.DataLayer.Entities.QuestionPropositionEF", "QuestionProposition")
                         .WithMany()
-                        .HasForeignKey("QuestionPropositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("QuestionPropositionId");
 
-                    b.HasOne("EvaluationServices.DataLayer.Entities.ResponseEF", "Responses")
-                        .WithMany("Choices")
-                        .HasForeignKey("ResponsesId");
+                    b.HasOne("EvaluationServices.DataLayer.Entities.SubmissionEF", "Submission")
+                        .WithMany()
+                        .HasForeignKey("SubmissionId");
                 });
 #pragma warning restore 612, 618
         }

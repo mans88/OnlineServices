@@ -14,18 +14,16 @@ namespace AttendanceServices.BusinessLayer.UseCases
     {
         public bool SetPresence(int sessionID, int attendeeId)
         {
-            if(!userServices.GetSessionAttendes(sessionID).Any(x=> x.Id == attendeeId))
+            if (!userServices.GetSessionAttendes(sessionID).Any(x => x.Id == attendeeId))
                 throw new Exception("Attendee do not exist in formation");
-            if (!userServices.GetSession(sessionID).SessionDays.Any(x => x.DaySession.IsSameDate(DateTime.Now)))
+            if (!userServices.GetSession(sessionID).SessionDays.Any(x => x.Date.IsSameDate(DateTime.Now)))
                 throw new Exception("Not a formation day");
             try
             {
-
-
                 var presence = new AttendeePresenceTO
                 {
                     SessionId = sessionID,
-                    AttendeeId = attendeeId, 
+                    AttendeeId = attendeeId,
                     PresenceDay = new List<DateTime> { DateTime.Now }
                 };
 
@@ -38,7 +36,7 @@ namespace AttendanceServices.BusinessLayer.UseCases
             {
                 throw;
             }
-            
+
             return true;
         }
         public List<SessionTO> GetTodaySessions()

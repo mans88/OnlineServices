@@ -14,14 +14,11 @@ namespace RegistrationServices.DataLayer.Extensions
             return new SessionTO()
             {
                 Id = session.Id,
-                Teacher = session.Teacher?.ToTransfertObject(),
-                Course = session.Course.ToTransfertObject(),
-                Dates = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
-                //Attendees = session.UserSessions.Select(x => x.User.ToTransfertObject()).ToList()
+                Teacher = session.UserSessions.FirstOrDefault(x => x.User.Role == UserRole.Teacher).User.ToTransfertObject(),
+                Course = session.Course?.ToTransfertObject(),
+                //SessionDays = session.Dates.Select(x => x.ToTransfertObject()).ToList(),
 
-                Attendees = session.UserSessions
-                .Where(x => x.User.Role == UserRole.Attendee)
-                .Select(x => x.User.ToTransfertObject()).ToList()
+                Attendees = session.UserSessions.Where(x => x.User.Role == UserRole.Attendee).Select(x => x.User.ToTransfertObject()).ToList()
             };
         }
 
@@ -35,10 +32,14 @@ namespace RegistrationServices.DataLayer.Extensions
             var result = new SessionEF()
             {
                 Id = session.Id,
-                Teacher = session?.Teacher.ToEF(),
                 Course = session.Course.ToEF(),
-                Dates = session.Dates.Select(x => x.ToEF()).ToList()
+                Dates = session.SessionDays?.Select(x => x.ToEF()).ToList()
             };
+
+            if (session.Attendees == null)
+            {
+                return result;
+            }
 
             result.UserSessions = new List<UserSessionEF>();
 
@@ -54,18 +55,20 @@ namespace RegistrationServices.DataLayer.Extensions
                 result.UserSessions.Add(userSession);
             }
 
-            if (session.Teacher != null)
+            var teacherEF = new UserSessionEF()
             {
-                var teacherEF = new UserSessionEF()
-                {
-                    SessionId = session.Id,
-                    Session = result,
-                    UserId = session.Teacher.Id,
-                    User = session.Teacher.ToEF()
-                };
+                SessionId = session.Id,
+                Session = result,
+                UserId = session.Teacher.Id,
+                User = session.Teacher.ToEF()
+            };
 
-                result.UserSessions.Add(teacherEF);
-            }
+            result.UserSessions.Add(teacherEF);
+
+            //foreach (UserSessionEF item in result.UserSessions)
+            //{
+            //    item.User.UserSessions.Add(item);
+            //}
 
             return result;
         }

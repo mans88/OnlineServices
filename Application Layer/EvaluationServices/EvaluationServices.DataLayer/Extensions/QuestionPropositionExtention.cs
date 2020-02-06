@@ -18,7 +18,7 @@ namespace EvaluationServices.DataLayer.Extensions
                 Id = proposition.Id,
                 Libelle = new MultiLanguageString(proposition.NameEnglish, proposition.NameFrench, proposition.NameDutch),
                 Position = proposition.Position,
-                QuestionId = proposition.QuestionId,
+                Question = proposition.Question.ToTransfertObject()
             };
         }
         public static QuestionPropositionEF ToEF(this QuestionPropositionTO proposition)
@@ -28,13 +28,12 @@ namespace EvaluationServices.DataLayer.Extensions
             return new QuestionPropositionEF
             {
                 Id = proposition.Id,
-                NameDutch = proposition.Libelle.Dutch,
                 NameEnglish = proposition.Libelle.English,
                 NameFrench = proposition.Libelle.French,
+                NameDutch = proposition.Libelle.Dutch,
                 Position = proposition.Position,
-                QuestionId = proposition.QuestionId
+                Question = new QuestionEF()
             };
         }
-
     }
 }

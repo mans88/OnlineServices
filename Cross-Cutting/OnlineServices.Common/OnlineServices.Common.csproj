@@ -2,8 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.22.1.0952</AssemblyVersion>
-    <FileVersion>2001.22.1.0952</FileVersion>
+    <AssemblyVersion>2001.31.4.1327</AssemblyVersion>
+    <FileVersion>2001.31.4.1327</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,14 +21,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Serilog" Version="2.9.0" />
     <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="TrainingServices\" />
   </ItemGroup>
-
 </Project>

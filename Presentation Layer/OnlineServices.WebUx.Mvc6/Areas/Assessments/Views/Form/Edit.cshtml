@@ -1,0 +1,50 @@
+﻿@{
+    ViewData ["Title"] = "Edit - Form";
+}
+
+@model OnlineServices.Common.EvaluationServices.TransfertObjects.FormTO
+@using OnlineServices.WebUx.Mvc6.Areas.Assessments.Controllers
+@using OnlineServices.Common.Enumerations
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Form", method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label">Name : </label>
+        </div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(Model => Model.Name.English, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name.English, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label">Nom : </label>
+        </div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(Model => Model.Name.French, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name.French, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label class="control-label">Naam : </label>
+        </div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(Model => Model.Name.Dutch, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name.Dutch, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary col-md-2" />
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to list", "GetAll")
+    </div>
+}

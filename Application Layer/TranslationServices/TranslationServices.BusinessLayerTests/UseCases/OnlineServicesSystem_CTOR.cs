@@ -17,7 +17,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = new Mock<ILogger>();
             var mockITRSTranslationService = new Mock<ITRSTranslationService>();
 
-            var sut = new OnlineServicesSystem(mockILogger.Object, mockITRSTranslationService.Object);
+            var sut = new OnlineServicesRole(mockILogger.Object, mockITRSTranslationService.Object);
             
             Assert.NotNull(sut);
             mockILogger.Verify(x=>x.Error(It.IsAny<string>()), Times.Never);
@@ -32,7 +32,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
             var mockILogger = TestHelper.MakeILogger();
             LoggedException.Logger = mockILogger.Object;
 
-            Assert.Throws<LoggedException>(() => new OnlineServicesSystem(iLogger, iTRSTranslationService));
+            Assert.Throws<LoggedException>(() => new OnlineServicesRole(iLogger, iTRSTranslationService));
             mockILogger.Verify(x => x.Error(It.IsAny<ArgumentNullException>(), It.IsAny<string>()), Times.Once);
             //TODO Times.Twice?
         }
@@ -46,7 +46,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
 
             var mockITRSTranslationService = new Mock<ITRSTranslationService>();
 
-            Assert.Throws<LoggedException>(() => new OnlineServicesSystem(iLogger, mockITRSTranslationService.Object));
+            Assert.Throws<LoggedException>(() => new OnlineServicesRole(iLogger, mockITRSTranslationService.Object));
             mockILogger.Verify(x => x.Error(It.IsAny<ArgumentNullException>(), It.IsAny<string>()), Times.Once);
         }
 
@@ -58,7 +58,7 @@ namespace TranslationServices.BusinessLayerTests.UseCases
 
             ITRSTranslationService iTRSTranslationService = null;
 
-            Assert.Throws<LoggedException>(() => new OnlineServicesSystem(mockILogger.Object, iTRSTranslationService));
+            Assert.Throws<LoggedException>(() => new OnlineServicesRole(mockILogger.Object, iTRSTranslationService));
             mockILogger.Verify(x=>x.Error(It.IsAny<ArgumentNullException>(), It.IsAny<string>()), Times.Once);
         }
     }

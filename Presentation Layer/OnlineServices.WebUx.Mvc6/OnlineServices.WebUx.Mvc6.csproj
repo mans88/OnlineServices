@@ -2,17 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2001.22.18.1030</AssemblyVersion>
-    <FileVersion>2001.22.18.1030</FileVersion>
+    <AssemblyVersion>2001.31.0.1030</AssemblyVersion>
+    <FileVersion>2001.31.0.1030</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.4.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
     <PackageReference Include="Serilog" Version="2.9.0" />
   </ItemGroup>
@@ -27,12 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Assessments\Controllers\" />
     <Folder Include="Areas\Assessments\Data\" />
-    <Folder Include="Areas\Assessments\Models\" />
     <Folder Include="Areas\Attendances\Controllers\" />
     <Folder Include="Areas\Attendances\Data\" />
     <Folder Include="Areas\Attendances\Models\" />
+    <Folder Include="Areas\Facilities\Controllers\" />
     <Folder Include="Areas\Facilities\Data\" />
     <Folder Include="Areas\Facilities\Models\" />
     <Folder Include="Areas\Meals\Controllers\" />
@@ -42,11 +42,11 @@
     <Folder Include="Areas\Registration\Data\" />
     <Folder Include="Areas\Registration\Models\" />
     <Folder Include="Areas\Registration\Views\" />
-    <Folder Include="wwwroot\Registration\" />
-    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application Layer\EvaluationServices\EvaluationServices.BusinessLayer\EvaluationServices.BusinessLayer.csproj" />
+    <ProjectReference Include="..\..\Application Layer\EvaluationServices\EvaluationServices.DataLayer\EvaluationServices.DataLayer.csproj" />
     <ProjectReference Include="..\..\Application Layer\FacilityServices\FacilityServices.BusinessLayer\FacilityServices.BusinessLayer.csproj" />
     <ProjectReference Include="..\..\Cross-Cutting\OnlineServices.Common\OnlineServices.Common.csproj" />
   </ItemGroup>

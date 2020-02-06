@@ -1,4 +1,5 @@
-﻿using EvaluationServices.DataLayer.Extensions;
+﻿using EvaluationServices.DataLayer.Entities;
+using EvaluationServices.DataLayer.Extensions;
 using Microsoft.EntityFrameworkCore;
 using OnlineServices.Common.DataAccessHelpers;
 using OnlineServices.Common.EvaluationServices.Interfaces.Repositories;
@@ -22,29 +23,58 @@ namespace EvaluationServices.DataLayer.Repositories
 		}
 
 		public QuestionPropositionTO Add(QuestionPropositionTO Entity)
-			=> evaluationContext.QuestionProposition.Add(Entity.ToEF()).Entity.ToTransfertObject();
+		{
+			if (Entity is null) throw new ArgumentNullException(nameof(Entity));
 
+			var questionproposition = Entity.ToEF();
+			questionproposition.Question = evaluationContext.Questions.FirstOrDefault(q => q.Id == Entity.Question.Id);
+
+			return evaluationContext.QuestionPropositions.Add(questionproposition).Entity.ToTransfertObject();
+		}
 
 		public IEnumerable<QuestionPropositionTO> GetAll()
-			=> evaluationContext.QuestionProposition.Select(q => q.ToTransfertObject()).ToList();
+		{
+			return evaluationContext.QuestionPropositions
+				.AsNoTracking()
+				.Include(qp => qp.Question)
+					.ThenInclude(qp => qp.Form)
+				.OrderBy(qp => qp.Question.Position)
+					.ThenBy(qp => qp.Position)
+				.Select(qp => qp.ToTransfertObject())
+				.ToList();
+		}
 
 		public QuestionPropositionTO GetById(int Id)
-			=> evaluationContext.QuestionProposition.FirstOrDefault(q => q.Id == Id).ToTransfertObject();
+		{
+			return evaluationContext.QuestionPropositions
+				.AsNoTracking()
+				.Include(qp => qp.Question)
+					.ThenInclude(qp => qp.Form)
+				.FirstOrDefault(qp => qp.Id == Id)
+				.ToTransfertObject();
+		}
 
 		public bool Remove(QuestionPropositionTO entity)
-			=> Remove(entity.Id);
-		
+		{
+			if (entity is null)
+				throw new ArgumentNullException(nameof(entity));
+
+			return Remove(entity.Id);
+		}
+
 		public bool Remove(int Id)
 		{
-			var toRemove = evaluationContext.QuestionProposition.FirstOrDefault(q => q.Id == Id);
-			var removed = evaluationContext.QuestionProposition.Remove(toRemove);
+			var toRemove = evaluationContext.QuestionPropositions.FirstOrDefault(qp => qp.Id == Id);
+			var removed = evaluationContext.QuestionPropositions.Remove(toRemove);
 			return (removed.State == EntityState.Deleted);
 		}
 
 		public QuestionPropositionTO Update(QuestionPropositionTO Entity)
 		{
-			var toUpdate = evaluationContext.QuestionProposition.FirstOrDefault(q => q.Id == Entity.Id);
-			return null;
+			if (Entity is null)
+				throw new Exception();
+
+			return evaluationContext.QuestionPropositions.Update(Entity.ToEF()).Entity.ToTransfertObject();
 		}
 	}
 }
