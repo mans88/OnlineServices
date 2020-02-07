@@ -6,9 +6,4 @@ using System.Text;
 
 namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
-    public interface IRSCourseRepository : IRepository<CourseTO, int>
-    {
-        IEnumerable<CourseTO> GetCoursesBySession(int sessionId);
-
-    }
 }
