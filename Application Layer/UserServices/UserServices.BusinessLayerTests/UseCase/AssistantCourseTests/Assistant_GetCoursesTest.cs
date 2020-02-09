@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using RegistrationServices.BusinessLayer.UseCase;
+using RegistrationServices.BusinessLayer.UseCase.Assistant;
 using Moq;
 using OnlineServices.Common.RegistrationServices.Interfaces;
 using System.Linq;

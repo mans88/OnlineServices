@@ -2,7 +2,7 @@
 using Moq;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using OnlineServices.Common.RegistrationServices.Interfaces;
-using RegistrationServices.BusinessLayer.UseCase;
+using RegistrationServices.BusinessLayer.UseCase.Assistant;
 using System;
 using System.Collections.Generic;
 using System.Text;
