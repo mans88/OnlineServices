@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AttendanceServices.DataLayer
+namespace OnlineServices.Common.DataAccessHelpers
 {
     public interface IUnitOfWork : IDisposable
     {

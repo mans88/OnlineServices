@@ -38,5 +38,28 @@ namespace OS.WebAPI.Services.Mocks
 
             return userServicesMOCK.Object;
         }
+
+        public static IRSAttendeeRole RSAttendeeRoleObject()
+        {
+            var userServicesMOCK = new Mock<IRSAttendeeRole>();
+
+            userServicesMOCK.Setup(marge => marge.GetIdByMail(It.IsAny<string>()))
+                        .Returns(1);
+
+            userServicesMOCK.Setup(marge => marge.GetTodaySession(It.IsAny<int>()))
+                .Returns(new SessionTO
+                {
+                    Id = 12,
+                    SessionDays = new List<SessionDayTO>
+                    {
+                        new SessionDayTO
+                        {
+                             Id = 1, Date = DateTime.Now, PresenceType = SessionPresenceType.OnceADay
+                        }
+                    }
+                });
+
+            return userServicesMOCK.Object;
+        }
     }
 }

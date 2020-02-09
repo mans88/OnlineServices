@@ -5,7 +5,7 @@ using System;
 
 namespace AttendanceServices.DataLayer
 {
-    public class ASUnitOfWork : IUnitOfWork
+    public class ASUnitOfWork : IASUnitOfWork
     {
         private AttendanceContext attendanceContext;
 

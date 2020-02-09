@@ -136,7 +136,7 @@ namespace AttendanceServices.BusinessLayer.Tests
 
             var eleve = new ASAttendeeRole(presenceRepositoryMOCK.Object, userServicesMOCK.Object);
 
-            Assert.ThrowsException<Exception>(() => eleve.SetPresence(9999999, 53));
+            Assert.ThrowsException<Exception>(() => eleve.CheckIn(9999999, 53));
         }
 
         [TestMethod]
@@ -165,7 +165,7 @@ namespace AttendanceServices.BusinessLayer.Tests
 
             var eleve = new ASAttendeeRole(presenceRepositoryMOCK.Object, userServicesMOCK.Object);
 
-            Assert.ThrowsException<Exception>(() => eleve.SetPresence(9999999, 3));
+            Assert.ThrowsException<Exception>(() => eleve.CheckIn(9999999, 3));
         }
 
 
@@ -197,7 +197,7 @@ namespace AttendanceServices.BusinessLayer.Tests
                 });
 
             var eleve = new ASAttendeeRole(presenceRepositoryMOCK.Object, userServicesMOCK.Object);
-            var valueToAssert = eleve.SetPresence(2, 3);
+            var valueToAssert = eleve.CheckIn(2, 3);
             Assert.IsTrue(valueToAssert);
         }
     }

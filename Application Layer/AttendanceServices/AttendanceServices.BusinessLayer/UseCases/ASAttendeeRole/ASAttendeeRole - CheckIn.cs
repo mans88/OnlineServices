@@ -12,7 +12,7 @@ namespace AttendanceServices.BusinessLayer.UseCases
 {
     public partial class ASAttendeeRole : IASAttendeeRole
     {
-        public bool SetPresence(int sessionId, int attendeeId)
+        public bool CheckIn(int sessionId, int attendeeId)
         {
             if (!userServices.GetSessionAttendes(sessionId).Any(x => x.Id == attendeeId))
                 throw new Exception("Attendee do not exist in formation");

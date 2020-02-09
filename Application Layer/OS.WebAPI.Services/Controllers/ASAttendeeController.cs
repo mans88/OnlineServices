@@ -11,7 +11,7 @@ using OnlineServices.Common.RegistrationServices.TransferObject;
 namespace OS.WebAPI.Services.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class ASAttendeeController : ControllerBase
     {
         private readonly ILogger<ASAttendeeController> _logger;
@@ -24,15 +24,9 @@ namespace OS.WebAPI.Services.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<SessionTO> GetTodaySessions()
+        public bool CheckIn(int sessionId, int attendeeId)
         {
-            return iASAttendeeRole.GetTodaySessions();
-        }
-
-        [HttpGet]
-        public bool SetPresence(int sessionId, int attendeeId)
-        {
-            return iASAttendeeRole.SetPresence(sessionId, attendeeId);
+            return iASAttendeeRole.CheckIn(sessionId, attendeeId);
         }
     }
 }
