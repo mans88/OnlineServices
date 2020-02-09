@@ -24,9 +24,9 @@ namespace OS.WebAPI.Services.Controllers
         }
 
         [HttpGet]
-        public bool CheckIn(int sessionId, int attendeeId)
+        public IActionResult CheckIn(int sessionId, int attendeeId)
         {
-            return iASAttendeeRole.CheckIn(sessionId, attendeeId);
+            return new JsonResult(iASAttendeeRole.CheckIn(sessionId, attendeeId));
         }
     }
 }

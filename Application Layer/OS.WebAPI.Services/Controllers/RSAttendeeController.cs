@@ -24,16 +24,16 @@ namespace OS.WebAPI.Services.Controllers
             this.iRSAttendeeRole = iRSAttendeeRole ?? throw new ArgumentNullException(nameof(iRSAttendeeRole));
         }
 
-        [HttpGet]
-        public SessionTO GetTodaySession(int userId)
+        [HttpGet("{userId}")]
+        public IActionResult GetTodaySession(int userId)
         {
-            return iRSAttendeeRole.GetTodaySession(userId);
+            return new JsonResult(iRSAttendeeRole.GetTodaySession(userId));
         }
 
-        [HttpGet]
-        public int GetIdByMail(string email)
+        [HttpGet("{email}")]
+        public IActionResult GetIdByMail(string email)
         {
-            return iRSAttendeeRole.GetIdByMail(email);
+            return new JsonResult(iRSAttendeeRole.GetIdByMail(email));
         }
     }
 }
