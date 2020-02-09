@@ -105,7 +105,7 @@ using AttendanceServices.BusinessLayer.UseCases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Moq;
-
+using OnlineServices.AttendanceServices.Interfaces;
 using OnlineServices.Common.AttendanceServices.TransfertObjects;
 using OnlineServices.Common.RegistrationServices;
 using OnlineServices.Common.RegistrationServices.Enumerations;

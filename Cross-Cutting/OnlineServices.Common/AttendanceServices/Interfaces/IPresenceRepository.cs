@@ -1,6 +1,6 @@
 ﻿using OnlineServices.Common.AttendanceServices.TransfertObjects;
 
-namespace AttendanceServices.BusinessLayer.UseCases
+namespace OnlineServices.AttendanceServices.Interfaces
 {
     public interface IPresenceRepository //:IRepositoryTemp<AttendeePresenceTO,int>
     {

@@ -1,5 +1,4 @@
-﻿using AttendanceServices.BusinessLayer.UseCases;
-using AttendanceServices.DataLayer.Entities;
+﻿using AttendanceServices.DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AttendanceServices.DataLayer

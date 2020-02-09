@@ -6,7 +6,7 @@ namespace OnlineServices.Common.AttendanceServices
 {
     public interface IASAttendeeRole
     {
-        bool SetPresence(int formationID, int attendeeID);
+        bool SetPresence(int sessionId, int attendeeId);
         List<SessionTO> GetTodaySessions();
     }
 }

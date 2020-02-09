@@ -1,5 +1,4 @@
-﻿using AttendanceServices.BusinessLayer.UseCases;
-using System;
+﻿using System;
 
 namespace AttendanceServices.DataLayer
 {

@@ -12,17 +12,17 @@ namespace AttendanceServices.BusinessLayer.UseCases
 {
     public partial class ASAttendeeRole : IASAttendeeRole
     {
-        public bool SetPresence(int sessionID, int attendeeId)
+        public bool SetPresence(int sessionId, int attendeeId)
         {
-            if (!userServices.GetSessionAttendes(sessionID).Any(x => x.Id == attendeeId))
+            if (!userServices.GetSessionAttendes(sessionId).Any(x => x.Id == attendeeId))
                 throw new Exception("Attendee do not exist in formation");
-            if (!userServices.GetSession(sessionID).SessionDays.Any(x => x.Date.IsSameDate(DateTime.Now)))
+            if (!userServices.GetSession(sessionId).SessionDays.Any(x => x.Date.IsSameDate(DateTime.Now)))
                 throw new Exception("Not a formation day");
             try
             {
                 var presence = new AttendeePresenceTO
                 {
-                    SessionId = sessionID,
+                    SessionId = sessionId,
                     AttendeeId = attendeeId,
                     PresenceDay = new List<DateTime> { DateTime.Now }
                 };
@@ -38,10 +38,6 @@ namespace AttendanceServices.BusinessLayer.UseCases
             }
 
             return true;
-        }
-        public List<SessionTO> GetTodaySessions()
-        {
-            return new List<SessionTO> { };
         }
     }
 }

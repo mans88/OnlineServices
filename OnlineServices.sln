@@ -64,7 +64,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.Common", "Cr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.CommonTests", "Cross-Cutting\OnlineServices.CommonTests\OnlineServices.CommonTests.csproj", "{FC9E9F7E-64D7-4A1E-A972-C5EC3AAED045}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Layer", "Application Layer", "{22EB011A-39E4-41C2-898A-9BF918F8919C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Service Layer", "Application Service Layer", "{22EB011A-39E4-41C2-898A-9BF918F8919C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross-Cutting", "Cross-Cutting", "{C8220A85-F915-4946-A3C6-B7529EAE5F22}"
 EndProject
@@ -150,6 +150,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineServices.Pwsh6.Cmdlets", "Presentation Layer\CommandLine\OnlineServices.Pwsh6.Cmdlets\OnlineServices.Pwsh6.Cmdlets.csproj", "{75738E37-9164-4A43-A4AA-808D3BDE9EAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesktopUx", "DesktopUx", "{B0CFEE12-E5C8-4B54-8A84-AD87BEC1410E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OS.WebAPI.Services", "Application Layer\OS.WebAPI.Services\OS.WebAPI.Services.csproj", "{4C85AEA1-4F47-4F7E-82A4-7BCE8D923CA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -299,6 +301,10 @@ Global
 		{75738E37-9164-4A43-A4AA-808D3BDE9EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75738E37-9164-4A43-A4AA-808D3BDE9EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75738E37-9164-4A43-A4AA-808D3BDE9EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C85AEA1-4F47-4F7E-82A4-7BCE8D923CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C85AEA1-4F47-4F7E-82A4-7BCE8D923CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C85AEA1-4F47-4F7E-82A4-7BCE8D923CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C85AEA1-4F47-4F7E-82A4-7BCE8D923CA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -362,6 +368,7 @@ Global
 		{B3D4CCE2-DFF0-48E9-AFB5-025D88D60652} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
 		{75738E37-9164-4A43-A4AA-808D3BDE9EAE} = {B3D4CCE2-DFF0-48E9-AFB5-025D88D60652}
 		{B0CFEE12-E5C8-4B54-8A84-AD87BEC1410E} = {62AD5A2E-5251-4EE1-A7BF-0549067846BE}
+		{4C85AEA1-4F47-4F7E-82A4-7BCE8D923CA4} = {22EB011A-39E4-41C2-898A-9BF918F8919C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C170EEE5-52F4-4C78-ABDF-890E97482E62}

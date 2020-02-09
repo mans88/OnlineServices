@@ -1,7 +1,6 @@
 ﻿
-using AttendanceServices.BusinessLayer.UseCases;
 using AttendanceServices.DataLayer.Repositories;
-
+using OnlineServices.AttendanceServices.Interfaces;
 using System;
 
 namespace AttendanceServices.DataLayer

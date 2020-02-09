@@ -1,4 +1,5 @@
-﻿using OnlineServices.Common.RegistrationServices;
+﻿using OnlineServices.AttendanceServices.Interfaces;
+using OnlineServices.Common.RegistrationServices;
 using System;
 using System.Collections.Generic;
 using System.Text;

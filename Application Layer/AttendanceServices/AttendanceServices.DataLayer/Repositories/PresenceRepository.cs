@@ -1,5 +1,4 @@
-﻿using AttendanceServices.BusinessLayer.UseCases;
-
+﻿using OnlineServices.AttendanceServices.Interfaces;
 using OnlineServices.Common.AttendanceServices.TransfertObjects;
 
 namespace AttendanceServices.DataLayer.Repositories
