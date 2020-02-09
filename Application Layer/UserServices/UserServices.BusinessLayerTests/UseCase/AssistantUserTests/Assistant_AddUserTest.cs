@@ -8,8 +8,9 @@ using RegistrationServices.BusinessLayer;
 using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using OnlineServices.Common.Exceptions;
+using RegistrationServices.BusinessLayer.UseCase.Assistant;
 
-namespace RegistrationServices.BusinessLayerTests.UseCase
+namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantUserTests
 {
     [TestClass]
     public class Assistant_AddUserTest

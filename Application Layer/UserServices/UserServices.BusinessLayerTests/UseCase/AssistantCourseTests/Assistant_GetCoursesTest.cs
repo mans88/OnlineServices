@@ -8,7 +8,7 @@ using OnlineServices.Common.RegistrationServices.Interfaces;
 using System.Linq;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 
-namespace RegistrationServices.BusinessLayerTests.UseCase
+namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
 {
     [TestClass]
     public class Assistant_GetCoursesTest
