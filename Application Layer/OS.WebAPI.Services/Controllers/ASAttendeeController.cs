@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AttendanceServices.BusinessLayer.UseCases;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineServices.Common.AttendanceServices;
@@ -25,15 +26,28 @@ namespace OS.WebAPI.Services.Controllers
         }
 
         [HttpGet]
-        public IActionResult CheckIn(int sessionId, int attendeeId)
+        public ActionResult<bool> CheckIn(int sessionId, int attendeeId)
         {
             var checkInArgs = new CheckInTO
             {
-                SessionId = sessionId
-                , AttendeeId = attendeeId
-                , CheckInTime = DateTime.Now
+                SessionId = sessionId,
+                AttendeeId = attendeeId,
+                CheckInTime = DateTime.Now
             };
-            return new JsonResult(iASAttendeeRole.CheckIn(checkInArgs));
+
+            try
+            {
+                if (iASAttendeeRole.CheckIn(checkInArgs))
+                    return Ok(true);
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500);
+            }
+
         }
     }
 }

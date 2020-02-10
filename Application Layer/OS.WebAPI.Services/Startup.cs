@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,8 +35,11 @@ namespace OS.WebAPI.Services
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
+            services.AddControllers(setupAction =>
+            {
+                setupAction.ReturnHttpNotAcceptable = true;
+            }).AddXmlDataContractSerializerFormatters();
+            
             RegistrationServicesDependencyInjections(services);
             AttendanceServicesDependencyInjections(services);
         }
@@ -57,11 +61,6 @@ namespace OS.WebAPI.Services
 
         private static void AttendanceServicesDependencyInjections(IServiceCollection services)
         {
-            //services.AddDbContext<AttendanceContext>(optionsBuilder =>
-            //    optionsBuilder
-            //        .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=AttendanceDB;Trusted_Connection=True;")
-            //    );
-
             //Mocks to implement...
             services.AddTransient<ICheckInRepository>(x => AttendenceServicesMockHelper.CheckInRepositoryObject());
             
@@ -76,6 +75,17 @@ namespace OS.WebAPI.Services
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                //app.UseExceptionHandler(appBuilder =>
+                //{
+                //    appBuilder.Run(async context =>
+                //    {
+                //        context.Response.StatusCode = 500;
+                //        await context.Response.WriteAsync("An unexpected fault happened. Try again later.");
+                //    });
+                //});
             }
 
             app.UseHttpsRedirection();
