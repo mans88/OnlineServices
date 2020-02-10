@@ -8,6 +8,6 @@ namespace AttendanceServices.BusinessLayer.Domain
     {
         public int AttendeeId { get; set; }
         public int SessionId { get; set; }
-        public List<DateTime> PresenceDay { get; set; } = new List<DateTime>();
+        public List<DateTime> PresenceDay { get; set; }
     }
 }

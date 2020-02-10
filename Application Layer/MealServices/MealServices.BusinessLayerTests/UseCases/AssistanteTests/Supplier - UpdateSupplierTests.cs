@@ -15,7 +15,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
         public void UpdateSupplier_ThrowException_WhenSupplierIDisDifferentOfZero()
         {
             //ARRANGE
-            var Assistante = new MSAssistantRole((new Mock<IMSUnitOfWork>()).Object);
+            var Assistante = new MSAssistantRole(new Mock<IMSUnitOfWork>().Object);
             var SupplierToUpdate = new SupplierTO { Id = 0, Name = "InexistantSupplier" };
 
             //ACT
@@ -26,7 +26,7 @@ namespace MealServices.BusinessLayerTests.UseCases.AssistanteTests
         public void UpdateSupplier_ThrowException_WhenSupplierIsNull()
         {
             //ARRANGE
-            var Assistante = new MSAssistantRole((new Mock<IMSUnitOfWork>()).Object);
+            var Assistante = new MSAssistantRole(new Mock<IMSUnitOfWork>().Object);
 
             //ACT
             Assert.ThrowsException<ArgumentNullException>(() => Assistante.UpdateSupplier(null));

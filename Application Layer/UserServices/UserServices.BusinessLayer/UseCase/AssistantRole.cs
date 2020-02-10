@@ -50,7 +50,7 @@ namespace RegistrationServices.BusinessLayer.UseCase
         public bool UpdateUser(UserTO userTO)
         {
             if (userTO is null)
-                throw new ArgumentNullException((nameof(userTO)));
+                throw new ArgumentNullException(nameof(userTO));
 
             if (userTO.Id == 0)
                 throw new Exception("User does not exist");
@@ -216,7 +216,7 @@ namespace RegistrationServices.BusinessLayer.UseCase
         public bool UpdateSession(SessionTO sessionTO)
         {
             if (sessionTO is null)
-                throw new ArgumentNullException((nameof(sessionTO)));
+                throw new ArgumentNullException(nameof(sessionTO));
 
             if (sessionTO.Id == 0)
                 throw new Exception("User does not exist");

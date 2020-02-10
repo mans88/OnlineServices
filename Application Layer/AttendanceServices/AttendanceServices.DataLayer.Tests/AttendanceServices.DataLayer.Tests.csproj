@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyVersion>2020.0209.2059.1031</AssemblyVersion>
+    <AssemblyVersion>2002.10.4.1453</AssemblyVersion>
 
-    <FileVersion>2020.0209.2059.1031</FileVersion>
+    <FileVersion>2002.10.4.1453</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +23,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
   <ItemGroup>

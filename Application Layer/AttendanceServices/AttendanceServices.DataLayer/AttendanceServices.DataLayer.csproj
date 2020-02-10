@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>2020.0209.2258.1041</AssemblyVersion>
-    <FileVersion>2020.0209.2258.1041</FileVersion>
+    <AssemblyVersion>2002.10.13.1453</AssemblyVersion>
+    <FileVersion>2002.10.13.1453</FileVersion>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
@@ -16,6 +16,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
   <ItemGroup>

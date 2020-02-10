@@ -57,16 +57,16 @@ namespace OS.WebAPI.Services
 
         private static void AttendanceServicesDependencyInjections(IServiceCollection services)
         {
-            services.AddDbContext<AttendanceContext>(optionsBuilder =>
-                optionsBuilder
-                    .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=AttendanceDB;Trusted_Connection=True;")
-                );
+            //services.AddDbContext<AttendanceContext>(optionsBuilder =>
+            //    optionsBuilder
+            //        .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=AttendanceDB;Trusted_Connection=True;")
+            //    );
 
             //Mocks to implement...
-            services.AddTransient<IPresenceRepository>(x => AttendenceServicesMockHelper.PresenceRepositoryObject());
+            services.AddTransient<ICheckInRepository>(x => AttendenceServicesMockHelper.CheckInRepositoryObject());
             
             //Implementations
-            services.AddTransient<IASUnitOfWork, ASUnitOfWork>();
+            //services.AddTransient<IASUnitOfWork, ASUnitOfWork>();
             services.AddTransient<IASAttendeeRole, ASAttendeeRole>();
         }
 

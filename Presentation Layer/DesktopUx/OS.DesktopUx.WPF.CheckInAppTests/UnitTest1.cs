@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace OnlineServices.DesktopUx.WpfCore.CheckInAppTests
+namespace OS.DesktopUx.WPF.CheckInAppTests
 {
     [TestClass]
     public class UnitTest1

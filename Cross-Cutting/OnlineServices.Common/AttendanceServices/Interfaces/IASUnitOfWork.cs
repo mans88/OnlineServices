@@ -5,6 +5,6 @@ namespace OnlineServices.AttendanceServices.Interfaces
 {
     public interface IASUnitOfWork : IUnitOfWork
     {
-        IPresenceRepository PresenceRepository { get; }
+        ICheckInRepository ChekInRepository { get; }
     }
 }

@@ -28,7 +28,7 @@ namespace MealServices.DataLayer.Entities
                 else return false;
             }
 
-            return (this.IsValid() && other.IsValid())
+            return this.IsValid() && other.IsValid()
                 && (this.IngredientId == other.IngredientId)
                 && (this.MealId == other.MealId);
         }

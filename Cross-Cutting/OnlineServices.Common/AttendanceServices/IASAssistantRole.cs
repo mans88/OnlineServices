@@ -6,8 +6,8 @@ namespace OnlineServices.Common.AttendanceServices
 {
     public interface IASAssistantRole
     {
-        bool SetPresence(int sessionId, int attendeeId, DateTime presenceTime); // REVIEW if necessry to have PresenceArgs or a type presence on others classes aswell
-        List<AttendeePresenceTO> GetPresenceOfAttendee(int sessionId, int attendeeId);
-        List<AttendeePresenceTO> GetPresencesInSession(int sessionId);
+        bool SetCheckIn(CheckInTO checkInInfo);
+        List<CheckInTO> GetAttendeeCheckIns(int sessionId, int attendeeId);
+        List<CheckInTO> GetCheckInsInSession(int sessionId);
     }
 }

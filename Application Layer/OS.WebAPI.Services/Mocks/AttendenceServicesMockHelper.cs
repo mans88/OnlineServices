@@ -13,12 +13,12 @@ namespace OS.WebAPI.Services.Mocks
 {
     public static class AttendenceServicesMockHelper
     {
-        public static IPresenceRepository PresenceRepositoryObject()
+        public static ICheckInRepository CheckInRepositoryObject()
         {
-            var presenceRepositoryMOCK = new Mock<IPresenceRepository>();
+            var presenceRepositoryMOCK = new Mock<ICheckInRepository>();
 
-            presenceRepositoryMOCK.Setup(homer => homer.Add(It.IsAny<AttendeePresenceTO>()))
-                .Returns(new AttendeePresenceTO { Id = 1 });
+            presenceRepositoryMOCK.Setup(homer => homer.Add(It.IsAny<CheckInTO>()))
+                .Returns(new CheckInTO { Id = Guid.NewGuid() });
 
             return presenceRepositoryMOCK.Object;
         }

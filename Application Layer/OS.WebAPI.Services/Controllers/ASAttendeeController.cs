@@ -6,6 +6,7 @@ using AttendanceServices.BusinessLayer.UseCases;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineServices.Common.AttendanceServices;
+using OnlineServices.Common.AttendanceServices.TransfertObjects;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 
 namespace OS.WebAPI.Services.Controllers
@@ -26,7 +27,13 @@ namespace OS.WebAPI.Services.Controllers
         [HttpGet]
         public IActionResult CheckIn(int sessionId, int attendeeId)
         {
-            return new JsonResult(iASAttendeeRole.CheckIn(sessionId, attendeeId));
+            var checkInArgs = new CheckInTO
+            {
+                SessionId = sessionId
+                , AttendeeId = attendeeId
+                , CheckInTime = DateTime.Now
+            };
+            return new JsonResult(iASAttendeeRole.CheckIn(checkInArgs));
         }
     }
 }

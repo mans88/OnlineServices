@@ -64,7 +64,7 @@ namespace EvaluationServices.DataLayer.Repositories
                 .Forms
                 .Remove(toRemove);
 
-            return (removed.State == EntityState.Deleted);
+            return removed.State == EntityState.Deleted;
         }
         public FormTO Update(FormTO Entity)
         {

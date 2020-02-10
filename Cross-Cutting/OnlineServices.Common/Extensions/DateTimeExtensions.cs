@@ -8,9 +8,9 @@ namespace OnlineServices.Common.Extensions
     {
         public static bool IsSameDate(this DateTime Extended, DateTime dateToCompareTo)
         {
-            return ((Extended.Day == dateToCompareTo.Day) 
+            return (Extended.Day == dateToCompareTo.Day) 
                 && (Extended.Month == dateToCompareTo.Month) 
-                && (Extended.Year == dateToCompareTo.Year));
+                && (Extended.Year == dateToCompareTo.Year);
         }
     }
 }
