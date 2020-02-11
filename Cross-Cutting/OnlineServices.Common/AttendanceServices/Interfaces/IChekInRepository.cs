@@ -2,7 +2,7 @@
 using OnlineServices.Common.DataAccessHelpers;
 using System.Collections.Generic;
 
-namespace OnlineServices.AttendanceServices.Interfaces
+namespace OnlineServices.Common.AttendanceServices.Interfaces
 {
     public interface ICheckInRepository
     {
