@@ -4,11 +4,12 @@ using Moq;
 using OnlineServices.Common.Exceptions;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using OnlineServices.Common.RegistrationServices.Interfaces;
-using RegistrationServices.BusinessLayer.UseCase;
 using System;
 using System.Collections.Generic;
 using System.Text;
-namespace RegistrationServices.BusinessLayerTests.UseCase
+using RegistrationServices.BusinessLayer.UseCase.Assistant;
+
+namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
 {
     [TestClass]
     public class Assistant_AddCourseTest

@@ -25,7 +25,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             }
         }
         [TestMethod]
-        public void GetCourseById_Successfull()
+        public void GetCourseById_Successful()
         {
             // ARRANGE
             var option = new DbContextOptionsBuilder<RegistrationContext>()
@@ -45,7 +45,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.AreEqual("course1", course1.Name);
         }
         [TestMethod]
-        public void GetAllCourses_Successfull()
+        public void GetAllCourses_Successful()
         {
             //ARRANGE
             var option = new DbContextOptionsBuilder<RegistrationContext>()

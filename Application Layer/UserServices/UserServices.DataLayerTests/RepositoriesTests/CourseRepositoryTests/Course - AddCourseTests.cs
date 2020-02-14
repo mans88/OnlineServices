@@ -27,7 +27,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.ThrowsException<NullReferenceException>(() => courseRepository.Add(null));
         }
         [TestMethod]
-        public void AddCourse_Successfull()
+        public void AddCourse_Successful()
         {
             //ARRANGE
             var options = new DbContextOptionsBuilder<RegistrationContext>()
