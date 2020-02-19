@@ -66,7 +66,7 @@ namespace EvaluationServices.DataLayer.Repositories
 		{
 			var toRemove = evaluationContext.QuestionPropositions.FirstOrDefault(qp => qp.Id == Id);
 			var removed = evaluationContext.QuestionPropositions.Remove(toRemove);
-			return (removed.State == EntityState.Deleted);
+			return removed.State == EntityState.Deleted;
 		}
 
 		public QuestionPropositionTO Update(QuestionPropositionTO Entity)

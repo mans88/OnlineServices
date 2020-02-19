@@ -5,10 +5,10 @@ using System.Text;
 
 namespace OnlineServices.Common.RegistrationServices
 {
-    interface IRSAttendeeRole
+    public interface IRSAttendeeRole
     {
         public SessionTO GetTodaySession(int userId);
 
-        public int GetIdByMail(string mail);
+        public int GetIdByMail(string email);
     }
 }

@@ -73,7 +73,7 @@ namespace EvaluationServices.DataLayer
 
             var removed = evaluationContext.Responses.Remove(toRemove);
 
-            return (removed.State == EntityState.Deleted);
+            return removed.State == EntityState.Deleted;
         }
 
         public ResponseTO Update(ResponseTO Entity)
