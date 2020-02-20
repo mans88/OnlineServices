@@ -4,7 +4,7 @@ Ce dossier est le "Home" de vos documents d'analise...
 Les services pour le raport du bâtiment. L'utilisateur du bâtiment, peut noter une faille au toilette, comme à la machine à café... si la receptioniste n'est pas au courant, elle ne peut pas demander au service technique de venir. Elle ne peut pas non plus avertir l'élève que sont soucis est pris en charge.
 
 [MS - Meal Service]
-L'élève au quelle sont employeur paye pour son repas de midi, peut choisir au menu ses sandwi. de la semaine. Le premier étant alleatoire.
+L'élève au quelle sont employeur paye pour son repas de midi, peut choisir au menu ses sandwi. de la semaine. Le premier jour étant alleatoire.
 
 [SS - Security Service]
 Communication avec Azure AD Directory prévu pour ce project. Ajouter/Enlever l'utilisateur du repository AD. L'ajouter à un group de securité AD.
