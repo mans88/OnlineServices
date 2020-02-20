@@ -8,6 +8,8 @@ namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
     public interface IRSSessionRepository : IRepository<SessionTO, int>
     {
+        IEnumerable<UserTO> GetStudents(SessionTO session);
+
         IEnumerable<SessionTO> GetByUser(UserTO user);
 
         IEnumerable<DateTime> GetDates(SessionTO session);
