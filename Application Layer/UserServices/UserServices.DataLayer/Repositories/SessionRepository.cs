@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineServices.Common.RegistrationServices.Interfaces;
 using OnlineServices.Common.RegistrationServices.TransferObject;
+using RegistrationServices.DataLayer.Entities;
 using RegistrationServices.DataLayer.Extensions;
 using System;
 using System.Collections.Generic;
@@ -60,14 +61,14 @@ namespace RegistrationServices.DataLayer.Repositories
         }
 
         public IEnumerable<DateTime> GetDates(SessionTO session)
-        {
-            throw new NotImplementedException();
-        }
+            => registrationContext.Sessions
+            .AsNoTracking()
+            .SelectMany(x => x.Dates.Select(x => x.Date));
 
         public IEnumerable<UserTO> GetStudents(SessionTO session)
-        {
-            throw new NotImplementedException();
-        }
+            => registrationContext.UserSessions
+                .Where(x => x.User.Role == UserRole.Attendee)
+                .Select(x => x.User.ToTransfertObject()).ToList();
 
         public bool Remove(SessionTO entity)
             => Remove(entity.Id)
@@ -96,21 +97,20 @@ namespace RegistrationServices.DataLayer.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<SessionTO> GetByStudent(UserTO student)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<SessionTO> GetByUser(UserTO user)
         {
-            throw new NotImplementedException();
+            if (user.Role == UserRole.Assistant)
+                throw new ArgumentException("Assistant can not subscribe to sessions");
+
+            var prout = GetAll();
+
+            return GetAll().Where(x => (x.Attendees.Contains(user))
+            || (x.Teacher.Id == user.Id));
         }
 
         public IEnumerable<SessionTO> GetSessionsByDate(DateTime date)
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }
