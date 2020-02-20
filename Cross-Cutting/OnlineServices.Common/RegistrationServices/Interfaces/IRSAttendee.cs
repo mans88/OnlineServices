@@ -1,6 +1,6 @@
 ﻿namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
-    public interface IRSUser
+    public interface IRSAttendee
     {
         int GetID();
 

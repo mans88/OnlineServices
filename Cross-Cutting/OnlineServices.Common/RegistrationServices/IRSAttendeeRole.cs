@@ -9,6 +9,6 @@ namespace OnlineServices.Common.RegistrationServices
     {
         public SessionTO GetTodaySession(int userId);
 
-        public int GetIdByMail(string email);
+        public int GetIdByMail(string mail);
     }
 }

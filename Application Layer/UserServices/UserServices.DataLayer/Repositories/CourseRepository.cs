@@ -40,32 +40,21 @@ namespace RegistrationServices.DataLayer.Repositories
             .FirstOrDefault(x => x.Id == Id)
             .ToTransfertObject();
 
-        public IEnumerable<CourseTO> GetCoursesBySession(int sessionId)
+        public bool Remove(CourseTO entity)
         {
-            if (sessionId <= 0)
-            {
-                throw new ArgumentException($"GetCoursesBySession: invalid session ID (ID={sessionId})");
-            }
 
-            var componentTypeEF = registrationContext.Sessions.FirstOrDefault(x => x.Id == sessionId);
-
-            if (componentTypeEF is null)
-            {
-                throw new KeyNotFoundException($"GetCoursesBySession: no session found with ID={sessionId}");
-            }
-
-            return registrationContext.Courses
-                //.Include(i => i.session)
-                //.Where(i => i.session.Id == sessionId)
-                .Select(i => i.ToTransfertObject())
-                .ToList();
+            var entityToDelete = registrationContext.Courses.FirstOrDefault(x => x.Id == entity.Id);
+            registrationContext.Courses
+            .Remove(entityToDelete);
+            return true;
         }
 
-        public bool Remove(CourseTO entity)
+        public bool Remove(int Id)
         {
             try
             {
-                registrationContext.Courses.Remove(entity.ToEF());
+                var entityToDelete = registrationContext.Courses.FirstOrDefault(x => x.Id == Id);
+                registrationContext.Courses.Remove(entityToDelete);
                 return true;
             }
             catch (Exception Ex)
@@ -74,16 +63,11 @@ namespace RegistrationServices.DataLayer.Repositories
             }
         }
 
-        public bool Remove(int Id)
-        {
-            return Remove(GetById(Id));
-        }
-
         public CourseTO Update(CourseTO Entity)
         {
             if (!registrationContext.Courses.Any(x => x.Id == Entity.Id))
             {
-                throw new Exception($"Can't find user to update. UserRepository");
+                throw new KeyNotFoundException($"Can't find course to update. CourseRepository");
             }
             var attachedUser = registrationContext.Courses.FirstOrDefault(x => x.Id == Entity.Id);
 
