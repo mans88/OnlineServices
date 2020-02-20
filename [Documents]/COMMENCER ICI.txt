@@ -1,0 +1,22 @@
+Ce dossier est le "Home" de vos documents d'analise...
+
+[FS - Facility Services]
+Les services pour le raport du bâtiment. L'utilisateur du bâtiment, peut noter une faille au toilette, comme à la machine à café... si la receptioniste n'est pas au courant, elle ne peut pas demander au service technique de venir. Elle ne peut pas non plus avertir l'élève que sont soucis est pris en charge.
+
+[MS - Meal Service]
+L'élève au quelle sont employeur paye pour son repas de midi, peut choisir au menu ses sandwi. de la semaine. Le premier étant alleatoire.
+
+[SS - Security Service]
+Communication avec Azure AD Directory prévu pour ce project. Ajouter/Enlever l'utilisateur du repository AD. L'ajouter à un group de securité AD.
+
+[TrS - Translation Services]
+Étant dans un pay trilangue par définition. Ce service est utilisé seulement par les autres services et non par les utilisateurs. Quand ceux-ci on besoin d'une traduction pas disponible dans une des langues du centre de formation.
+
+[TS - Training Services]
+Gestion de classes données au centre de formation. Principalment pour servir le service [Meal], mais pas seulement. Ajouter/Enlever un élève de une classe. Ajouter d'une section de classe ainsi que l'assignation des locaux.
+
+[US - User Service]
+Gestion d'eleves et autres utilisateurs du systeme. Importation des Eleves de Efficy et appel des divers autres services... comme celui de la securité.
+
+[UI - User Interface]
+Diverses implementations des interfaces utilisateurs: Ligne de command, Mvc4, Mvc5, Mvc6, PowerShell, (Si le temps le permet: WPF/WindowsForms)

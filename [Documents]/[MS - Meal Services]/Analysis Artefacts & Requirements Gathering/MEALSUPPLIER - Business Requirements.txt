@@ -1,0 +1,19 @@
+Business Requirements - Quick Reference
+=====================================================
+***LOCALS***
+Le fornisseur c'est geographic, donc on doit pourvoir attacher a 1 ou plus centre de formation.
+
+***SUPPLIER: INGREDIENTS***
+-Chaque fornisseur gere sa propre liste d'ingredients... peut importe si le ingredient est le même entre founisseur (Tout le monde utilise des tomates....)
+ ceci pour eliminer d'une gestion en plus chez businesstraing.be
+-Important de BT revoir et editer ce que sont Allergenes, NonVegetariens, (? NonHalal?)
+
+***SUPPLIER MEAL: Sandwish, Salad, Boison***
+-Certains local ne possedent pas de distributeur de boison: Braine à leud, Luxembourg... l fournisseur, dois pouvoir indiquer s'il peut fournir boison.
+
+***MENUManager***
+-Approuve meal, mise a jour meal price
+-Attention: actuellement la salade seulement offert le vendredi
+-Raport pour comparaison de la facturation...
+-Marquer un fournisseur comme active, pour selection par l'eleve.
+
