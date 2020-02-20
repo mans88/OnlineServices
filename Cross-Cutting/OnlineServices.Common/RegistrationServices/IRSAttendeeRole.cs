@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OnlineServices.Common.RegistrationServices
 {
-    interface IRSAttendeeRole
+    public interface IRSAttendeeRole
     {
         public SessionTO GetTodaySession(int userId);
 
