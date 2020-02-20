@@ -67,5 +67,6 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             // ASSERT
             Assert.AreEqual(4, courseRepository.GetAll().Count());
         }
+
     }
 }

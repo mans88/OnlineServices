@@ -1,4 +1,5 @@
-﻿using OnlineServices.Common.RegistrationServices.Interfaces;
+﻿using OnlineServices.Common.DataAccessHelpers;
+using OnlineServices.Common.RegistrationServices.Interfaces;
 using RegistrationServices.DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -49,9 +50,9 @@ namespace RegistrationServices.DataLayer
             Dispose(true);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            registrationContext.SaveChanges();
+            return registrationContext.SaveChanges();
         }
     }
 }

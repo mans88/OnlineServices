@@ -110,7 +110,5 @@ namespace RegistrationServices.DataLayer.Repositories
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

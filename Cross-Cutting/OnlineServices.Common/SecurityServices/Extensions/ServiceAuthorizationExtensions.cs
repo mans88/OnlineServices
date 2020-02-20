@@ -10,7 +10,7 @@ namespace OnlineServices.Common.SecurityServices.Extensions
             if (serviceAuthorizationExtended is null)
                 return false;
 
-            return (true);
+            return true;
             //TODO (true) TO IMPLEMENTED TEST. Move to the class itself????!!! !!!!NecessaryDataException to throw!
         }
         public static bool IsWellFormed(this ServiceAuthorization serviceAuthorizationExtended, bool ThrowException = false)

@@ -20,7 +20,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void UpdateCourse_ThrowException_WhenCourseIsNull()
         {
             //ARRANGE
-            var ass = new AssistantRole( (new Mock<IRSUnitOfWork>()).Object );
+            var ass = new AssistantRole( new Mock<IRSUnitOfWork>().Object );
 
             //ASSERT
             Assert.ThrowsException<ArgumentNullException>( () => ass.UpdateCourse(null) );
@@ -30,7 +30,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void UpdateCourse_ThrowException_WhenCourseIdIsZero()
         {
             //ARRANGE
-            var ass = new AssistantRole( (new Mock<IRSUnitOfWork>()).Object );
+            var ass = new AssistantRole( new Mock<IRSUnitOfWork>().Object );
             var course = new CourseTO { Id = 0 };
 
             //ASSERT

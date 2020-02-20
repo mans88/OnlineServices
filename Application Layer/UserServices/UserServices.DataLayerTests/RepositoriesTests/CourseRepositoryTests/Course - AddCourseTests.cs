@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
+
 namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepositoryTests
 {
     [TestClass]
@@ -27,6 +28,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.ThrowsException<NullReferenceException>(() => courseRepository.Add(null));
         }
         [TestMethod]
+
         public void AddCourse_Successful()
         {
             //ARRANGE
@@ -46,6 +48,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             //ASSERT
             Assert.AreEqual(2, courseRepository.GetAll().Count());
         }
+
         [TestMethod]
         public void AddCourse_ReturnCourse_WhenExistingCourseIsProvided()
         {
@@ -71,4 +74,5 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.AreEqual(0, courseRepository.GetAll().Count());
         }
     }
+
 }

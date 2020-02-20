@@ -29,7 +29,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void AddCourse_ThrowException_WhenCourseIDisDiferentThanZero()
         {
             //ARRANGE
-            var ass = new AssistantRole( (new Mock<IRSUnitOfWork>()).Object );
+            var ass = new AssistantRole( new Mock<IRSUnitOfWork>().Object );
             var course = new CourseTO { Id = 100, Name = "Name" };
 
             //ASSERT

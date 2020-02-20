@@ -1,4 +1,4 @@
-﻿using AttendanceServices.DataLayer;
+﻿using OnlineServices.Common.DataAccessHelpers;
 
 namespace OnlineServices.Common.MealServices.Interfaces
 {

@@ -73,7 +73,7 @@ namespace EvaluationServices.DataLayer.Repositories
 
 			var removed = evaluationContext.Questions.Remove(toRemove);
 
-			return (removed.State == EntityState.Deleted);
+			return removed.State == EntityState.Deleted;
 		}
 
 		public QuestionTO Update(QuestionTO Entity)

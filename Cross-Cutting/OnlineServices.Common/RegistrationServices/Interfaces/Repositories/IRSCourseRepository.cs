@@ -8,5 +8,6 @@ namespace OnlineServices.Common.RegistrationServices.Interfaces
 {
     public interface IRSCourseRepository : IRepository<CourseTO, int>
     {
+
     }
 }

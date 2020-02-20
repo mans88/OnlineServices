@@ -24,7 +24,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
         public void AddSession_ThrowException_WhenSessionIDisDiferentThanZero()
         {
             //ARRANGE
-            var assistant = new AssistantRole( (new Mock<IRSUnitOfWork>()).Object   );
+            var assistant = new AssistantRole( new Mock<IRSUnitOfWork>().Object   );
             var sessionToAdd = new SessionTO { Id = 1, Course = null, Teacher = null  };
 
             //ASSERT

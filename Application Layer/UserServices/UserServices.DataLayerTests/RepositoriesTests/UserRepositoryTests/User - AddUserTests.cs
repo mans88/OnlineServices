@@ -44,7 +44,7 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.UserRepositoryTe
                 //var userToAssert = userRepository.GetById(1);
             }
         }
-        
+      
         [TestMethod()]
         public void UserRepositoryNotInsertInDB_WhenInvalid()
         {

@@ -70,7 +70,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantUserTests
         {
             //ARRANGE
             int userId = 0;
-            var Assistante = new AssistantRole((new Mock<IRSUnitOfWork>()).Object);
+            var Assistante = new AssistantRole(new Mock<IRSUnitOfWork>().Object);
 
             //ASSERT
             Assert.ThrowsException<NullReferenceException>(() => Assistante.GetUserById(userId));

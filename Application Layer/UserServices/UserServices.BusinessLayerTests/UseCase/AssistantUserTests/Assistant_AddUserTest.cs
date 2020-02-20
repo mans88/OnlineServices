@@ -22,7 +22,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantUserTests
         public void AddUser_ThrowException_WhenUserIDisDiferentThanZero()
         {
             //ARRANGE
-            var assistant = new AssistantRole( (new Mock<IRSUnitOfWork>()).Object   );
+            var assistant = new AssistantRole( new Mock<IRSUnitOfWork>().Object   );
             var userToAdd = new UserTO { Id = 1, Name = "User", IsActivated = true, Company = "Company1", Role = UserRole.Assistant, Email = "user@gmail.com" };
 
             //ASSERT
