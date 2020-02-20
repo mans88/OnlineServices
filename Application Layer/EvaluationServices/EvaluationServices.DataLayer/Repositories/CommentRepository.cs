@@ -50,7 +50,7 @@ namespace EvaluationServices.DataLayer
         {
             var toRemove = evaluationContext.Comments.First(c => c.Id == Id);
             var removed = evaluationContext.Comments.Remove(toRemove);
-            return (removed.State == EntityState.Deleted);
+            return removed.State == EntityState.Deleted;
         }
 
         public CommentTO Update(CommentTO Entity)
