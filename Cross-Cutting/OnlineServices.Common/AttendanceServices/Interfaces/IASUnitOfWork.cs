@@ -1,10 +1,10 @@
 ﻿using System;
 using OnlineServices.Common.DataAccessHelpers;
 
-namespace OnlineServices.AttendanceServices.Interfaces
+namespace OnlineServices.Common.AttendanceServices.Interfaces
 {
     public interface IASUnitOfWork : IUnitOfWork
     {
-        IPresenceRepository PresenceRepository { get; }
+        ICheckInRepository ChekInRepository { get; }
     }
 }
