@@ -31,10 +31,6 @@ namespace RegistrationServices.DataLayer.Repositories
             var sessionEF = Entity.ToEF();
             sessionEF.Course = registrationContext.Courses.First(x => x.Id == Entity.Course.Id);
 
-            //By Amb
-            //sessionEF.
-            //By Amb
-
             registrationContext.Sessions.Add(sessionEF);
             return sessionEF.ToTransfertObject();
             // => registrationContext.Add(Entity.ToEF()).Entity.ToTransfertObject();
@@ -49,11 +45,19 @@ namespace RegistrationServices.DataLayer.Repositories
                 .ToList();
 
         public SessionTO GetById(int Id)
-            => registrationContext.Sessions
-                .AsNoTracking()
-                .Include(x => x.UserSessions)
-                .Include(x => x.Dates)
-                .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
+        {
+            if (Id == 0)
+                throw new ArgumentNullException();
+
+            if (!registrationContext.Sessions.Any(x => x.Id == Id))
+                throw new ArgumentException($"There is no  session at Id{Id}");
+
+            return registrationContext.Sessions
+            .AsNoTracking()
+            .Include(x => x.UserSessions)
+            .Include(x => x.Dates)
+            .FirstOrDefault(x => x.Id == Id).ToTransfertObject();
+        }
 
         public IEnumerable<DateTime> GetDates(SessionTO session)
         {
@@ -66,13 +70,25 @@ namespace RegistrationServices.DataLayer.Repositories
         }
 
         public bool Remove(SessionTO entity)
-        {
-            throw new NotImplementedException();
-        }
+            => Remove(entity.Id)
+;
 
         public bool Remove(int Id)
         {
-            throw new NotImplementedException();
+            if (!registrationContext.Sessions.Any(x => x.Id == Id))
+                throw new ArgumentException($"There is no session at Id {Id}");
+
+            var sessionToDelete = registrationContext.Sessions.FirstOrDefault(x => x.Id == Id);
+
+            try
+            {
+                registrationContext.Sessions.Remove(sessionToDelete);
+                return true;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
         }
 
         public SessionTO Update(SessionTO Entity)

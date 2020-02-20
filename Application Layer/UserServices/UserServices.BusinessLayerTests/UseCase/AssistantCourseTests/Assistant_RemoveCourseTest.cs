@@ -2,11 +2,12 @@
 using Moq;
 using OnlineServices.Common.RegistrationServices.TransferObject;
 using OnlineServices.Common.RegistrationServices.Interfaces;
-using RegistrationServices.BusinessLayer.UseCase;
+using RegistrationServices.BusinessLayer.UseCase.Assistant;
 using System;
 using System.Collections.Generic;
 using System.Text;
-namespace RegistrationServices.BusinessLayerTests.UseCase
+
+namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
 {
     [TestClass]
     public class Assistant_RemoveCourseTest //Assistant_UpdateCourseTest
