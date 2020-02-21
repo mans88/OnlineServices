@@ -30,7 +30,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.RoomRepository.Update(It.IsAny<RoomTO>()))
                           .Returns(new RoomTO { Id = 1, Archived = false, Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = floor1 });
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             var room = new RoomTO { Id = 1, Archived = false, Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = floor1 };
             //ACT
             var updatedRoom = sut.UpdateRoom(room);
@@ -44,7 +44,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT
@@ -56,7 +56,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT

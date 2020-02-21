@@ -10,7 +10,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
         [TestMethod]
         public void AttendeeCTOR_NullUnitOfWork_ThrowsException()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new AttendeeRole(null));
+            Assert.ThrowsException<ArgumentNullException>(() => new FSAttendeeRole(null));
         }
     }
 }

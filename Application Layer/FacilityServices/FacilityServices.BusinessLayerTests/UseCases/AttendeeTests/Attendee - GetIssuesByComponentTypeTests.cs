@@ -29,7 +29,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
 
             mockUnitOfWork.Setup(u => u.IssueRepository.GetIssuesByComponentType(It.IsAny<int>())).Returns(issues);
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             //ACT
             var listOfIssues = sut.GetIssuesByComponentType(1);
@@ -44,7 +44,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
             Assert.ThrowsException<LoggedException>(() => sut.GetIssuesByComponentType(-1));
 
         }

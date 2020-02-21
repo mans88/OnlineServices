@@ -11,16 +11,16 @@ using OnlineServices.Common.Exceptions;
 
 namespace RegistrationServices.BusinessLayer.UseCase.Assistant
 {
-    public partial class AssistantRole : IRSAssistantRole
+    public partial class RSAssistantRole : IRSAssistantRole
     {
         private readonly IRSUnitOfWork iRSUnitOfWork;
 
-        public AssistantRole(IRSUnitOfWork iRSUnitOfWork)
+        public RSAssistantRole(IRSUnitOfWork iRSUnitOfWork)
         {
             this.iRSUnitOfWork = iRSUnitOfWork ?? throw new System.ArgumentNullException(nameof(iRSUnitOfWork));
         }
 
-        public AssistantRole()
+        public RSAssistantRole()
         {
 
         }

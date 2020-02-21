@@ -24,7 +24,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
         public void AddSession_ThrowException_WhenSessionIDisDiferentThanZero()
         {
             //ARRANGE
-            var assistant = new AssistantRole( new Mock<IRSUnitOfWork>().Object   );
+            var assistant = new RSAssistantRole( new Mock<IRSUnitOfWork>().Object   );
             var sessionToAdd = new SessionTO { Id = 1, Course = null, Teacher = null  };
 
             //ASSERT
@@ -35,7 +35,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
         public void AddSession_ThrowException_WhenSessionIsNull()
         {
             //ARRANGE
-            var assistant = new AssistantRole(MockUofW.Object);
+            var assistant = new RSAssistantRole(MockUofW.Object);
 
             //ASSERT
             Assert.ThrowsException<ArgumentNullException>( () => assistant.AddSession(null)  );
@@ -52,7 +52,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             var mockUofW = new Mock<IRSUnitOfWork>();
             mockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
-            var assistant = new AssistantRole(mockUofW.Object);
+            var assistant = new RSAssistantRole(mockUofW.Object);
 
             //ASSERT
             Assert.IsTrue(assistant.AddSession(newSession));
@@ -65,7 +65,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             MockSessionRepository.Setup( x => x.Add(It.IsAny<SessionTO>()) );
             MockUofW.Setup( x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
             var newSession = new SessionTO { Id = 0,  Course = course, Teacher = teacher };
 
             //ACT
