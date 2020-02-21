@@ -15,7 +15,8 @@ namespace EvaluationServices.DataLayer.Extensions
             return new FormTO
             {
                 Id = form.Id,
-                Name = new MultiLanguageString(form.NameEnglish, form.NameFrench, form.NameDutch)
+                Name = new MultiLanguageString(form.NameEnglish, form.NameFrench, form.NameDutch),
+                Questions = form.Questions?.Select(q => q.ToTransfertObject()).ToList()
             };
         }
 
@@ -29,6 +30,7 @@ namespace EvaluationServices.DataLayer.Extensions
                 NameEnglish = form.Name.English,
                 NameFrench = form.Name.French,
                 NameDutch = form.Name.Dutch,
+                Questions= form.Questions?.Select(q => q.ToEF()).ToList()
             };
         }
     }

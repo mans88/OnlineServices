@@ -36,7 +36,7 @@ namespace EvaluationServices.DataLayer
 
         public bool IsAlreadySubmitted(int attendeeID, int sessionId, int formId)
         {
-            return GetAll().Any(x=> (x.SessionId==sessionId)&&x.Responses.Any(y=>y.Question.Form.Id == formId) &&(x.AttendeeId==attendeeID));
+            return GetAll().Any(x=> (x.SessionId==sessionId)&&x.Responses.Any(y=>y.Question.FormId == formId) &&(x.AttendeeId==attendeeID));
         }
 
         public bool Remove(SubmissionTO entity)

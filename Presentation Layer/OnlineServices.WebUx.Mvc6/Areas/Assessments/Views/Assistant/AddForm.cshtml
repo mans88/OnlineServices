@@ -1,0 +1,44 @@
+﻿@model OnlineServices.Common.EvaluationServices.TransfertObjects.FormTO
+@using OnlineServices.Common.TranslationServices.TransfertObjects
+
+@{
+    ViewData["Title"] = "Add a new form";
+}
+
+<h1>Form</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name.English" class="control-label"></label>
+                <input asp-for="Name.English" class="form-control" />
+                <span asp-validation-for="Name.English" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name.French" class="control-label"></label>
+                <input asp-for="Name.French" class="form-control" />
+                <span asp-validation-for="Name.French" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name.Dutch" class="control-label"></label>
+                <input asp-for="Name.Dutch" class="form-control" />
+                <span asp-validation-for="Name.Dutch" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="GetAllForms">Back to List</a>
+</div>
+

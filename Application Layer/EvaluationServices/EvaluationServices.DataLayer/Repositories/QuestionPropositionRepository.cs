@@ -27,7 +27,7 @@ namespace EvaluationServices.DataLayer.Repositories
 			if (Entity is null) throw new ArgumentNullException(nameof(Entity));
 
 			var questionproposition = Entity.ToEF();
-			questionproposition.Question = evaluationContext.Questions.FirstOrDefault(q => q.Id == Entity.Question.Id);
+			questionproposition.Question = evaluationContext.Questions.FirstOrDefault(q => q.Id == Entity.QuestionId);
 
 			return evaluationContext.QuestionPropositions.Add(questionproposition).Entity.ToTransfertObject();
 		}

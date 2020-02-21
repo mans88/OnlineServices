@@ -1,0 +1,48 @@
+﻿@using OnlineServices.Common.EvaluationServices.Enumerations
+@model OnlineServices.Common.EvaluationServices.TransfertObjects.FormTO
+
+@{
+    ViewData["Title"] = "Form " + @Model.Name.English;
+}
+
+<h1>Form @Model.Name.English</h1>
+
+<table class="table table-bordered">
+    <caption>
+        <h5>Form</h5>
+    </caption>
+
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Libelle</th>
+            <th>Type</th>
+            <th>Proposition</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var question in Model.Questions.OrderBy(q => q.Position))
+        {
+            <tr>
+                <td>@question.Position</td>
+                <td>@question.Libelle</td>
+                <td>@question.Type</td>
+            </tr>
+
+            @if (question.Type == QuestionType.SingleChoice || question.Type == QuestionType.MultipleChoice)
+            {
+                foreach (var type in question.Propositions)
+                {
+                    <tr>
+                        <td>@type.Position</td>
+                        <td>@type.Libelle</td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+
+</table>
+
+@Html.ActionLink("Add Question","AddQuestion",null,new { id = Model.Id},new {@class = "btn btn-primary btn-md" })

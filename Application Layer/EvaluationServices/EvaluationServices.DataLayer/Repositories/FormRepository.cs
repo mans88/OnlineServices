@@ -33,7 +33,8 @@ namespace EvaluationServices.DataLayer.Repositories
         public IEnumerable<FormTO> GetAll()
         {
             return evaluationContext.Forms
-                .AsNoTracking()
+                .Include(f => f.Questions)
+                .ThenInclude(q => q.Propositions)
                 .Select(f => f.ToTransfertObject())
                 .ToList();
         }
@@ -41,7 +42,8 @@ namespace EvaluationServices.DataLayer.Repositories
         public FormTO GetById(int Id)
         {
             return evaluationContext.Forms
-                .AsNoTracking()
+                .Include(f=>f.Questions)
+                .ThenInclude(q=>q.Propositions)
                 .FirstOrDefault(f => f.Id == Id)
                 .ToTransfertObject();
         }

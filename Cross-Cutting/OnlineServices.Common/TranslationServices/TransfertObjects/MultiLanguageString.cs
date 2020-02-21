@@ -9,6 +9,11 @@ namespace OnlineServices.Common.TranslationServices.TransfertObjects
 {
     public class MultiLanguageString
     {
+        public MultiLanguageString()
+        {
+
+        }
+
         public MultiLanguageString(string English, string French, string Dutch)
         {
             this.English = English;

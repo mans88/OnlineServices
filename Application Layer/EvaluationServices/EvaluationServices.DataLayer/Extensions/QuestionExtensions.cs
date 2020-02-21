@@ -23,10 +23,10 @@ namespace EvaluationServices.DataLayer.Extensions
             {
                 Id = question.Id,
                 Libelle = new MultiLanguageString(question.NameEnglish, question.NameFrench, question.NameDutch),
-                Form = question.Form.ToTransfertObject(),
+                FormId = question.Form.Id,
                 Position = question.Position,
                 Type = question.Type,
-                Propositions = question.Propositions?.Select(x => x.ToTransfertObject()).ToList()
+                Propositions = question.Propositions?.Select(x => x.ToTransfertObject()).ToList(),
             };
 
             return questionTO;
@@ -44,7 +44,7 @@ namespace EvaluationServices.DataLayer.Extensions
             q.NameDutch = question.Libelle.Dutch;
             q.Position = question.Position;
             q.Type = question.Type;
-            q.Form = question.Form.ToEF();
+            q.Form.Id = question.FormId;
 
             if (question.Propositions != null)
             {

@@ -50,7 +50,7 @@ namespace EvaluationServices.DataLayer
 
         public IEnumerable<ResponseTO> GetAllOfForm(int FormId)
         {
-            return GetAll().Where(x => x.Question.Form.Id == FormId);
+            return GetAll().Where(x => x.Question.FormId == FormId);
         }
 
         public ResponseTO GetById(int Id)

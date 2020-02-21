@@ -10,7 +10,7 @@ namespace OnlineServices.Common.EvaluationServices.TransfertObjects
     {
         public int Id { get; set; }
         [Required]
-        public FormTO Form { get; set; }
+        public int FormId { get; set; }
         [Required]
         public QuestionType Type { get; set; }
         [Required]

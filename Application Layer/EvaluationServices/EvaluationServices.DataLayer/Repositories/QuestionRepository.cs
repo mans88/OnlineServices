@@ -29,7 +29,7 @@ namespace EvaluationServices.DataLayer.Repositories
 			var question = Entity.ToEF();
 			question.Form = evaluationContext
 				.Forms
-				.FirstOrDefault(f => f.Id == Entity.Form.Id);
+				.FirstOrDefault(f => f.Id == Entity.FormId);
 			return evaluationContext.Questions.Add(question).Entity.ToTransfertObject();
 		}
 
@@ -45,7 +45,7 @@ namespace EvaluationServices.DataLayer.Repositories
 
 		public IEnumerable<QuestionTO> GetAllOfForm(int FormId)
 		{
-			return GetAll().Where(x => x.Form.Id == FormId);
+			return GetAll().Where(x => x.FormId == FormId);
 		}
 
 		public QuestionTO GetById(int Id)

@@ -6,7 +6,7 @@ namespace OnlineServices.Common.EvaluationServices
 {
     public interface IESAttendeeRole
     {
-        FormTO2 GetActiveForm(int sessionId, int attendeeId);
+        FormTO GetActiveForm(int sessionId, int attendeeId);
 
 
         //bool SetResponse(ICollection<ResponseTO> responses);

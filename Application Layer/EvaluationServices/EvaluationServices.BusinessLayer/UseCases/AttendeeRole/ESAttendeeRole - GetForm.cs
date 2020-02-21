@@ -10,7 +10,7 @@ namespace EvaluationServices.BusinessLayer.UseCases
 {
     public partial class ESAttendeeRole : IESAttendeeRole
     {
-        public FormTO2 GetActiveForm(int sessionId, int attendeeId)
+        public FormTO GetActiveForm(int sessionId, int attendeeId)
         {
             //Etape Tester
             var session = iRSServiceRole.GetSession(sessionId);
@@ -52,10 +52,10 @@ namespace EvaluationServices.BusinessLayer.UseCases
                 throw new LoggedException("Session is not held today.");
         }
 
-        public FormTO2 FormBuilder(int FormId)
+        public FormTO FormBuilder(int FormId)
         {
             var ReturnValue = iESUnitOfWork.FormRepository.GetById(FormId);
-            return new FormTO2()
+            return new FormTO()
             {
                 Id = ReturnValue.Id,
                 Name = ReturnValue.Name,

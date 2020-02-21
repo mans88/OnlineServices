@@ -47,7 +47,7 @@ namespace EvaluationServices.DataLayerTests.RepositoriesTests.QuestionRepository
 
 				var Question1 = new QuestionTO
 				{
-					Form = formAdded1,
+					FormId = formAdded1.Id,
 					Position = 1,
 					Libelle = new MultiLanguageString
 					(
@@ -60,7 +60,7 @@ namespace EvaluationServices.DataLayerTests.RepositoriesTests.QuestionRepository
 
 				var Question2 = new QuestionTO
 				{
-					Form = formAdded1,
+					FormId = formAdded1.Id,
 					Position = 2,
 					Libelle = new MultiLanguageString
 					(
@@ -73,7 +73,7 @@ namespace EvaluationServices.DataLayerTests.RepositoriesTests.QuestionRepository
 
 				var Question3 = new QuestionTO
 				{
-					Form = formAdded1,
+					FormId = formAdded1.Id,
 					Position = 3,
 					Libelle = new MultiLanguageString
 					(
@@ -86,7 +86,7 @@ namespace EvaluationServices.DataLayerTests.RepositoriesTests.QuestionRepository
 
 				var Question4 = new QuestionTO
 				{
-					Form = formAdded1,
+					FormId = formAdded1.Id,
 					Position = 4,
 					Libelle = new MultiLanguageString
 					(
@@ -99,7 +99,7 @@ namespace EvaluationServices.DataLayerTests.RepositoriesTests.QuestionRepository
 
 				var Question5 = new QuestionTO
 				{
-					Form = formAdded1,
+					FormId = formAdded1.Id,
 					Position = 5,
 					Libelle = new MultiLanguageString
 					(
@@ -122,42 +122,42 @@ namespace EvaluationServices.DataLayerTests.RepositoriesTests.QuestionRepository
 				#region QuestionProposition
 				var QuestionProposition1 = new QuestionPropositionTO
 				{
-					Question = questionAdded1,
+					                    QuestionId = questionAdded1.Id,
 					Libelle = new MultiLanguageString("good", "bonne", "goed"),
 					Position = 1
 				};
 
 				var QuestionProposition2 = new QuestionPropositionTO
 				{
-					Question = questionAdded1,
+					                    QuestionId = questionAdded1.Id,
 					Libelle = new MultiLanguageString("medium", "moyenne", "gemiddelde"),
 					Position = 2
 				};
 
 				var QuestionProposition3 = new QuestionPropositionTO
 				{
-					Question = questionAdded1,
+					                    QuestionId = questionAdded1.Id,
 					Libelle = new MultiLanguageString("bad", "mauvaise", "slecht"),
 					Position = 3
 				};
 
 				var QuestionProposition4 = new QuestionPropositionTO
 				{
-					Question = questionAdded2,
+					                    QuestionId = questionAdded2.Id,
 					Libelle = new MultiLanguageString("yes", "oui", "ja"),
 					Position = 1
 				};
 
 				var QuestionProposition5 = new QuestionPropositionTO
 				{
-					Question = questionAdded2,
+					                    QuestionId = questionAdded2.Id,
 					Libelle = new MultiLanguageString("too fast", "trop rapide", "te snel"),
 					Position = 2
 				};
 
 				var QuestionProposition6 = new QuestionPropositionTO
 				{
-					Question = questionAdded2,
+					                    QuestionId = questionAdded2.Id,
 					Libelle = new MultiLanguageString("too slow", "trop lent", "te langzaam"),
 					Position = 3
 				};

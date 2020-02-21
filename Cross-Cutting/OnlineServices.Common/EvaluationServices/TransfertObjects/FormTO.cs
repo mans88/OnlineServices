@@ -10,7 +10,8 @@ namespace OnlineServices.Common.EvaluationServices.TransfertObjects
     {
         public int Id { get; set; }
 
-        [Required]
         public MultiLanguageString Name { get; set; }
+
+        public List<QuestionTO> Questions { get; set; }
     }
 }
