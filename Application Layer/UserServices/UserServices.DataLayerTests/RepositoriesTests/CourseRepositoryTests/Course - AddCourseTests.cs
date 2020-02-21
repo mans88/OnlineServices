@@ -5,10 +5,9 @@ using OnlineServices.Common.RegistrationServices.TransferObject;
 using RegistrationServices.DataLayer;
 using RegistrationServices.DataLayer.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+
 
 namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepositoryTests
 {
@@ -29,7 +28,8 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.ThrowsException<NullReferenceException>(() => courseRepository.Add(null));
         }
         [TestMethod]
-        public void AddCourse_Successfull()
+
+        public void AddCourse_Successful()
         {
             //ARRANGE
             var options = new DbContextOptionsBuilder<RegistrationContext>()
@@ -49,5 +49,30 @@ namespace RegistrationServices.DataLayerTests.RepositoriesTests.CourseRepository
             Assert.AreEqual(2, courseRepository.GetAll().Count());
         }
 
+        [TestMethod]
+        public void AddCourse_ReturnCourse_WhenExistingCourseIsProvided()
+        {
+            //ARRANGE
+            var options = new DbContextOptionsBuilder<RegistrationContext>()
+                .UseInMemoryDatabase(databaseName: MethodBase.GetCurrentMethod().Name)
+                .Options;
+            using var context = new RegistrationContext(options);
+            IRSCourseRepository courseRepository = new CourseRepository(context);
+
+            //var course1 = new CourseTO() { Id = 0, Name = "SQL Server" };
+            var course2 = new CourseTO() { Id = 1, Name = "Azure IoT" };
+
+            // ACT
+            //courseRepository.Add(course1);
+            courseRepository.Add(course2);
+            //context.SaveChanges();
+            //var addedStuff = courseRepository.Add(course1);
+            context.SaveChanges();
+
+            // ASSERT
+            //Assert.AreEqual("SQL Server", addedStuff.Name);
+            Assert.AreEqual(0, courseRepository.GetAll().Count());
         }
+    }
+
 }
