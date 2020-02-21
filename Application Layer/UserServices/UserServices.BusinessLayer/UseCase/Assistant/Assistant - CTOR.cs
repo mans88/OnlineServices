@@ -11,7 +11,7 @@ using OnlineServices.Common.Exceptions;
 
 namespace RegistrationServices.BusinessLayer.UseCase.Assistant
 {
-    public partial class AssistantRole : IRSAssistantRoleUser
+    public partial class AssistantRole : IRSAssistantRole
     {
         private readonly IRSUnitOfWork iRSUnitOfWork;
 
