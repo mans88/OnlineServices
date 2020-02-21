@@ -22,7 +22,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
                 new FloorTO{ Id = 3, Archived = false },
             };
             mockUnitOfWork.Setup(u => u.FloorRepository.GetAll()).Returns(floors);
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
             //ACT
             var listOfFloors = sut.GetFloors();
             //ASSERT

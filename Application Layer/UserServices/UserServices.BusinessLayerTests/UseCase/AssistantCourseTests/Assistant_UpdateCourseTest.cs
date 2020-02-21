@@ -20,7 +20,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void UpdateCourse_ThrowException_WhenCourseIsNull()
         {
             //ARRANGE
-            var ass = new AssistantRole( new Mock<IRSUnitOfWork>().Object );
+            var ass = new RSAssistantRole( new Mock<IRSUnitOfWork>().Object );
 
             //ASSERT
             Assert.ThrowsException<ArgumentNullException>( () => ass.UpdateCourse(null) );
@@ -30,7 +30,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void UpdateCourse_ThrowException_WhenCourseIdIsZero()
         {
             //ARRANGE
-            var ass = new AssistantRole( new Mock<IRSUnitOfWork>().Object );
+            var ass = new RSAssistantRole( new Mock<IRSUnitOfWork>().Object );
             var course = new CourseTO { Id = 0 };
 
             //ASSERT
@@ -41,7 +41,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void UpdateCourse_ThrowsIsNullOrWhiteSpaceException_WhenCourseNameIsNullIsProvided()
         {
             //ARRANGE
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
             var courseNameNull = new CourseTO { Id = 1 , Name = null};
 
             //ASSERT
@@ -52,7 +52,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
         public void UpdateCourse_ThrowsIsNullOrWhiteSpaceException_WhenWhiteSpaceNameIsProvided()
         {
             //ARRANGE
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
             var courseNameWhiteSpace = new CourseTO { Id = 1, Name = " " };
 
             //ASSERT
@@ -65,7 +65,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Setup( x => x.Update(It.IsAny<CourseTO>()) );
             MockUofW.Setup(x => x.CourseRepository).Returns(MockCourseRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
             var course = new CourseTO { Id = 1, Name = "Name" };
 
             Assert.IsTrue(ass.UpdateCourse(course));
@@ -78,7 +78,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Setup( x => x.Update(It.IsAny<CourseTO>()) );
             MockUofW.Setup(x => x.CourseRepository).Returns(MockCourseRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
             var course = new CourseTO { Id = 1, Name = "Name" };
 
             //ACT

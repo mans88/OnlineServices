@@ -37,7 +37,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
                 incident.Id = 1;
                 return incident;
             });
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act
             var result = sut.CreateIncident(incident);
@@ -53,7 +53,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
             // Arrange
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.IncidentRepository.Add(It.IsAny<IncidentTO>()));
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => sut.CreateIncident(null));
@@ -68,7 +68,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.IncidentRepository.Add(It.IsAny<IncidentTO>()));
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<LoggedException>(() => sut.CreateIncident(incident));
@@ -91,7 +91,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.IncidentRepository.Add(It.IsAny<IncidentTO>()));
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<LoggedException>(() => sut.CreateIncident(incident1));
@@ -120,7 +120,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.IncidentRepository.Add(It.IsAny<IncidentTO>()));
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<LoggedException>(() => sut.CreateIncident(incident));

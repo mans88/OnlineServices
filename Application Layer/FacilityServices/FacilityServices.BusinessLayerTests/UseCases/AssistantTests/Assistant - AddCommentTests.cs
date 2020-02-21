@@ -40,7 +40,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.CommentRepository.Add(It.IsAny<CommentTO>())).Returns(comment);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
 
             // Act
             var addedComment = sut.AddComment(comment);
@@ -56,7 +56,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             // Arrange
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.CommentRepository.Add(It.IsAny<CommentTO>()));
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => sut.AddComment(null));
@@ -71,7 +71,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.CommentRepository.Add(It.IsAny<CommentTO>()));
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<LoggedException>(() => sut.AddComment(comment));
@@ -86,7 +86,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.CommentRepository.Add(It.IsAny<CommentTO>()));
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<LoggedException>(() => sut.AddComment(comment));

@@ -20,7 +20,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
                           .Returns(new FloorTO { Id = 1, Archived = false, Number = 2 });
             mockUnitOfWork.Setup(u => u.FloorRepository.Update(It.IsAny<FloorTO>()))
                           .Returns(new FloorTO { Id = 1, Archived = true, Number = 2 });
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
             var result = sut.RemoveFloor(1);
             //ASSERT
@@ -34,7 +34,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT
@@ -47,7 +47,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.FloorRepository.GetById(It.IsAny<int>())).Returns(() => null);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT

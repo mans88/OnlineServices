@@ -36,7 +36,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.ComponentTypeRepository.GetComponentTypesByRoom(It.IsAny<int>()))
                           .Returns(componentTypes);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
             var room = new ComponentTypeTO { Id = 1, Archived = false, Name = new MultiLanguageString("Name1", "Name1", "Name1") };
             //ACT
             var result = sut.GetComponentTypesByRoom(room.Id);
@@ -51,7 +51,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT

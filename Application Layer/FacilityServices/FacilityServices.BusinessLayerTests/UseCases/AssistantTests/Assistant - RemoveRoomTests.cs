@@ -31,7 +31,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
                          .Returns(new RoomTO { Id = 1, Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = floor1 });
             mockUnitOfWork.Setup(u => u.RoomRepository.GetAll()).Returns(rooms);
 
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             var room = new RoomTO { Id = 1, Name = new MultiLanguageString("Room1", "Room1", "Room1"), Floor = floor1 };
             //ACT
             var result = sut.RemoveRoom(1);
@@ -45,7 +45,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         public void RemoveRoom_IncorrectRoomID_ThrowLoggedException()
         {
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             Assert.ThrowsException<LoggedException>(() => sut.RemoveRoom(0));
         }
 
@@ -54,7 +54,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.RoomRepository.GetById(It.IsAny<int>())).Returns(() => null);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
 
             Assert.ThrowsException<KeyNotFoundException>(() => sut.RemoveRoom(1));
         }

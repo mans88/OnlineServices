@@ -57,7 +57,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(uow => uow.IncidentRepository.Add(It.IsAny<IncidentTO>())).Returns(new IncidentTO());
             mockUnitOfWork.Setup(uow => uow.IncidentRepository.GetIncidentsByUserId(It.Is<int>(i => i > 0))).Returns(incidents);
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act
             sut.CreateIncident(incident1);
@@ -75,7 +75,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
         {
             // Arrange
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             // Act & Assert
             Assert.ThrowsException<LoggedException>(() => sut.GetUserIncidents(0));

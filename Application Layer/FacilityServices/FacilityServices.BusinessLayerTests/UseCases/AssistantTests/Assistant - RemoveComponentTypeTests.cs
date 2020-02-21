@@ -26,7 +26,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
                           .Returns(new ComponentTypeTO { Id = 1, Archived = false, Name = new MultiLanguageString("Coffee machin", "Machine à café", "en deutch") });
             mockUnitOfWork.Setup(u => u.ComponentTypeRepository.GetAll()).Returns(componentTypes);
 
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             var componentType = new ComponentTypeTO { Id = 1, Archived = false, Name = new MultiLanguageString("Coffee machin", "Machine à café", "en deutch") };
             //ACT
             var result = sut.RemoveComponentType(1);
@@ -40,7 +40,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT
@@ -54,7 +54,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             var componentTypes = new List<ComponentTypeTO>();
             mockUnitOfWork.Setup(u => u.ComponentTypeRepository.GetAll()).Returns(componentTypes);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT

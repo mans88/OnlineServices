@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AssistantRole
+    public partial class FSAssistantRole
     {
         public FloorTO AddFloor(FloorTO floorToAdd)
         {

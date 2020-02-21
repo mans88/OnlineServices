@@ -5,7 +5,7 @@ using System;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AssistantRole
+    public partial class FSAssistantRole
     {
         public CommentTO AddComment(CommentTO comment)
         {

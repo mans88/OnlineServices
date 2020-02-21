@@ -3,11 +3,11 @@ using System;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AttendeeRole : IFSAttendeeRole
+    public partial class FSAttendeeRole : IFSAttendeeRole
     {
         private readonly IFSUnitOfWork unitOfWork;
 
-        public AttendeeRole(IFSUnitOfWork iFSUnitOfWork)
+        public FSAttendeeRole(IFSUnitOfWork iFSUnitOfWork)
         {
             this.unitOfWork = iFSUnitOfWork ?? throw new ArgumentNullException(nameof(iFSUnitOfWork));
         }

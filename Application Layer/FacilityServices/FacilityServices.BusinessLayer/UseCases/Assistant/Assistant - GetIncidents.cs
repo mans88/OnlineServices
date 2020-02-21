@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AssistantRole
+    public partial class FSAssistantRole
     {
         public List<IncidentTO> GetIncidents()
            => unitOfWork.IncidentRepository

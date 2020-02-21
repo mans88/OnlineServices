@@ -31,7 +31,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
                          .Returns(new IssueTO { Id = 1, Description = "Plus de café", Name = new MultiLanguageString("Issue1EN", "Issue1FR", "Issue1NL"), ComponentType = componentType1 });
             mockUnitOfWork.Setup(u => u.IssueRepository.GetAll()).Returns(issues);
 
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             var issue = new IssueTO { Id = 1, Description = "Plus de café", Name = new MultiLanguageString("Issue1EN", "Issue1FR", "Issue1NL"), ComponentType = componentType1 };
             //ACT
             var result = sut.RemoveIssue(1);
@@ -45,7 +45,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         public void RemoveIssue_IncorrectIssueID_ThrowLoggedException()
         {
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             Assert.ThrowsException<LoggedException>(() => sut.RemoveIssue(0));
         }
 
@@ -54,7 +54,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.IssueRepository.GetById(It.IsAny<int>())).Returns(() => null);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
 
             Assert.ThrowsException<KeyNotFoundException>(() => sut.RemoveIssue(1));
         }

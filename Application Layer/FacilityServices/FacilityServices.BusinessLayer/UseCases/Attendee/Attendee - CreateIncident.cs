@@ -5,7 +5,7 @@ using System;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AttendeeRole
+    public partial class FSAttendeeRole
     {
         public bool CreateIncident(IncidentTO incidentTO)
         {
