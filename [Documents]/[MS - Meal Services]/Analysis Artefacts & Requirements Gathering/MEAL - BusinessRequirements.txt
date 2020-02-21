@@ -1,0 +1,38 @@
+Business Requirements - Quick Reference
+=====================================================
+***LOCALS***
+Certains local ne possedent pas de distributeur de boison: Braine à leud, Luxembourg... Command de boison chez l fournisseur.
+
+***Formations***
+Certains cours n'offrent pas de meals... exemple Bruxelles Formation...
+
+***SUPPLIER: INGREDIENTS***
+-Chaque fornisseur gere sa propre liste d'ingredients... peut importe si le ingredient est le même entre founisseur (Tout le monde utilise des tomates....)
+ ceci pour eliminer d'une gestion en plus chez businesstraing.be
+-Important de marquer ce que sont Allergenes, NonVegetariens, (? NonHalal?)
+
+***SUPPLIER MEAL: Sandwish, Salad, Boison***
+-Chaque fournisser publie ses offres "meal." BT Appourve
+-le founisseur demande à BT de eliminer l'offre du menu: on veut etre au courant de ce que ce passe
+-BT authorize la mise du menu aux eleves: on veut ne pas autorizer les sandwish trop chers ou trop extravagants. (Checkmark published ou dateDePublish)
+-BT mantient un champ prix sandwish. si nouveauPrix> vieux prix: le fournisser envoi les mise a jour en email ou document ecrit que apres approvation c'est mise a jour o depublié de l'offre eleve
+-Mise a Jour de prix si celui-ci est inferieur au prix actuel.
+-Promotion avec prix temp et date de debut fin à refleshir.
+
+***MENUManager***
+-Approuve meal, mise a jour meal price
+-Attention: actuellement la salade seulement offert le vendredi
+-Raport pour comparaison de la facturation...
+
+***RECEPTION***
+???Envoi vers fournisseur de la commande-> fournisser accepterait de rentrer dans le site pour telecharger commande?
+
+***ELEVE***
+Choisi ses meals (avant le 16h du jour precedent? ou seulement premier jour de cours?)
+
+***INSTRUCTEUR***
+-Peut voir si tout les eleves on fait leur choix.
+-Choisi ses meals
+
+***BT et Visitors***
+Commande et payment a la recption de BT. Classe "Reception"? La command imprimable avec la valeur a recuper a la reception
