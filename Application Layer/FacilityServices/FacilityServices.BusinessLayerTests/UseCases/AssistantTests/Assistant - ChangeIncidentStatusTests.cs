@@ -20,7 +20,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
 
             mockUnitOfWork.Setup(u => u.IncidentRepository.Update(It.IsAny<IncidentTO>()))
                          .Returns(new IncidentTO { Id = 1, Description = "My description", Status = IncidentStatus.Resolved });
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
             var updatedIncident = sut.ChangeIncidentStatus(IncidentStatus.Resolved, 1);
             //ASSERT

@@ -37,7 +37,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             MockSessionRepository.Setup(x => x.GetAll()).Returns(SessionList);
             MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var sessions = ass.GetSessions();
@@ -54,7 +54,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             MockSessionRepository.Setup(x => x.GetAll()).Returns(SessionList);
             MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var SessionsAll = ass.GetSessions();
@@ -63,17 +63,13 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             MockSessionRepository.Verify(x => x.GetAll(), Times.Once);
 
         }
-        //===============================================================================================================
-        /// <summary>
-        /// Get SessionById Tests
-        /// </summary>
 
         [TestMethod]
         public void GetSession_NullReferenceException_WhenSessionIdIsZero()
         {
             //ARRANGE
             int SessionId = 0;
-            var Assistante = new AssistantRole(new Mock<IRSUnitOfWork>().Object);
+            var Assistante = new RSAssistantRole(new Mock<IRSUnitOfWork>().Object);
 
             //ASSERT
             Assert.ThrowsException<NullReferenceException>(() => Assistante.GetSessionById(SessionId));
@@ -87,7 +83,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             MockSessionRepository.Setup(x => x.GetById(sessionId)).Returns(SessionList().FirstOrDefault(x => x.Id == sessionId));
             MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var SessionById = ass.GetSessionById(sessionId);
@@ -105,7 +101,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantSessionTests
             MockSessionRepository.Setup(x => x.GetById(SessionId)).Returns(SessionList().FirstOrDefault(x => x.Id == SessionId));
             MockUofW.Setup(x => x.SessionRepository).Returns(MockSessionRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var SessionById = ass.GetSessionById(SessionId);

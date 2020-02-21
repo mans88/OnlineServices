@@ -24,7 +24,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
             };
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.CommentRepository.GetCommentsByIncident(It.IsAny<int>())).Returns(comments);
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             //ACT
             var result = sut.GetCommentsByIncident(1);
@@ -39,7 +39,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
 
             //ACT & ASSERT
             Assert.ThrowsException<LoggedException>(() => sut.GetCommentsByIncident(0));

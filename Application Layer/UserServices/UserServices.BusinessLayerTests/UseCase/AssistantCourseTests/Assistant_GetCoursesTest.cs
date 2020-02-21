@@ -33,7 +33,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Setup( x=>x.GetAll()).Returns(CourseList);
             MockUofW.Setup(x => x.CourseRepository).Returns(MockCourseRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var cours = ass.GetCourses();
@@ -50,7 +50,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Setup( x => x.GetAll()).Returns(CourseList);
             MockUofW.Setup( x => x.CourseRepository).Returns(MockCourseRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var coursAll = ass.GetCourses();
@@ -59,17 +59,13 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Verify(x=>x.GetAll(), Times.Once);
 
         }
-        //===============================================================================================================
-        /// <summary>
-        /// Get UserById Tests
-        /// </summary>
 
         [TestMethod]
         public void GetCourse_NullReferenceException_WhenCourseIDisZero()
         {
             //ARRANGE
             int courId = 0;
-            var Assistante = new AssistantRole(new Mock<IRSUnitOfWork>().Object);
+            var Assistante = new RSAssistantRole(new Mock<IRSUnitOfWork>().Object);
 
             //ASSERT
             Assert.ThrowsException<NullReferenceException>(() => Assistante.GetUserById(courId));
@@ -83,7 +79,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Setup(x => x.GetById(courId)).Returns(CourseList().FirstOrDefault(x=>x.Id == courId));
             MockUofW.Setup(x => x.CourseRepository).Returns(MockCourseRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var userById = ass.GetCourseById(courId);
@@ -100,7 +96,7 @@ namespace RegistrationServices.BusinessLayerTests.UseCase.AssistantCourseTests
             MockCourseRepository.Setup(x => x.GetById(courId)).Returns(CourseList().FirstOrDefault(x => x.Id == courId));
             MockUofW.Setup(x => x.CourseRepository).Returns(MockCourseRepository.Object);
 
-            var ass = new AssistantRole(MockUofW.Object);
+            var ass = new RSAssistantRole(MockUofW.Object);
 
             //ACT
             var courById = ass.GetCourseById(courId);

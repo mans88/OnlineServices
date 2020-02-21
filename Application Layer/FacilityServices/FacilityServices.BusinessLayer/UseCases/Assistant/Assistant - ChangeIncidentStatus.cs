@@ -3,7 +3,7 @@ using OnlineServices.Common.FacilityServices.TransfertObjects;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AssistantRole
+    public partial class FSAssistantRole
     {
         public IncidentTO ChangeIncidentStatus(IncidentStatus statusToSubmit, int incidentId)
         {

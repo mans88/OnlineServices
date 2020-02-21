@@ -49,7 +49,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUoW = new Mock<IFSUnitOfWork>();
             mockUoW.Setup(x => x.IncidentRepository).Returns(mockIncidentRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new FSAssistantRole(mockUoW.Object);
 
 
             var incidents = Assistante.GetIncidents();
@@ -68,7 +68,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUoW = new Mock<IFSUnitOfWork>();
             mockUoW.Setup(x => x.IncidentRepository).Returns(mockIncidentRepository.Object);
 
-            var Assistante = new AssistantRole(mockUoW.Object);
+            var Assistante = new FSAssistantRole(mockUoW.Object);
 
             Assistante.GetIncidents();
 

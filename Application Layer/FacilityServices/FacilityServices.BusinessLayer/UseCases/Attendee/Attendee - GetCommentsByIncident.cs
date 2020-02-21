@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FacilityServices.BusinessLayer.UseCases
 {
-    public partial class AttendeeRole
+    public partial class FSAttendeeRole
     {
         public List<CommentTO> GetCommentsByIncident(int incidentId)
         {

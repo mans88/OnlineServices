@@ -29,7 +29,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
 
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.RoomRepository.GetRoomsByFloor(It.IsAny<int>())).Returns(rooms);
-            var sut = new AttendeeRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
             //ACT
             var listOfRooms = sut.GetRoomsByFloor(1);
             //ASSERT
@@ -42,7 +42,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AttendeeTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAttendeeRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT

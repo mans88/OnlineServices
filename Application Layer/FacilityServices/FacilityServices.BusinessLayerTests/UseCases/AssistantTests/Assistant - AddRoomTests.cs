@@ -25,7 +25,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
             mockUnitOfWork.Setup(u => u.RoomRepository.Add(It.IsAny<RoomTO>()))
                           .Returns(room1);
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             var addedroom = sut.AddRoom(room1);
             //ASSERT
             mockUnitOfWork.Verify(u => u.RoomRepository.Add(It.IsAny<RoomTO>()), Times.Once);
@@ -37,7 +37,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         {
             //ARRANGE
             var mockUnitOfWork = new Mock<IFSUnitOfWork>();
-            var sut = new AssistantRole(mockUnitOfWork.Object);
+            var sut = new FSAssistantRole(mockUnitOfWork.Object);
             //ACT
 
             //ASSERT

@@ -10,7 +10,7 @@ namespace FacilityServices.BusinessLayerTests.UseCases.AssistantTests
         [TestMethod]
         public void AssistantCTOR_NullUnitOfWork_ThrowsException()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new AssistantRole(null));
+            Assert.ThrowsException<ArgumentNullException>(() => new FSAssistantRole(null));
         }
     }
 }
