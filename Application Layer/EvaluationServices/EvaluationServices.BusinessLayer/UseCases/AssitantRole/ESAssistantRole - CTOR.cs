@@ -20,10 +20,5 @@ namespace EvaluationServices.BusinessLayer.UseCases.AssitantRole
             this.iESUnitOfWork = iESUnitOfWork ?? throw new ArgumentNullException(nameof(iESUnitOfWork));
             this.iRSServiceRole = iRSServiceRole ?? throw new ArgumentNullException(nameof(iRSServiceRole));
         }
-
-        public bool AddPropositionByQuestion(QuestionPropositionTO propositionTO)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

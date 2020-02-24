@@ -7,6 +7,7 @@
 
 <h1>Form @Model.Name.English</h1>
 
+
 <table class="table table-bordered">
     <caption>
         <h5>Form</h5>
@@ -15,28 +16,41 @@
     <thead>
         <tr>
             <th>Position</th>
-            <th>Libelle</th>
+            <th>English</th>
+            <th>Francais</th>
+            <th>Dutch</th>
             <th>Type</th>
-            <th>Proposition</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach (var question in Model.Questions.OrderBy(q => q.Position))
         {
+            bool isProposition = (question.Type == QuestionType.SingleChoice || question.Type == QuestionType.MultipleChoice);
             <tr>
-                <td>@question.Position</td>
-                <td>@question.Libelle</td>
+                <td>@question.Position </td>
+                <td>@question.Libelle.English</td>
+                <td>@question.Libelle.French</td>
+                <td>@question.Libelle.Dutch</td>
                 <td>@question.Type</td>
+                @if (isProposition)
+                {
+                    <td>@Html.ActionLink("Add proposition", "AddProposition", null, new { id = question.Id }, new { @class = "btn btn-primary tbn-sm" })</td>
+                }
             </tr>
 
-            @if (question.Type == QuestionType.SingleChoice || question.Type == QuestionType.MultipleChoice)
+            @if (isProposition)
             {
                 foreach (var type in question.Propositions)
                 {
                     <tr>
+                        <td></td>
                         <td>@type.Position</td>
-                        <td>@type.Libelle</td>
+                        <td>@type.Libelle.English</td>
+                        <td>@type.Libelle.French</td>
+                        <td>@type.Libelle.Dutch</td>
+                        <td>@Html.ActionLink("Delete", "RemovePropositionById", null, new { id = type.Id }, new { @class = "btn btn-primary tbn-sm" })</td>
+
                     </tr>
                 }
             }
@@ -45,4 +59,5 @@
 
 </table>
 
-@Html.ActionLink("Add Question","AddQuestion",null,new { id = Model.Id},new {@class = "btn btn-primary btn-md" })
+@Html.ActionLink("Add Question", "AddQuestion", null, new { id = Model.Id }, new { @class = "btn btn-primary btn-md" })
+@Html.ActionLink("Back", "GetAllForms", null, null, new { @class = "btn btn-primary btn-md" })

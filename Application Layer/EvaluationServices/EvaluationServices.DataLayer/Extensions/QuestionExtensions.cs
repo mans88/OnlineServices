@@ -44,7 +44,7 @@ namespace EvaluationServices.DataLayer.Extensions
             q.NameDutch = question.Libelle.Dutch;
             q.Position = question.Position;
             q.Type = question.Type;
-            q.Form.Id = question.FormId;
+            //q.Form.Id = question.FormId;
 
             if (question.Propositions != null)
             {

@@ -48,8 +48,8 @@ namespace OnlineServices.WebUx.Mvc6.Areas.Assessments.Controllers
         [HttpGet]
         public IActionResult AddQuestion(int id)
         {
-            int position=1;
-            if(assistantRole.GetFormById(id).Questions.Count>0)
+            int position = 1;
+            if (assistantRole.GetFormById(id).Questions.Count > 0)
             {
                 position += assistantRole.GetFormById(id).Questions.Max(q => q.Position);
 
@@ -62,7 +62,33 @@ namespace OnlineServices.WebUx.Mvc6.Areas.Assessments.Controllers
         public IActionResult AddQuestion(QuestionTO question)
         {
             assistantRole.AddQuestionByForm(question);
-            return RedirectToAction("GetFormById",new { id = question.FormId });
+            return RedirectToAction("GetFormById", new { id = question.FormId });
+        }
+
+        [HttpGet]
+        public IActionResult AddProposition(int id)
+        {
+            int position = 1;
+            if (assistantRole.GetQuestionById(id).Propositions.Count > 0)
+            {
+                position += assistantRole.GetQuestionById(id).Propositions.Max(q => q.Position);
+
+            }
+            var proposition = new QuestionPropositionTO { QuestionId = id, Position = position };
+
+            return View(proposition);
+        }
+
+        [HttpPost]
+        public IActionResult AddProposition(QuestionPropositionTO proposition)
+        {
+            assistantRole.AddPropositionByQuestion(proposition);
+            return RedirectToAction("GetFormById", new { id = assistantRole.GetQuestionById(proposition.QuestionId).FormId });
+        }
+        public IActionResult RemovePropositionById(int id)
+        {
+            var result = assistantRole.RemovePropositionById(id);
+            return RedirectToAction("GetAllForms");
         }
     }
 }
