@@ -13,6 +13,7 @@ namespace OnlineServices.Common.EvaluationServices
         List<FormTO> GetAllForms();
         QuestionTO GetQuestionById(int questionID);
         bool RemovePropositionById(int propositionId);
+        bool RemoveQuestionById(int id);
         //bool GetQuestionsByFormId(int id);
         //List<ResponseTO> GetActiveForm(int sessionId, int userId);
         //bool SetResponse(ICollection<ResponseTO> responses);

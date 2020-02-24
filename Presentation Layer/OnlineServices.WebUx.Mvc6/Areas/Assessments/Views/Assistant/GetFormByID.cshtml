@@ -27,17 +27,19 @@
         @foreach (var question in Model.Questions.OrderBy(q => q.Position))
         {
             bool isProposition = (question.Type == QuestionType.SingleChoice || question.Type == QuestionType.MultipleChoice);
-            <tr>
-                <td>@question.Position </td>
-                <td>@question.Libelle.English</td>
-                <td>@question.Libelle.French</td>
-                <td>@question.Libelle.Dutch</td>
-                <td>@question.Type</td>
-                @if (isProposition)
-                {
-                    <td>@Html.ActionLink("Add proposition", "AddProposition", null, new { id = question.Id }, new { @class = "btn btn-primary tbn-sm" })</td>
-                }
-            </tr>
+        <tr>
+            <td>@question.Position </td>
+            <td>@question.Libelle.English</td>
+            <td>@question.Libelle.French</td>
+            <td>@question.Libelle.Dutch</td>
+            <td>@question.Type</td>
+            <td>@Html.ActionLink("Delete", "DeleteQuestionById", null, new { id = question.Id }, new { @class = "btn btn-primary tbn-sm" })</td>
+
+            @if (isProposition)
+            {
+                <td>@Html.ActionLink("Add proposition", "AddProposition", null, new { id = question.Id }, new { @class = "btn btn-primary tbn-sm" })</td>
+            }
+        </tr>
 
             @if (isProposition)
             {

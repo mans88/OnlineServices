@@ -90,5 +90,10 @@ namespace OnlineServices.WebUx.Mvc6.Areas.Assessments.Controllers
             var result = assistantRole.RemovePropositionById(id);
             return RedirectToAction("GetAllForms");
         }
+        public IActionResult DeleteQuestionById(int id)
+        {
+            var result = assistantRole.RemoveQuestionById(id);
+            return RedirectToAction("GetAllForms");
+        }
     }
 }
